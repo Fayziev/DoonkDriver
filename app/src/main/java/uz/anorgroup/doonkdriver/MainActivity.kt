@@ -1,4 +1,4 @@
-package uz.gita.doonkdriver
+package uz.anorgroup.doonkdriver
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
