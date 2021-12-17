@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_res"
+    app:startDestination="@id/loginScreen">
+
+    <fragment
+        android:id="@+id/loginScreen"
+        android:name="uz.anorgroup.doonkdriver.presenter.LoginScreen"
+        android:label="LoginScreen" >
+        <action
+            android:id="@+id/action_loginScreen_to_registerScreen"
+            app:destination="@id/registerScreen" />
+        <action
+            android:id="@+id/action_loginScreen_to_verifyScreen"
+            app:destination="@id/verifyScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerScreen"
+        android:name="uz.anorgroup.doonkdriver.presenter.RegisterScreen"
+        android:label="RegisterScreen" >
+        <action
+            android:id="@+id/action_registerScreen_to_verifyScreen"
+            app:destination="@id/verifyScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyScreen"
+        android:name="uz.anorgroup.doonkdriver.presenter.VerifyScreen"
+        android:label="VerifyScreen" />
+</navigation>

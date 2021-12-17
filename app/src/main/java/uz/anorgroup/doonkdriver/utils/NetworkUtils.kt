@@ -1,4 +1,4 @@
-package uz.gita.doonkdriver.utils
+package uz.anorgroup.doonkdriver.utils
 
 import android.content.Context
 import com.readystatesoftware.chuck.ChuckInterceptor

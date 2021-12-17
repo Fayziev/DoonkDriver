@@ -1,4 +1,4 @@
-package uz.gita.doonkdriver.utils
+package uz.anorgroup.doonkdriver.utils
 
 import androidx.lifecycle.LifecycleCoroutineScope
 import kotlinx.coroutines.CoroutineScope
