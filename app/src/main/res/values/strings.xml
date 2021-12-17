@@ -1,3 +1,144 @@
 <resources>
     <string name="app_name">DoonkDriver</string>
+
+
+    <string name="kuda">Откуда вы выезжаете?</string>
+    <string name="createTrip">Создание поездки</string>
+    <string name="city">Город, населенный пункт?</string>
+    <string name="street">Улица, район отправления?</string>
+    <string name="your_directions">Куда вы едете?</string>
+    <string name="street_directions">Куда вы едете?</string>
+    <string name="next">Далее</string>
+
+    <!--Main Screen-->
+    <string name="trip">Поездки</string>
+    <string name="search">Поиск</string>
+    <string name="create">Создать</string>
+    <string name="chat">Чат</string>
+    <string name="profile">Профиль</string>
+
+    <!--Profile page-->
+
+    <string name="settingsAccount">Настройка аккаунта</string>
+    <string name="ownDate">Личные данные</string>
+    <string name="notification">Уведомления</string>
+    <string name="comment">Отзывы</string>
+    <string name="additionally">Дополнительно</string>
+    <string name="aboutProject">О проекте</string>
+    <string name="blog">Блог</string>
+    <string name="answerAndQuestions">Вопросы и ответы</string>
+    <string name="safety">Безопасность</string>
+    <string name="callBack">Обратная связь</string>
+    <string name="pay_type">Способы оплаты</string>
+    <string name="user_agreements">Пользовательская соглашение</string>
+    <string name="policy">Политика конфиденциальности</string>
+    <string name="markApp">Оценить приложение</string>
+    <string name="exit">Выход</string>
+
+
+    <string name="kirish">Kirish</string>
+    <string name="registratsiya">Registratsiya</string>
+    <string name="tasdiqlash_ko_dini_kiriting">Tasdiqlash ko\'dini kiriting</string>
+    <string name="davomettirish">Davom ettirish</string>
+
+    <!--Chat page-->
+    <string name="chat_toolbar">Чат</string>
+    <!--Search page-->
+
+    <string name="tashkent">Ташкент - Москва</string>
+    <string name="info">23 июнья, 2 человека</string>
+
+    <!--SeatScreen-->
+    <string name="places">Места</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="howManyPlaces">Сколько свободных мест?</string>
+    <string name="chooseCountPlace">Выберите количество мест</string>
+    <string name="placesState">2 места на заднем </string>
+    <string name="descriptionClue">Добавить их, тогда попутчики из промежуточных пунктов смогут тоже бронироватьт</string>
+
+    <!--Screen trip detalis-->
+
+    <string name="trip_detalis">Детали поездки</string>
+    <string name="repet_trip">Передстоит обратная поездка? Опубликуйте ее уже сейчас!</string>
+    <string name="show_trip">Поездка опубликована! Пассафжиры забронирует места и поедут с вами!</string>
+    <string name="wath_trip">Посмотреть поездку </string>
+
+    <!--Screen trip info-->
+    <string name="detalis_info">Отметьте дополнительные опции </string>
+    <string name="baggage_trip">Перевозка багажа</string>
+    <string name="animals_trip">Перевозка животных</string>
+    <string name="smoke_trip">Курение в салоне</string>
+    <string name="trailer_trip">Прицеп легковой</string>
+    <string name="comment_trip">Оставьте комментарий к вашей поездке</string>
+    <string name="comment_hint">Как поедите, планируете ли остановки, правила поведение в машине и т.п.</string>
+
+    <!--Screen Vehicle Type-->
+    <string name="autoCar">Автомобиль</string>
+    <string name="your_car">Какой у вас автомобиль?</string>
+    <string name="chevrolet_lacetti">Chevrolet Lacetti</string>
+    <string name="bus">МAN 40/ft Long</string>
+    <string name="fura">МAN 40/ft Long</string>
+    <string name="addCar">+ Добавить автомобиль</string>
+
+    <!--Add Car Dialog-->
+    <string name="type_Car">Тип автомобилья</string>
+    <string name="easy_car">Легкий автомобиль</string>
+    <string name="microBus">Автобус/Микроавтобус</string>
+    <string name="fura_add">Фура</string>
+    <!--Intermediate -->
+
+    <string name="intermediate">Промежуточное</string>
+    <string name="add_intermediate">Добавить промежутоные пункты?</string>
+    <string name="select_text">Выбрать</string>
+    <string name="marka">Марка</string>
+    <string name="model">Модель</string>
+    <string name="create_car">Создание автомобиля</string>
+    <string name="upload_foto">Загрузить фото</string>
+    <string name="year_of_issue">Год выпуска</string>
+
+    <!--Screen add car-->
+    <string name="download_photo">Загрузить фото</string>
+    <string name="truck">Грузовик</string>
+    <string name="choose_type">Выберите тип загрузки</string>
+    <string name="cargo_capacity">Грузодьемность</string>
+    <string name="volume">Обьем, м3</string>
+    <string name="internal_body">Внутренние габариты кузова</string>
+    <string name="length_in_metr">Длина, м</string>
+    <string name="with_in_metr">Шрина, м</string>
+    <string name="height_in_metr">Высота, м</string>
+    <string name="permissions">Разрешения</string>
+    <string name="tir">TIR</string>
+    <string name="emkt">EKMT</string>
+    <string name="adr">ADR</string>
+    <string name="save">Сохранить</string>
+
+    <!--New Order Screen -->
+
+    <string name="new_order">Новый заказ</string>
+    <string name="sender">Отправитель</string>
+    <string name="phone">Телефон</string>
+    <string name="nameLastname">ФИО</string>
+    <string name="recipient">Получатель</string>
+    <string name="adressRecipient">Адрес получателья</string>
+    <string name="secondary">Следущий</string>
+
+    <!--Screen about reference -->
+
+    <string name="about_package">Информация о посылке</string>
+    <string name="type_package">Тип посылки</string>
+    <string name="document">Документ</string>
+    <string name="parametrs_package">Размеры посылки</string>
+    <string name="length">Длина, см</string>
+    <string name="with">Шрина, см</string>
+    <string name="height">Высота, см</string>
+    <string name="cost_package">Стоимость посылки</string>
+    <string name="additionally_package">Дополнительные</string>
+    <string name="fragile">Хрупкий</string>
+    <string name="belay">Страховка</string>
+    <string name="comments">Коммент</string>
+    <string name="cost_belay">Цена страхование</string>
+    <string name="over_cost">Сумма:</string>
+    <string name="skip">Пропустить:</string>
+
 </resources>
