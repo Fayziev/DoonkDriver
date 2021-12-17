@@ -7,7 +7,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import timber.log.Timber
 import uz.gita.doonkdriver.BuildConfig
-import uz.gita.doonkdriver.data.pref.MyPref
+import uz.anorgroup.doonkdriver.data.pref.MyPref
 
 fun OkHttpClient.Builder.addLoggingInterceptor(context: Context): OkHttpClient.Builder {
     HttpLoggingInterceptor.Level.HEADERS

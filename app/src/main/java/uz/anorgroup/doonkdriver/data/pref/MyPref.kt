@@ -1,4 +1,4 @@
-package uz.gita.doonkdriver.data.pref
+package uz.anorgroup.doonkdriver.data.pref
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE

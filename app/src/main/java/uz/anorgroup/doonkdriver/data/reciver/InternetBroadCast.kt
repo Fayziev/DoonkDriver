@@ -1,4 +1,4 @@
-package uz.gita.doonkdriver.data.reciver
+package uz.anorgroup.doonkdriver.data.reciver
 
 import android.content.BroadcastReceiver
 import android.content.Context

@@ -1,4 +1,4 @@
-package uz.gita.doonkdriver.data
+package uz.anorgroup.doonkdriver.data
 
 data class ChatData constructor(
     val date: String,
