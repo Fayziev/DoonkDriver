@@ -1,4 +1,4 @@
-package uz.gita.doonkdriver
+package uz.anorgroup.doonkdriver
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package uz.gita.doonkdriver
+package uz.anorgroup.doonkdriver
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
