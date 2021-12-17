@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@color/nextBt"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:textColor="@color/realWhite"
+        app:layout_constraintRight_toRightOf="@id/toolbar"
+        app:layout_constraintTop_toTopOf="@id/toolbar"
+        app:layout_constraintLeft_toLeftOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar"
+        android:layout_height="0dp"
+        android:text="@string/createTrip"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/whereText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="@string/kuda"
+        android:textColor="@color/realBlack"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <ImageView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:src="@drawable/ic_location_green"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/whereText" />
+
+    <TextView
+        android:id="@+id/whereCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="@string/city"
+        android:textColor="@color/profilePageTextColor"
+        app:layout_constraintBottom_toBottomOf="@id/location"
+        app:layout_constraintLeft_toRightOf="@id/location"
+        app:layout_constraintTop_toTopOf="@id/location" />
+
+
+    <TextView
+        android:id="@+id/whereStreet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/street"
+        android:textColor="@color/profilePageTextColor"
+        app:layout_constraintLeft_toRightOf="@id/location"
+        app:layout_constraintTop_toBottomOf="@id/whereCity" />
+
+
+    <TextView
+        android:id="@+id/directions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="@string/your_directions"
+        android:textColor="@color/realBlack"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/whereStreet" />
+
+    <ImageView
+        android:id="@+id/locationDirection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:src="@drawable/ic_location_green"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/directions" />
+
+    <TextView
+        android:id="@+id/directionsCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="@string/city"
+        android:textColor="@color/profilePageTextColor"
+        app:layout_constraintBottom_toBottomOf="@id/locationDirection"
+        app:layout_constraintLeft_toRightOf="@id/locationDirection"
+        app:layout_constraintTop_toTopOf="@id/locationDirection" />
+
+
+    <TextView
+        android:id="@+id/directionsStreet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/street_directions"
+        android:textColor="@color/profilePageTextColor"
+        app:layout_constraintLeft_toRightOf="@id/locationDirection"
+        app:layout_constraintTop_toBottomOf="@id/locationDirection" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/nextBt"
+        android:layout_width="0dp"
+        android:layout_height="?android:actionBarSize"
+        android:layout_margin="25dp"
+        android:background="@drawable/next_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/directionsStreet"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="15dp"
+        android:text="@string/next"
+        android:textColor="@color/realWhite"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/nextBt"
+        app:layout_constraintLeft_toLeftOf="@id/nextBt"
+        app:layout_constraintRight_toRightOf="@id/nextBt"
+        app:layout_constraintTop_toTopOf="@id/nextBt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

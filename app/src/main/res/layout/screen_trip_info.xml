@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarTipInfo"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@color/nextBt"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:gravity="center"
+        android:text="@string/trip_detalis"
+        android:textColor="@color/realWhite"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/toolbarTipInfo"
+        app:layout_constraintLeft_toLeftOf="@id/toolbarTipInfo"
+        app:layout_constraintRight_toRightOf="@id/toolbarTipInfo"
+        app:layout_constraintTop_toTopOf="@id/toolbarTipInfo" />
+
+
+    <TextView
+        android:id="@+id/textDetalis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:maxLines="1"
+        android:minLines="1"
+        android:text="@string/detalis_info"
+        android:textColor="@color/realBlack"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarTipInfo" />
+
+    <TextView
+        android:id="@+id/baggage_trip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:text="@string/baggage_trip"
+        android:textColor="@color/gray_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textDetalis" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/yesBaggage"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:layout_margin="20sp"
+        android:background="@drawable/little_circle_bt_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/baggage_trip" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/noBaggage"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:layout_margin="20sp"
+        android:background="@drawable/little_white_circle_bt_bg"
+        app:layout_constraintLeft_toRightOf="@id/yesBaggage"
+        app:layout_constraintTop_toBottomOf="@id/baggage_trip" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:text="@string/yes"
+        android:textColor="@color/realWhite"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/yesBaggage"
+        app:layout_constraintLeft_toLeftOf="@id/yesBaggage"
+        app:layout_constraintRight_toRightOf="@id/yesBaggage"
+        app:layout_constraintTop_toTopOf="@id/yesBaggage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:text="@string/no"
+        android:textColor="@color/realBlack"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/noBaggage"
+        app:layout_constraintLeft_toLeftOf="@id/noBaggage"
+        app:layout_constraintRight_toRightOf="@id/noBaggage"
+        app:layout_constraintTop_toTopOf="@id/noBaggage" />
+
+
+    <TextView
+        android:id="@+id/animals_trip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:text="@string/animals_trip"
+        android:textColor="@color/gray_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yesBaggage" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/yesAnimals"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:layout_margin="20sp"
+        android:background="@drawable/little_circle_bt_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/animals_trip" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/noAnimals"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:layout_margin="20sp"
+        android:background="@drawable/little_white_circle_bt_bg"
+        app:layout_constraintLeft_toRightOf="@id/yesAnimals"
+        app:layout_constraintTop_toBottomOf="@id/animals_trip" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:text="@string/yes"
+        android:textColor="@color/realWhite"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/yesAnimals"
+        app:layout_constraintLeft_toLeftOf="@id/yesAnimals"
+        app:layout_constraintRight_toRightOf="@id/yesAnimals"
+        app:layout_constraintTop_toTopOf="@id/yesAnimals" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:text="@string/no"
+        android:textColor="@color/realBlack"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/noAnimals"
+        app:layout_constraintLeft_toLeftOf="@id/noAnimals"
+        app:layout_constraintRight_toRightOf="@id/noAnimals"
+        app:layout_constraintTop_toTopOf="@id/noAnimals" />
+
+
+    <TextView
+        android:id="@+id/smoeke_trip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:text="@string/smoke_trip"
+        android:textColor="@color/gray_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yesAnimals" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/yesSmoke"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:layout_margin="20sp"
+        android:background="@drawable/little_circle_bt_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/smoeke_trip" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/noSmoke"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:layout_margin="20sp"
+        android:background="@drawable/little_white_circle_bt_bg"
+        app:layout_constraintLeft_toRightOf="@id/yesSmoke"
+        app:layout_constraintTop_toBottomOf="@id/smoeke_trip" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:text="@string/yes"
+        android:textColor="@color/realWhite"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/yesSmoke"
+        app:layout_constraintLeft_toLeftOf="@id/yesSmoke"
+        app:layout_constraintRight_toRightOf="@id/yesSmoke"
+        app:layout_constraintTop_toTopOf="@id/yesSmoke" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:text="@string/no"
+        android:textColor="@color/realBlack"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/noSmoke"
+        app:layout_constraintLeft_toLeftOf="@id/noSmoke"
+        app:layout_constraintRight_toRightOf="@id/noSmoke"
+        app:layout_constraintTop_toTopOf="@id/noSmoke" />
+
+
+    <TextView
+        android:id="@+id/trailer_trip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:text="@string/trailer_trip"
+        android:textColor="@color/gray_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yesSmoke" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/yesTrailer"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:layout_margin="20sp"
+        android:background="@drawable/little_circle_bt_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/trailer_trip" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/noTrailer"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:layout_margin="20sp"
+        android:background="@drawable/little_white_circle_bt_bg"
+        app:layout_constraintLeft_toRightOf="@id/yesTrailer"
+        app:layout_constraintTop_toBottomOf="@id/trailer_trip" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:text="@string/yes"
+        android:textColor="@color/realWhite"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/yesTrailer"
+        app:layout_constraintLeft_toLeftOf="@id/yesTrailer"
+        app:layout_constraintRight_toRightOf="@id/yesTrailer"
+        app:layout_constraintTop_toTopOf="@id/yesTrailer" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:text="@string/no"
+        android:textColor="@color/realBlack"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/noTrailer"
+        app:layout_constraintLeft_toLeftOf="@id/noTrailer"
+        app:layout_constraintRight_toRightOf="@id/noTrailer"
+        app:layout_constraintTop_toTopOf="@id/noTrailer" />
+
+    <TextView
+        android:id="@+id/comment_trip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:text="@string/comment_trip"
+        android:textColor="@color/realBlack"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yesTrailer" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="@string/comment_hint"
+        android:gravity="left|top"
+        android:background="@drawable/comments_bg"
+        android:layout_margin="20sp"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@id/nextBt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/comment_trip" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/nextBt"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:layout_margin="20sp"
+        android:background="@drawable/next_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:text="@string/next"
+        android:textColor="@color/realWhite"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/nextBt"
+        app:layout_constraintLeft_toLeftOf="@id/nextBt"
+        app:layout_constraintRight_toRightOf="@id/nextBt"
+        app:layout_constraintTop_toTopOf="@id/nextBt" />
+</androidx.constraintlayout.widget.ConstraintLayout>

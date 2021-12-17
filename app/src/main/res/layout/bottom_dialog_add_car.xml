@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:background="@color/transparent">
+
+
+    <ImageView
+        android:id="@+id/top_bg"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@drawable/top_corners_bg"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/easy_car"
+        android:textColor="@color/realWhite"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/top_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/lacetti"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="25dp"
+        android:background="@drawable/circle_gray_bg"
+        android:padding="8dp"
+        android:src="@drawable/ic_lacetti"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bg" />
+
+    <ImageView
+        android:id="@+id/micro_bus"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="25dp"
+        android:background="@drawable/circle_gray_bg"
+        android:padding="8dp"
+        android:src="@drawable/ic_bus_2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lacetti" />
+
+    <ImageView
+        android:id="@+id/fura"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="25dp"
+        android:background="@drawable/circle_gray_bg"
+        android:padding="8dp"
+        android:src="@drawable/ic_fura"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/micro_bus" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:text="@string/easy_car"
+        android:textColor="@color/realBlack"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/lacetti"
+        app:layout_constraintLeft_toRightOf="@id/lacetti"
+        app:layout_constraintTop_toTopOf="@id/lacetti" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:text="@string/microBus"
+        android:textColor="@color/realBlack"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/micro_bus"
+        app:layout_constraintLeft_toRightOf="@id/micro_bus"
+        app:layout_constraintTop_toTopOf="@id/micro_bus" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:text="@string/fura_add"
+        android:textColor="@color/realBlack"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/fura"
+        app:layout_constraintLeft_toRightOf="@id/fura"
+        app:layout_constraintTop_toTopOf="@id/fura" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
