@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@color/nextBt"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:gravity="center"
+        android:text="@string/autoCar"
+        android:textColor="@color/realWhite"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/toolbarCar"
+        app:layout_constraintLeft_toLeftOf="@id/toolbarCar"
+        app:layout_constraintRight_toRightOf="@id/toolbarCar"
+        app:layout_constraintTop_toTopOf="@id/toolbarCar" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addCarBt"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_margin="50dp"
+        android:background="@drawable/add_car_bt_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:text="@string/addCar"
+        android:textColor="@color/realWhite"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/addCarBt"
+        app:layout_constraintLeft_toLeftOf="@id/addCarBt"
+        app:layout_constraintRight_toRightOf="@id/addCarBt"
+        app:layout_constraintTop_toTopOf="@id/addCarBt" />
+
+
+    <TextView
+        android:id="@+id/yourCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/your_car"
+        android:textColor="@color/realBlack"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarCar" />
+
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/profile_page_atr_bg"
+        app:layout_constraintBottom_toBottomOf="@id/text_lacetti"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_lacetti" />
+
+    <ImageView
+        android:id="@+id/lacetti"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:layout_margin="45sp"
+        android:background="@drawable/circle_green_bg"
+        android:padding="8dp"
+        android:src="@drawable/ic_lacetti"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yourCar" />
+
+    <TextView
+        android:id="@+id/text_lacetti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:padding="15dp"
+        android:text="@string/chevrolet_lacetti"
+        android:textColor="@color/realBlack"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/lacetti"
+        app:layout_constraintLeft_toRightOf="@id/lacetti"
+        app:layout_constraintTop_toTopOf="@id/lacetti" />
+
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/profile_page_atr_bg"
+        app:layout_constraintBottom_toBottomOf="@id/text_bus"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_bus" />
+
+    <ImageView
+        android:id="@+id/bus"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:layout_margin="45sp"
+        android:background="@drawable/circle_green_bg"
+        android:padding="8dp"
+        android:src="@drawable/ic_bus_2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_lacetti" />
+
+    <TextView
+        android:id="@+id/text_bus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:padding="15dp"
+        android:text="@string/bus"
+        android:textColor="@color/realBlack"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/bus"
+        app:layout_constraintLeft_toRightOf="@id/bus"
+        app:layout_constraintTop_toTopOf="@id/bus" />
+
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/profile_page_atr_bg"
+        app:layout_constraintBottom_toBottomOf="@id/text_fura"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_fura" />
+
+    <ImageView
+        android:id="@+id/fura"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:layout_margin="45sp"
+        android:background="@drawable/circle_green_bg"
+        android:padding="8dp"
+        android:src="@drawable/ic_fura"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_bus" />
+
+    <TextView
+        android:id="@+id/text_fura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:padding="15dp"
+        android:text="@string/bus"
+        android:textColor="@color/realBlack"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/fura"
+        app:layout_constraintLeft_toRightOf="@id/fura"
+        app:layout_constraintTop_toTopOf="@id/fura" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/addCarBt"
+        app:layout_constraintTop_toBottomOf="@id/fura" />
+</androidx.constraintlayout.widget.ConstraintLayout>

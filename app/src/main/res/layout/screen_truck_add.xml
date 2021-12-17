@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F5F3">
+
+    <ImageView
+        android:id="@+id/actionBar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="#27AE61"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_car_add_back"
+        app:layout_constraintBottom_toBottomOf="@id/actionBar"
+        app:layout_constraintLeft_toLeftOf="@id/actionBar"
+        app:layout_constraintTop_toTopOf="@id/actionBar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Создание автомобиля"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/actionBar"
+        app:layout_constraintLeft_toLeftOf="@id/actionBar"
+        app:layout_constraintRight_toRightOf="@id/actionBar"
+        app:layout_constraintTop_toTopOf="@id/actionBar" />
+
+    <ImageView
+        android:id="@+id/car_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="37dp"
+        android:src="@drawable/ic_car_circle_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actionBar" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_car_icon"
+        app:layout_constraintBottom_toBottomOf="@id/car_circle"
+        app:layout_constraintLeft_toLeftOf="@id/car_circle"
+        app:layout_constraintRight_toRightOf="@id/car_circle"
+        app:layout_constraintTop_toTopOf="@id/car_circle" />
+
+    <ImageView
+        android:id="@+id/load_car_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:src="@drawable/ic_load_car_line"
+        app:layout_constraintBottom_toBottomOf="@id/car_circle"
+        app:layout_constraintLeft_toRightOf="@id/car_circle"
+        app:layout_constraintTop_toTopOf="@id/car_circle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Загрузить фото"
+        android:textAllCaps="true"
+        android:textColor="#27AE61"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@id/load_car_line"
+        app:layout_constraintLeft_toLeftOf="@id/load_car_line"
+        app:layout_constraintRight_toRightOf="@id/load_car_line"
+        app:layout_constraintTop_toTopOf="@id/load_car_line" />
+
+    <TextView
+        android:id="@+id/tip_transport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="38dp"
+        android:text="Тип транспорта"
+        android:textSize="9sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/load_car_line" />
+
+    <ImageView
+        android:id="@+id/tip_transporta_line"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/ic_tip_line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tip_transport" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:text="Грузовик"
+        app:layout_constraintBottom_toBottomOf="@id/tip_transporta_line"
+        app:layout_constraintLeft_toLeftOf="@id/tip_transporta_line"
+        app:layout_constraintTop_toTopOf="@id/tip_transporta_line" />
+
+    <ImageView
+        android:id="@+id/down_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="17.5dp"
+        android:src="@drawable/ic_down_icon"
+        app:layout_constraintBottom_toBottomOf="@id/tip_transporta_line"
+        app:layout_constraintRight_toRightOf="@id/tip_transporta_line"
+        app:layout_constraintTop_toTopOf="@id/tip_transporta_line" />
+
+
+    <TextView
+        android:id="@+id/tip_kuzova_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="12dp"
+        android:text="Тип кузова"
+        android:textSize="9sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tip_transporta_line" />
+
+    <ImageView
+        android:id="@+id/tip_kuzova_line"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/ic_tip_line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:text="Выберите тип загрузки"
+        app:layout_constraintBottom_toBottomOf="@id/tip_kuzova_line"
+        app:layout_constraintLeft_toLeftOf="@id/tip_kuzova_line"
+        app:layout_constraintTop_toTopOf="@id/tip_kuzova_line" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="17.5dp"
+        android:src="@drawable/ic_down_icon"
+        app:layout_constraintBottom_toBottomOf="@id/tip_kuzova_line"
+        app:layout_constraintRight_toRightOf="@id/tip_kuzova_line"
+        app:layout_constraintTop_toTopOf="@id/tip_kuzova_line" />
+
+    <ImageView
+        android:id="@+id/gruzodemnost_line"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/ic_round_line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_line" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Грузодьемность"
+        android:textColor="#C1C1C1"
+        app:layout_constraintBottom_toBottomOf="@id/gruzodemnost_line"
+        app:layout_constraintLeft_toLeftOf="@id/gruzodemnost_line"
+        app:layout_constraintRight_toRightOf="@id/gruzodemnost_line"
+        app:layout_constraintTop_toTopOf="@id/gruzodemnost_line" />
+
+    <ImageView
+        android:id="@+id/obyom_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:src="@drawable/ic_round_line"
+        app:layout_constraintBottom_toBottomOf="@id/gruzodemnost_line"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/gruzodemnost_line" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:text="Обьем, м3"
+        android:textColor="#C1C1C1"
+        app:layout_constraintBottom_toBottomOf="@id/obyom_line"
+        app:layout_constraintLeft_toLeftOf="@id/obyom_line"
+        app:layout_constraintTop_toTopOf="@id/obyom_line" />
+
+
+    <TextView
+        android:id="@+id/vnutrinnie_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="12dp"
+        android:text="Внутренние габариты кузова"
+        android:textSize="9sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/obyom_line" />
+
+
+    <ImageView
+        android:id="@+id/dlina_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_dlina_line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/shrina_line"
+        app:layout_constraintTop_toBottomOf="@id/vnutrinnie_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:text="Длина, м"
+        android:textColor="#C1C1C1"
+        app:layout_constraintBottom_toBottomOf="@id/dlina_line"
+        app:layout_constraintLeft_toLeftOf="@id/dlina_line"
+        app:layout_constraintTop_toTopOf="@id/dlina_line" />
+
+    <ImageView
+        android:id="@+id/shrina_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12.5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="6dp"
+        android:src="@drawable/ic_dlina_line"
+        app:layout_constraintLeft_toRightOf="@id/dlina_line"
+        app:layout_constraintRight_toLeftOf="@id/visota_line"
+        app:layout_constraintTop_toBottomOf="@id/vnutrinnie_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:text="Шрина, м"
+        android:textColor="#C1C1C1"
+        app:layout_constraintBottom_toBottomOf="@id/shrina_line"
+        app:layout_constraintLeft_toLeftOf="@id/shrina_line"
+        app:layout_constraintTop_toTopOf="@id/shrina_line" />
+
+    <ImageView
+        android:id="@+id/visota_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:src="@drawable/ic_dlina_line"
+        app:layout_constraintLeft_toRightOf="@id/shrina_line"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vnutrinnie_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:text="Высота, м"
+        android:textColor="#C1C1C1"
+        app:layout_constraintBottom_toBottomOf="@id/visota_line"
+        app:layout_constraintLeft_toLeftOf="@id/visota_line"
+        app:layout_constraintTop_toTopOf="@id/visota_line" />
+
+
+    <TextView
+        android:id="@+id/razresheniya_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="32dp"
+        android:text="Разрешения"
+        android:textSize="9sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dlina_line" />
+
+    <ImageView
+        android:id="@+id/ADR_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:src="@drawable/ic_dlina_line"
+        app:layout_constraintLeft_toRightOf="@id/shrina_line"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/razresheniya_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="ADR"
+        android:textColor="#C1C1C1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/ADR_line"
+        app:layout_constraintLeft_toLeftOf="@id/ADR_line"
+        app:layout_constraintTop_toTopOf="@id/ADR_line" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_down_icon"
+        app:layout_constraintBottom_toBottomOf="@id/ADR_line"
+        app:layout_constraintRight_toRightOf="@id/ADR_line"
+        app:layout_constraintTop_toTopOf="@id/ADR_line" />
+
+    <CheckBox
+        android:id="@+id/tir_checkbox"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:padding="2dp"
+        app:layout_constraintLeft_toLeftOf="@id/razresheniya_text"
+        app:layout_constraintTop_toBottomOf="@id/razresheniya_text" />
+
+    <TextView
+        android:id="@+id/tir_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="TIR"
+        app:layout_constraintBottom_toBottomOf="@id/tir_checkbox"
+        app:layout_constraintLeft_toRightOf="@id/tir_checkbox"
+        app:layout_constraintTop_toTopOf="@id/tir_checkbox" />
+
+    <CheckBox
+        android:id="@+id/ekmt_checkbox"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="12dp"
+        android:padding="2dp"
+        app:layout_constraintLeft_toRightOf="@id/tir_text"
+        app:layout_constraintTop_toBottomOf="@id/razresheniya_text" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="EKMT"
+        app:layout_constraintBottom_toBottomOf="@id/ekmt_checkbox"
+        app:layout_constraintLeft_toRightOf="@id/ekmt_checkbox"
+        app:layout_constraintTop_toTopOf="@id/ekmt_checkbox" />
+
+    <ImageView
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="9dp"
+        android:src="@drawable/ic_bottom_indicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/saveBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginBottom="21dp"
+        android:src="@drawable/ic_save_line"
+        app:layout_constraintBottom_toTopOf="@id/indicator" />
+    <TextView
+        app:layout_constraintTop_toTopOf="@id/saveBtn"
+        app:layout_constraintBottom_toBottomOf="@id/saveBtn"
+        app:layout_constraintLeft_toLeftOf="@id/saveBtn"
+        app:layout_constraintRight_toRightOf="@id/saveBtn"
+        android:text="Сохранить"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_intro">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha=".3"
+        android:src="@color/black" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:src="@drawable/doonk_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.34" />
+
+    <ImageView
+        android:id="@+id/textIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/doonk_text_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon" />
+
+    <ImageView
+        android:id="@+id/editBack"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="24dp"
+        android:src="@drawable/edit_drawable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".81" />
+
+    <ImageView
+        android:id="@+id/editBack2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="6dp"
+        android:src="@drawable/edit_drawable"
+        app:layout_constraintBottom_toTopOf="@id/surnameEditText" />
+
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="36dp"
+        android:backgroundTint="@android:color/transparent"
+        android:hint="Ism"
+        android:singleLine="true"
+        android:maxLength="20"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/editBack2"
+        app:layout_constraintLeft_toLeftOf="@id/editBack2"
+        app:layout_constraintRight_toRightOf="@id/editBack2"
+        app:layout_constraintTop_toTopOf="@id/editBack2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registratsiya"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/nameEditText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textIcon" />
+
+    <EditText
+        android:id="@+id/surnameEditText"
+        android:layout_width="0dp"
+        android:singleLine="true"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="36dp"
+        android:backgroundTint="@android:color/transparent"
+        android:hint="Familiya"
+        android:maxLength="20"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/editBack"
+        app:layout_constraintLeft_toLeftOf="@id/editBack"
+        app:layout_constraintRight_toRightOf="@id/editBack"
+        app:layout_constraintTop_toTopOf="@id/editBack" />
+
+
+    <ImageView
+        android:id="@+id/loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="6dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/login_drawable"
+        app:layout_constraintTop_toBottomOf="@id/surnameEditText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:text="@string/davomettirish"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/loginBtn"
+        app:layout_constraintLeft_toLeftOf="@id/loginBtn"
+        app:layout_constraintRight_toRightOf="@id/loginBtn"
+        app:layout_constraintTop_toTopOf="@id/loginBtn" />
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="3dp"
+        android:layout_marginBottom="6dp"
+        android:src="@drawable/edit_drawable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:elevation="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
