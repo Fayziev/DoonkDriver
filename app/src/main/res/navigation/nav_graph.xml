@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginScreen">
+    app:startDestination="@id/mainScreen">
 
     <fragment
         android:id="@+id/loginScreen"
@@ -50,7 +50,44 @@
 
     <fragment
         android:id="@+id/mainScreen"
-        android:name="uz.anorgroup.doonkdriver.presenter.screens.MainScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.MainScreen"
         android:label="MainScreen"
         tools:layout="@layout/screen_main" />
+    <fragment
+        android:id="@+id/screenIntermediate"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.ScreenIntermediate"
+        android:label="ScreenIntermediate"
+        tools:layout="@layout/screen_intermediate" />
+    <fragment
+        android:id="@+id/vehicleScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.VehicleScreen"
+        android:label="VehicleScreen"
+        tools:layout="@layout/screen_vehicle_type" />
+    <fragment
+        android:id="@+id/tripDetalisScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.TripDetalisScreen"
+        android:label="TripDetalisScreen"
+        tools:layout="@layout/screen_trip_detalis" />
+    <fragment
+        android:id="@+id/seatScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.SeatScreen"
+        android:label="SeatScreen"
+        tools:layout="@layout/screen_seat" />
+
+    <fragment
+        android:id="@+id/showTripScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.ShowTripScreen"
+        android:label="ShowTripScreen"
+        tools:layout="@layout/screen_show_trip" />
+
+    <fragment
+        android:id="@+id/truckAddScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.TruckAddScreen"
+        android:label="TruckAddScreen"
+        tools:layout="@layout/screen_truck_add" />
+    <fragment
+        android:id="@+id/addCarScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.AddCarScreen"
+        android:label="AddCarScreen"
+        tools:layout="@layout/screen_car_add" />
 </navigation>

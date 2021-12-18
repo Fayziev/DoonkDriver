@@ -1,12 +1,12 @@
-package uz.anorgroup.doonkdriver.presenter.adapters
+package uz.anorgroup.doonkdriver.presentation.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import uz.anorgroup.doonkdriver.presenter.page.CreatePage
-import uz.anorgroup.doonkdriver.presenter.page.MainPage
-import uz.anorgroup.doonkdriver.presenter.page.ProfilePage
+import uz.anorgroup.doonkdriver.presentation.page.CreatePage
+import uz.anorgroup.doonkdriver.presentation.page.MainPage
+import uz.anorgroup.doonkdriver.presentation.page.ProfilePage
 
 class MainPageAdapter(
     frm: FragmentManager, lifecycle: Lifecycle
@@ -31,5 +31,5 @@ class MainPageAdapter(
     }
 
 
-    override fun getItemCount(): Int = 5
+    override fun getItemCount(): Int =3
 }

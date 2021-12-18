@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkdriver.presenter.page
+package uz.anorgroup.doonkdriver.presentation.page
 
 import android.os.Bundle
 import android.view.LayoutInflater
