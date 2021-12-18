@@ -127,4 +127,9 @@
             android:id="@+id/action_tripInfoScreen_to_truckAddScreen"
             app:destination="@id/truckAddScreen" />
     </fragment>
+    <fragment
+        android:id="@+id/internetConnectionScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.InternetConnectionScreen"
+        android:label="InternetConnectionScreen"
+        tools:layout="@layout/screen_internet_connection" />
 </navigation>
