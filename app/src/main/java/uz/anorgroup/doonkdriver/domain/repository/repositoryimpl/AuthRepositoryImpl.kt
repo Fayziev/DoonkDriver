@@ -11,10 +11,7 @@ import uz.anorgroup.doonkdriver.data.request.ContinueSignUpRequest
 import uz.anorgroup.doonkdriver.data.request.LoginRequest
 import uz.anorgroup.doonkdriver.data.request.RegisterRequest
 import uz.anorgroup.doonkdriver.data.request.VerifyRequest
-import uz.anorgroup.doonkdriver.data.responce.ContinueResponse
-import uz.anorgroup.doonkdriver.data.responce.LoginResponse
-import uz.anorgroup.doonkdriver.data.responce.RegisterResponse
-import uz.anorgroup.doonkdriver.data.responce.VerifyResponse
+import uz.anorgroup.doonkdriver.data.responce.*
 import uz.anorgroup.doonkdriver.domain.repository.AuthRepository
 import javax.inject.Inject
 
@@ -65,7 +62,7 @@ class AuthRepositoryImpl @Inject constructor(private val api: AuthApi, private v
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
 
-    override fun verify(request: VerifyRequest): Flow<Result<VerifyResponse>> = flow {
+    override fun verify(request: VerifyRequest): Flow<Result<VerifyResponce>> = flow {
         val responce = api.verifyCode(request)
         if (responce.isSuccessful) {
             responce.body()?.data.let {
@@ -73,7 +70,7 @@ class AuthRepositoryImpl @Inject constructor(private val api: AuthApi, private v
                     pref.accessToken = it.token
                 }
             }
-            emit(Result.success<VerifyResponse>(responce.body()!!))
+            emit(Result.success<VerifyResponce>(responce.body()!!))
         } else {
             emit(Result.failure(Throwable(responce.errorBody().toString())))
         }

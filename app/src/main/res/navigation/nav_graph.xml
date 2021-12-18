@@ -44,4 +44,8 @@
             android:name="phone"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/mainScreen"
+        android:name="uz.anorgroup.doonkdriver.presenter.screens.MainScreen"
+        android:label="MainScreen" />
 </navigation>

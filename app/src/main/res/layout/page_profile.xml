@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/profile_page_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:background="@color/nextBt"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/profile"
+            android:textColor="@color/realWhite"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintLeft_toLeftOf="@id/toolbar"
+            app:layout_constraintRight_toRightOf="@id/toolbar"
+            app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="25dp"
+            android:background="@drawable/avatar_bg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Муроджон Турсунов"
+            android:textColor="@color/realBlack"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@id/avatar"
+            app:layout_constraintTop_toTopOf="@id/avatar" />
+
+        <ImageView
+            android:id="@+id/stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star"
+            app:layout_constraintBottom_toBottomOf="@id/avatar"
+            app:layout_constraintLeft_toLeftOf="@id/name"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+
+        <TextView
+            android:id="@+id/mark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="5,0/5, отзывов: 4"
+            android:textColor="@color/realBlack"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/avatar"
+            app:layout_constraintLeft_toRightOf="@id/stars"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <TextView
+            android:id="@+id/settingsAcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:text="@string/settingsAccount"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/avatar" />
+
+        <ImageView
+            android:id="@+id/bg1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="15dp"
+            android:src="@drawable/profile_page_atr_bg"
+            app:layout_constraintBottom_toBottomOf="@id/comments"
+            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ownDate"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/ownDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="11dp"
+            android:text="@string/ownDate"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settingsAcount" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/ownDate"
+            app:layout_constraintLeft_toLeftOf="@id/ownDate"
+            app:layout_constraintTop_toBottomOf="@id/ownDate" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/notification"
+            app:layout_constraintLeft_toLeftOf="@id/notification"
+            app:layout_constraintTop_toBottomOf="@id/notification" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/comments"
+            app:layout_constraintLeft_toLeftOf="@id/comments"
+            app:layout_constraintTop_toBottomOf="@id/comments" />
+
+        <TextView
+            android:id="@+id/notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="8dp"
+            android:text="@string/notification"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ownDate" />
+
+        <TextView
+            android:id="@+id/comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="11dp"
+            android:text="@string/comment"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/notification" />
+
+        <TextView
+            android:id="@+id/additionally"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:text="@string/additionally"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bg1" />
+
+        <ImageView
+            android:id="@+id/additionally_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="15dp"
+            android:src="@drawable/profile_page_atr_bg"
+            app:layout_constraintBottom_toBottomOf="@id/exit"
+            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/about_project"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/about_project"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="11dp"
+            android:text="@string/aboutProject"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/additionally" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/about_project"
+            app:layout_constraintLeft_toLeftOf="@id/about_project"
+            app:layout_constraintTop_toBottomOf="@id/about_project" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/blog"
+            app:layout_constraintLeft_toLeftOf="@id/blog"
+            app:layout_constraintTop_toBottomOf="@id/blog" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/answerQuestions"
+            app:layout_constraintLeft_toLeftOf="@id/answerQuestions"
+            app:layout_constraintTop_toBottomOf="@id/answerQuestions" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/safety"
+            app:layout_constraintLeft_toLeftOf="@id/safety"
+            app:layout_constraintTop_toBottomOf="@id/safety" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/callBack"
+            app:layout_constraintLeft_toLeftOf="@id/callBack"
+            app:layout_constraintTop_toBottomOf="@id/callBack" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/pay_taype"
+            app:layout_constraintLeft_toLeftOf="@id/pay_taype"
+            app:layout_constraintTop_toBottomOf="@id/pay_taype" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/user_agreements"
+            app:layout_constraintLeft_toLeftOf="@id/user_agreements"
+            app:layout_constraintTop_toBottomOf="@id/user_agreements" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/policy"
+            app:layout_constraintLeft_toLeftOf="@id/policy"
+            app:layout_constraintTop_toBottomOf="@id/policy" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/mark_app"
+            app:layout_constraintLeft_toLeftOf="@id/mark_app"
+            app:layout_constraintTop_toBottomOf="@id/mark_app" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/exit"
+            app:layout_constraintLeft_toLeftOf="@id/exit"
+            app:layout_constraintTop_toBottomOf="@id/exit" />
+
+        <TextView
+            android:id="@+id/blog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="8dp"
+            android:text="@string/blog"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/about_project" />
+
+        <TextView
+            android:id="@+id/answerQuestions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="11dp"
+            android:text="@string/answerAndQuestions"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/blog" />
+
+        <TextView
+            android:id="@+id/safety"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="11dp"
+            android:text="@string/safety"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/answerQuestions" />
+
+
+        <TextView
+            android:id="@+id/callBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="11dp"
+            android:text="@string/safety"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/safety" />
+
+        <TextView
+            android:id="@+id/pay_taype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="11dp"
+            android:text="@string/pay_type"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/callBack" />
+
+
+        <TextView
+            android:id="@+id/user_agreements"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="11dp"
+            android:text="@string/user_agreements"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pay_taype" />
+
+
+        <TextView
+            android:id="@+id/policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="11dp"
+            android:text="@string/policy"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_agreements" />
+
+
+        <TextView
+            android:id="@+id/mark_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="11dp"
+            android:text="@string/markApp"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/policy" />
+
+
+        <TextView
+            android:id="@+id/exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="11dp"
+            android:text="@string/exit"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mark_app" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

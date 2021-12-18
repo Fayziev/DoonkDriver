@@ -10,7 +10,7 @@ import uz.anorgroup.doonkdriver.data.request.VerifyRequest
 import uz.anorgroup.doonkdriver.data.responce.ContinueResponse
 import uz.anorgroup.doonkdriver.data.responce.LoginResponse
 import uz.anorgroup.doonkdriver.data.responce.RegisterResponse
-import uz.anorgroup.doonkdriver.data.responce.VerifyResponse
+import uz.anorgroup.doonkdriver.data.responce.VerifyResponce
 
 interface AuthApi {
 
@@ -24,5 +24,5 @@ interface AuthApi {
     suspend fun continueSingUp(@Body data: ContinueSignUpRequest): Response<ContinueResponse>
 
     @POST("verify")
-    suspend fun verifyCode(@Body data: VerifyRequest): Response<VerifyResponse>
+    suspend fun verifyCode(@Body data: VerifyRequest): Response<VerifyResponce>
 }
