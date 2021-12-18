@@ -1,7 +1,7 @@
-package uz.anorgroup.doonkanorgroup.presenter.viewmodel
+package uz.anorgroup.doonkdriver.presentation.viewmodel
 
 import kotlinx.coroutines.flow.Flow
-import uz.anorgroup.doonkanorgroup.data.request.LoginRequest
+import uz.anorgroup.doonkdriver.data.request.LoginRequest
 
 interface LoginViewModel {
 
@@ -9,6 +9,6 @@ interface LoginViewModel {
     val progressFlow: Flow<Boolean>
     val successFlow: Flow<Unit>
     val openRegisterFlow: Flow<Unit>
-    val openVerifyFlow:Flow<Unit>
+    val openVerifyFlow: Flow<Unit>
     fun login(request: LoginRequest)
 }

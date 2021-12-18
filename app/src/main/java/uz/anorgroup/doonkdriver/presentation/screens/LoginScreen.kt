@@ -13,8 +13,8 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import ru.ldralighieri.corbind.widget.textChanges
-import uz.anorgroup.doonkanorgroup.presenter.viewmodel.LoginViewModel
-import uz.anorgroup.doonkanorgroup.presenter.viewmodel.impl.LoginViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.viewmodel.LoginViewModel
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.LoginViewModelImpl
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.LoginRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenLoginBinding

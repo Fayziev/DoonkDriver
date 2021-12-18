@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkanorgroup.presenter.viewmodel.impl
+package uz.anorgroup.doonkdriver.presentation.viewmodel.impl
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,12 +6,12 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import uz.anorgroup.doonkanorgroup.data.request.RegisterRequest
-import uz.anorgroup.doonkanorgroup.data.request.VerifyRequest
-import uz.anorgroup.doonkanorgroup.domain.usecase.VerifyScreenUseCase
-import uz.anorgroup.doonkanorgroup.presenter.viewmodel.VerifyViewModel
-import uz.anorgroup.doonkanorgroup.utils.eventValueFlow
-import uz.anorgroup.doonkanorgroup.utils.isConnected
+import uz.anorgroup.doonkdriver.data.request.RegisterRequest
+import uz.anorgroup.doonkdriver.data.request.VerifyRequest
+import uz.anorgroup.doonkdriver.domain.usecase.VerifyScreenUseCase
+import uz.anorgroup.doonkdriver.presentation.viewmodel.VerifyViewModel
+import uz.anorgroup.doonkdriver.utils.eventValueFlow
+import uz.anorgroup.doonkdriver.utils.isConnected
 import javax.inject.Inject
 
 @HiltViewModel

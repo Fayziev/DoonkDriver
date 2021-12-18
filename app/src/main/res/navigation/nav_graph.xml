@@ -47,6 +47,7 @@
             android:id="@+id/action_verifyScreen_to_mainScreen"
             app:destination="@id/mainScreen" />
     </fragment>
+
     <fragment
         android:id="@+id/mainScreen"
         android:name="uz.anorgroup.doonkdriver.presenter.screens.MainScreen"

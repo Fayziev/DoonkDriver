@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "631591196412",
-    "project_id": "doonkdrive",
-    "storage_bucket": "doonkdrive.appspot.com"
+    "project_number": "24744808925",
+    "project_id": "doonk-e779d",
+    "storage_bucket": "doonk-e779d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:631591196412:android:41d13baf52389af5b46979",
+        "mobilesdk_app_id": "1:24744808925:android:0bd487ce96aa5754e9a634",
         "android_client_info": {
-          "package_name": "uz.anorgroup.doonkdriver"
+          "package_name": "uz.anorgroup.doonkanorgroup"
         }
       },
       "oauth_client": [
         {
-          "client_id": "631591196412-8i5mgv06lf2530ciqqf249v9lhgkbddd.apps.googleusercontent.com",
+          "client_id": "24744808925-rgn7c9a4mrg1dki54dujue84ebt3jao4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBGrvLCHhZD27Z5KTJcbh0LUR4-baLadWs"
+          "current_key": "AIzaSyD9YVIcLi9hawCJyGNLLHOwj5bRZlTtVuY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "631591196412-8i5mgv06lf2530ciqqf249v9lhgkbddd.apps.googleusercontent.com",
+              "client_id": "24744808925-rgn7c9a4mrg1dki54dujue84ebt3jao4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

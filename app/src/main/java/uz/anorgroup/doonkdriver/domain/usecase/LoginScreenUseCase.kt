@@ -5,7 +5,5 @@ import uz.anorgroup.doonkdriver.data.request.LoginRequest
 import uz.anorgroup.doonkdriver.data.responce.LoginResponse
 
 interface LoginScreenUseCase {
-
     fun userLogin(authRequest: LoginRequest): Flow<Result<LoginResponse>>
-
 }

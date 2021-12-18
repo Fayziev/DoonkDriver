@@ -3,7 +3,7 @@ package uz.anorgroup.doonkdriver.app
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
-import uz.gita.doonkdriver.BuildConfig
+import uz.anorgroup.doonkdriver.BuildConfig
 
 @HiltAndroidApp
 class App : Application() {

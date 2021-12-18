@@ -14,8 +14,8 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import ru.ldralighieri.corbind.widget.textChanges
-import uz.anorgroup.doonkanorgroup.presenter.viewmodel.RegisterViewModel
-import uz.anorgroup.doonkanorgroup.presenter.viewmodel.impl.RegisterViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.viewmodel.RegisterViewModel
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.RegisterViewModelImpl
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.ContinueSignUpRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenRegisterBinding

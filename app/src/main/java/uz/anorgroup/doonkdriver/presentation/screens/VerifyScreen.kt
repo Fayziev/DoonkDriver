@@ -11,8 +11,8 @@ import com.fraggjkee.smsconfirmationview.SmsConfirmationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import uz.anorgroup.doonkanorgroup.presenter.viewmodel.VerifyViewModel
-import uz.anorgroup.doonkanorgroup.presenter.viewmodel.impl.VerifyViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.viewmodel.VerifyViewModel
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.VerifyViewModelImpl
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.RegisterRequest
 import uz.anorgroup.doonkdriver.data.request.VerifyRequest

@@ -8,13 +8,13 @@ import uz.anorgroup.doonkdriver.data.request.VerifyRequest
 import uz.anorgroup.doonkdriver.data.responce.ContinueResponse
 import uz.anorgroup.doonkdriver.data.responce.LoginResponse
 import uz.anorgroup.doonkdriver.data.responce.RegisterResponse
-import uz.anorgroup.doonkdriver.data.responce.VerifyResponse
+import uz.anorgroup.doonkdriver.data.responce.VerifyResponce
 
 interface AuthRepository {
 
     fun login(request: LoginRequest): Flow<Result<LoginResponse>>
     fun register(request: RegisterRequest): Flow<Result<RegisterResponse>>
-    fun verify(request: VerifyRequest): Flow<Result<VerifyResponse>>
+    fun verify(request: VerifyRequest): Flow<Result<VerifyResponce>>
     fun confrim(request: ContinueSignUpRequest): Flow<Result<ContinueResponse>>
     fun saveData(phoneNumber: String, name: String, lastName: String)
 

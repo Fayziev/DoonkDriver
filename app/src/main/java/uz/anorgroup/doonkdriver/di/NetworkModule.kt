@@ -9,10 +9,10 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import uz.anorgroup.doonkdriver.BuildConfig.BASE_URL
 import uz.anorgroup.doonkdriver.data.pref.MyPref
 import uz.anorgroup.doonkdriver.utils.addHeaderInterceptor
 import uz.anorgroup.doonkdriver.utils.addLoggingInterceptor
-import uz.gita.doonkdriver.BuildConfig.BASE_URL
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
