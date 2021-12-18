@@ -3,7 +3,7 @@ package uz.anorgroup.doonkdriver.data.responce.location
 
 import com.google.gson.annotations.SerializedName
 
-data class SearchCity(
+data class SearchCityResponce(
     @SerializedName("code")
     val code: Int,
     @SerializedName("data")
