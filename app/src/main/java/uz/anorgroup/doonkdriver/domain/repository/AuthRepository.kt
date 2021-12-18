@@ -1,14 +1,14 @@
 package uz.anorgroup.doonkdriver.domain.repository
 
 import kotlinx.coroutines.flow.Flow
-import uz.anorgroup.doonkdriver.data.request.ContinueSignUpRequest
-import uz.anorgroup.doonkdriver.data.request.LoginRequest
-import uz.anorgroup.doonkdriver.data.request.RegisterRequest
-import uz.anorgroup.doonkdriver.data.request.VerifyRequest
-import uz.anorgroup.doonkdriver.data.responce.ContinueResponse
-import uz.anorgroup.doonkdriver.data.responce.LoginResponse
-import uz.anorgroup.doonkdriver.data.responce.RegisterResponse
-import uz.anorgroup.doonkdriver.data.responce.VerifyResponce
+import uz.anorgroup.doonkdriver.data.request.auth.ContinueSignUpRequest
+import uz.anorgroup.doonkdriver.data.request.auth.LoginRequest
+import uz.anorgroup.doonkdriver.data.request.auth.RegisterRequest
+import uz.anorgroup.doonkdriver.data.request.auth.VerifyRequest
+import uz.anorgroup.doonkdriver.data.responce.auth.ContinueResponse
+import uz.anorgroup.doonkdriver.data.responce.auth.LoginResponse
+import uz.anorgroup.doonkdriver.data.responce.auth.RegisterResponse
+import uz.anorgroup.doonkdriver.data.responce.auth.VerifyResponce
 
 interface AuthRepository {
 

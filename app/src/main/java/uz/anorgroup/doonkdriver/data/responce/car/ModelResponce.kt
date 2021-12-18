@@ -1,13 +1,13 @@
-package uz.anorgroup.doonkdriver.data.responce
+package uz.anorgroup.doonkdriver.data.responce.car
 
 
 import com.google.gson.annotations.SerializedName
 
-data class VerifyResponce(
+data class ModelResponce(
     @SerializedName("code")
     val code: Int,
     @SerializedName("data")
-    val `data`: Data,
+    val `data`: List<ModelData>,
     @SerializedName("message")
     val message: String
 )

@@ -1,8 +1,8 @@
 package uz.anorgroup.doonkdriver.presentation.viewmodel
 
 import kotlinx.coroutines.flow.Flow
-import uz.anorgroup.doonkdriver.data.request.RegisterRequest
-import uz.anorgroup.doonkdriver.data.request.VerifyRequest
+import uz.anorgroup.doonkdriver.data.request.auth.RegisterRequest
+import uz.anorgroup.doonkdriver.data.request.auth.VerifyRequest
 
 interface VerifyViewModel {
 

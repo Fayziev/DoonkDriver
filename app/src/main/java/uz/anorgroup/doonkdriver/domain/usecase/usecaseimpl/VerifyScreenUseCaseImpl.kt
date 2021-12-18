@@ -1,10 +1,10 @@
 package uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl
 
 import kotlinx.coroutines.flow.Flow
-import uz.anorgroup.doonkdriver.data.request.RegisterRequest
-import uz.anorgroup.doonkdriver.data.request.VerifyRequest
-import uz.anorgroup.doonkdriver.data.responce.RegisterResponse
-import uz.anorgroup.doonkdriver.data.responce.VerifyResponce
+import uz.anorgroup.doonkdriver.data.request.auth.RegisterRequest
+import uz.anorgroup.doonkdriver.data.request.auth.VerifyRequest
+import uz.anorgroup.doonkdriver.data.responce.auth.RegisterResponse
+import uz.anorgroup.doonkdriver.data.responce.auth.VerifyResponce
 import uz.anorgroup.doonkdriver.domain.repository.AuthRepository
 import uz.anorgroup.doonkdriver.domain.usecase.VerifyScreenUseCase
 import javax.inject.Inject

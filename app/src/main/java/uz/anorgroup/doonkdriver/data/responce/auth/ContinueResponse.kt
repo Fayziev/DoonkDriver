@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkdriver.data.responce
+package uz.anorgroup.doonkdriver.data.responce.auth
 
 data class ContinueResponse(
     val code: Int,

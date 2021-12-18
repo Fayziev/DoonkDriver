@@ -16,7 +16,7 @@ import ru.ldralighieri.corbind.widget.textChanges
 import uz.anorgroup.doonkdriver.presentation.viewmodel.LoginViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.LoginViewModelImpl
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.request.LoginRequest
+import uz.anorgroup.doonkdriver.data.request.auth.LoginRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenLoginBinding
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast

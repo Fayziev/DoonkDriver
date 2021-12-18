@@ -6,7 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import uz.anorgroup.doonkdriver.data.request.LoginRequest
+import uz.anorgroup.doonkdriver.data.request.auth.LoginRequest
 import uz.anorgroup.doonkdriver.domain.usecase.LoginScreenUseCase
 import uz.anorgroup.doonkdriver.presentation.viewmodel.LoginViewModel
 import uz.anorgroup.doonkdriver.utils.eventValueFlow

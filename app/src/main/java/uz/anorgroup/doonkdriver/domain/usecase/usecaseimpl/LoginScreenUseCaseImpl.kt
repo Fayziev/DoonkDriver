@@ -1,8 +1,8 @@
 package uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl
 
 import kotlinx.coroutines.flow.Flow
-import uz.anorgroup.doonkdriver.data.request.LoginRequest
-import uz.anorgroup.doonkdriver.data.responce.LoginResponse
+import uz.anorgroup.doonkdriver.data.request.auth.LoginRequest
+import uz.anorgroup.doonkdriver.data.responce.auth.LoginResponse
 import uz.anorgroup.doonkdriver.domain.repository.AuthRepository
 import uz.anorgroup.doonkdriver.domain.usecase.LoginScreenUseCase
 import javax.inject.Inject

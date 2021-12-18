@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkdriver.data.request
+package uz.anorgroup.doonkdriver.data.request.auth
 
 import com.google.gson.annotations.SerializedName
 

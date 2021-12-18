@@ -17,7 +17,7 @@ import ru.ldralighieri.corbind.widget.textChanges
 import uz.anorgroup.doonkdriver.presentation.viewmodel.RegisterViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.RegisterViewModelImpl
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.request.ContinueSignUpRequest
+import uz.anorgroup.doonkdriver.data.request.auth.ContinueSignUpRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenRegisterBinding
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast

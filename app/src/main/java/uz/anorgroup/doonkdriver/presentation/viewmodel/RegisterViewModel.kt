@@ -1,7 +1,7 @@
 package uz.anorgroup.doonkdriver.presentation.viewmodel
 
 import kotlinx.coroutines.flow.Flow
-import uz.anorgroup.doonkdriver.data.request.ContinueSignUpRequest
+import uz.anorgroup.doonkdriver.data.request.auth.ContinueSignUpRequest
 
 interface RegisterViewModel {
 

@@ -14,8 +14,8 @@ import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.presentation.viewmodel.VerifyViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.VerifyViewModelImpl
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.request.RegisterRequest
-import uz.anorgroup.doonkdriver.data.request.VerifyRequest
+import uz.anorgroup.doonkdriver.data.request.auth.RegisterRequest
+import uz.anorgroup.doonkdriver.data.request.auth.VerifyRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenVerifyBinding
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
