@@ -7,3 +7,4 @@ data class Photo(
     @SerializedName("photo")
     val photo: String
 )
+
