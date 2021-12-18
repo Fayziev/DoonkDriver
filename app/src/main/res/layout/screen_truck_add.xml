@@ -211,8 +211,8 @@
 
     <ImageView
         android:id="@+id/dlina_line"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="?android:actionBarSize"
         android:layout_marginStart="25dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_dlina_line"
@@ -225,6 +225,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
         android:text="Длина, м"
+        android:padding="15dp"
         android:textColor="#C1C1C1"
         app:layout_constraintBottom_toBottomOf="@id/dlina_line"
         app:layout_constraintLeft_toLeftOf="@id/dlina_line"
@@ -232,8 +233,8 @@
 
     <ImageView
         android:id="@+id/shrina_line"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="?android:actionBarSize"
         android:layout_marginStart="12.5dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="6dp"
@@ -248,14 +249,15 @@
         android:layout_marginStart="11dp"
         android:text="Шрина, м"
         android:textColor="#C1C1C1"
+        android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="@id/shrina_line"
         app:layout_constraintLeft_toLeftOf="@id/shrina_line"
         app:layout_constraintTop_toTopOf="@id/shrina_line" />
 
     <ImageView
         android:id="@+id/visota_line"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="?android:actionBarSize"
         android:layout_marginStart="6dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="25dp"
@@ -270,6 +272,7 @@
         android:layout_marginStart="11dp"
         android:text="Высота, м"
         android:textColor="#C1C1C1"
+        android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="@id/visota_line"
         app:layout_constraintLeft_toLeftOf="@id/visota_line"
         app:layout_constraintTop_toTopOf="@id/visota_line" />
@@ -374,14 +377,15 @@
         android:layout_marginBottom="21dp"
         android:src="@drawable/ic_save_line"
         app:layout_constraintBottom_toTopOf="@id/indicator" />
+
     <TextView
-        app:layout_constraintTop_toTopOf="@id/saveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Сохранить"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/saveBtn"
         app:layout_constraintLeft_toLeftOf="@id/saveBtn"
         app:layout_constraintRight_toRightOf="@id/saveBtn"
-        android:text="Сохранить"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintTop_toTopOf="@id/saveBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

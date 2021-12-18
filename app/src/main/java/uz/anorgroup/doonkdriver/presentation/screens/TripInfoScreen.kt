@@ -7,17 +7,16 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.databinding.ScreenVehicleTypeBinding
+import uz.anorgroup.doonkdriver.databinding.ScreenTripInfoBinding
 
 @AndroidEntryPoint
-class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
-    private val bind by viewBinding(ScreenVehicleTypeBinding::bind)
+class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
+    private val bind by viewBinding(ScreenTripInfoBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        bind.addCarBt.setOnClickListener {
-            findNavController().navigate(R.id.action_vehicleScreen_to_seatScreen)
+        bind.nextBt.setOnClickListener {
+            findNavController().navigate(R.id.action_tripInfoScreen_to_truckAddScreen)
         }
     }
 }

@@ -52,27 +52,47 @@
         android:id="@+id/mainScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.MainScreen"
         android:label="MainScreen"
-        tools:layout="@layout/screen_main" />
+        tools:layout="@layout/screen_main">
+        <action
+            android:id="@+id/action_mainScreen_to_screenIntermediate"
+            app:destination="@id/screenIntermediate" />
+    </fragment>
     <fragment
         android:id="@+id/screenIntermediate"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.ScreenIntermediate"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.IntermediateScreen"
         android:label="ScreenIntermediate"
-        tools:layout="@layout/screen_intermediate" />
+        tools:layout="@layout/screen_intermediate">
+        <action
+            android:id="@+id/action_screenIntermediate_to_vehicleScreen"
+            app:destination="@id/vehicleScreen" />
+    </fragment>
     <fragment
         android:id="@+id/vehicleScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.VehicleScreen"
         android:label="VehicleScreen"
-        tools:layout="@layout/screen_vehicle_type" />
+        tools:layout="@layout/screen_vehicle_type">
+        <action
+            android:id="@+id/action_vehicleScreen_to_seatScreen"
+            app:destination="@id/seatScreen" />
+    </fragment>
     <fragment
         android:id="@+id/tripDetalisScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.TripDetalisScreen"
         android:label="TripDetalisScreen"
-        tools:layout="@layout/screen_trip_detalis" />
+        tools:layout="@layout/screen_trip_detalis" >
+        <action
+            android:id="@+id/action_tripDetalisScreen_to_showTripScreen"
+            app:destination="@id/showTripScreen" />
+    </fragment>
     <fragment
         android:id="@+id/seatScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.SeatScreen"
         android:label="SeatScreen"
-        tools:layout="@layout/screen_seat" />
+        tools:layout="@layout/screen_seat" >
+        <action
+            android:id="@+id/action_seatScreen_to_tripInfoScreen"
+            app:destination="@id/tripInfoScreen" />
+    </fragment>
 
     <fragment
         android:id="@+id/showTripScreen"
@@ -84,10 +104,27 @@
         android:id="@+id/truckAddScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.TruckAddScreen"
         android:label="TruckAddScreen"
-        tools:layout="@layout/screen_truck_add" />
+        tools:layout="@layout/screen_truck_add" >
+        <action
+            android:id="@+id/action_truckAddScreen_to_addCarScreen"
+            app:destination="@id/addCarScreen" />
+    </fragment>
     <fragment
         android:id="@+id/addCarScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.AddCarScreen"
         android:label="AddCarScreen"
-        tools:layout="@layout/screen_car_add" />
+        tools:layout="@layout/screen_car_add" >
+        <action
+            android:id="@+id/action_addCarScreen_to_tripDetalisScreen"
+            app:destination="@id/tripDetalisScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/tripInfoScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.TripInfoScreen"
+        android:label="TripInfoScreen"
+        tools:layout="@layout/screen_trip_info" >
+        <action
+            android:id="@+id/action_tripInfoScreen_to_truckAddScreen"
+            app:destination="@id/truckAddScreen" />
+    </fragment>
 </navigation>
