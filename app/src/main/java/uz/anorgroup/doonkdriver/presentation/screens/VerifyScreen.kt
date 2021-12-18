@@ -81,7 +81,7 @@ class VerifyScreen : Fragment(R.layout.screen_verify) {
         }.launchIn(lifecycleScope)
 
         viewModel.openMainFlow.onEach {
-//            findNavController().navigate(R.id.mainScreen)
+            findNavController().navigate(R.id.mainScreen)
         }.launchIn(lifecycleScope)
     }
 
