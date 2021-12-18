@@ -17,10 +17,10 @@ import ru.ldralighieri.corbind.widget.textChanges
 import uz.anorgroup.doonkanorgroup.presenter.viewmodel.RegisterViewModel
 import uz.anorgroup.doonkanorgroup.presenter.viewmodel.impl.RegisterViewModelImpl
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.request.ContinueSignUpRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenRegisterBinding
-import uz.gita.doonkdriver.data.request.ContinueSignUpRequest
-import uz.gita.doonkdriver.utils.scope
-import uz.gita.doonkdriver.utils.showToast
+import uz.anorgroup.doonkdriver.utils.scope
+import uz.anorgroup.doonkdriver.utils.showToast
 
 @AndroidEntryPoint
 class RegisterScreen : Fragment(R.layout.screen_register) {

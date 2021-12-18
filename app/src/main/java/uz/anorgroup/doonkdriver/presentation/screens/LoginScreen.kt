@@ -16,10 +16,10 @@ import ru.ldralighieri.corbind.widget.textChanges
 import uz.anorgroup.doonkanorgroup.presenter.viewmodel.LoginViewModel
 import uz.anorgroup.doonkanorgroup.presenter.viewmodel.impl.LoginViewModelImpl
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.request.LoginRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenLoginBinding
-import uz.gita.doonkdriver.data.request.LoginRequest
-import uz.gita.doonkdriver.utils.scope
-import uz.gita.doonkdriver.utils.showToast
+import uz.anorgroup.doonkdriver.utils.scope
+import uz.anorgroup.doonkdriver.utils.showToast
 
 @AndroidEntryPoint
 class LoginScreen : Fragment(R.layout.screen_login) {

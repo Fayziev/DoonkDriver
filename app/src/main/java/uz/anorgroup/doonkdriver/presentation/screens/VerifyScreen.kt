@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.fraggjkee.smsconfirmationview.SmsConfirmationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -13,11 +14,11 @@ import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkanorgroup.presenter.viewmodel.VerifyViewModel
 import uz.anorgroup.doonkanorgroup.presenter.viewmodel.impl.VerifyViewModelImpl
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.request.RegisterRequest
+import uz.anorgroup.doonkdriver.data.request.VerifyRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenVerifyBinding
-import uz.gita.doonkdriver.data.request.RegisterRequest
-import uz.gita.doonkdriver.data.request.VerifyRequest
-import uz.gita.doonkdriver.utils.scope
-import uz.gita.doonkdriver.utils.showToast
+import uz.anorgroup.doonkdriver.utils.scope
+import uz.anorgroup.doonkdriver.utils.showToast
 
 @AndroidEntryPoint
 class VerifyScreen : Fragment(R.layout.screen_verify) {
@@ -33,7 +34,7 @@ class VerifyScreen : Fragment(R.layout.screen_verify) {
 
         viewModel.successFlow.onEach {
             showToast("Success")
-//            findNavController().navigate(R.id.action_verifyScreen_to_mainScreen)
+            findNavController().navigate(R.id.action_verifyScreen_to_mainScreen)
         }.launchIn(lifecycleScope)
     }
 
