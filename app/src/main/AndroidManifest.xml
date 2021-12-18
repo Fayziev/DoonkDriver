@@ -16,7 +16,7 @@
         android:theme="@style/Theme.DoonkDriver"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="uz.anorgroup.doonkdriver.MainActivity"
+            android:name="uz.anorgroup.doonkdriver.presentation.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
