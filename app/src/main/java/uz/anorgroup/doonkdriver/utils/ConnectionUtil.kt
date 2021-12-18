@@ -1,10 +1,10 @@
-package uz.gita.doonkdriver.utils
+package uz.anorgroup.doonkdriver.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import uz.anorgroup.doonkanorgroup.app.App
+import uz.anorgroup.doonkdriver.app.App
 
 fun isConnected(): Boolean = App.instance.isAvailableNetwork()
 

@@ -1,4 +1,4 @@
-package uz.gita.doonkdriver.data.responce
+package uz.anorgroup.doonkdriver.data.responce
 
 
 data class RegisterResponse(

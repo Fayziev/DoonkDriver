@@ -1,14 +1,13 @@
-package uz.gita.doonkdriver.utils
+package uz.anorgroup.doonkdriver.utils
 
 import android.content.Context
-import com.readystatesoftware.chuck.BuildConfig
 import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import timber.log.Timber
-import uz.gita.doonkdriver.BuildConfig.LOGGING
-import uz.gita.doonkdriver.data.pref.MyPref
+import uz.gita.doonkdriver.BuildConfig
+import uz.anorgroup.doonkdriver.data.pref.MyPref
 
 fun OkHttpClient.Builder.addLoggingInterceptor(context: Context): OkHttpClient.Builder {
     HttpLoggingInterceptor.Level.HEADERS

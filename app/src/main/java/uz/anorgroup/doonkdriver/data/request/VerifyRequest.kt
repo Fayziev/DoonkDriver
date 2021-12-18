@@ -1,4 +1,4 @@
-package uz.gita.doonkdriver.data.request
+package uz.anorgroup.doonkdriver.data.request
 
 data class VerifyRequest(
     val code: String,

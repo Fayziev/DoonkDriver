@@ -1,9 +1,9 @@
-package uz.anorgroup.doonkanorgroup.app
+package uz.anorgroup.doonkdriver.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
-import uz.anorgroup.doonkanorgroup.BuildConfig
+import uz.gita.doonkdriver.BuildConfig
 
 @HiltAndroidApp
 class App : Application() {
