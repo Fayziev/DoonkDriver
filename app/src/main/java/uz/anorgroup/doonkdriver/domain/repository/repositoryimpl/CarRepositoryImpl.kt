@@ -41,9 +41,9 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
     }.flowOn(Dispatchers.IO)
 
     override fun carModels(): Flow<Result<ModelResponce>> = flow {
-        val responce = api.brands()
+        val responce = api.carModels()
         if (responce.isSuccessful) {
-            emit(Result.success<ModelResponce>(responce.body()))
+            emit(Result.success<ModelResponce>(responce.body()!!))
         } else {
             emit(Result.failure(Throwable(responce.errorBody().toString())))
         }
@@ -53,8 +53,10 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
     }.flowOn(Dispatchers.IO)
 
     override fun typesOfTransport(): Flow<Result<TypeTransportResponce>> = flow {
-        val responce = api.brands()
-        if (responce.isSuccessful) emit(Result.success<TypeTransportResponce>(responce.body())) else {
+        val responce = api.typesOfTransport()
+        if (responce.isSuccessful) {
+            emit(Result.success<TypeTransportResponce>(responce.body()!!))
+        } else {
             emit(Result.failure(Throwable(responce.errorBody().toString())))
         }
     }.catch {
@@ -63,9 +65,10 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
     }.flowOn(Dispatchers.IO)
 
     override fun typesOfBody(): Flow<Result<TypeOfBodyResponce>> = flow {
-        val responce = api.brands()
-        if (responce.isSuccessful) emit(Result.success<TypeOfBodyResponce>(responce.body()))
-        else {
+        val responce = api.typesOfBody()
+        if (responce.isSuccessful) {
+            emit(Result.success<TypeOfBodyResponce>(responce.body()!!))
+        } else {
             emit(Result.failure(Throwable(responce.errorBody().toString())))
         }
     }.catch {

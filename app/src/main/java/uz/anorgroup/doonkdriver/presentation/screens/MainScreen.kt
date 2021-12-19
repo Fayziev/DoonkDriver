@@ -16,7 +16,7 @@ class MainScreen : Fragment(R.layout.screen_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         super.onViewCreated(view, savedInstanceState)
-         val adapter = MainPageAdapter(childFragmentManager, lifecycle)
+        val adapter = MainPageAdapter(childFragmentManager, lifecycle)
         pager.adapter = adapter
 
         bind.pager.isUserInputEnabled = false
