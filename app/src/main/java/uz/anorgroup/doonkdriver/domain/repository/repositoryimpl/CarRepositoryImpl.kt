@@ -5,7 +5,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import retrofit2.Response
 import uz.anorgroup.doonkdriver.data.api.CarApi
 import uz.anorgroup.doonkdriver.data.pref.MyPref
 import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
@@ -44,7 +43,7 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
     override fun carModels(): Flow<Result<ModelResponce>> = flow {
         val responce = api.brands()
         if (responce.isSuccessful) {
-            emit(Result.success<ModelResponce>(responce.body()!!))
+            emit(Result.success<ModelResponce>(responce.body()))
         } else {
             emit(Result.failure(Throwable(responce.errorBody().toString())))
         }
@@ -55,9 +54,7 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
 
     override fun typesOfTransport(): Flow<Result<TypeTransportResponce>> = flow {
         val responce = api.brands()
-        if (responce.isSuccessful) {
-            emit(Result.success<TypeTransportResponce>(responce.body()!!))
-        } else {
+        if (responce.isSuccessful) emit(Result.success<TypeTransportResponce>(responce.body())) else {
             emit(Result.failure(Throwable(responce.errorBody().toString())))
         }
     }.catch {
@@ -67,9 +64,8 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
 
     override fun typesOfBody(): Flow<Result<TypeOfBodyResponce>> = flow {
         val responce = api.brands()
-        if (responce.isSuccessful) {
-            emit(Result.success<TypeOfBodyResponce>(responce.body()!!))
-        } else {
+        if (responce.isSuccessful) emit(Result.success<TypeOfBodyResponce>(responce.body()))
+        else {
             emit(Result.failure(Throwable(responce.errorBody().toString())))
         }
     }.catch {
