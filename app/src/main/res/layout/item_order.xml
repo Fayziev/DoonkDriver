@@ -1,28 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    app:cardCornerRadius="4dp"
+    android:layout_margin="2dp"
+    android:layout_height="180dp">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/dateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="16sp"
         android:text="Пт 09 июля"
         android:textColor="@color/realBlack"
-        android:textSize="26dp"
+        android:textSize="26sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/startTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="08:30"
         android:textColor="@color/realBlack"
         android:textSize="22sp"
+
         app:layout_constraintLeft_toLeftOf="@id/dateText"
         app:layout_constraintTop_toBottomOf="@id/dateText" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/timeForTrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="13 м. 0 мин"
+        android:textColor="@color/gray_text"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/startTime"
+        app:layout_constraintLeft_toRightOf="@id/startTime"
+        app:layout_constraintTop_toTopOf="@id/startTime" />
+
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Автостанция “Котельники” метро Котельники; микр..."
+        android:textColor="@color/realBlack"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@id/startTime"
+        app:layout_constraintRight_toRightOf="@id/timeForTrip"
+        app:layout_constraintTop_toBottomOf="@id/startTime" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="21:30"
+        android:textColor="@color/realBlack"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@id/timeForTrip"
+        app:layout_constraintLeft_toRightOf="@id/timeForTrip"
+        app:layout_constraintTop_toTopOf="@id/timeForTrip" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Санкт-Петербург"
+        app:layout_constraintLeft_toLeftOf="@id/time"
+        app:layout_constraintTop_toBottomOf="@id/time" />
+
+    <ImageView
+        android:id="@+id/carType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:src="@drawable/ic_car_icon2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/passajir_text"
+        app:layout_constraintTop_toBottomOf="@id/description" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="3 мест"
+        app:layout_constraintBottom_toBottomOf="@id/carType"
+        app:layout_constraintLeft_toRightOf="@id/carType"
+        app:layout_constraintTop_toTopOf="@id/carType" />
+
+    <TextView
+        android:id="@+id/passajir_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/oreder_trip_bg"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="1 пассажир"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/dateText"
+        app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
