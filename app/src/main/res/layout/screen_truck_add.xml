@@ -86,25 +86,47 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/load_car_line" />
 
-    <ImageView
-        android:id="@+id/tip_transporta_line"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="6dp"
-        android:src="@drawable/ic_tip_line"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tip_transport" />
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/tip_transporta_line"-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:background="@color/white"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginHorizontal="25dp"-->
+<!--        app:endIconMode="dropdown_menu"-->
+<!--        app:endIconTintMode="multiply"-->
+<!--        app:endIconCheckable="true"-->
+<!--        app:endIconDrawable="@drawable/ic_down_icon"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/tip_transport">-->
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:hint="Грузовик"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:layout_height="match_parent"/>-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:text="Грузовик"
-        app:layout_constraintBottom_toBottomOf="@id/tip_transporta_line"
-        app:layout_constraintLeft_toLeftOf="@id/tip_transporta_line"
-        app:layout_constraintTop_toTopOf="@id/tip_transporta_line" />
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+        <ImageView
+            android:id="@+id/tip_transporta_line"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/ic_tip_line"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tip_transport" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="Грузовик"
+            app:layout_constraintBottom_toBottomOf="@id/tip_transporta_line"
+            app:layout_constraintLeft_toLeftOf="@id/tip_transporta_line"
+            app:layout_constraintTop_toTopOf="@id/tip_transporta_line" />
 
     <ImageView
         android:id="@+id/down_icon"
@@ -161,8 +183,8 @@
         android:id="@+id/gruzodemnost_line"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
         android:layout_marginStart="25dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="8dp"
         android:src="@drawable/ic_round_line"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -183,12 +205,12 @@
         android:id="@+id/obyom_line"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="25dp"
         android:src="@drawable/ic_round_line"
         app:layout_constraintBottom_toBottomOf="@id/gruzodemnost_line"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/gruzodemnost_line"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/gruzodemnost_line" />
 
     <TextView
@@ -219,8 +241,8 @@
         android:id="@+id/dlina_line"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/ic_dlina_line"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/shrina_line"
