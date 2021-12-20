@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkdriver.presentation.viewmodel
+package uz.anorgroup.doonkdriver.presentation.viewmodel.auth
 
 import kotlinx.coroutines.flow.Flow
 import uz.anorgroup.doonkdriver.data.request.auth.ContinueSignUpRequest

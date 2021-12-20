@@ -11,4 +11,6 @@ interface CarRepository {
     fun carModels(): Flow<Result<ModelResponce>>
     fun typesOfTransport(): Flow<Result<TypeTransportResponce>>
     fun typesOfBody(): Flow<Result<TypeOfBodyResponce>>
+    fun typesAvto(): Flow<Result<TypeAvtoResponce>>
+
 }

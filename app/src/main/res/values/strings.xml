@@ -158,4 +158,7 @@
     <string name="date_out">Дата выезда</string>
     <string name="time_out">Время выезда</string>
 
+    <!--Screen When -->
+    <string name="type_transport">Тип транспорта</string>
+
 </resources>
