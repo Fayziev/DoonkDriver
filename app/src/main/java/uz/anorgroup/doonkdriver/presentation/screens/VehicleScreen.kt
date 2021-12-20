@@ -23,7 +23,6 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
         bind.addCarBt.setOnClickListener {
             val dialog = AddCardBottomDialog()
             dialog.show(childFragmentManager, "CardDialog")
-
         }
     }
 }
