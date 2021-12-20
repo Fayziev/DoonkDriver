@@ -8,6 +8,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.ScreenVehicleTypeBinding
+import uz.anorgroup.doonkdriver.presentation.dialogs.AddCardBottomDialog
 
 @AndroidEntryPoint
 class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
@@ -16,8 +17,13 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bind.addCarBt.setOnClickListener {
+        bind.nextBt.setOnClickListener {
             findNavController().navigate(R.id.action_vehicleScreen_to_seatScreen)
+        }
+        bind.addCarBt.setOnClickListener {
+            val dialog = AddCardBottomDialog()
+            dialog.show(childFragmentManager, "CardDialog")
+
         }
     }
 }

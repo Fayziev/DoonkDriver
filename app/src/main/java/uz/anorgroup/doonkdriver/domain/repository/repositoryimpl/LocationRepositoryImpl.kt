@@ -22,8 +22,10 @@ class LocationRepositoryImpl @Inject constructor(private val api: LocationApi, p
             emit(Result.failure(Throwable(responce.errorBody().toString())))
         }
     }.catch {
+
         val errorMessage = Throwable("Sever bilan muammo bo'ldi")
         emit(Result.failure(errorMessage))
+
     }.flowOn(Dispatchers.IO)
 
     override fun searchStreet(): Flow<Result<SearchStreetsResponce>> = flow {
