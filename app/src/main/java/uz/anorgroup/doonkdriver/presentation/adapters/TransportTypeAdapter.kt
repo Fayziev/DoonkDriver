@@ -8,18 +8,18 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.responce.car.TransportTypeData
+import uz.anorgroup.doonkdriver.data.responce.car.AvtoTypeData
 import uz.anorgroup.doonkdriver.databinding.ItemTransportTypeBinding
 
-class TransportTypeAdapter : ListAdapter<List<TransportTypeData>, TransportTypeAdapter.HistoryVH>(MyDifUtils) {
-    private var itemListener: ((List<TransportTypeData>) -> Unit)? = null
+class TransportTypeAdapter : ListAdapter<List<AvtoTypeData>, TransportTypeAdapter.HistoryVH>(MyDifUtils) {
+    private var itemListener: ((List<AvtoTypeData>) -> Unit)? = null
 
-    object MyDifUtils : DiffUtil.ItemCallback<List<TransportTypeData>>() {
-        override fun areItemsTheSame(oldItem: List<TransportTypeData>, newItem: List<TransportTypeData>): Boolean {
+    object MyDifUtils : DiffUtil.ItemCallback<List<AvtoTypeData>>() {
+        override fun areItemsTheSame(oldItem: List<AvtoTypeData>, newItem: List<AvtoTypeData>): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: List<TransportTypeData>, newItem: List<TransportTypeData>): Boolean {
+        override fun areContentsTheSame(oldItem: List<AvtoTypeData>, newItem: List<AvtoTypeData>): Boolean {
             return oldItem == newItem
         }
     }
@@ -34,7 +34,7 @@ class TransportTypeAdapter : ListAdapter<List<TransportTypeData>, TransportTypeA
         }
 
         fun load() {
-            val value = getItem(absoluteAdapterPosition) as TransportTypeData
+            val value = getItem(absoluteAdapterPosition) as AvtoTypeData
             bind.transportType.text = value.name
         }
     }

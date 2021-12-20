@@ -52,10 +52,10 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
 
-    override fun typesOfTransport(): Flow<Result<TypeTransportResponce>> = flow {
-        val responce = api.typesOfTransport()
+    override fun typesOfTransport(): Flow<Result<TypeAvtoResponce>> = flow {
+        val responce = api.typesOfAvto()
         if (responce.isSuccessful) {
-            emit(Result.success<TypeTransportResponce>(responce.body()!!))
+            emit(Result.success<TypeAvtoResponce>(responce.body()!!))
         } else {
             emit(Result.failure(Throwable(responce.errorBody().toString())))
         }
@@ -76,10 +76,10 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
 
-    override fun typesAvto(): Flow<Result<TypeAvtoResponce>> = flow {
+    override fun typesAvto(): Flow<Result<TypeTransportsResponce>> = flow {
         val responce = api.transportTypes()
         if (responce.isSuccessful) {
-            emit(Result.success<TypeAvtoResponce>(responce.body()!!))
+            emit(Result.success<TypeTransportsResponce>(responce.body()!!))
         } else {
             emit(Result.failure(Throwable(responce.errorBody().toString())))
         }

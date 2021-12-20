@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkdriver.presentation.viewmodel.impl
+package uz.anorgroup.doonkdriver.presentation.viewmodel.impl.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -7,7 +7,7 @@ data class TypeAvtoResponce(
     @SerializedName("code")
     val code: Int,
     @SerializedName("data")
-    val `data`: List<AvtoData>,
+    val `data`: List<AvtoTypeData>,
     @SerializedName("message")
     val message: String
 )

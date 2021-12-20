@@ -16,7 +16,7 @@ import uz.anorgroup.doonkdriver.data.request.auth.RegisterRequest
 import uz.anorgroup.doonkdriver.data.request.auth.VerifyRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenVerifyBinding
 import uz.anorgroup.doonkdriver.presentation.viewmodel.auth.VerifyViewModel
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.VerifyViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.auth.VerifyViewModelImpl
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
 
