@@ -9,10 +9,11 @@ import uz.anorgroup.doonkdriver.data.api.CarApi
 import uz.anorgroup.doonkdriver.data.pref.MyPref
 import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
 import uz.anorgroup.doonkdriver.data.responce.car.*
+import uz.anorgroup.doonkdriver.di.RetrofitMain
 import uz.anorgroup.doonkdriver.domain.repository.CarRepository
 import javax.inject.Inject
 
-class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val pref: MyPref) : CarRepository {
+class CarRepositoryImpl @Inject @RetrofitMain constructor(private val api: CarApi, private val pref: MyPref) : CarRepository {
 
 
     override fun carCreate(data: CreateCarRequest): Flow<Result<CreateCarResponce>> = flow {

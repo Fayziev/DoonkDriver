@@ -15,7 +15,8 @@ interface AuthRepository {
     fun login(request: LoginRequest): Flow<Result<LoginResponse>>
     fun register(request: RegisterRequest): Flow<Result<RegisterResponse>>
     fun verify(request: VerifyRequest): Flow<Result<VerifyResponce>>
-    fun confrim(request: ContinueSignUpRequest): Flow<Result<ContinueResponse>>
+    fun confirm(request: ContinueSignUpRequest): Flow<Result<ContinueResponse>>
     fun saveData(phoneNumber: String, name: String, lastName: String)
+    fun getStartScreen(): Boolean
 
 }

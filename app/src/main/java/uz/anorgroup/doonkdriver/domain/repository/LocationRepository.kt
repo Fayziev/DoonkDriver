@@ -6,6 +6,6 @@ import uz.anorgroup.doonkdriver.data.responce.location.SearchCityResponce
 import uz.anorgroup.doonkdriver.data.responce.location.SearchStreetsResponce
 
 interface LocationRepository {
-    fun searchCity(): Flow<Result<SearchCityResponce>>
-    fun searchStreet(): Flow<Result <SearchStreetsResponce>>
+    fun searchCity(name:String): Flow<Result<SearchCityResponce>>
+    fun searchStreet(city:String,name:String): Flow<Result <SearchStreetsResponce>>
 }
