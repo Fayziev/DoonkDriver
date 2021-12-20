@@ -13,7 +13,7 @@ import uz.anorgroup.doonkdriver.di.RetrofitMain
 import uz.anorgroup.doonkdriver.domain.repository.LocationRepository
 import javax.inject.Inject
 
-class LocationRepositoryImpl @Inject @RetrofitMain constructor(private val api: LocationApi, private val pref: MyPref) : LocationRepository {
+class LocationRepositoryImpl @Inject constructor(private val api: LocationApi, private val pref: MyPref) : LocationRepository {
 
     override fun searchCity(name: String): Flow<Result<SearchCityResponce>> = flow {
         val response = api.searchCity(name)

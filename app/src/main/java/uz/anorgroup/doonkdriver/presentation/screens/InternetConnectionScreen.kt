@@ -11,6 +11,7 @@ import uz.anorgroup.doonkdriver.utils.scope
 
 @AndroidEntryPoint
 class InternetConnectionScreen : Fragment(R.layout.screen_internet_connection) {
+
     private val binding by viewBinding(ScreenInternetConnectionBinding::bind)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
 

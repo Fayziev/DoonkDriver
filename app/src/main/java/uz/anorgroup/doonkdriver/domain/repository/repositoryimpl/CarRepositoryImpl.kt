@@ -13,7 +13,7 @@ import uz.anorgroup.doonkdriver.di.RetrofitMain
 import uz.anorgroup.doonkdriver.domain.repository.CarRepository
 import javax.inject.Inject
 
-class CarRepositoryImpl @Inject @RetrofitMain constructor(private val api: CarApi, private val pref: MyPref) : CarRepository {
+class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val pref: MyPref) : CarRepository {
 
 
     override fun carCreate(data: CreateCarRequest): Flow<Result<CreateCarResponce>> = flow {
@@ -77,7 +77,7 @@ class CarRepositoryImpl @Inject @RetrofitMain constructor(private val api: CarAp
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
 
-    override fun typesAvto(): Flow<Result<TypeAvtoResponce>> = flow {
+    override fun typesAuto(): Flow<Result<TypeAvtoResponce>> = flow {
         val responce = api.transportTypes()
         if (responce.isSuccessful) {
             emit(Result.success<TypeAvtoResponce>(responce.body()!!))

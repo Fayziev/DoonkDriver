@@ -17,8 +17,7 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-        buildConfigField('String', 'BASE_URL_AUTH', '"http://89.223.71.112:9498/"')
-        buildConfigField('String', 'BASE_URL_MAIN', '"http://localhost:9498/"')
+        buildConfigField('String', 'BASE_URL', '"http://89.223.71.112:9498/"')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

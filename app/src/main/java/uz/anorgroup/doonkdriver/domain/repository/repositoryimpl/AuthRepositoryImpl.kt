@@ -19,7 +19,7 @@ import uz.anorgroup.doonkdriver.di.RetrofitAuth
 import uz.anorgroup.doonkdriver.domain.repository.AuthRepository
 import javax.inject.Inject
 
-class AuthRepositoryImpl @Inject @RetrofitAuth constructor(private val api: AuthApi, private val pref: MyPref) : AuthRepository {
+class AuthRepositoryImpl @Inject constructor(private val api: AuthApi, private val pref: MyPref) : AuthRepository {
 
     override fun login(request: LoginRequest): Flow<Result<LoginResponse>> = flow {
         val responce = api.login(request)
