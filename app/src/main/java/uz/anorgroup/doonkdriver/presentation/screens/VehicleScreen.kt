@@ -20,9 +20,23 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
         bind.nextBt.setOnClickListener {
             findNavController().navigate(R.id.action_vehicleScreen_to_seatScreen)
         }
+
         bind.addCarBt.setOnClickListener {
             val dialog = AddCardBottomDialog()
             dialog.show(childFragmentManager, "CardDialog")
+
+            dialog.setEasyCar {
+
+                findNavController().navigate(R.id.action_vehicleScreen_to_truckAddScreen)
+            }
+
+            dialog.setNormalCar {
+                findNavController().navigate(R.id.action_vehicleScreen_to_truckAddScreen)
+            }
+
+            dialog.setHardCar {
+                findNavController().navigate(R.id.action_vehicleScreen_to_truckAddScreen)
+            }
         }
     }
 }

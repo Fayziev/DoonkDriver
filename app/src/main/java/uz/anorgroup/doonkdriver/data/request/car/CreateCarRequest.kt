@@ -4,6 +4,7 @@ package uz.anorgroup.doonkdriver.data.request.car
 import com.google.gson.annotations.SerializedName
 
 data class CreateCarRequest(
+
     @SerializedName("brand")
     val brand: Int,
     @SerializedName("car_model")

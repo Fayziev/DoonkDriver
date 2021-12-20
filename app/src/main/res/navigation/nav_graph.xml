@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginScreen">
+    app:startDestination="@id/vehicleScreen">
 
     <fragment
         android:id="@+id/loginScreen"
@@ -74,6 +74,9 @@
         <action
             android:id="@+id/action_vehicleScreen_to_seatScreen"
             app:destination="@id/seatScreen" />
+        <action
+            android:id="@+id/action_vehicleScreen_to_truckAddScreen"
+            app:destination="@id/truckAddScreen" />
     </fragment>
     <fragment
         android:id="@+id/tripDetalisScreen"
@@ -113,19 +116,15 @@
         android:id="@+id/addCarScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.AddCarScreen"
         android:label="AddCarScreen"
-        tools:layout="@layout/screen_car_add" >
-        <action
-            android:id="@+id/action_addCarScreen_to_tripDetalisScreen"
-            app:destination="@id/tripDetalisScreen" />
-    </fragment>
+        tools:layout="@layout/screen_car_add" />
     <fragment
         android:id="@+id/tripInfoScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.TripInfoScreen"
         android:label="TripInfoScreen"
         tools:layout="@layout/screen_trip_info" >
         <action
-            android:id="@+id/action_tripInfoScreen_to_truckAddScreen"
-            app:destination="@id/truckAddScreen" />
+            android:id="@+id/action_tripInfoScreen_to_tripDetalisScreen"
+            app:destination="@id/tripDetalisScreen" />
     </fragment>
     <fragment
         android:id="@+id/internetConnectionScreen"

@@ -1,10 +1,10 @@
-package uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl
+package uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.auth
 
 import kotlinx.coroutines.flow.Flow
 import uz.anorgroup.doonkdriver.data.request.auth.LoginRequest
 import uz.anorgroup.doonkdriver.data.responce.auth.LoginResponse
 import uz.anorgroup.doonkdriver.domain.repository.AuthRepository
-import uz.anorgroup.doonkdriver.domain.usecase.LoginScreenUseCase
+import uz.anorgroup.doonkdriver.domain.usecase.auth.LoginScreenUseCase
 import javax.inject.Inject
 
 class LoginScreenUseCaseImpl @Inject constructor(private val repositoryImpl: AuthRepository) : LoginScreenUseCase {
