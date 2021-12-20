@@ -34,7 +34,7 @@ class VerifyScreen : Fragment(R.layout.screen_verify) {
 
         viewModel.successFlow.onEach {
             showToast("Success")
-//            findNavController().navigate(R.id.action_verifyScreen_to_mainScreen)
+            findNavController().navigate(R.id.action_verifyScreen_to_mainScreen)
         }.launchIn(lifecycleScope)
     }
 

@@ -1,7 +1,9 @@
 package uz.anorgroup.doonkdriver.presentation.screens
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -18,6 +20,7 @@ import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.LoginViewModelImpl
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.auth.LoginRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenLoginBinding
+import uz.anorgroup.doonkdriver.utils.hideKeyboard
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
 
@@ -44,22 +47,21 @@ class LoginScreen : Fragment(R.layout.screen_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
 
+        editText.hideKeyboard()
         combine(
             editText.textChanges().map {
                 it.length == 17
+
             },
             transform = { phone -> phone }
         ).onEach {
             loginBtn.isEnabled = it[0]
+            if(it[0]) editText.hideKeyboard()
         }.launchIn(lifecycleScope)
 
         loginBtn.setOnClickListener {
             viewModel.login(LoginRequest(editText.rawText))
         }
-
-        viewModel.errorFlow.onEach {
-            showToast("Error")
-        }.launchIn(lifecycleScope)
 
         viewModel.successFlow.onEach {
             showToast("Success")
