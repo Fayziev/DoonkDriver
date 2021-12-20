@@ -4,12 +4,12 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import uz.anorgroup.doonkdriver.domain.usecase.LoginScreenUseCase
-import uz.anorgroup.doonkdriver.domain.usecase.RegisterScreenUseCase
-import uz.anorgroup.doonkdriver.domain.usecase.VerifyScreenUseCase
-import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.LoginScreenUseCaseImpl
-import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.RegisterScreenUseCaseImpl
-import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.VerifyScreenUseCaseImpl
+import uz.anorgroup.doonkdriver.domain.usecase.auth.LoginScreenUseCase
+import uz.anorgroup.doonkdriver.domain.usecase.auth.RegisterScreenUseCase
+import uz.anorgroup.doonkdriver.domain.usecase.auth.VerifyScreenUseCase
+import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.auth.LoginScreenUseCaseImpl
+import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.auth.RegisterScreenUseCaseImpl
+import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.auth.VerifyScreenUseCaseImpl
 
 
 @Module

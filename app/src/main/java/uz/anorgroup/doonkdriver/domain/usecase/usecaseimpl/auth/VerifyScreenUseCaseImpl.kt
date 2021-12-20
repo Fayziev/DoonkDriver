@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl
+package uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.auth
 
 import kotlinx.coroutines.flow.Flow
 import uz.anorgroup.doonkdriver.data.request.auth.RegisterRequest
@@ -6,7 +6,7 @@ import uz.anorgroup.doonkdriver.data.request.auth.VerifyRequest
 import uz.anorgroup.doonkdriver.data.responce.auth.RegisterResponse
 import uz.anorgroup.doonkdriver.data.responce.auth.VerifyResponce
 import uz.anorgroup.doonkdriver.domain.repository.AuthRepository
-import uz.anorgroup.doonkdriver.domain.usecase.VerifyScreenUseCase
+import uz.anorgroup.doonkdriver.domain.usecase.auth.VerifyScreenUseCase
 import javax.inject.Inject
 
 class VerifyScreenUseCaseImpl @Inject constructor(private val repository: AuthRepository) : VerifyScreenUseCase {

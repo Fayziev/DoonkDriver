@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkdriver.domain.usecase
+package uz.anorgroup.doonkdriver.domain.usecase.auth
 
 import kotlinx.coroutines.flow.Flow
 import uz.anorgroup.doonkdriver.data.request.auth.ContinueSignUpRequest

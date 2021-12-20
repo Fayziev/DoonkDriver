@@ -10,7 +10,7 @@
 //import uz.anorgroup.doonkanorgroup.R
 //import uz.anorgroup.doonkanorgroup.data.OrdersInfo
 //import uz.anorgroup.doonkanorgroup.databinding.SearchPageItemBinding
-//import uz.anorgroup.doonkdriver.data.OrdersInfo
+//import uz.anorgroup.doonkdriver.data.others.OrdersInfo
 //
 //class OrdersAdapter : ListAdapter<OrdersInfo, OrdersAdapter.HistoryVH>(MyDifUtils) {
 //    private var itemListener: ((OrdersInfo) -> Unit)? = null
