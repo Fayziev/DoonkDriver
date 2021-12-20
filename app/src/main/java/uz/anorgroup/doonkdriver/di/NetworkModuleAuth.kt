@@ -9,7 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import uz.anorgroup.doonkdriver.BuildConfig.BASE_URL
+import uz.anorgroup.doonkdriver.BuildConfig.BASE_URL_AUTH
 import uz.anorgroup.doonkdriver.data.pref.MyPref
 import uz.anorgroup.doonkdriver.utils.addHeaderInterceptor
 import uz.anorgroup.doonkdriver.utils.addLoggingInterceptor
@@ -18,14 +18,14 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class NetworkModule {
+class NetworkModuleAuth {
 
-    @[Provides Singleton]
+    @[RetrofitAuth Provides Singleton]
     fun getRetrofit(client: OkHttpClient): Retrofit =
         Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
-            .baseUrl(BASE_URL)
+            .baseUrl(BASE_URL_AUTH)
             .build()
 
 

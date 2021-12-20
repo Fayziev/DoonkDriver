@@ -8,5 +8,5 @@ import uz.anorgroup.doonkdriver.domain.usecase.auth.RegisterScreenUseCase
 import javax.inject.Inject
 
 class RegisterScreenUseCaseImpl @Inject constructor(private val repository: AuthRepository) : RegisterScreenUseCase {
-    override fun continueSingUp(request: ContinueSignUpRequest): Flow<Result<ContinueResponse>> = repository.confrim(request)
+    override fun continueSingUp(request: ContinueSignUpRequest): Flow<Result<ContinueResponse>> = repository.confirm(request)
 }

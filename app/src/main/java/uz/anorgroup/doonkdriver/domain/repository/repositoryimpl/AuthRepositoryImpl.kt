@@ -15,10 +15,11 @@ import uz.anorgroup.doonkdriver.data.responce.auth.ContinueResponse
 import uz.anorgroup.doonkdriver.data.responce.auth.LoginResponse
 import uz.anorgroup.doonkdriver.data.responce.auth.RegisterResponse
 import uz.anorgroup.doonkdriver.data.responce.auth.VerifyResponce
+import uz.anorgroup.doonkdriver.di.RetrofitAuth
 import uz.anorgroup.doonkdriver.domain.repository.AuthRepository
 import javax.inject.Inject
 
-class AuthRepositoryImpl @Inject constructor(private val api: AuthApi, private val pref: MyPref) : AuthRepository {
+class AuthRepositoryImpl @Inject @RetrofitAuth constructor(private val api: AuthApi, private val pref: MyPref) : AuthRepository {
 
     override fun login(request: LoginRequest): Flow<Result<LoginResponse>> = flow {
         val responce = api.login(request)
@@ -32,7 +33,7 @@ class AuthRepositoryImpl @Inject constructor(private val api: AuthApi, private v
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
 
-    override fun confrim(request: ContinueSignUpRequest): Flow<Result<ContinueResponse>> = flow {
+    override fun confirm(request: ContinueSignUpRequest): Flow<Result<ContinueResponse>> = flow {
         val responce = api.continueSingUp(request)
         if (responce.isSuccessful) {
             emit(Result.success<ContinueResponse>(responce.body()!!))
@@ -49,6 +50,9 @@ class AuthRepositoryImpl @Inject constructor(private val api: AuthApi, private v
         pref.phoneNumber = phoneNumber
         pref.surname
     }
+
+
+    override fun getStartScreen(): Boolean = pref.startScreen
 
     override fun register(request: RegisterRequest): Flow<Result<RegisterResponse>> = flow {
         val recponce = api.register(request)
@@ -71,6 +75,7 @@ class AuthRepositoryImpl @Inject constructor(private val api: AuthApi, private v
             responce.body()?.data.let {
                 if (it != null) {
                     pref.accessToken = it.token
+                    pref.startScreen = true
                 }
             }
             emit(Result.success<VerifyResponce>(responce.body()!!))
