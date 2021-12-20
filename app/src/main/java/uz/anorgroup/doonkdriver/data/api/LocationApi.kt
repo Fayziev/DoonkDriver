@@ -6,7 +6,6 @@ import uz.anorgroup.doonkdriver.data.responce.location.SearchCityResponce
 import uz.anorgroup.doonkdriver.data.responce.location.SearchStreetsResponce
 
 interface LocationApi {
-
     @GET("cities?name=tosh")
     suspend fun searchCity(): Response<SearchCityResponce>
 
