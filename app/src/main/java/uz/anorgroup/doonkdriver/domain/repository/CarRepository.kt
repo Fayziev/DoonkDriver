@@ -5,12 +5,11 @@ import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
 import uz.anorgroup.doonkdriver.data.responce.car.*
 
 interface CarRepository {
-
     fun carCreate(data: CreateCarRequest): Flow<Result<CreateCarResponce>>
     fun brands(): Flow<Result<BrandsResponce>>
     fun carModels(): Flow<Result<ModelResponce>>
-    fun typesOfTransport(): Flow<Result<TypeTransportResponce>>
+    fun typesOfAvto(): Flow<Result<TypeAvtoResponce>>
     fun typesOfBody(): Flow<Result<TypeOfBodyResponce>>
-    fun typesAuto(): Flow<Result<TypeAvtoResponce>>
+    fun typesTransport(): Flow<Result<TypeTransportsResponce>>
 
 }

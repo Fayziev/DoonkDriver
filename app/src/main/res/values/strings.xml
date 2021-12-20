@@ -160,5 +160,6 @@
 
     <!--Screen When -->
     <string name="type_transport">Тип транспорта</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>

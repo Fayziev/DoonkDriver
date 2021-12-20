@@ -19,10 +19,10 @@ interface CarApi {
     suspend fun carModels(): Response<ModelResponce>
 
     @GET("typesOfTransport")
-    suspend fun typesOfTransport(): Response<TypeTransportResponce>
+    suspend fun typesOfAvto(): Response<TypeAvtoResponce>
 
-    @GET("typesOfTransport")
-    suspend fun transportTypes(): Response<TypeAvtoResponce>
+    @GET("transportTypes")
+    suspend fun transportTypes(): Response<TypeTransportsResponce>
 
     @GET("typesOfBody")
     suspend fun typesOfBody(): Response<TypeOfBodyResponce>

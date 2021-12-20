@@ -7,7 +7,7 @@ data class TransportType(
     @SerializedName("code")
     val code: Int,
     @SerializedName("data")
-    val `data`: List<AvtoData>,
+    val `data`: List<TransportData>,
     @SerializedName("message")
     val message: String
 )

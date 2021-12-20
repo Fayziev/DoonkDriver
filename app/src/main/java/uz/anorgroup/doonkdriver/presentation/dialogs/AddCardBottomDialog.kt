@@ -10,14 +10,14 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.BottomDialogAddCarBinding
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.AddCarBtDialogViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.BodyBtDialogViewModelImpl
 
 @AndroidEntryPoint
 class AddCardBottomDialog : BottomSheetDialogFragment() {
     private var easyCar: (() -> Unit)? = null
     private var normalCar: (() -> Unit)? = null
     private var hardCar: (() -> Unit)? = null
-    private val viewModel by viewModels<AddCarBtDialogViewModelImpl >()
+    private val viewModel by viewModels<BodyBtDialogViewModelImpl >()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
