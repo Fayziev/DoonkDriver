@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import uz.anorgroup.doonkdriver.data.request.auth.LoginRequest
 import uz.anorgroup.doonkdriver.domain.usecase.auth.LoginScreenUseCase
-import uz.anorgroup.doonkdriver.presentation.viewmodel.LoginViewModel
+import uz.anorgroup.doonkdriver.presentation.viewmodel.auth.LoginViewModel
 import uz.anorgroup.doonkdriver.utils.eventValueFlow
 import uz.anorgroup.doonkdriver.utils.isConnected
 import javax.inject.Inject

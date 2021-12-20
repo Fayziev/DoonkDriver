@@ -75,5 +75,18 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
         val errorMessage = Throwable("Sever bilan muammo bo'ldi")
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
+
+    override fun typesAvto(): Flow<Result<TypeAvtoResponce>> = flow {
+        val responce = api.transportTypes()
+        if (responce.isSuccessful) {
+            emit(Result.success<TypeAvtoResponce>(responce.body()!!))
+        } else {
+            emit(Result.failure(Throwable(responce.errorBody().toString())))
+        }
+    }.catch {
+        val errorMessage = Throwable("Sever bilan muammo bo'ldi")
+        emit(Result.failure(errorMessage))
+    }.flowOn(Dispatchers.IO)
+
 }
 

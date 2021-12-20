@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import uz.anorgroup.doonkdriver.data.request.auth.RegisterRequest
 import uz.anorgroup.doonkdriver.data.request.auth.VerifyRequest
 import uz.anorgroup.doonkdriver.domain.usecase.auth.VerifyScreenUseCase
-import uz.anorgroup.doonkdriver.presentation.viewmodel.VerifyViewModel
+import uz.anorgroup.doonkdriver.presentation.viewmodel.auth.VerifyViewModel
 import uz.anorgroup.doonkdriver.utils.eventValueFlow
 import uz.anorgroup.doonkdriver.utils.isConnected
 import javax.inject.Inject
