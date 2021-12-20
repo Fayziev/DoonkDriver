@@ -145,7 +145,11 @@
 
     <string name="color">Цвет:</string>
 
-
+    <!--Screen about Login -->
     <string name="color_text">Черный:</string>
+    <string name="ism">Ism</string>
+    <string name="familiya">Familiya</string>
+    <string name="dalee">Далее</string>
+    <string name="vnutrenni_text">Внутренние габариты кузова</string>
 
 </resources>

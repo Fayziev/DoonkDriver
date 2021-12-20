@@ -1,5 +1,5 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="160dp"
+    android:width="180dp"
     android:height="48dp"
     android:viewportWidth="150"
     android:viewportHeight="48">

@@ -11,14 +11,12 @@ import com.fraggjkee.smsconfirmationview.SmsConfirmationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import uz.anorgroup.doonkdriver.presentation.viewmodel.VerifyViewModel
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.VerifyViewModelImpl
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.auth.RegisterRequest
 import uz.anorgroup.doonkdriver.data.request.auth.VerifyRequest
-import uz.anorgroup.doonkdriver.data.request.RegisterRequest
-import uz.anorgroup.doonkdriver.data.request.VerifyRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenVerifyBinding
+import uz.anorgroup.doonkdriver.presentation.viewmodel.VerifyViewModel
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.VerifyViewModelImpl
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
 
@@ -36,7 +34,7 @@ class VerifyScreen : Fragment(R.layout.screen_verify) {
 
         viewModel.successFlow.onEach {
             showToast("Success")
-//            findNavController().navigate(R.id.action_verifyScreen_to_mainScreen)
+            findNavController().navigate(R.id.action_verifyScreen_to_mainScreen)
         }.launchIn(lifecycleScope)
     }
 
