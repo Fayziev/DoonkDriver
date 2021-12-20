@@ -86,25 +86,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/load_car_line" />
 
-    <ImageView
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tip_transporta_line"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="6dp"
-        android:src="@drawable/ic_tip_line"
+        android:hint="Грузовик"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tip_transport" />
+        app:layout_constraintTop_toBottomOf="@id/tip_transport">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:text="Грузовик"
-        app:layout_constraintBottom_toBottomOf="@id/tip_transporta_line"
-        app:layout_constraintLeft_toLeftOf="@id/tip_transporta_line"
-        app:layout_constraintTop_toTopOf="@id/tip_transporta_line" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
         android:id="@+id/down_icon"
@@ -128,25 +126,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tip_transporta_line" />
 
-    <ImageView
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tip_kuzova_line"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="6dp"
-        android:src="@drawable/ic_tip_line"
+        android:layout_marginHorizontal="25dp"
+        android:hint="Выберите тип загрузки"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_text" />
+        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_text">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:text="Выберите тип загрузки"
-        app:layout_constraintBottom_toBottomOf="@id/tip_kuzova_line"
-        app:layout_constraintLeft_toLeftOf="@id/tip_kuzova_line"
-        app:layout_constraintTop_toTopOf="@id/tip_kuzova_line" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -157,49 +153,99 @@
         app:layout_constraintRight_toRightOf="@id/tip_kuzova_line"
         app:layout_constraintTop_toTopOf="@id/tip_kuzova_line" />
 
-    <ImageView
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/gruzodemnost_line"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:hint="Грузодьемность"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/obyom_line"
+        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_line">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/obyom_line"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:hint="Обьем, м3"
+        app:layout_constraintLeft_toRightOf="@id/gruzodemnost_line"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_line">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dlina_line"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/ic_round_line"
+        android:hint="Длина, м"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/obyom_line"
-        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_line" />
+        app:layout_constraintRight_toLeftOf="@id/shrina_line"
+        app:layout_constraintTop_toBottomOf="@id/vnutrinnie_text">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Грузодьемность"
-        android:textColor="#C1C1C1"
-        app:layout_constraintBottom_toBottomOf="@id/gruzodemnost_line"
-        app:layout_constraintLeft_toLeftOf="@id/gruzodemnost_line"
-        app:layout_constraintRight_toRightOf="@id/gruzodemnost_line"
-        app:layout_constraintTop_toTopOf="@id/gruzodemnost_line" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <ImageView
-        android:id="@+id/obyom_line"
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/shrina_line"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="25dp"
-        android:src="@drawable/ic_round_line"
-        app:layout_constraintBottom_toBottomOf="@id/gruzodemnost_line"
-        app:layout_constraintLeft_toRightOf="@id/gruzodemnost_line"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/gruzodemnost_line" />
+        android:layout_marginStart="25dp"
+        android:hint="Шрина, м"
+        app:layout_constraintLeft_toRightOf="@id/dlina_line"
+        app:layout_constraintRight_toLeftOf="@id/visota_line"
+        app:layout_constraintTop_toBottomOf="@id/vnutrinnie_text">
 
-    <TextView
-        android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/visota_line"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:text="Обьем, м3"
-        android:textColor="#C1C1C1"
-        app:layout_constraintBottom_toBottomOf="@id/obyom_line"
-        app:layout_constraintLeft_toLeftOf="@id/obyom_line"
-        app:layout_constraintTop_toTopOf="@id/obyom_line" />
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:hint="Высота, м3"
+        app:layout_constraintLeft_toRightOf="@id/shrina_line"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vnutrinnie_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <TextView
@@ -215,75 +261,6 @@
         tools:ignore="SmallSp" />
 
 
-    <ImageView
-        android:id="@+id/dlina_line"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/ic_dlina_line"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/shrina_line"
-        app:layout_constraintTop_toBottomOf="@id/vnutrinnie_text" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:padding="8dp"
-        android:text="Длина, м"
-        android:textColorHint="#C1C1C1"
-        app:layout_constraintBottom_toBottomOf="@id/dlina_line"
-        app:layout_constraintLeft_toLeftOf="@id/dlina_line"
-        app:layout_constraintTop_toTopOf="@id/dlina_line" />
-
-    <ImageView
-        android:id="@+id/shrina_line"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="12.5dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="6dp"
-        android:src="@drawable/ic_dlina_line"
-        app:layout_constraintLeft_toRightOf="@id/dlina_line"
-        app:layout_constraintRight_toLeftOf="@id/visota_line"
-        app:layout_constraintTop_toBottomOf="@id/vnutrinnie_text" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:padding="8dp"
-        android:text="Шрина, м"
-        android:textColor="#C1C1C1"
-        app:layout_constraintBottom_toBottomOf="@id/shrina_line"
-        app:layout_constraintLeft_toLeftOf="@id/shrina_line"
-        app:layout_constraintTop_toTopOf="@id/shrina_line" />
-
-    <ImageView
-        android:id="@+id/visota_line"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="25dp"
-        android:src="@drawable/ic_dlina_line"
-        app:layout_constraintLeft_toRightOf="@id/shrina_line"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vnutrinnie_text" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:padding="8dp"
-        android:text="Высота, м"
-        android:textColor="#C1C1C1"
-        app:layout_constraintBottom_toBottomOf="@id/visota_line"
-        app:layout_constraintLeft_toLeftOf="@id/visota_line"
-        app:layout_constraintTop_toTopOf="@id/visota_line" />
-
-
     <TextView
         android:id="@+id/razresheniya_text"
         android:layout_width="wrap_content"
@@ -295,28 +272,22 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dlina_line" />
 
-    <ImageView
-        android:id="@+id/ADR_line"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="25dp"
-        android:src="@drawable/ic_dlina_line"
-        app:layout_constraintLeft_toLeftOf="@id/visota_line"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/razresheniya_text" />
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ADR_line"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:text="ADR"
-        android:textColor="#C1C1C1"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/ADR_line"
-        app:layout_constraintLeft_toLeftOf="@id/ADR_line"
-        app:layout_constraintTop_toTopOf="@id/ADR_line" />
+        android:hint="ADR"
+        app:layout_constraintLeft_toLeftOf="@id/visota_line"
+        app:layout_constraintRight_toRightOf="@id/visota_line"
+        app:layout_constraintTop_toTopOf="@id/razresheniya_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
         android:layout_width="wrap_content"

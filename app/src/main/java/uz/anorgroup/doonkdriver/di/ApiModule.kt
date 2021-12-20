@@ -6,6 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import uz.anorgroup.doonkdriver.data.api.AuthApi
+import uz.anorgroup.doonkdriver.data.api.CarApi
+import uz.anorgroup.doonkdriver.data.api.LocationApi
 import javax.inject.Singleton
 
 @Module
@@ -14,5 +16,11 @@ class ApiModule {
 
     @[Provides Singleton]
     fun getAuthApi(retrofit: Retrofit): AuthApi = retrofit.create(AuthApi::class.java)
+
+    @[Provides Singleton]
+    fun getCarApi(retrofit: Retrofit): CarApi = retrofit.create(CarApi::class.java)
+
+    @[Provides Singleton]
+    fun getLocationApi(retrofit: Retrofit): LocationApi = retrofit.create(LocationApi::class.java)
 
 }
