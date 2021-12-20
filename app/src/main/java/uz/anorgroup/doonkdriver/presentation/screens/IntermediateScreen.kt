@@ -16,7 +16,7 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bind.nextBt.setOnClickListener {
-            findNavController().navigate(R.id.action_screenIntermediate_to_vehicleScreen)
+            findNavController().navigate(R.id.action_screenIntermediate_to_whenScreen)
         }
     }
 }

@@ -15,9 +15,7 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bind.saveBtn.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_addCarScreen_to_tripDetalisScreen
-            )
+
         }
     }
 }

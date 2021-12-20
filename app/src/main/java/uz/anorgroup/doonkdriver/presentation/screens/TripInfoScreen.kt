@@ -16,7 +16,7 @@ class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bind.nextBt.setOnClickListener {
-            findNavController().navigate(R.id.action_tripInfoScreen_to_truckAddScreen)
+            findNavController().navigate(R.id.action_tripInfoScreen_to_tripDetalisScreen)
         }
     }
 }

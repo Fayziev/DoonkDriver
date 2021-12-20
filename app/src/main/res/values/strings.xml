@@ -152,4 +152,10 @@
     <string name="dalee">Далее</string>
     <string name="vnutrenni_text">Внутренние габариты кузова</string>
 
+    <!--Screen When -->
+    <string name="when_text">Когда и во сколько планируете выезд</string>
+    <string name="when">Когда</string>
+    <string name="date_out">Дата выезда</string>
+    <string name="time_out">Время выезда</string>
+
 </resources>
