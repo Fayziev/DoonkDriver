@@ -8,8 +8,6 @@ interface CarRepository {
     fun carCreate(data: CreateCarRequest): Flow<Result<CreateCarResponce>>
     fun brands(): Flow<Result<BrandsResponce>>
     fun carModels(): Flow<Result<ModelResponce>>
-    fun typesOfAvto(): Flow<Result<TypeAvtoResponce>>
-    fun typesOfBody(): Flow<Result<TypeOfBodyResponce>>
-    fun typesTransport(): Flow<Result<TypeTransportsResponce>>
+    fun typesOfBody(): Flow<Result<TypeTransportsResponce>>
 
 }

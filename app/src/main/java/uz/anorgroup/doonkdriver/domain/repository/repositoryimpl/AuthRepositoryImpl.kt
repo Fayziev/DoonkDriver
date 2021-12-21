@@ -15,7 +15,6 @@ import uz.anorgroup.doonkdriver.data.responce.auth.ContinueResponse
 import uz.anorgroup.doonkdriver.data.responce.auth.LoginResponse
 import uz.anorgroup.doonkdriver.data.responce.auth.RegisterResponse
 import uz.anorgroup.doonkdriver.data.responce.auth.VerifyResponce
-import uz.anorgroup.doonkdriver.di.RetrofitAuth
 import uz.anorgroup.doonkdriver.domain.repository.AuthRepository
 import javax.inject.Inject
 

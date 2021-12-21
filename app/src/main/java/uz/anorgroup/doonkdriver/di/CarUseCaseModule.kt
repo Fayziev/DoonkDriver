@@ -6,25 +6,25 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.anorgroup.doonkdriver.domain.usecase.car.*
 import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.car.*
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface CarUseCaseModule {
+abstract class CarUseCaseModule {
 
     @Binds
-    fun getBody(impl: BodyDialogUseCaseImpl): BodyDialogUseCase
+    abstract fun getBody(impl: BodyDialogUseCaseImpl): BodyDialogUseCase
 
     @Binds
-    fun getAvto(impl: AvtoDialogUseCase): AvtoTypeDialogUseCaseImpl
+    abstract fun getAvto(impl: AvtoTypeDialogUseCaseImpl): AvtoDialogUseCase
 
     @Binds
-    fun getTransport(impl: TypeTransportDialogUseCaseImpl): TypeTransportUseCase
+    abstract fun getTransport(impl: TypeTransportDialogUseCaseImpl): TypeTransportUseCase
 
     @Binds
-    fun getModels(impl: ModelsDialogUseCaseImpl): ModelsDialogUseCase
+    abstract fun getModels(impl: ModelsDialogUseCaseImpl): ModelsDialogUseCase
 
     @Binds
-    fun getBrands(impl: BrandsTypeDialogUseCaseImpl): BrandsDialogUseCase
-
+    abstract fun getBrands(impl: BrandsTypeDialogUseCaseImpl): BrandsDialogUseCase
 
 }

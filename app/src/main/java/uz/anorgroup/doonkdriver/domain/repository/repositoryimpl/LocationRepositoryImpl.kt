@@ -9,7 +9,6 @@ import uz.anorgroup.doonkdriver.data.api.LocationApi
 import uz.anorgroup.doonkdriver.data.pref.MyPref
 import uz.anorgroup.doonkdriver.data.responce.location.SearchCityResponce
 import uz.anorgroup.doonkdriver.data.responce.location.SearchStreetsResponce
-import uz.anorgroup.doonkdriver.di.RetrofitMain
 import uz.anorgroup.doonkdriver.domain.repository.LocationRepository
 import javax.inject.Inject
 

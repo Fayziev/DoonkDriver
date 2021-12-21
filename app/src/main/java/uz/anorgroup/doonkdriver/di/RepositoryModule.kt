@@ -14,18 +14,15 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface RepositoryModule {
+abstract class RepositoryModule {
 
     @Binds
-    @Singleton
-    fun getAppRepository(impl: AuthRepositoryImpl): AuthRepository
+    abstract fun getAppRepository(impl: AuthRepositoryImpl): AuthRepository
 
     @Binds
-    @Singleton
-    fun getCarRepository(impl: CarRepositoryImpl): CarRepository
+    abstract fun getCarRepository(impl: CarRepositoryImpl): CarRepository
 
     @Binds
-    @Singleton
-    fun getLocationRepository(impl: LocationRepositoryImpl): LocationRepository
+    abstract fun getLocationRepository(impl: LocationRepositoryImpl): LocationRepository
 
 }

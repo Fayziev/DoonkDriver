@@ -12,22 +12,23 @@ import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.auth.LoginScreenUseCa
 import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.auth.RegisterScreenUseCaseImpl
 import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.auth.StartScreenUseCaseImpl
 import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.auth.VerifyScreenUseCaseImpl
+import javax.inject.Singleton
 
 
 @Module
 @InstallIn(ViewModelComponent::class)
-interface AuthUseCaseModule {
+abstract class AuthUseCaseModule {
 
     @Binds
-    fun getRegisterUseCase(impl: RegisterScreenUseCaseImpl): RegisterScreenUseCase
+    abstract fun getRegisterUseCase(impl: RegisterScreenUseCaseImpl): RegisterScreenUseCase
 
     @Binds
-    fun getVerifyUseCase(impl: VerifyScreenUseCaseImpl): VerifyScreenUseCase
+    abstract fun getVerifyUseCase(impl: VerifyScreenUseCaseImpl): VerifyScreenUseCase
 
     @Binds
-    fun getLoginUseCase(impl: LoginScreenUseCaseImpl): LoginScreenUseCase
+    abstract fun getLoginUseCase(impl: LoginScreenUseCaseImpl): LoginScreenUseCase
 
     @Binds
-    fun getStartScreenUseCase(impl:StartScreenUseCaseImpl):StartScreenUseCase
+    abstract fun getStartScreenUseCase(impl:StartScreenUseCaseImpl):StartScreenUseCase
 
 }
