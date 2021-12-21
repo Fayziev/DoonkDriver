@@ -165,5 +165,6 @@
     <string name="streetLocation">Улица, район прибытия</string>
     <string name="date_time">Дата выезда</string>
     <string name="time_text">Время выезда</string>
+    <string name="addPunkt">+ Добавить пункт</string>
 
 </resources>
