@@ -53,25 +53,6 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
     }.flowOn(Dispatchers.IO)
 
 
-//    override fun typesOfAvto(): Flow<Result<TypeAvtoResponce>> {
-//
-//    }
-//
-//    override fun typesOfTransport(): Flow<Result<TypeAvtoResponce>> = flow {
-//        val responce = api.typesOfAvto()
-//        if (responce.isSuccessful) {
-//            emit(Result.success<TypeAvtoResponce>(responce.body()!!))
-//        } else {
-//            emit(Result.failure(Throwable(responce.errorBody().toString())))
-//        }
-//    }.catch {
-//        val errorMessage = Throwable("Sever bilan muammo bo'ldi")
-//        emit(Result.failure(errorMessage))
-//    }.flowOn(Dispatchers.IO)
-
-
-
-
     override fun typesOfBody(): Flow<Result<TypeOfBodyResponce>> = flow {
         val responce = api.typesOfBody()
         if (responce.isSuccessful) {
@@ -84,29 +65,29 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
 
-//    override fun typesTransport(): Flow<Result<TypeTransportsResponce>> = flow {
-//        val responce = api.transportTypes()
-//        if (responce.isSuccessful) {
-//            emit(Result.success<TypeTransportsResponce>(responce.body()!!))
-//        } else {
-//            emit(Result.failure(Throwable(responce.errorBody().toString())))
-//        }
-//    }.catch {
-//        val errorMessage = Throwable("Sever bilan muammo bo'ldi")
-//        emit(Result.failure(errorMessage))
-//    }.flowOn(Dispatchers.IO)
+    override fun avto(): Flow<Result<TypeAvtoResponce>> = flow {
+        val responce = api.typesOfAvto()
+        if (responce.isSuccessful) {
+            emit(Result.success<TypeAvtoResponce>(responce.body()!!))
+        } else {
+            emit(Result.failure(Throwable(responce.errorBody().toString())))
+        }
+    }.catch {
+        val errorMessage = Throwable("Sever bilan muammo bo'ldi")
+        emit(Result.failure(errorMessage))
+    }.flowOn(Dispatchers.IO)
 
-//    override fun typesAvto(): Flow<Result<TypeAvtoResponce>> = flow {
-//        val responce = api.transportTypes()
-//        if (responce.isSuccessful) {
-//            emit(Result.success<TypeAvtoResponce>(responce.body()!!))
-//        } else {
-//            emit(Result.failure(Throwable(responce.errorBody().toString())))
-//        }
-//    }.catch {
-//        val errorMessage = Throwable("Sever bilan muammo bo'ldi")
-//        emit(Result.failure(errorMessage))
-//    }.flowOn(Dispatchers.IO)
+    override fun transport(): Flow<Result<TypeTransportsResponce>> = flow {
+        val responce = api.transportTypes()
+        if (responce.isSuccessful) {
+            emit(Result.success<TypeTransportsResponce>(responce.body()!!))
+        } else {
+            emit(Result.failure(Throwable(responce.errorBody().toString())))
+        }
+    }.catch {
+        val errorMessage = Throwable("Sever bilan muammo bo'ldi")
+        emit(Result.failure(errorMessage))
+    }.flowOn(Dispatchers.IO)
 
 }
 

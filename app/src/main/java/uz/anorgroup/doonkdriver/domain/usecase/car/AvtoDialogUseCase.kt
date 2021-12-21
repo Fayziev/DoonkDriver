@@ -6,5 +6,5 @@ import uz.anorgroup.doonkdriver.data.responce.car.TypeOfBodyResponce
 
 
 interface AvtoDialogUseCase {
-    fun getTransportType(): Flow<Result<TypeOfBodyResponce>>
+    fun getTransportType(): Flow<Result<TypeAvtoResponce>>
 }

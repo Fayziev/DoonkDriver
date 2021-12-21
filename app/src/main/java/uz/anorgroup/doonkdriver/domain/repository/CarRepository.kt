@@ -9,5 +9,7 @@ interface CarRepository {
     fun brands(): Flow<Result<BrandsResponce>>
     fun carModels(): Flow<Result<ModelResponce>>
     fun typesOfBody(): Flow<Result<TypeOfBodyResponce>>
+    fun avto(): Flow<Result<TypeAvtoResponce>>
+    fun transport(): Flow<Result<TypeTransportsResponce>>
 
 }

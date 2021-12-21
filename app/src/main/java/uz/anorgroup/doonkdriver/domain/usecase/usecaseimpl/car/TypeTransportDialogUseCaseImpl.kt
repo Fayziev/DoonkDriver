@@ -7,5 +7,5 @@ import uz.anorgroup.doonkdriver.domain.usecase.car.TypeTransportUseCase
 import javax.inject.Inject
 
 class TypeTransportDialogUseCaseImpl @Inject constructor(private val repository: CarRepository) : TypeTransportUseCase {
-    override fun getTypeTransport(): Flow<Result<TypeTransportsResponce>> = repository.typesOfBody()
+    override fun getTypeTransport(): Flow<Result<TypeTransportsResponce>> = repository.transport()
 }
