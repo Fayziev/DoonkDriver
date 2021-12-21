@@ -17,11 +17,11 @@ class AddCardBottomDialog : BottomSheetDialogFragment() {
     private var easyCar: (() -> Unit)? = null
     private var normalCar: (() -> Unit)? = null
     private var hardCar: (() -> Unit)? = null
-    private val viewModel by viewModels<BodyBtDialogViewModelImpl >()
+    private val viewModel by viewModels<BodyBtDialogViewModelImpl>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme);
+        setStyle(STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -32,13 +32,13 @@ class AddCardBottomDialog : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bind.fura.setOnClickListener {
+        bind.furaCar.setOnClickListener {
             hardCar?.invoke()
         }
-        bind.lacetti.setOnClickListener {
+        bind.littleCar.setOnClickListener {
             easyCar?.invoke()
         }
-        bind.microBus.setOnClickListener {
+        bind.busCar.setOnClickListener {
             normalCar?.invoke()
         }
     }

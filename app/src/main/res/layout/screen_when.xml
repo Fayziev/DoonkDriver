@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F6F5F3">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -44,39 +45,102 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
+        android:elevation="4dp"
+        android:padding="4dp"
+        android:paddingBottom="4dp"
         android:src="@drawable/ic_calendar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/whenText" />
 
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/drawable_back"
+        app:layout_constraintTop_toBottomOf="@id/whenText" />
+
+
+    <ImageView
+        android:id="@+id/calendarOpen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/line"
+        app:layout_constraintLeft_toLeftOf="@id/back"
+        app:layout_constraintRight_toRightOf="@id/back"
+        app:layout_constraintTop_toTopOf="@id/back" />
+
+    <ImageView
+        android:id="@+id/timeOpen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/back"
+        app:layout_constraintLeft_toLeftOf="@id/back"
+        app:layout_constraintRight_toRightOf="@id/back"
+        app:layout_constraintTop_toTopOf="@id/line" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#1A000000"
+        app:layout_constraintBottom_toBottomOf="@id/back"
+        app:layout_constraintLeft_toLeftOf="@id/whereTimeOut"
+        app:layout_constraintRight_toRightOf="@id/back"
+        app:layout_constraintTop_toTopOf="@id/back" />
 
     <TextView
         android:id="@+id/whereTimeOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:text="@string/city"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/date_time"
         android:textColor="@color/profilePageTextColor"
         app:layout_constraintBottom_toBottomOf="@id/calendar"
         app:layout_constraintLeft_toRightOf="@id/calendar"
         app:layout_constraintTop_toTopOf="@id/calendar" />
 
+    <TextView
+        android:id="@+id/error1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дата отправление не заполнена"
+        android:textColor="@color/red_500"
+        android:textSize="11sp"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="@id/whereTimeOut"
+        app:layout_constraintTop_toBottomOf="@id/whereTimeOut" />
+
+    <TextView
+        android:id="@+id/error2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Время отправление не заполнена"
+        android:textColor="@color/red_500"
+        android:textSize="11sp"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="@id/whenTimeCome"
+        app:layout_constraintTop_toBottomOf="@id/whenTimeCome" />
+
     <ImageView
         android:id="@+id/clock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:padding="4dp"
         android:src="@drawable/ic_clock"
-        app:layout_constraintBottom_toBottomOf="@id/whenTimeCome"
+        app:layout_constraintBottom_toBottomOf="@id/back"
         app:layout_constraintLeft_toLeftOf="@id/calendar"
-        app:layout_constraintTop_toTopOf="@id/whenTimeCome" />
+        app:layout_constraintTop_toBottomOf="@id/line" />
 
     <TextView
         android:id="@+id/whenTimeCome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
-        android:text="@string/street"
+        android:hint="@string/time_text"
         android:textColor="@color/profilePageTextColor"
         app:layout_constraintLeft_toRightOf="@id/calendar"
         app:layout_constraintTop_toBottomOf="@id/whereTimeOut" />

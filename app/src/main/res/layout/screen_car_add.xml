@@ -254,25 +254,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <ImageView
+    <Button
         android:id="@+id/saveBtn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:layout_marginHorizontal="25dp"
         android:layout_marginBottom="21dp"
-        android:src="@drawable/ic_save_line"
-        app:layout_constraintBottom_toTopOf="@id/indicator" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Сохранить"
+        android:src="@drawable/next_bg"
         android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/saveBtn"
-        app:layout_constraintLeft_toLeftOf="@id/saveBtn"
-        app:layout_constraintRight_toRightOf="@id/saveBtn"
-        app:layout_constraintTop_toTopOf="@id/saveBtn" />
+        android:textAllCaps="false"
+        android:text="@string/save"
+        app:layout_constraintBottom_toTopOf="@id/indicator" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

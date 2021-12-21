@@ -42,6 +42,31 @@
         android:src="@drawable/ic_lacetti"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_bg" />
+    <ImageView
+        android:id="@+id/littleCar"
+        android:layout_width="0dp"
+        app:layout_constraintTop_toTopOf="@id/lacetti"
+        app:layout_constraintBottom_toBottomOf="@id/lacetti"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="0dp"/>
+
+    <ImageView
+        android:id="@+id/busCar"
+        android:layout_width="0dp"
+        app:layout_constraintTop_toTopOf="@id/micro_bus"
+        app:layout_constraintBottom_toBottomOf="@id/micro_bus"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="0dp"/>
+    <ImageView
+        android:id="@+id/furaCar"
+        android:layout_width="0dp"
+        app:layout_constraintTop_toTopOf="@id/fura"
+        app:layout_constraintBottom_toBottomOf="@id/fura"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="0dp"/>
 
     <ImageView
         android:id="@+id/micro_bus"
@@ -53,6 +78,8 @@
         android:src="@drawable/ic_bus_2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lacetti" />
+
+
 
     <ImageView
         android:id="@+id/fura"

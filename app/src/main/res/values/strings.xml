@@ -4,8 +4,8 @@
 
     <string name="kuda">Откуда вы выезжаете?</string>
     <string name="createTrip">Создание поездки</string>
-    <string name="city">Город, населенный пункт?</string>
-    <string name="street">Улица, район отправления?</string>
+    <string name="city">Город, населенный пункт</string>
+    <string name="street">Улица, район отправления</string>
     <string name="your_directions">Куда вы едете?</string>
     <string name="street_directions">Куда вы едете?</string>
     <string name="next">Далее</string>
@@ -161,5 +161,9 @@
     <!--Screen When -->
     <string name="type_transport">Тип транспорта</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="road_map">Road Map</string>
+    <string name="streetLocation">Улица, район прибытия</string>
+    <string name="date_time">Дата выезда</string>
+    <string name="time_text">Время выезда</string>
 
 </resources>

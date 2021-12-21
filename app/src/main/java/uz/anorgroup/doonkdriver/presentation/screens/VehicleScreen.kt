@@ -26,16 +26,18 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
             dialog.show(childFragmentManager, "CardDialog")
 
             dialog.setEasyCar {
-
                 findNavController().navigate(R.id.action_vehicleScreen_to_truckAddScreen)
+                dialog.dismiss()
             }
 
             dialog.setNormalCar {
                 findNavController().navigate(R.id.action_vehicleScreen_to_truckAddScreen)
+                dialog.dismiss()
             }
 
             dialog.setHardCar {
                 findNavController().navigate(R.id.action_vehicleScreen_to_truckAddScreen)
+                dialog.dismiss()
             }
         }
     }

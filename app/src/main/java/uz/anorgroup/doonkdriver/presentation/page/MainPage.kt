@@ -1,21 +1,33 @@
 package uz.anorgroup.doonkdriver.presentation.page
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.PageMainBinding
+import uz.anorgroup.doonkdriver.presentation.adapters.PageAdapter
+import uz.anorgroup.doonkdriver.utils.scope
 
 @AndroidEntryPoint
 class MainPage : Fragment(R.layout.page_main) {
     private val bind by viewBinding(PageMainBinding::bind)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
+
+        val adapter = PageAdapter(childFragmentManager, lifecycle)
+        pager.adapter = adapter
+        TabLayoutMediator(tablayout, pager) { tab, position ->
+            when (position) {
+                0 -> tab.text = "New Orders"
+                1 -> tab.text = "In Progress"
+                else -> tab.text = "Finished"
+            }
+        }.attach()
 
     }
 }
