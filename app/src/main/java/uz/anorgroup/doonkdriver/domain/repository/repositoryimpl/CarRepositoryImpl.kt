@@ -53,7 +53,7 @@ class CarRepositoryImpl @Inject @RetrofitMain constructor(private val api: CarAp
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
 
-    override fun typesOfTransport(): Flow<Result<TypeAvtoResponce>> = flow {
+    override fun typesOfAvto(): Flow<Result<TypeAvtoResponce>> = flow {
         val responce = api.typesOfAvto()
         if (responce.isSuccessful) {
             emit(Result.success<TypeAvtoResponce>(responce.body()!!))
@@ -64,6 +64,9 @@ class CarRepositoryImpl @Inject @RetrofitMain constructor(private val api: CarAp
         val errorMessage = Throwable("Sever bilan muammo bo'ldi")
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
+
+
+
 
     override fun typesOfBody(): Flow<Result<TypeOfBodyResponce>> = flow {
         val responce = api.typesOfBody()
@@ -77,7 +80,7 @@ class CarRepositoryImpl @Inject @RetrofitMain constructor(private val api: CarAp
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
 
-    override fun typesAvto(): Flow<Result<TypeTransportsResponce>> = flow {
+    override fun typesTransport(): Flow<Result<TypeTransportsResponce>> = flow {
         val responce = api.transportTypes()
         if (responce.isSuccessful) {
             emit(Result.success<TypeTransportsResponce>(responce.body()!!))
@@ -88,6 +91,5 @@ class CarRepositoryImpl @Inject @RetrofitMain constructor(private val api: CarAp
         val errorMessage = Throwable("Sever bilan muammo bo'ldi")
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
-
 }
 
