@@ -1,5 +1,8 @@
 package uz.anorgroup.doonkdriver.presentation.adapters
 
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +13,9 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.responce.location.DataStreet
 import uz.anorgroup.doonkdriver.databinding.ItemTransportTypeBinding
+import uz.anorgroup.doonkdriver.utils.getColor
 
-class StreetsAdapter : ListAdapter<DataStreet, StreetsAdapter.HistoryVH>(MyDifUtils) {
+class StreetsAdapter(var query: String) : ListAdapter<DataStreet, StreetsAdapter.HistoryVH>(MyDifUtils) {
     private var itemListener: ((DataStreet) -> Unit)? = null
 
     object MyDifUtils : DiffUtil.ItemCallback<DataStreet>() {
@@ -35,7 +39,12 @@ class StreetsAdapter : ListAdapter<DataStreet, StreetsAdapter.HistoryVH>(MyDifUt
 
         fun load() {
             val value = getItem(absoluteAdapterPosition) as DataStreet
-            bind.transportType.text = value.name
+            val spanSt = SpannableString(value.name)
+            val foregrounSpan = ForegroundColorSpan(getColor(android.R.color.holo_purple))
+            val startIndex = value.name.indexOf(query, 0, true)//  salom  a=1 5-1=4
+            val lastIndex = startIndex + query.length
+            spanSt.setSpan(foregrounSpan, startIndex, lastIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            bind.transportType.text = spanSt
         }
     }
 

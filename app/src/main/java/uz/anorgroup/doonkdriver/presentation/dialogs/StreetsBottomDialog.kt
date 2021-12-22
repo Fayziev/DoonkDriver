@@ -1,9 +1,13 @@
 package uz.anorgroup.doonkdriver.presentation.dialogs
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,7 +28,10 @@ import uz.anorgroup.doonkdriver.utils.showToast
 @AndroidEntryPoint
 class StreetsBottomDialog : BottomSheetDialogFragment() {
     private val viewModel: StreetsViewModels by viewModels<StreetsViewModelImpl>()
-    private val adapter = StreetsAdapter()
+    private val adapter = StreetsAdapter("")
+    private lateinit var hendler: Handler
+    private var querySt = ""
+    private var cityQuery = ""
     private var listener: ((DataStreet) -> Unit)? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +46,8 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
         listView.adapter = adapter
         listView.layoutManager = LinearLayoutManager(requireContext())
         arguments?.getString("id")?.let {
-            viewModel.getStreets(it, "")
+            cityQuery = it
+            viewModel.getStreets(cityQuery, querySt)
             showToast(it)
         }
         adapter.setListener {
@@ -52,6 +60,37 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
         viewModel.errorFlow.onEach {
             showToast("Error")
         }.launchIn(lifecycleScope)
+
+
+        hendler = Handler(Looper.getMainLooper())
+        bind.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onQueryTextSubmit(query: String?): Boolean {
+//                hendler.removeCallbacksAndMessages(null)
+//                query?.let {
+//                    querySt = it.trim()
+//                    adapter.query = querySt
+//                    viewModel.getStreets(cityQuery, querySt)
+//                    bind.searchView.setQuery(querySt, false)
+//                }
+                return true
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onQueryTextChange(newText: String?): Boolean {
+                hendler.removeCallbacksAndMessages(null)
+                hendler.postDelayed({
+                    newText?.let {
+                        querySt = it.trim()
+                        viewModel.getStreets(cityQuery, querySt)
+                        adapter.query = querySt
+                        bind.searchView.setQuery(querySt, false)
+                    }
+                }, 500)
+                return true
+            }
+        })
 
     }
 

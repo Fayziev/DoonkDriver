@@ -51,7 +51,6 @@ class CreatePage : Fragment(R.layout.screen_create_order) {
         }
 
         bind.whereCity.setOnClickListener {
-            showToast("click")
             val dialog = CitysBottomDialog()
             dialog.setListener {
                 bind.whereCity.text = it.name
