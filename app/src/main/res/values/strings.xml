@@ -77,7 +77,7 @@
     <!--Screen Vehicle Type-->
     <string name="autoCar">Автомобиль</string>
     <string name="your_car">Какой у вас автомобиль?</string>
-    <string name="chevrolet_lacetti">Chevrolet Lacetti</string>
+    <string name="chevrolet_lacetti">Chevrolet</string>
     <string name="bus">МAN 40/ft Long</string>
     <string name="fura">МAN 40/ft Long</string>
     <string name="addCar">+ Добавить автомобиль</string>
@@ -166,5 +166,9 @@
     <string name="date_time">Дата выезда</string>
     <string name="time_text">Время выезда</string>
     <string name="addPunkt">+ Добавить пункт</string>
+    <string name="type_loading">Тип загрузки</string>
+    <string name="select_type_loading">Выберите тип загрузки</string>
+    <string name="gruzovik">Грузовик</string>
+    <string name="license_plate">Госномер</string>
 
 </resources>

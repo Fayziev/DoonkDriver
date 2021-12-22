@@ -8,18 +8,19 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.responce.car.CarData
 import uz.anorgroup.doonkdriver.data.responce.car.TransportData
 import uz.anorgroup.doonkdriver.databinding.ItemTransportTypeBinding
 
-class TransportTypeAdapter : ListAdapter<List<TransportData>, TransportTypeAdapter.HistoryVH>(MyDifUtils) {
-    private var itemListener: ((List<TransportData>) -> Unit)? = null
+class TransportTypeAdapter : ListAdapter<TransportData, TransportTypeAdapter.HistoryVH>(MyDifUtils) {
+    private var itemListener: ((TransportData) -> Unit)? = null
 
-    object MyDifUtils : DiffUtil.ItemCallback<List<TransportData>>() {
-        override fun areItemsTheSame(oldItem: List<TransportData>, newItem: List<TransportData>): Boolean {
+    object MyDifUtils : DiffUtil.ItemCallback<TransportData>() {
+        override fun areItemsTheSame(oldItem: TransportData, newItem: TransportData): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: List<TransportData>, newItem: List<TransportData>): Boolean {
+        override fun areContentsTheSame(oldItem: TransportData, newItem: TransportData): Boolean {
             return oldItem == newItem
         }
     }
@@ -28,9 +29,9 @@ class TransportTypeAdapter : ListAdapter<List<TransportData>, TransportTypeAdapt
         private val bind by viewBinding(ItemTransportTypeBinding::bind)
 
         init {
-//            bind.item.setOnClickListener {
-//                getItem(absoluteAdapterPosition)?.let { it1 -> itemListener?.invoke(it1) }
-//            }
+            itemView.setOnClickListener {
+                getItem(absoluteAdapterPosition)?.let { it1 -> itemListener?.invoke(it1) }
+            }
         }
 
         fun load() {
@@ -45,4 +46,8 @@ class TransportTypeAdapter : ListAdapter<List<TransportData>, TransportTypeAdapt
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryVH =
         HistoryVH(LayoutInflater.from(parent.context).inflate(R.layout.item_transport_type, parent, false))
+
+    fun setListener(f: (TransportData) -> Unit) {
+        itemListener = f
+    }
 }

@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 //            if (it) navController.startDestination = R.id.mainScreen
 //            else navController.startDestination = R.id.loginScreen
 //        }.launchIn(lifecycleScope)
-
+//
 //        receiver.setListener {
 //            if (it) navController.startDestination = R.id.mainScreen
 //            else navController.startDestination = R.id.internetConnectionScreen

@@ -8,25 +8,24 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.responce.car.TypeBodyData
+import uz.anorgroup.doonkdriver.data.responce.car.DataItem
 import uz.anorgroup.doonkdriver.databinding.ItemCarBinding
-import uz.anorgroup.doonkdriver.databinding.ItemTransportTypeBinding
 
-class TypeOfBodyAdapter : ListAdapter<TypeBodyData, TypeOfBodyAdapter.HistoryVH>(MyDifUtils) {
-    private var itemListener: ((TypeBodyData) -> Unit)? = null
+class AllCarsAdapter : ListAdapter<DataItem, AllCarsAdapter.HistoryVH>(MyDifUtils) {
+    private var itemListener: ((DataItem) -> Unit)? = null
 
-    object MyDifUtils : DiffUtil.ItemCallback<TypeBodyData>() {
-        override fun areItemsTheSame(oldItem: TypeBodyData, newItem: TypeBodyData): Boolean {
+    object MyDifUtils : DiffUtil.ItemCallback<DataItem>() {
+        override fun areItemsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: TypeBodyData, newItem: TypeBodyData): Boolean {
+        override fun areContentsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
             return oldItem == newItem
         }
     }
 
     inner class HistoryVH(view: View) : RecyclerView.ViewHolder(view) {
-        private val bind by viewBinding(ItemTransportTypeBinding::bind)
+        private val bind by viewBinding(ItemCarBinding::bind)
 
         init {
             itemView.setOnClickListener {
@@ -35,8 +34,9 @@ class TypeOfBodyAdapter : ListAdapter<TypeBodyData, TypeOfBodyAdapter.HistoryVH>
         }
 
         fun load() {
-            val value = getItem(absoluteAdapterPosition)
-            bind.transportType.text = value.name
+            val value = getItem(absoluteAdapterPosition) as DataItem
+            bind.textMarka.text = value.brand
+            bind.textModel.text = value.model
         }
     }
 
@@ -45,9 +45,9 @@ class TypeOfBodyAdapter : ListAdapter<TypeBodyData, TypeOfBodyAdapter.HistoryVH>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryVH =
-        HistoryVH(LayoutInflater.from(parent.context).inflate(R.layout.item_transport_type, parent, false))
+        HistoryVH(LayoutInflater.from(parent.context).inflate(R.layout.item_car, parent, false))
 
-    fun setListener(f: (TypeBodyData) -> Unit) {
+    fun setListener(f: (DataItem) -> Unit) {
         itemListener = f
     }
 }

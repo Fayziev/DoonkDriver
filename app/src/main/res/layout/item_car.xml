@@ -9,10 +9,10 @@
         android:layout_height="0dp"
         android:layout_marginHorizontal="20dp"
         android:background="@drawable/profile_page_atr_bg"
-        app:layout_constraintBottom_toBottomOf="@id/text_lacetti"
+        app:layout_constraintBottom_toBottomOf="@id/text_marka"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/text_lacetti" />
+        app:layout_constraintTop_toTopOf="@id/text_marka" />
 
     <ImageView
         android:id="@+id/lacetti"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_lacetti"
+        android:id="@+id/text_marka"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
@@ -37,5 +37,17 @@
         app:layout_constraintBottom_toBottomOf="@id/lacetti"
         app:layout_constraintLeft_toRightOf="@id/lacetti"
         app:layout_constraintTop_toTopOf="@id/lacetti" />
+    <TextView
+        android:id="@+id/text_model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:padding="15dp"
+        android:text="@string/chevrolet_lacetti"
+        android:textColor="@color/realBlack"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/text_marka"
+        app:layout_constraintLeft_toRightOf="@id/text_marka"
+        app:layout_constraintTop_toTopOf="@id/text_marka" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

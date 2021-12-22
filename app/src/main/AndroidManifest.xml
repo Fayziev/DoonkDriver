@@ -9,7 +9,15 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -29,7 +37,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoonkDriver"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m" >
+        tools:targetApi="m">
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -45,10 +53,6 @@
 
 
         <activity
-            android:name=".presentation.MapsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_maps" />
-        <activity
             android:name=".presentation.MainActivity"
             android:exported="true" >
             <intent-filter>
@@ -60,7 +64,7 @@
 
         <receiver
             android:name=".data.reciver.InternetBroadCast"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action
                     android:name="android.net.conn.CONNECTIVITY_CHANGE"
@@ -68,6 +72,8 @@
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
+
+
     </application>
 
 </manifest>

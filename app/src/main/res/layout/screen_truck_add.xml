@@ -86,29 +86,25 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/load_car_line" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <ImageView
         android:id="@+id/tip_transporta_line"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
-        android:background="@color/white"
-        android:clickable="true"
-        android:focusable="true"
-        android:hint="Грузовик"
+        android:src="@drawable/ic_tip_line"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tip_transport">
+        app:layout_constraintTop_toBottomOf="@id/tip_transport"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/type_transport_edit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:focusable="true" />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/type_transport_text"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tip_transporta_line"
+        app:layout_constraintBottom_toBottomOf="@id/tip_transporta_line"
+        app:layout_constraintLeft_toLeftOf="@id/tip_transporta_line"
+        android:layout_marginStart="16dp"
+        android:hint="@string/gruzovik"
+        android:layout_height="wrap_content"/>
 
     <ImageView
         android:id="@+id/down_icon"
@@ -132,29 +128,27 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tip_transporta_line" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <ImageView
         android:id="@+id/tip_kuzova_line"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_tip_line"
         android:layout_marginHorizontal="25dp"
-        android:background="@color/white"
-        android:clickable="true"
-        android:focusable="true"
-        android:hint="Выберите тип загрузки"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_text">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/select_type_edit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:focusable="true" />
+        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_text"/>
 
 
-    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/type_kuzova_text"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tip_kuzova_line"
+        app:layout_constraintBottom_toBottomOf="@id/tip_kuzova_line"
+        app:layout_constraintLeft_toLeftOf="@id/tip_kuzova_line"
+        android:layout_marginStart="16dp"
+        android:hint="@string/select_type_loading"
+        android:layout_height="wrap_content"/>
+
 
     <ImageView
         android:layout_width="wrap_content"
