@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/vehicleScreen">
+    app:startDestination="@id/mainScreen">
 
     <fragment
         android:id="@+id/loginScreen"
@@ -85,7 +85,7 @@
         android:id="@+id/tripDetalisScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.TripDetalisScreen"
         android:label="TripDetalisScreen"
-        tools:layout="@layout/screen_trip_detalis" >
+        tools:layout="@layout/screen_trip_detalis">
         <action
             android:id="@+id/action_tripDetalisScreen_to_showTripScreen"
             app:destination="@id/showTripScreen" />
@@ -94,7 +94,7 @@
         android:id="@+id/seatScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.SeatScreen"
         android:label="SeatScreen"
-        tools:layout="@layout/screen_seat" >
+        tools:layout="@layout/screen_seat">
         <action
             android:id="@+id/action_seatScreen_to_tripInfoScreen"
             app:destination="@id/tripInfoScreen" />
@@ -110,7 +110,7 @@
         android:id="@+id/truckAddScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.TruckAddScreen"
         android:label="TruckAddScreen"
-        tools:layout="@layout/screen_truck_add" >
+        tools:layout="@layout/screen_truck_add">
         <action
             android:id="@+id/action_truckAddScreen_to_addCarScreen"
             app:destination="@id/addCarScreen" />
@@ -124,7 +124,7 @@
         android:id="@+id/tripInfoScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.TripInfoScreen"
         android:label="TripInfoScreen"
-        tools:layout="@layout/screen_trip_info" >
+        tools:layout="@layout/screen_trip_info">
         <action
             android:id="@+id/action_tripInfoScreen_to_tripDetalisScreen"
             app:destination="@id/tripDetalisScreen" />
@@ -136,9 +136,9 @@
         tools:layout="@layout/screen_internet_connection" />
     <fragment
         android:id="@+id/whenScreen"
-        tools:layout="@layout/screen_when"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.WhenScreen"
-        android:label="WhenScreen" >
+        android:label="WhenScreen"
+        tools:layout="@layout/screen_when">
         <action
             android:id="@+id/action_whenScreen_to_vehicleScreen"
             app:destination="@id/vehicleScreen" />

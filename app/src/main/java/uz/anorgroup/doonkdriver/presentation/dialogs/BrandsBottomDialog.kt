@@ -50,8 +50,9 @@ class BrandsBottomDialog : BottomSheetDialogFragment() {
             showToast("Error")
         }.launchIn(lifecycleScope)
     }
-    fun setListener(f:(String)->Unit){
-        listener=f
+
+    fun setListener(f: (String) -> Unit) {
+        listener = f
     }
 
 }

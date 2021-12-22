@@ -31,6 +31,7 @@ class CitysViewModelImpl @Inject constructor(private val useCase: CitysDialogUse
         viewModelScope.launch {
             progressFlow.emit(true)
         }
+
         useCase.getCitys(query).onEach {
             it.onSuccess { value ->
                 progressFlow.emit(false)
