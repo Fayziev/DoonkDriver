@@ -21,7 +21,7 @@ class CitysViewModelImpl @Inject constructor(private val useCase: CitysDialogUse
     override val successFlow = eventValueFlow<SearchCityResponce>()
     override val openVerifyFlow = eventValueFlow<Unit>()
 
-    override fun getCitys() {
+    override fun getCitys(query:String) {
         if (!isConnected()) {
             viewModelScope.launch {
                 errorFlow.emit("Internet bilan muammo bo'ldi")
@@ -31,7 +31,7 @@ class CitysViewModelImpl @Inject constructor(private val useCase: CitysDialogUse
         viewModelScope.launch {
             progressFlow.emit(true)
         }
-        useCase.getCitys().onEach {
+        useCase.getCitys(query).onEach {
             it.onSuccess { value ->
                 progressFlow.emit(false)
                 successFlow.emit(value)

@@ -11,13 +11,13 @@ import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.location.StreetsDialo
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface LocationUseCaseModule {
+abstract class LocationUseCaseModule {
 
     @Binds
-    fun getStreets(impl: StreetsDialogUseCaseImpl): StreetssDialogUseCase
+    abstract fun getStreets(impl: StreetsDialogUseCaseImpl): StreetssDialogUseCase
 
     @Binds
-    fun getCitys(impl: CitysDialogUseCaseImpl): CitysDialogUseCase
+    abstract fun getCitys(impl: CitysDialogUseCaseImpl): CitysDialogUseCase
 
 
 }

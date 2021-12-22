@@ -9,6 +9,6 @@ interface AvtoTypeDialogViewModel {
     val successFlow: Flow<TypeAvtoResponce>
     val openVerifyFlow: Flow<Unit>
 
-    fun continueSignUpRequest()
+    fun autoTypeRequest()
 
 }

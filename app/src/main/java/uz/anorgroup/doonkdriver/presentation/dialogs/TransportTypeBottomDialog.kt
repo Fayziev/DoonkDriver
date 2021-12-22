@@ -13,23 +13,16 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.responce.car.ModelData
-import uz.anorgroup.doonkdriver.databinding.BottomDialogMarksBinding
 import uz.anorgroup.doonkdriver.databinding.BottomDialogTypeTransprortBinding
-import uz.anorgroup.doonkdriver.presentation.adapters.ModelTypeAdapter2
 import uz.anorgroup.doonkdriver.presentation.adapters.TransportTypeAdapter
-import uz.anorgroup.doonkdriver.presentation.adapters.TypeOfBodyAdapter
-import uz.anorgroup.doonkdriver.presentation.viewmodel.BodyBtDialogViewModel
-import uz.anorgroup.doonkdriver.presentation.viewmodel.TypesTransportViewModel
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.BodyBtDialogViewModelImpl
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.ModelsDialogViewModelImpl
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.TransporTypesViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.viewmodel.car.TypesTransportViewModel
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.TransporTypesViewModelImpl
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
 
 @AndroidEntryPoint
 class TransportTypeBottomDialog : BottomSheetDialogFragment() {
-    private val viewModel:TypesTransportViewModel by viewModels<TransporTypesViewModelImpl>()
+    private val viewModel: TypesTransportViewModel by viewModels<TransporTypesViewModelImpl>()
     private val adapter = TransportTypeAdapter()
     private var listener: ((String) -> Unit)? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +50,8 @@ class TransportTypeBottomDialog : BottomSheetDialogFragment() {
             showToast("Error")
         }.launchIn(lifecycleScope)
     }
-    fun setListener(f:(String)->Unit){
-        listener=f
+
+    fun setListener(f: (String) -> Unit) {
+        listener = f
     }
 }

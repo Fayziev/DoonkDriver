@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private val viewModel: StartScreenViewModel by viewModels<StartScreenViewModelImpl>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.registerReceiver(receiver, IntentFilter())
-        val navHost = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
-        val navController = navHost.navController.navInflater.inflate(R.navigation.nav_graph)
+//        this.registerReceiver(receiver, IntentFilter())
+//        val navHost = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
+//        val navController = navHost.navController.navInflater.inflate(R.navigation.nav_graph)
 //        viewModel.startScreenFlow.onEach {
 //            if (it) navController.startDestination = R.id.mainScreen
 //            else navController.startDestination = R.id.loginScreen
@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 //            else navController.startDestination = R.id.internetConnectionScreen
 //            navHost.navController.graph = navController
 //        }
-
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 }

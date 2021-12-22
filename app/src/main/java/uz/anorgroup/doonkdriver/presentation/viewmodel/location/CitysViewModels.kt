@@ -9,6 +9,6 @@ interface CitysViewModels {
     val successFlow: Flow<SearchCityResponce>
     val openVerifyFlow: Flow<Unit>
 
-    fun getCitys()
+    fun getCitys(query:String)
 
 }

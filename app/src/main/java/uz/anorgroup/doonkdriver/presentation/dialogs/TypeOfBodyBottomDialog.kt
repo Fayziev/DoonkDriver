@@ -13,20 +13,16 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.responce.car.ModelData
-import uz.anorgroup.doonkdriver.databinding.BottomDialogMarksBinding
 import uz.anorgroup.doonkdriver.databinding.BottomDialogTypeLoadingBinding
-import uz.anorgroup.doonkdriver.presentation.adapters.ModelTypeAdapter2
 import uz.anorgroup.doonkdriver.presentation.adapters.TypeOfBodyAdapter
-import uz.anorgroup.doonkdriver.presentation.viewmodel.BodyBtDialogViewModel
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.BodyBtDialogViewModelImpl
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.ModelsDialogViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.viewmodel.car.BodyBtDialogViewModel
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.BodyBtDialogViewModelImpl
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
 
 @AndroidEntryPoint
 class TypeOfBodyBottomDialog : BottomSheetDialogFragment() {
-    private val viewModel:BodyBtDialogViewModel by viewModels<BodyBtDialogViewModelImpl>()
+    private val viewModel: BodyBtDialogViewModel by viewModels<BodyBtDialogViewModelImpl>()
     private val adapter = TypeOfBodyAdapter()
     private var listener: ((String) -> Unit)? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,8 +50,9 @@ class TypeOfBodyBottomDialog : BottomSheetDialogFragment() {
             showToast("Error")
         }.launchIn(lifecycleScope)
     }
-    fun setListener(f:(String)->Unit){
-        listener=f
+
+    fun setListener(f: (String) -> Unit) {
+        listener = f
     }
 
 }
