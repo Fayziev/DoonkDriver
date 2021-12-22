@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkdriver.presentation.viewmodel.impl
+package uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,18 +6,19 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import uz.anorgroup.doonkdriver.data.responce.car.TypeAvtoResponce
-import uz.anorgroup.doonkdriver.domain.usecase.car.AvtoDialogUseCase
-import uz.anorgroup.doonkdriver.presentation.viewmodel.AvtoTypeDialogViewModel
+import uz.anorgroup.doonkdriver.data.responce.car.BrandsResponce
+import uz.anorgroup.doonkdriver.domain.usecase.car.BrandsDialogUseCase
+import uz.anorgroup.doonkdriver.presentation.viewmodel.car.BrandTypeDialogViewModel
 import uz.anorgroup.doonkdriver.utils.eventValueFlow
 import uz.anorgroup.doonkdriver.utils.isConnected
 import javax.inject.Inject
 
+
 @HiltViewModel
-class AvtoTypeDialogViewModelImpl @Inject constructor(private val useCase: AvtoDialogUseCase) : AvtoTypeDialogViewModel, ViewModel() {
+class BrandTypeDialogViewModelImpl @Inject constructor(private val useCase: BrandsDialogUseCase) : BrandTypeDialogViewModel, ViewModel() {
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
-    override val successFlow = eventValueFlow<TypeAvtoResponce>()
+    override val successFlow = eventValueFlow<BrandsResponce>()
     override val openVerifyFlow = eventValueFlow<Unit>()
 
     override fun continueSignUpRequest() {

@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkdriver.presentation.viewmodel.impl
+package uz.anorgroup.doonkdriver.presentation.viewmodel.impl.location
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,21 +6,22 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import uz.anorgroup.doonkdriver.data.responce.car.TypeOfBodyResponce
-import uz.anorgroup.doonkdriver.domain.usecase.car.BodyDialogUseCase
-import uz.anorgroup.doonkdriver.presentation.viewmodel.BodyBtDialogViewModel
+import uz.anorgroup.doonkdriver.data.responce.location.SearchStreetsResponce
+import uz.anorgroup.doonkdriver.domain.usecase.location.StreetssDialogUseCase
+import uz.anorgroup.doonkdriver.presentation.viewmodel.location.StreetsViewModels
 import uz.anorgroup.doonkdriver.utils.eventValueFlow
 import uz.anorgroup.doonkdriver.utils.isConnected
 import javax.inject.Inject
 
+
 @HiltViewModel
-class BodyBtDialogViewModelImpl @Inject constructor(private val useCase: BodyDialogUseCase) : BodyBtDialogViewModel, ViewModel() {
+class StreetsViewModelImpl @Inject constructor(private val useCase: StreetssDialogUseCase) : StreetsViewModels, ViewModel() {
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
-    override val successFlow = eventValueFlow<TypeOfBodyResponce>()
+    override val successFlow = eventValueFlow<SearchStreetsResponce>()
     override val openVerifyFlow = eventValueFlow<Unit>()
 
-    override fun continueSignUpRequest() {
+    override fun getCitys(city: String, query: String) {
         if (!isConnected()) {
             viewModelScope.launch {
                 errorFlow.emit("Internet bilan muammo bo'ldi")
@@ -30,7 +31,8 @@ class BodyBtDialogViewModelImpl @Inject constructor(private val useCase: BodyDia
         viewModelScope.launch {
             progressFlow.emit(true)
         }
-        useCase.getBody().onEach {
+
+        useCase.getStreets(city, query).onEach {
             it.onSuccess { value ->
                 progressFlow.emit(false)
                 successFlow.emit(value)

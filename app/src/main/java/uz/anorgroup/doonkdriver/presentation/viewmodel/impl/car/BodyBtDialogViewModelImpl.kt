@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkdriver.presentation.viewmodel.impl
+package uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,21 +6,21 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import uz.anorgroup.doonkdriver.data.responce.car.TypeTransportsResponce
-import uz.anorgroup.doonkdriver.domain.usecase.car.TypeTransportUseCase
-import uz.anorgroup.doonkdriver.presentation.viewmodel.TypesTransportViewModel
+import uz.anorgroup.doonkdriver.data.responce.car.TypeOfBodyResponce
+import uz.anorgroup.doonkdriver.domain.usecase.car.BodyDialogUseCase
+import uz.anorgroup.doonkdriver.presentation.viewmodel.car.BodyBtDialogViewModel
 import uz.anorgroup.doonkdriver.utils.eventValueFlow
 import uz.anorgroup.doonkdriver.utils.isConnected
 import javax.inject.Inject
 
-@HiltViewModel//getTransportTypes
-class TransporTypesViewModelImpl @Inject constructor(private val useCase: TypeTransportUseCase) : TypesTransportViewModel, ViewModel() {
+@HiltViewModel
+class BodyBtDialogViewModelImpl @Inject constructor(private val useCase: BodyDialogUseCase) : BodyBtDialogViewModel, ViewModel() {
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
-    override val successFlow = eventValueFlow<TypeTransportsResponce>()
+    override val successFlow = eventValueFlow<TypeOfBodyResponce>()
     override val openVerifyFlow = eventValueFlow<Unit>()
 
-    override fun getTransportTypes() {
+    override fun continueSignUpRequest() {
         if (!isConnected()) {
             viewModelScope.launch {
                 errorFlow.emit("Internet bilan muammo bo'ldi")
@@ -30,7 +30,7 @@ class TransporTypesViewModelImpl @Inject constructor(private val useCase: TypeTr
         viewModelScope.launch {
             progressFlow.emit(true)
         }
-        useCase.getTypeTransport().onEach {
+        useCase.getBody().onEach {
             it.onSuccess { value ->
                 progressFlow.emit(false)
                 successFlow.emit(value)

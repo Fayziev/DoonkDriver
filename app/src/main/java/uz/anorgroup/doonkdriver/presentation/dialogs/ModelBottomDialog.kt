@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.BottomDialogMarksBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.ModelTypeAdapter
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.ModelsDialogViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.ModelsDialogViewModelImpl
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
 

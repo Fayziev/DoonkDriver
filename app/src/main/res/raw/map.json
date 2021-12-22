@@ -1,0 +1,327 @@
+{
+  "geocoded_waypoints" : [
+    {
+      "geocoder_status" : "OK",
+      "place_id" : "ChIJYefS1FqLrjgRLAlDJWAi3EQ",
+      "types" : [ "route" ]
+    },
+    {
+      "geocoder_status" : "OK",
+      "place_id" : "ChIJL4WAl0CKrjgRwIgFTLRyZi8",
+      "types" : [
+        "bus_station",
+        "establishment",
+        "point_of_interest",
+        "transit_station"
+      ]
+    }
+  ],
+  "routes" : [
+    {
+      "bounds" : {
+        "northeast" : {
+          "lat" : 41.3381628,
+          "lng" : 69.27329829999999
+        },
+        "southwest" : {
+          "lat" : 41.2788539,
+          "lng" : 69.2170972
+        }
+      },
+      "copyrights" : "Map data ©2021",
+      "legs" : [
+        {
+          "distance" : {
+            "text" : "10,8 км",
+            "value" : 10840
+          },
+          "duration" : {
+            "text" : "17 мин.",
+            "value" : 1048
+          },
+          "end_address" : "Махалля Козирабад, Тошкент 100115, Узбекистан",
+          "end_location" : {
+            "lat" : 41.27925949999999,
+            "lng" : 69.2170972
+          },
+          "start_address" : "Xurshid ko'chasi, Тошкент, Узбекистан",
+          "start_location" : {
+            "lat" : 41.3347116,
+            "lng" : 69.27329829999999
+          },
+          "steps" : [
+            {
+              "distance" : {
+                "text" : "0,5 км",
+                "value" : 469
+              },
+              "duration" : {
+                "text" : "2 мин.",
+                "value" : 107
+              },
+              "end_location" : {
+                "lat" : 41.3312666,
+                "lng" : 69.2703617
+              },
+              "html_instructions" : "Направляйтесь на \u003cb\u003eюго-запад\u003c/b\u003e по \u003cb\u003eXurshid ko'chasi\u003c/b\u003e в сторону \u003cb\u003eНурафшон кўчаси\u003c/b\u003e",
+              "polyline" : {
+                "points" : "}dh{Fc}xeLRJn@`@l@f@b@X`@XXN^DV@XBd@@PBNFLHFDZ\\l@v@DDb@j@bAxAxA|BHHP\\"
+              },
+              "start_location" : {
+                "lat" : 41.3347116,
+                "lng" : 69.27329829999999
+              },
+              "travel_mode" : "DRIVING"
+            },
+            {
+              "distance" : {
+                "text" : "1,3 км",
+                "value" : 1348
+              },
+              "duration" : {
+                "text" : "2 мин.",
+                "value" : 148
+              },
+              "end_location" : {
+                "lat" : 41.3380932,
+                "lng" : 69.25711679999999
+              },
+              "html_instructions" : "\u003cb\u003eXurshid ko'chasi\u003c/b\u003e поворачивает \u003cb\u003eнаправо\u003c/b\u003e и переходит в \u003cb\u003eНурафшон кўчаси\u003c/b\u003e",
+              "polyline" : {
+                "points" : "mog{FwjxeLs@fAy@jAq@dAcAdBsA|C{@rBg@jAy@jBw@hBcAzBcBzDo@hBY~@UnAOv@UhAYjAg@xAc@bAGN_AhBqArCmArCk@rAeBvEw@vB"
+              },
+              "start_location" : {
+                "lat" : 41.3312666,
+                "lng" : 69.2703617
+              },
+              "travel_mode" : "DRIVING"
+            },
+            {
+              "distance" : {
+                "text" : "2,1 км",
+                "value" : 2109
+              },
+              "duration" : {
+                "text" : "3 мин.",
+                "value" : 191
+              },
+              "end_location" : {
+                "lat" : 41.3227307,
+                "lng" : 69.2427132
+              },
+              "html_instructions" : "Поверните \u003cb\u003eналево\u003c/b\u003e на \u003cb\u003eСебзор кўчаси\u003c/b\u003e",
+              "maneuver" : "turn-left",
+              "polyline" : {
+                "points" : "azh{F_xueLMb@XRt@b@dA`AZXFFtArAbC`CpAnA`@b@bE~DzCxCFF`CbCbIzHfBfBrBpB|@z@rBnBxApAz@z@@Bx@x@jBhBjDlD~CjD\\Td@d@zAjAdDjBtBhAjC|APJdBvA"
+              },
+              "start_location" : {
+                "lat" : 41.3380932,
+                "lng" : 69.25711679999999
+              },
+              "travel_mode" : "DRIVING"
+            },
+            {
+              "distance" : {
+                "text" : "0,1 км",
+                "value" : 148
+              },
+              "duration" : {
+                "text" : "1 мин.",
+                "value" : 8
+              },
+              "end_location" : {
+                "lat" : 41.3214023,
+                "lng" : 69.2425427
+              },
+              "html_instructions" : "Плавный поворот \u003cb\u003eналево\u003c/b\u003e на \u003cb\u003eZarqaynar ko'chasi\u003c/b\u003e",
+              "maneuver" : "turn-slight-left",
+              "polyline" : {
+                "points" : "aze{F}}reLJ?|@FJ@|@F\\BvAJ"
+              },
+              "start_location" : {
+                "lat" : 41.3227307,
+                "lng" : 69.2427132
+              },
+              "travel_mode" : "DRIVING"
+            },
+            {
+              "distance" : {
+                "text" : "1,0 км",
+                "value" : 1034
+              },
+              "duration" : {
+                "text" : "1 мин.",
+                "value" : 61
+              },
+              "end_location" : {
+                "lat" : 41.3121388,
+                "lng" : 69.2414598
+              },
+              "html_instructions" : "Продолжайте движение по \u003cb\u003eFurqat ko'chasi\u003c/b\u003e",
+              "polyline" : {
+                "points" : "wqe{F{|reL`ADfAFfAFnCNlCNxQ|@lBHj@Bh@BhERh@BvALn@J`ANB?jBN"
+              },
+              "start_location" : {
+                "lat" : 41.3214023,
+                "lng" : 69.2425427
+              },
+              "travel_mode" : "DRIVING"
+            },
+            {
+              "distance" : {
+                "text" : "0,6 км",
+                "value" : 641
+              },
+              "duration" : {
+                "text" : "1 мин.",
+                "value" : 40
+              },
+              "end_location" : {
+                "lat" : 41.3071973,
+                "lng" : 69.2375404
+              },
+              "html_instructions" : "\u003cb\u003eFurqat ko'chasi\u003c/b\u003e поворачивает \u003cb\u003eнаправо\u003c/b\u003e и переходит в \u003cb\u003eBunyodkor shoh ko'chasi\u003c/b\u003e",
+              "polyline" : {
+                "points" : "{wc{FcvreLb@VBBh@ZBB@?^T|@j@VNFF~@l@d@XvA~@bAjAdFxDrCnBl@t@zAdA"
+              },
+              "start_location" : {
+                "lat" : 41.3121388,
+                "lng" : 69.2414598
+              },
+              "travel_mode" : "DRIVING"
+            },
+            {
+              "distance" : {
+                "text" : "2,5 км",
+                "value" : 2490
+              },
+              "duration" : {
+                "text" : "3 мин.",
+                "value" : 152
+              },
+              "end_location" : {
+                "lat" : 41.2891183,
+                "lng" : 69.2200778
+              },
+              "html_instructions" : "Держитесь \u003cb\u003eлевее\u003c/b\u003e, продолжая движение по \u003cb\u003eBunyodkor shoh ko'chasi\u003c/b\u003e",
+              "maneuver" : "keep-left",
+              "polyline" : {
+                "points" : "_yb{Fs}qeLfAf@vAdAxB|AvCtBDB`JvGhFlE|AvAfBnAt@r@tBnBp@n@~AxAFFTR^^pBlBbA~@|AvANLZZ\\X\\ZFFRRBBVXZ\\Z^FFRTZ\\Z\\DHRTZ\\Z\\Z^FFRTZ\\X\\@?X^Z\\FFRTZ^Z\\Z\\DFRTZ\\ZZZ\\Z\\ZZZ\\Z\\ZZTVDDZ\\ZZZ\\Z\\VZVZNPFFBBLNLNHJHJTXZ^Z\\X\\Z\\DFz@bAZ^tAzAvBdC~BrC"
+              },
+              "start_location" : {
+                "lat" : 41.3071973,
+                "lng" : 69.2375404
+              },
+              "travel_mode" : "DRIVING"
+            },
+            {
+              "distance" : {
+                "text" : "0,4 км",
+                "value" : 436
+              },
+              "duration" : {
+                "text" : "1 мин.",
+                "value" : 45
+              },
+              "end_location" : {
+                "lat" : 41.292046,
+                "lng" : 69.22307049999999
+              },
+              "html_instructions" : "Поверните \u003cb\u003eнаправо\u003c/b\u003e на \u003cb\u003eпроспект Бунёдкор\u003c/b\u003e",
+              "maneuver" : "turn-right",
+              "polyline" : {
+                "points" : "_h_{FopneLET?DCDA@ABA@C?A?A?E?AAECuAcBiHyIu@}@mB}B"
+              },
+              "start_location" : {
+                "lat" : 41.2891183,
+                "lng" : 69.2200778
+              },
+              "travel_mode" : "DRIVING"
+            },
+            {
+              "distance" : {
+                "text" : "0,7 км",
+                "value" : 678
+              },
+              "duration" : {
+                "text" : "1 мин.",
+                "value" : 75
+              },
+              "end_location" : {
+                "lat" : 41.2881464,
+                "lng" : 69.2293033
+              },
+              "html_instructions" : "Поверните \u003cb\u003eнаправо\u003c/b\u003e на \u003cb\u003eMuqimiy ko'chasi\u003c/b\u003e",
+              "maneuver" : "turn-right",
+              "polyline" : {
+                "points" : "iz_{FecoeL^q@Te@^s@jAwBN[^q@j@gAdAmBVc@Te@HMLUVe@Tc@Tc@@ATc@Ve@Vc@Te@DGnBqDhBiD"
+              },
+              "start_location" : {
+                "lat" : 41.292046,
+                "lng" : 69.22307049999999
+              },
+              "travel_mode" : "DRIVING"
+            },
+            {
+              "distance" : {
+                "text" : "1,4 км",
+                "value" : 1418
+              },
+              "duration" : {
+                "text" : "4 мин.",
+                "value" : 212
+              },
+              "end_location" : {
+                "lat" : 41.2788539,
+                "lng" : 69.21771629999999
+              },
+              "html_instructions" : "Поверните \u003cb\u003eнаправо\u003c/b\u003e на \u003cb\u003eChilonzor ko'chasi\u003c/b\u003e",
+              "maneuver" : "turn-right",
+              "polyline" : {
+                "points" : "}a_{FcjpeLlBxBvFtG~ApBl@x@d@l@xAbBh@l@f@p@X\\VZz@~@DD|@~@`AdAfAtAv@`AdAdBfBrCRZvBfD\\f@V^jAfBl@bANVB@|AjC`@n@bClDFH"
+              },
+              "start_location" : {
+                "lat" : 41.2881464,
+                "lng" : 69.2293033
+              },
+              "travel_mode" : "DRIVING"
+            },
+            {
+              "distance" : {
+                "text" : "69 м",
+                "value" : 69
+              },
+              "duration" : {
+                "text" : "1 мин.",
+                "value" : 9
+              },
+              "end_location" : {
+                "lat" : 41.27925949999999,
+                "lng" : 69.2170972
+              },
+              "html_instructions" : "Поверните \u003cb\u003eнаправо\u003c/b\u003e на \u003cb\u003eChapanata ko'chasi\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eПункт назначения будет справа\u003c/div\u003e",
+              "maneuver" : "turn-right",
+              "polyline" : {
+                "points" : "yg}zFwaneLA@oAxB"
+              },
+              "start_location" : {
+                "lat" : 41.2788539,
+                "lng" : 69.21771629999999
+              },
+              "travel_mode" : "DRIVING"
+            }
+          ],
+          "traffic_speed_entry" : [],
+          "via_waypoint" : []
+        }
+      ],
+      "overview_polyline" : {
+        "points" : "}dh{Fc}xeLbAl@pA`Az@h@v@F~@D`@JTNhAtAh@p@|CvEZf@mBrCuBjDoCpG}E|KcBzDo@hBY~@UnAe@`CYjAg@xAk@rAqC|FyBfF}CnIMb@XRt@b@dA`Ab@`@xEtErMlMtPnPpDlDlE`EbFbFjDlD~CjDbAz@zAjAdDjBtBhAjC|AvBbBhAF~DX`Jd@`[zArFV`CPpBZnBNtAz@vBpAdEnCbAjAdFxDrCnBl@t@zAdAfAf@pEbD|CxB`JvGhFlE|AvAfBnAjDbDnDdDzKdKv@x@rAzAlD~D|ClD`EpEbElE~ClDvClDxBhClE`F~BrCETCJCDI@GA{AgB_JwKmB}B^q@t@yAzAsChDkGhC}EjAwBxE{IdJnKlCjD~BpCbCxC`EjE~BvClDxF`EjGlCdE~BzDjCvDqAzB"
+      },
+      "summary" : "проспект Бунёдкор",
+      "warnings" : [],
+      "waypoint_order" : []
+    }
+  ],
+  "status" : "OK"
+}

@@ -1,6 +1,8 @@
 package uz.anorgroup.doonkdriver.presentation.screens.map
 
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.core.app.ActivityCompat
@@ -20,7 +22,7 @@ import uz.anorgroup.doonkdriver.databinding.ActivityMapsBinding
 
 @AndroidEntryPoint
 class RoadMapScreen : Fragment(R.layout.screen_road_map), OnMapReadyCallback {
-    lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var map: GoogleMap
     private lateinit var binding: ActivityMapsBinding
     lateinit var polyline: Polyline
@@ -78,7 +80,17 @@ class RoadMapScreen : Fragment(R.layout.screen_road_map), OnMapReadyCallback {
                 map.addMarker(MarkerOptions().position(yourCoordinate).title("You"))
                 map.addMarker(MarkerOptions().position(destanation).title("Amir Temur"))
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(yourCoordinate, 15f))
+
+                val locationAddress = "google.navigation:q=${41.26465},${69.21627}"
+                val gameUri = Uri.parse(locationAddress)
+                val mapIntent = Intent(Intent.ACTION_VIEW, gameUri)
+                startActivity(mapIntent)
+//                val json = JSONObject(resources.openRawResource(R.raw.map).bufferedReader().use { it.readText() })
+//                val layer = GeoJsonLayer(map, json)
+
+//                layer.addLayerToMap()
             }
+
         }
 
     }

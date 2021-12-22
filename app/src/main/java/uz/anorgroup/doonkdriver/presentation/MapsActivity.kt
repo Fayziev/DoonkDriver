@@ -8,6 +8,8 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.maps.android.data.geojson.GeoJsonLayer
+import org.json.JSONObject
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.ActivityMapsBinding
 
@@ -44,5 +46,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
+//        val json = JSONObject(R.raw.map)
+//        val loyer = GeoJsonLayer(mMap, json)
     }
 }
