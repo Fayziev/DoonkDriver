@@ -7,8 +7,7 @@ import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import uz.anorgroup.doonkdriver.app.App
 
-fun getColor(@ColorRes colorResId: Int): Int =
-    ContextCompat.getColor(App.instance, android.R.color.holo_red_dark)
+fun getColor(@ColorRes colorResId: Int): Int = ContextCompat.getColor(App.instance, android.R.color.holo_red_dark)
 
 infix fun String.spannableText(query: String): SpannableString {
     val spanBuild = SpannableString(this)

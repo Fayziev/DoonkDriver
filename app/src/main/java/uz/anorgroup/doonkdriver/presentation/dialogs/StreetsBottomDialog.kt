@@ -1,10 +1,13 @@
 package uz.anorgroup.doonkdriver.presentation.dialogs
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,6 +30,8 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
     private val viewModel: StreetsViewModels by viewModels<StreetsViewModelImpl>()
     private val adapter = StreetsAdapter("")
     private lateinit var hendler: Handler
+    private var querySt = ""
+    private var cityQuery = ""
     private var listener: ((DataStreet) -> Unit)? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +46,8 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
         listView.adapter = adapter
         listView.layoutManager = LinearLayoutManager(requireContext())
         arguments?.getString("id")?.let {
-            viewModel.getStreets(it, "")
+            cityQuery = it
+            viewModel.getStreets(cityQuery, querySt)
             showToast(it)
         }
         adapter.setListener {
@@ -56,45 +62,35 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
         }.launchIn(lifecycleScope)
 
 
-//        hendler = Handler(Looper.getMainLooper())
-//        bind.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
-//            androidx.appcompat.widget.SearchView.OnQueryTextListener {
-//            @SuppressLint("NotifyDataSetChanged")
-//            override fun onQueryTextSubmit(query: String?): Boolean {
+        hendler = Handler(Looper.getMainLooper())
+        bind.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onQueryTextSubmit(query: String?): Boolean {
 //                hendler.removeCallbacksAndMessages(null)
 //                query?.let {
 //                    querySt = it.trim()
-//                    adapter.list = noteDao.getSearch("%${querySt}%")
 //                    adapter.query = querySt
-//                    adapter.notifyDataSetChanged()
+//                    viewModel.getStreets(cityQuery, querySt)
 //                    bind.searchView.setQuery(querySt, false)
-//                    loadStateInfo()
-//                    if (clickFavour) {
-//                        bind.favouriteNotes.setBackgroundResource(R.drawable.transperent)
-//                    }
 //                }
-//                return true
-//            }
-//
-//            @SuppressLint("NotifyDataSetChanged")
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                hendler.removeCallbacksAndMessages(null)
-//                hendler.postDelayed({
-//                    newText?.let {
-//                        querySt = it.trim()
-//                        adapter.list = noteDao.getSearch("%${querySt}%")
-//                        adapter.query = querySt
-//                        adapter.notifyDataSetChanged()
-//                        bind.searchView.setQuery(querySt, false)
-//                        loadStateInfo()
-//                        if (clickFavour) {
-//                            bind.favouriteNotes.setBackgroundResource(R.drawable.transperent)
-//                        }
-//                    }
-//                }, 500)
-//                return true
-//            }
-//        })
+                return true
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onQueryTextChange(newText: String?): Boolean {
+                hendler.removeCallbacksAndMessages(null)
+                hendler.postDelayed({
+                    newText?.let {
+                        querySt = it.trim()
+                        viewModel.getStreets(cityQuery, querySt)
+                        adapter.query = querySt
+                        bind.searchView.setQuery(querySt, false)
+                    }
+                }, 500)
+                return true
+            }
+        })
 
     }
 
