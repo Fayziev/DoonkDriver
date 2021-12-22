@@ -13,32 +13,34 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.databinding.BottomDialogTypeTransprortBinding
-import uz.anorgroup.doonkdriver.presentation.adapters.TransportTypeAdapter
-import uz.anorgroup.doonkdriver.presentation.viewmodel.car.TypesTransportViewModel
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.TransporTypesViewModelImpl
+import uz.anorgroup.doonkdriver.databinding.BottomCitysBinding
+import uz.anorgroup.doonkdriver.presentation.adapters.CitysAdapter
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.location.CitysViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.viewmodel.location.CitysViewModels
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
 
 @AndroidEntryPoint
-class TransportTypeBottomDialog : BottomSheetDialogFragment() {
-    private val viewModel: TypesTransportViewModel by viewModels<TransporTypesViewModelImpl>()
-    private val adapter = TransportTypeAdapter()
+class CitysBottomDialog : BottomSheetDialogFragment() {
+    private val viewModel: CitysViewModels by viewModels<CitysViewModelImpl>()
     private var listener: ((String) -> Unit)? = null
+    private val adapter = CitysAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.bottom_dialog_type_transprort, container, false)
+        inflater.inflate(R.layout.bottom_citys, container, false)
 
-    private val bind by viewBinding(BottomDialogTypeTransprortBinding::bind)
+
+    private val bind by viewBinding(BottomCitysBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         listView.adapter = adapter
         listView.layoutManager = LinearLayoutManager(requireContext())
-        viewModel.getTransportTypes()
+        viewModel.getCitys()
         adapter.setListener {
             listener?.invoke(it.name)
         }
@@ -54,4 +56,5 @@ class TransportTypeBottomDialog : BottomSheetDialogFragment() {
     fun setListener(f: (String) -> Unit) {
         listener = f
     }
+
 }
