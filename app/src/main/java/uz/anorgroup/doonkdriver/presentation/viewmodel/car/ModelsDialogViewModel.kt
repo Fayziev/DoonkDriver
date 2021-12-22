@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkdriver.presentation.viewmodel
+package uz.anorgroup.doonkdriver.presentation.viewmodel.car
 
 import kotlinx.coroutines.flow.Flow
 import uz.anorgroup.doonkdriver.data.responce.car.ModelResponce

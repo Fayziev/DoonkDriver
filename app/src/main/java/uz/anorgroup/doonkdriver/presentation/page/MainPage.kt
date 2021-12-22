@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,5 +28,10 @@ class MainPage : Fragment(R.layout.page_main) {
             }
         }.attach()
 
+        roadMap.setOnClickListener {
+            findNavController().navigate(R.id.action_mainScreen_to_roadMapScreen)
+        }
+
     }
+
 }

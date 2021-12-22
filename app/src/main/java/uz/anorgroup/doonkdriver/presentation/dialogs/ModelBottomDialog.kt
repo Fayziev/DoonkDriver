@@ -15,6 +15,8 @@ import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.responce.car.ModelData
 import uz.anorgroup.doonkdriver.databinding.BottomDialogMarksBinding
+import uz.anorgroup.doonkdriver.presentation.adapters.ModelTypeAdapter
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.ModelsDialogViewModelImpl
 import uz.anorgroup.doonkdriver.databinding.BottomDialogModelBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.ModelTypeAdapter2
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.ModelsDialogViewModelImpl

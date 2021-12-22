@@ -6,6 +6,7 @@ plugins {
 //    id 'com.google.gms.google-services'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-parcelize'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -153,6 +154,13 @@ dependencies {
     /**
      * Map
      */
+
+    implementation 'com.google.android.gms:play-services-maps:18.0.1'
     implementation 'com.google.android.gms:play-services-location:19.0.0'
 
+    /**
+     * Maps
+     */
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+//    implementation 'com.google.android.gms:play-services:12.0.1'
 }

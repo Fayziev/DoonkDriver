@@ -10,7 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.BottomDialogAddCarBinding
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.BodyBtDialogViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.BodyBtDialogViewModelImpl
 
 @AndroidEntryPoint
 class AddCardBottomDialog : BottomSheetDialogFragment() {

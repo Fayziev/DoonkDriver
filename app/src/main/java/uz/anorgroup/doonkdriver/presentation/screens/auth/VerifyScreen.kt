@@ -1,4 +1,4 @@
-package uz.anorgroup.doonkdriver.presentation.screens
+package uz.anorgroup.doonkdriver.presentation.screens.auth
 
 import android.os.Bundle
 import android.view.View
