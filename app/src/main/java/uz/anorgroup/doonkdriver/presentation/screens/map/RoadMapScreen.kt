@@ -1,7 +1,7 @@
 package uz.anorgroup.doonkdriver.presentation.screens.map
 
 import android.os.Bundle
-import androidx.databinding.DataBindingUtil.setContentView
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -13,24 +13,22 @@ import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.ActivityMapsBinding
 
-
 @AndroidEntryPoint
 class RoadMapScreen : Fragment(R.layout.screen_road_map), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding = ActivityMapsBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = childFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
+            .findFragmentById(R.id.map_screen) as SupportMapFragment
         mapFragment.getMapAsync(this)
+//        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext())
+
     }
+
 
     /**
      * Manipulates the map once available.

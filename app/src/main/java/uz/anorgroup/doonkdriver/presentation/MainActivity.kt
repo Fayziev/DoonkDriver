@@ -24,16 +24,16 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         this.registerReceiver(receiver, IntentFilter())
         val navHost = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
         val navController = navHost.navController.navInflater.inflate(R.navigation.nav_graph)
-        viewModel.startScreenFlow.onEach {
-            if (it) navController.startDestination = R.id.mainScreen
-            else navController.startDestination = R.id.loginScreen
-        }.launchIn(lifecycleScope)
+//        viewModel.startScreenFlow.onEach {
+//            if (it) navController.startDestination = R.id.mainScreen
+//            else navController.startDestination = R.id.loginScreen
+//        }.launchIn(lifecycleScope)
 
-        receiver.setListener {
-            if (it) navController.startDestination = R.id.mainScreen
-            else navController.startDestination = R.id.internetConnectionScreen
-            navHost.navController.graph = navController
-        }
+//        receiver.setListener {
+//            if (it) navController.startDestination = R.id.mainScreen
+//            else navController.startDestination = R.id.internetConnectionScreen
+//            navHost.navController.graph = navController
+//        }
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
