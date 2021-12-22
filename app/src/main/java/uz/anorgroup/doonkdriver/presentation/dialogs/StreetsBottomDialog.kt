@@ -1,6 +1,7 @@
 package uz.anorgroup.doonkdriver.presentation.dialogs
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.responce.location.DataStreet
 import uz.anorgroup.doonkdriver.databinding.BottomDialogStreetsBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.StreetsAdapter
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.location.StreetsViewModelImpl
@@ -23,8 +25,9 @@ import uz.anorgroup.doonkdriver.utils.showToast
 @AndroidEntryPoint
 class StreetsBottomDialog : BottomSheetDialogFragment() {
     private val viewModel: StreetsViewModels by viewModels<StreetsViewModelImpl>()
-    private val adapter = StreetsAdapter()
-    private var listener: ((String) -> Unit)? = null
+    private val adapter = StreetsAdapter("")
+    private lateinit var hendler: Handler
+    private var listener: ((DataStreet) -> Unit)? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +45,7 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
             showToast(it)
         }
         adapter.setListener {
-            listener?.invoke(it.name)
+            listener?.invoke(it)
         }
         viewModel.successFlow.onEach {
             adapter.submitList(it.data)
@@ -52,10 +55,51 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
             showToast("Error")
         }.launchIn(lifecycleScope)
 
+
+//        hendler = Handler(Looper.getMainLooper())
+//        bind.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+//            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+//            @SuppressLint("NotifyDataSetChanged")
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                hendler.removeCallbacksAndMessages(null)
+//                query?.let {
+//                    querySt = it.trim()
+//                    adapter.list = noteDao.getSearch("%${querySt}%")
+//                    adapter.query = querySt
+//                    adapter.notifyDataSetChanged()
+//                    bind.searchView.setQuery(querySt, false)
+//                    loadStateInfo()
+//                    if (clickFavour) {
+//                        bind.favouriteNotes.setBackgroundResource(R.drawable.transperent)
+//                    }
+//                }
+//                return true
+//            }
+//
+//            @SuppressLint("NotifyDataSetChanged")
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                hendler.removeCallbacksAndMessages(null)
+//                hendler.postDelayed({
+//                    newText?.let {
+//                        querySt = it.trim()
+//                        adapter.list = noteDao.getSearch("%${querySt}%")
+//                        adapter.query = querySt
+//                        adapter.notifyDataSetChanged()
+//                        bind.searchView.setQuery(querySt, false)
+//                        loadStateInfo()
+//                        if (clickFavour) {
+//                            bind.favouriteNotes.setBackgroundResource(R.drawable.transperent)
+//                        }
+//                    }
+//                }, 500)
+//                return true
+//            }
+//        })
+
     }
 
     private val bind by viewBinding(BottomDialogStreetsBinding::bind)
-    fun setListener(f: (String) -> Unit) {
+    fun setListener(f: (DataStreet) -> Unit) {
         listener = f
     }
 

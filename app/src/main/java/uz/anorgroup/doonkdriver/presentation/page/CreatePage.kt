@@ -55,7 +55,7 @@ class CreatePage : Fragment(R.layout.screen_create_order) {
             val dialog = StreetsBottomDialog()
             dialog.arguments = bundle
             dialog.setListener {
-                bind.whereStreet.text = it
+                bind.whereStreet.text = it.name
                 dialog.dismiss()
             }
             dialog.show(childFragmentManager, "StreetDialog")
@@ -77,7 +77,7 @@ class CreatePage : Fragment(R.layout.screen_create_order) {
             val dialog = StreetsBottomDialog()
             dialog.arguments = bundle
             dialog.setListener {
-                bind.directionsStreet.text = it
+                bind.directionsStreet.text = it.name
                 dialog.dismiss()
             }
             dialog.show(childFragmentManager, "StreetDialog")
