@@ -16,11 +16,8 @@ import uz.anorgroup.doonkdriver.presentation.viewmodel.StartScreenViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.StartScreenViewModelImpl
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
-    private val receiver = InternetBroadCast()
-    private val viewModel: StartScreenViewModel by viewModels<StartScreenViewModelImpl>()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+class MainActivity : AppCompatActivity(R.layout.activity_main)
+
 //        this.registerReceiver(receiver, IntentFilter())
 //        val navHost = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
 //        val navController = navHost.navController.navInflater.inflate(R.navigation.nav_graph)
@@ -34,6 +31,3 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 //            else navController.startDestination = R.id.internetConnectionScreen
 //            navHost.navController.graph = navController
 //        }
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-    }
-}
