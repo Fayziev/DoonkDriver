@@ -8,8 +8,6 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.maps.android.data.geojson.GeoJsonLayer
-import org.json.JSONObject
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.ActivityMapsBinding
 
