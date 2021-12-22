@@ -21,7 +21,7 @@ class StreetsViewModelImpl @Inject constructor(private val useCase: StreetssDial
     override val successFlow = eventValueFlow<SearchStreetsResponce>()
     override val openVerifyFlow = eventValueFlow<Unit>()
 
-    override fun getCitys(city: String, query: String) {
+    override fun getStreets(city: String, query: String) {
         if (!isConnected()) {
             viewModelScope.launch {
                 errorFlow.emit("Internet bilan muammo bo'ldi")

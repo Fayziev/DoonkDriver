@@ -13,7 +13,7 @@ import uz.anorgroup.doonkdriver.databinding.BottomDialogAddCarBinding
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.BodyBtDialogViewModelImpl
 
 @AndroidEntryPoint
-class AddCardBottomDialog : BottomSheetDialogFragment() {
+class AddCarBottomDialog : BottomSheetDialogFragment() {
     private var easyCar: (() -> Unit)? = null
     private var normalCar: (() -> Unit)? = null
     private var hardCar: (() -> Unit)? = null
