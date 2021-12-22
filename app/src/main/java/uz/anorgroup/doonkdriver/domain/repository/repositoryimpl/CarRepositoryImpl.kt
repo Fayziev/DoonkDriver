@@ -89,5 +89,17 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
 
+    override fun getAllCars(): Flow<Result<AllCarsResponse>> = flow{
+        val responce = api.getCarsInfo()
+        if (responce.isSuccessful) {
+            emit(Result.success<AllCarsResponse>(responce.body()!!))
+        } else {
+            emit(Result.failure(Throwable(responce.errorBody().toString())))
+        }
+    }.catch {
+        val errorMessage = Throwable("Sever bilan muammo bo'ldi")
+        emit(Result.failure(errorMessage))
+    }.flowOn(Dispatchers.IO)
+
 }
 

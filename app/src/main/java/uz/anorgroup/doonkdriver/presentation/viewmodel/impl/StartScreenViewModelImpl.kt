@@ -14,10 +14,11 @@ import javax.inject.Inject
 class StartScreenViewModelImpl @Inject constructor(private val useCase: StartScreenUseCase) : ViewModel(), StartScreenViewModel {
     override val startScreenFlow = eventValueFlow<Boolean>()
 
-    init {
-        viewModelScope.launch(Dispatchers.IO) {
+    override fun getStartScreen() {
+        viewModelScope.launch {
             startScreenFlow.emit(useCase.getStartScreen())
         }
     }
+
 
 }

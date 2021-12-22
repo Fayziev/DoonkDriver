@@ -13,19 +13,17 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.responce.car.ModelData
 import uz.anorgroup.doonkdriver.databinding.BottomDialogMarksBinding
-import uz.anorgroup.doonkdriver.databinding.BottomDialogModelBinding
-import uz.anorgroup.doonkdriver.presentation.adapters.ModelTypeAdapter2
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.ModelsDialogViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.adapters.BrandsTypeAdapter
+import uz.anorgroup.doonkdriver.presentation.viewmodel.BrandTypeDialogViewModel
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.BrandTypeDialogViewModelImpl
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
 
 @AndroidEntryPoint
-class ModelBottomDialog : BottomSheetDialogFragment() {
-    private val viewModel by viewModels<ModelsDialogViewModelImpl>()
-    private val list = ArrayList<ModelData>()
-    private val adapter = ModelTypeAdapter2(list)
+class BrandsBottomDialog : BottomSheetDialogFragment() {
+    private val viewModel: BrandTypeDialogViewModel by viewModels<BrandTypeDialogViewModelImpl>()
+    private val adapter = BrandsTypeAdapter()
     private var listener: ((String) -> Unit)? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,20 +31,19 @@ class ModelBottomDialog : BottomSheetDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.bottom_dialog_model, container, false)
+        inflater.inflate(R.layout.bottom_dialog_marks, container, false)
 
-    private val bind by viewBinding(BottomDialogModelBinding::bind)
+    private val bind by viewBinding(BottomDialogMarksBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         listView.adapter = adapter
         listView.layoutManager = LinearLayoutManager(requireContext())
-        viewModel.getModels()
+        viewModel.continueSignUpRequest()
         adapter.setListener {
             listener?.invoke(it.name)
         }
         viewModel.successFlow.onEach {
-            list.clear()
-            list.addAll(it.data)
+            adapter.submitList(it.data)
             adapter.notifyDataSetChanged()
         }.launchIn(lifecycleScope)
         viewModel.errorFlow.onEach {

@@ -90,6 +90,7 @@
         app:layout_constraintTop_toBottomOf="@id/load_car_line" />
 
     <TextView
+        android:id="@+id/marka_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
@@ -100,7 +101,7 @@
         app:layout_constraintTop_toTopOf="@id/tip_transporta_line" />
 
     <TextView
-        android:id="@+id/down_icon"
+        android:id="@+id/text_marka"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="17.5dp"
@@ -114,7 +115,6 @@
         android:id="@+id/tip_kuzova_line"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         android:background="?selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
@@ -126,6 +126,7 @@
         app:layout_constraintTop_toBottomOf="@id/tip_transporta_line" />
 
     <TextView
+        android:id="@+id/model_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
@@ -136,6 +137,7 @@
         app:layout_constraintTop_toTopOf="@id/tip_kuzova_line" />
 
     <TextView
+        android:id="@+id/text_model"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="17.5dp"
@@ -245,7 +247,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:text="@string/year_of_issue"
+        android:text="@string/license_plate"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/gasnomer"
         app:layout_constraintLeft_toLeftOf="@id/gasnomer"
