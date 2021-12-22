@@ -18,15 +18,15 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
         super.onViewCreated(view, savedInstanceState)
 
         nextBt.setOnClickListener {
-                if (whereCity.text!=R.string.city.toString()) {
-                    error1.visibility = View.VISIBLE
-                    error2.visibility = View.VISIBLE
-                } else {
-                    error1.visibility = View.GONE
-                    error2.visibility = View.GONE
-                    findNavController().navigate(R.id.action_mainScreen_to_screenIntermediate)
-                }
-
+            if (whereCity.text.isEmpty() && whereStreet.text.isEmpty()
+                && directionsStreet.text.isEmpty() && directionsCity.text.isEmpty()) {
+                error1.visibility = View.VISIBLE
+                error2.visibility = View.VISIBLE
+            } else {
+                error1.visibility = View.GONE
+                error2.visibility = View.GONE
+                findNavController().navigate(R.id.action_mainScreen_to_screenIntermediate)
+            }
         }
     }
 }
