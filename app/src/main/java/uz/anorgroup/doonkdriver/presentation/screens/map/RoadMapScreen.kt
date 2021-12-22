@@ -7,9 +7,13 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.Polyline
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.ActivityMapsBinding
@@ -19,6 +23,8 @@ class RoadMapScreen : Fragment(R.layout.screen_road_map), OnMapReadyCallback {
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var map: GoogleMap
     private lateinit var binding: ActivityMapsBinding
+    lateinit var polyline: Polyline
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,7 +55,7 @@ class RoadMapScreen : Fragment(R.layout.screen_road_map), OnMapReadyCallback {
 
     private fun setUpMap() {
         val granted = PackageManager.PERMISSION_GRANTED
-//        val task = fusedLocationProviderClient.lastLocation
+        val task = fusedLocationProviderClient.lastLocation
         if (ActivityCompat.checkSelfPermission(
                 requireContext(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION
@@ -58,11 +64,21 @@ class RoadMapScreen : Fragment(R.layout.screen_road_map), OnMapReadyCallback {
         ) {
             ActivityCompat.requestPermissions(
                 requireActivity(),
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION),
                 0
             )
             map.isMyLocationEnabled = true
             return
+        }
+
+        task.addOnSuccessListener {
+            if (it != null) {
+                val yourCoordinate = LatLng(it.latitude, it.longitude)
+                val destanation = LatLng(41.26465, 69.21627)
+                map.addMarker(MarkerOptions().position(yourCoordinate).title("You"))
+                map.addMarker(MarkerOptions().position(destanation).title("Amir Temur"))
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(yourCoordinate, 15f))
+            }
         }
 
     }
