@@ -37,18 +37,18 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         listView.adapter = adapter
         listView.layoutManager = LinearLayoutManager(requireContext())
-        viewModel.getStreets("", "")
+        viewModel.getStreets("1", "")
         adapter.setListener {
             listener?.invoke(it.name)
         }
         viewModel.successFlow.onEach {
             adapter.submitList(it.data)
-            adapter.notifyDataSetChanged()
         }.launchIn(lifecycleScope)
 
         viewModel.errorFlow.onEach {
             showToast("Error")
         }.launchIn(lifecycleScope)
+
     }
 
     private val bind by viewBinding(BottomDialogStreetsBinding::bind)

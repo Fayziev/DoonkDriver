@@ -40,7 +40,7 @@ class CitysBottomDialog : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         listView.adapter = adapter
         listView.layoutManager = LinearLayoutManager(requireContext())
-        viewModel.getCitys()
+        viewModel.getCitys("")
         adapter.setListener {
             listener?.invoke(it.name)
         }

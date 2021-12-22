@@ -9,6 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.ScreenCreateOrderBinding
 import uz.anorgroup.doonkdriver.presentation.dialogs.CitysBottomDialog
+import uz.anorgroup.doonkdriver.presentation.dialogs.StreetsBottomDialog
 import uz.anorgroup.doonkdriver.utils.scope
 
 @AndroidEntryPoint
@@ -37,7 +38,36 @@ class CreatePage : Fragment(R.layout.screen_create_order) {
                 dialog.dismiss()
             }
 
-            dialog.show(childFragmentManager, "typeofDialog")
+            dialog.show(childFragmentManager, "CityDialog")
+        }
+        bind.whereStreet.setOnClickListener {
+            val dialog = StreetsBottomDialog()
+            dialog.setListener {
+                bind.whereStreet.text = it
+                dialog.dismiss()
+            }
+
+            dialog.show(childFragmentManager, "StreetDialog")
+
+        }
+        bind.directionsCity.setOnClickListener {
+            val dialog = CitysBottomDialog()
+            dialog.setListener {
+                bind.directionsCity.text = it
+                dialog.dismiss()
+            }
+
+            dialog.show(childFragmentManager, "CityDialog")
+        }
+        bind.directionsStreet.setOnClickListener {
+            val dialog = StreetsBottomDialog()
+            dialog.setListener {
+                bind.directionsStreet.text = it
+                dialog.dismiss()
+            }
+
+            dialog.show(childFragmentManager, "StreetDialog")
+
         }
     }
 

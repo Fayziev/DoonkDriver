@@ -15,8 +15,8 @@ import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.BottomDialogMarksBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.BrandsTypeAdapter
-import uz.anorgroup.doonkdriver.presentation.viewmodel.BrandTypeDialogViewModel
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.BrandTypeDialogViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.viewmodel.car.BrandTypeDialogViewModel
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.BrandTypeDialogViewModelImpl
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
 
@@ -50,8 +50,9 @@ class BrandsBottomDialog : BottomSheetDialogFragment() {
             showToast("Error")
         }.launchIn(lifecycleScope)
     }
-    fun setListener(f:(String)->Unit){
-        listener=f
+
+    fun setListener(f: (String) -> Unit) {
+        listener = f
     }
 
 }
