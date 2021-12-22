@@ -11,15 +11,15 @@ import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.responce.car.ModelData
 import uz.anorgroup.doonkdriver.databinding.ItemTransportTypeBinding
 
-class ModelTypeAdapter : ListAdapter<List<ModelData>, ModelTypeAdapter.HistoryVH>(MyDifUtils) {
-    private var itemListener: ((List<ModelData>) -> Unit)? = null
+class ModelTypeAdapter : ListAdapter<ModelData, ModelTypeAdapter.HistoryVH>(MyDifUtils) {
+    private var itemListener: ((ModelData) -> Unit)? = null
 
-    object MyDifUtils : DiffUtil.ItemCallback<List<ModelData>>() {
-        override fun areItemsTheSame(oldItem: List<ModelData>, newItem: List<ModelData>): Boolean {
+    object MyDifUtils : DiffUtil.ItemCallback<ModelData>() {
+        override fun areItemsTheSame(oldItem: ModelData, newItem: ModelData): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: List<ModelData>, newItem: List<ModelData>): Boolean {
+        override fun areContentsTheSame(oldItem: ModelData, newItem: ModelData): Boolean {
             return oldItem == newItem
         }
     }

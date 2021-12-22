@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F6F5F3">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarSeat"
@@ -60,9 +61,12 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/yes"
         android:layout_width="90dp"
-        android:layout_height="35dp"
+        android:layout_height="30dp"
         android:layout_margin="20sp"
         android:background="@drawable/little_circle_bt_bg"
+        android:text="@string/yes"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/placesState" />
 
@@ -70,9 +74,12 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/no"
         android:layout_width="90dp"
-        android:layout_height="35dp"
+        android:layout_height="30dp"
         android:layout_margin="20sp"
         android:background="@drawable/little_white_circle_bt_bg"
+        android:text="@string/no"
+        android:textAllCaps="false"
+        android:textColor="@color/black_transparent"
         app:layout_constraintLeft_toRightOf="@id/yes"
         app:layout_constraintTop_toBottomOf="@id/placesState" />
 
@@ -89,32 +96,9 @@
         app:layout_constraintRight_toRightOf="@id/nextBt"
         app:layout_constraintTop_toTopOf="@id/nextBt" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="5dp"
-        android:text="@string/yes"
-        android:textColor="@color/realWhite"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/yes"
-        app:layout_constraintLeft_toLeftOf="@id/yes"
-        app:layout_constraintRight_toRightOf="@id/yes"
-        app:layout_constraintTop_toTopOf="@id/yes" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="5dp"
-        android:text="@string/no"
-        android:textColor="@color/realBlack"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/no"
-        app:layout_constraintLeft_toLeftOf="@id/no"
-        app:layout_constraintRight_toRightOf="@id/no"
-        app:layout_constraintTop_toTopOf="@id/no" />
-
-
-    <TextView
+        android:id="@+id/select_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
@@ -143,6 +127,57 @@
         app:layout_constraintLeft_toRightOf="@id/icon_clue"
         app:layout_constraintRight_toRightOf="@id/nextBt"
         app:layout_constraintTop_toTopOf="@+id/icon_clue" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/circle1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text="1"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/drawable_circle_green"
+        app:layout_constraintLeft_toLeftOf="@id/select_text"
+        app:layout_constraintTop_toBottomOf="@id/select_text" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/circle2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="12dp"
+        android:textColor="@color/black_transparent"
+        android:layout_marginTop="16dp"
+        android:text="2"
+        android:background="@drawable/drawable_circle_white"
+        app:layout_constraintLeft_toRightOf="@id/circle1"
+        app:layout_constraintTop_toBottomOf="@id/select_text" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/circle3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text="3"
+        android:layout_marginStart="12dp"
+        android:textColor="@color/black_transparent"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/drawable_circle_white"
+        app:layout_constraintLeft_toRightOf="@id/circle2"
+        app:layout_constraintTop_toBottomOf="@id/select_text" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/circle4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:text="4"
+        android:textColor="@color/black_transparent"
+        android:background="@drawable/drawable_circle_white"
+        app:layout_constraintLeft_toRightOf="@id/circle3"
+        app:layout_constraintTop_toBottomOf="@id/select_text" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

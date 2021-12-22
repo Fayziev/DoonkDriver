@@ -17,4 +17,5 @@
     <color name="view_profile_bg">#EAEAEA</color>
     <color name="gray_text">#474747</color>
     <color name="gray_color">#DCDCDC</color>
+    <color name="black_transparent">#80000000</color>
 </resources>
