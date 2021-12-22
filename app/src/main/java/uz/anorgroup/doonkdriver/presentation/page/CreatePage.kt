@@ -11,7 +11,6 @@ import uz.anorgroup.doonkdriver.databinding.ScreenCreateOrderBinding
 import uz.anorgroup.doonkdriver.presentation.dialogs.CitysBottomDialog
 import uz.anorgroup.doonkdriver.presentation.dialogs.StreetsBottomDialog
 import uz.anorgroup.doonkdriver.utils.scope
-import uz.anorgroup.doonkdriver.utils.showToast
 
 @AndroidEntryPoint
 class CreatePage : Fragment(R.layout.screen_create_order) {
@@ -35,18 +34,19 @@ class CreatePage : Fragment(R.layout.screen_create_order) {
         }
 
         val bundle = Bundle()
-        var id1 = "1"
-        var id2 = "2"
+        var id1 = "0"
+        var id2 = "0"
 
         bind.whereCity.setOnClickListener {
             val dialog = CitysBottomDialog()
             dialog.setListener {
-                bind.whereCity.text = it.name
                 id1 = it.id.toString()
-                showToast("${it.id}-- Qurash akani Id si")
-                dialog.dismiss()
+                bind.whereCity.text = it.name
+                bundle.putString("id", id1)
+                if (id1 == it.id.toString()) {
+                    dialog.dismiss()
+                }
             }
-            bundle.putString("id", id1)
             dialog.show(childFragmentManager, "CityDialog")
         }
 
@@ -66,10 +66,11 @@ class CreatePage : Fragment(R.layout.screen_create_order) {
             dialog.setListener {
                 bind.directionsCity.text = it.name
                 id2 = it.id.toString()
-                dialog.dismiss()
-                showToast("${it.id}-- Qurash akani Id si")
+                bundle.putString("id", id2)
+                if (id2 == it.id.toString()) {
+                    dialog.dismiss()
+                }
             }
-            bundle.putString("id", id2)
             dialog.show(childFragmentManager, "CityDialog")
         }
         bind.directionsStreet.setOnClickListener {
