@@ -37,7 +37,10 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         listView.adapter = adapter
         listView.layoutManager = LinearLayoutManager(requireContext())
-        viewModel.getStreets("1", "")
+        arguments?.getString("id")?.let {
+            viewModel.getStreets(it, "")
+            showToast(it)
+        }
         adapter.setListener {
             listener?.invoke(it.name)
         }

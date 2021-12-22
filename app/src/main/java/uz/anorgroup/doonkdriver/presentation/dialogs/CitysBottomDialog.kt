@@ -13,6 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.responce.location.DataCity
 import uz.anorgroup.doonkdriver.databinding.BottomCitysBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.CitysAdapter
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.location.CitysViewModelImpl
@@ -23,7 +24,7 @@ import uz.anorgroup.doonkdriver.utils.showToast
 @AndroidEntryPoint
 class CitysBottomDialog : BottomSheetDialogFragment() {
     private val viewModel: CitysViewModels by viewModels<CitysViewModelImpl>()
-    private var listener: ((String) -> Unit)? = null
+    private var listener: ((DataCity) -> Unit)? = null
     private val adapter = CitysAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,18 +43,18 @@ class CitysBottomDialog : BottomSheetDialogFragment() {
         listView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.getCitys("")
         adapter.setListener {
-            listener?.invoke(it.name)
+            listener?.invoke(it)
         }
+
         viewModel.successFlow.onEach {
             adapter.submitList(it.data)
-            adapter.notifyDataSetChanged()
         }.launchIn(lifecycleScope)
         viewModel.errorFlow.onEach {
             showToast("Error")
         }.launchIn(lifecycleScope)
     }
 
-    fun setListener(f: (String) -> Unit) {
+    fun setListener(f: (DataCity) -> Unit) {
         listener = f
     }
 

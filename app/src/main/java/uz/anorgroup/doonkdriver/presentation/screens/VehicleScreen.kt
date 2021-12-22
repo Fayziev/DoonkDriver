@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.ScreenVehicleTypeBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.AllCarsAdapter
-import uz.anorgroup.doonkdriver.presentation.dialogs.AddCardBottomDialog
 import uz.anorgroup.doonkdriver.presentation.dialogs.AutoTypeBottomDialog
 import uz.anorgroup.doonkdriver.presentation.viewmodel.AllCarsViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.AllCarsViewModelImpl
@@ -44,13 +43,14 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
             showToast("Error")
         }.launchIn(lifecycleScope)
 
-        addCarBt.setOnClickListener{
-            val dialog=AutoTypeBottomDialog()
+        addCarBt.setOnClickListener {
+            val dialog = AutoTypeBottomDialog()
             dialog.setListener {
                 findNavController().navigate(R.id.action_vehicleScreen_to_truckAddScreen)
                 dialog.dismiss()
             }
-            dialog.show(childFragmentManager,"autoType")
+
+            dialog.show(childFragmentManager, "autoType")
         }
 
 //        addCarBt.setOnClickListener {
