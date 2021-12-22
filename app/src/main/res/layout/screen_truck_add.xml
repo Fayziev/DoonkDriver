@@ -92,14 +92,20 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
         android:hint="Грузовик"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tip_transport">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/type_transport_edit"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -132,14 +138,20 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
         android:hint="Выберите тип загрузки"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tip_kuzova_text">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/select_type_edit"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -159,7 +171,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginHorizontal="25dp"
+        android:background="@color/white"
         android:hint="Грузодьемность"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/obyom_line"
@@ -178,7 +192,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginHorizontal="25dp"
+        android:background="@color/white"
         android:hint="Обьем, м3"
         app:layout_constraintLeft_toRightOf="@id/gruzodemnost_line"
         app:layout_constraintRight_toRightOf="parent"
@@ -197,6 +213,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
+        android:background="@color/white"
         android:hint="Длина, м"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/shrina_line"
@@ -216,6 +233,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
+        android:background="@color/white"
         android:hint="Шрина, м"
         app:layout_constraintLeft_toRightOf="@id/dlina_line"
         app:layout_constraintRight_toLeftOf="@id/visota_line"
@@ -235,6 +253,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
+        android:background="@color/white"
         android:hint="Высота, м3"
         app:layout_constraintLeft_toRightOf="@id/shrina_line"
         app:layout_constraintRight_toRightOf="parent"
@@ -273,12 +292,12 @@
         app:layout_constraintTop_toBottomOf="@id/dlina_line" />
 
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ADR_line"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:hint="ADR"
         app:layout_constraintLeft_toLeftOf="@id/visota_line"
         app:layout_constraintRight_toRightOf="@id/visota_line"
