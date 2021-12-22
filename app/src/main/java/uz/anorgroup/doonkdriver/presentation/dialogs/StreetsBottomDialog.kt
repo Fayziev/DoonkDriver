@@ -13,6 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.responce.location.DataStreet
 import uz.anorgroup.doonkdriver.databinding.BottomDialogStreetsBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.StreetsAdapter
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.location.StreetsViewModelImpl
@@ -24,7 +25,7 @@ import uz.anorgroup.doonkdriver.utils.showToast
 class StreetsBottomDialog : BottomSheetDialogFragment() {
     private val viewModel: StreetsViewModels by viewModels<StreetsViewModelImpl>()
     private val adapter = StreetsAdapter()
-    private var listener: ((String) -> Unit)? = null
+    private var listener: ((DataStreet) -> Unit)? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +43,7 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
             showToast(it)
         }
         adapter.setListener {
-            listener?.invoke(it.name)
+            listener?.invoke(it)
         }
         viewModel.successFlow.onEach {
             adapter.submitList(it.data)
@@ -55,7 +56,7 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
     }
 
     private val bind by viewBinding(BottomDialogStreetsBinding::bind)
-    fun setListener(f: (String) -> Unit) {
+    fun setListener(f: (DataStreet) -> Unit) {
         listener = f
     }
 
