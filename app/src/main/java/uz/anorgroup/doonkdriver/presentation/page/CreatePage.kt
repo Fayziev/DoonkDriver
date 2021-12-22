@@ -17,18 +17,17 @@ class CreatePage : Fragment(R.layout.screen_create_order) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         super.onViewCreated(view, savedInstanceState)
-        bind.nextBt.setOnClickListener {
-//            if (whereCity.text.isEmpty() && directionsCity.text.isEmpty()
-//                && whereStreet.text.isEmpty() && directionsStreet.text.isEmpty()
-//            ) {
-//                error1.visibility = View.VISIBLE
-//                error2.visibility = View.VISIBLE
-//            } else {
-//                error1.visibility = View.GONE
-//                error2.visibility = View.GONE
-//                findNavController().navigate(R.id.action_mainScreen_to_screenIntermediate)
-//            }
-            findNavController().navigate(R.id.action_mainScreen_to_screenIntermediate)
+
+        nextBt.setOnClickListener {
+            if (whereCity.text.isEmpty() && whereStreet.text.isEmpty()
+                && directionsStreet.text.isEmpty() && directionsCity.text.isEmpty()) {
+                error1.visibility = View.VISIBLE
+                error2.visibility = View.VISIBLE
+            } else {
+                error1.visibility = View.GONE
+                error2.visibility = View.GONE
+                findNavController().navigate(R.id.action_mainScreen_to_screenIntermediate)
+            }
         }
         bind.whereCity.setOnClickListener {
             val dialog = CitysBottomDialog()
