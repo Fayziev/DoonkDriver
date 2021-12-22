@@ -34,5 +34,6 @@ class MainScreen : Fragment(R.layout.screen_main) {
             }
             return@setOnItemSelectedListener true
         }
+
     }
 }

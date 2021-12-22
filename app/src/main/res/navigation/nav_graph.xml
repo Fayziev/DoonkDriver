@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.LoginScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.auth.LoginScreen"
         android:label="LoginScreen"
         tools:layout="@layout/screen_login">
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.RegisterScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.auth.RegisterScreen"
         android:label="RegisterScreen"
         tools:layout="@layout/screen_register">
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/verifyScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.VerifyScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.auth.VerifyScreen"
         android:label="VerifyScreen"
         tools:layout="@layout/screen_verify">
         <argument
@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_mainScreen_to_screenIntermediate"
             app:destination="@id/screenIntermediate" />
+        <action
+            android:id="@+id/action_mainScreen_to_roadMapScreen"
+            app:destination="@id/roadMapScreen" />
     </fragment>
     <fragment
         android:id="@+id/screenIntermediate"
@@ -140,4 +143,8 @@
             android:id="@+id/action_whenScreen_to_vehicleScreen"
             app:destination="@id/vehicleScreen" />
     </fragment>
+    <fragment
+        android:id="@+id/roadMapScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.map.RoadMapScreen"
+        android:label="RoadMapScreen" />
 </navigation>

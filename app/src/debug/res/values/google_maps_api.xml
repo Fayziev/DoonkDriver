@@ -4,12 +4,12 @@
 
     To get one, follow this link, follow the directions and press "Create" at the end:
 
-    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=E2:81:AD:D5:5C:26:3A:7A:2C:66:4A:5E:5F:09:F3:40:F0:51:23:9B%3Buz.anorgroup.doonkdriver
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=E2:81:AD:D5:5C:26:3A:7A:2C:66:4A:5E:5F:09:F3:40:F0:51:23:9B%3Buz.anorgroup.doonkdriver.presentation
 
     You can also add your credentials to an existing key, using these values:
 
     Package name:
-    uz.anorgroup.doonkdriver
+    uz.anorgroup.doonkdriver.presentation
 
     SHA-1 certificate fingerprint:
     E2:81:AD:D5:5C:26:3A:7A:2C:66:4A:5E:5F:09:F3:40:F0:51:23:9B
@@ -20,5 +20,5 @@
     Once you have your key (it starts with "AIza"), replace the "google_maps_key"
     string in this file.
     -->
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyD6KkvPg02j4zJgx3YejzzFmmKw-tkdEIM</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAD0tT_ReBPzOnHDZ3877u5CFcW1KbbLU0</string>
 </resources>
