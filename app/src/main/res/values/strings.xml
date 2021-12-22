@@ -170,5 +170,6 @@
     <string name="select_type_loading">Выберите тип загрузки</string>
     <string name="gruzovik">Грузовик</string>
     <string name="license_plate">Госномер</string>
+    <string name="type_auto">Тип автомобилья</string>
 
 </resources>

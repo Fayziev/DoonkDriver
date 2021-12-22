@@ -9,33 +9,33 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.responce.car.AvtoTypeData
-import uz.anorgroup.doonkdriver.databinding.ItemTransportTypeBinding
+import uz.anorgroup.doonkdriver.databinding.ItemTypeAutoBinding
 
-class AvtoTypeAdapter : ListAdapter<List<AvtoTypeData>, AvtoTypeAdapter.HistoryVH>(MyDifUtils) {
-    private var itemListener: ((List<AvtoTypeData>) -> Unit)? = null
+class AvtoTypeAdapter : ListAdapter<AvtoTypeData, AvtoTypeAdapter.HistoryVH>(MyDifUtils) {
+    private var itemListener: ((AvtoTypeData) -> Unit)? = null
 
-    object MyDifUtils : DiffUtil.ItemCallback<List<AvtoTypeData>>() {
-        override fun areItemsTheSame(oldItem: List<AvtoTypeData>, newItem: List<AvtoTypeData>): Boolean {
+    object MyDifUtils : DiffUtil.ItemCallback<AvtoTypeData>() {
+        override fun areItemsTheSame(oldItem: AvtoTypeData, newItem: AvtoTypeData): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: List<AvtoTypeData>, newItem: List<AvtoTypeData>): Boolean {
+        override fun areContentsTheSame(oldItem: AvtoTypeData, newItem: AvtoTypeData): Boolean {
             return oldItem == newItem
         }
     }
 
     inner class HistoryVH(view: View) : RecyclerView.ViewHolder(view) {
-        private val bind by viewBinding(ItemTransportTypeBinding::bind)
+        private val bind by viewBinding(ItemTypeAutoBinding::bind)
 
         init {
-//            bind.item.setOnClickListener {
-//                getItem(absoluteAdapterPosition)?.let { it1 -> itemListener?.invoke(it1) }
-//            }
+            itemView.setOnClickListener {
+                getItem(absoluteAdapterPosition)?.let { it1 -> itemListener?.invoke(it1) }
+            }
         }
 
         fun load() {
             val value = getItem(absoluteAdapterPosition) as AvtoTypeData
-            bind.transportType.text = value.name
+            bind.name.text = value.name
         }
     }
 
@@ -44,5 +44,9 @@ class AvtoTypeAdapter : ListAdapter<List<AvtoTypeData>, AvtoTypeAdapter.HistoryV
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryVH =
-        HistoryVH(LayoutInflater.from(parent.context).inflate(R.layout.item_transport_type, parent, false))
+        HistoryVH(LayoutInflater.from(parent.context).inflate(R.layout.item_type_auto, parent, false))
+
+    fun setListener(f: (AvtoTypeData) -> Unit) {
+        itemListener = f
+    }
 }

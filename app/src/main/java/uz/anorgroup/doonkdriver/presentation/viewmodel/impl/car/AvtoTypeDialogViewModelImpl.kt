@@ -20,7 +20,7 @@ class AvtoTypeDialogViewModelImpl @Inject constructor(private val useCase: AvtoD
     override val successFlow = eventValueFlow<TypeAvtoResponce>()
     override val openVerifyFlow = eventValueFlow<Unit>()
 
-    override fun continueSignUpRequest() {
+    override fun autoTypeRequest() {
         if (!isConnected()) {
             viewModelScope.launch {
                 errorFlow.emit("Internet bilan muammo bo'ldi")
