@@ -163,4 +163,11 @@ dependencies {
      */
     implementation 'com.google.maps.android:android-maps-utils:0.5'
 //    implementation 'com.google.android.gms:play-services:12.0.1'
+
+    /**
+     * Lotile animation
+     */
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
 }

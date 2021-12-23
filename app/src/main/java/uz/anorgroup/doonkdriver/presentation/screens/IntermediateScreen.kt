@@ -7,9 +7,8 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
+import uz.anorgroup.doonkdriver.data.request.car.CarSeet
 import uz.anorgroup.doonkdriver.databinding.ScreenIntermediateBinding
-import uz.anorgroup.doonkdriver.utils.timber
 
 @AndroidEntryPoint
 class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
@@ -23,5 +22,32 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
         bind.nextBt.setOnClickListener {
             findNavController().navigate(R.id.action_screenIntermediate_to_whenScreen)
         }
+        val bundle = Bundle()
+        var id1 = "0"
+
+
+        bind.whereCity.setOnClickListener {
+            val dialog = CitysBottomDialog()
+            dialog.setListener {
+                id1 = it.id.toString()
+                bind.whereCity.text = it.name
+                bundle.putString("id", id1)
+                if (id1 == it.id.toString()) {
+                    dialog.dismiss()
+                }
+            }
+            dialog.show(childFragmentManager, "CityDialog")
+        }
+
+        bind.whereStreet.setOnClickListener {
+            val dialog = StreetsBottomDialog()
+            dialog.arguments = bundle
+            dialog.setListener {
+                bind.whereStreet.text = it.name
+                dialog.dismiss()
+            }
+            dialog.show(childFragmentManager, "StreetDialog")
+        }
+
     }
 }

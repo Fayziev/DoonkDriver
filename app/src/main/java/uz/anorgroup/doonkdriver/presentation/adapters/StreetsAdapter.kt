@@ -24,7 +24,7 @@ class StreetsAdapter(var query: String) : ListAdapter<DataStreet, StreetsAdapter
         }
 
         override fun areContentsTheSame(oldItem: DataStreet, newItem: DataStreet): Boolean {
-            return oldItem == newItem
+            return oldItem.city == newItem.city && oldItem.name == newItem.name
         }
     }
 
@@ -40,7 +40,7 @@ class StreetsAdapter(var query: String) : ListAdapter<DataStreet, StreetsAdapter
         fun load() {
             val value = getItem(absoluteAdapterPosition) as DataStreet
             val spanSt = SpannableString(value.name)
-            val foregrounSpan = ForegroundColorSpan(getColor(android.R.color.holo_purple))
+            val foregrounSpan = ForegroundColorSpan(getColor(android.R.color.holo_red_dark))
             val startIndex = value.name.indexOf(query, 0, true)//  salom  a=1 5-1=4
             val lastIndex = startIndex + query.length
             spanSt.setSpan(foregrounSpan, startIndex, lastIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
