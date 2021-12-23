@@ -29,6 +29,7 @@ import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.CarCreateViewMod
 import uz.anorgroup.doonkdriver.utils.FileUtils.getPath
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
+import uz.anorgroup.doonkdriver.utils.timber
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -48,7 +49,9 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
                 val fileUri = data?.data!!
                 bind.carCircle.setImageURI(fileUri)
                 file = File(getPath(requireContext(), fileUri))
+                val arrayString = file.toString().split('/')
                 photosList.add(Photo(file.toString()))
+                timber(arrayString[7])
             }
         }
     }
@@ -107,8 +110,7 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
                 viewModel.errorFlow.onEach {
                     showToast("Error")
                 }.launchIn(lifecycleScope)
-            }
-            else{
+            } else {
                 showToast("Fill in the blanks")
             }
         }
