@@ -1,28 +1,31 @@
 package uz.anorgroup.doonkdriver.data.request.car
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class CreateCarRequest(
 
-    @SerializedName("brand")
-    val brand: Int,
-    @SerializedName("car_model")
-    val carModel: Int,
     @SerializedName("car_seet")
-    val carSeet: List<CarSeet>,
+    val carSeet: List<CarSeet>? = null,
+    @SerializedName("brand")
+    val brand: Int? = null,
+    @SerializedName("car_model")
+    val carModel: Int? = null,
     @SerializedName("color")
-    val color: String,
+    val color: String? = null,
     @SerializedName("lifting_capacity")
-    val liftingCapacity: Int,
+    val liftingCapacity: Int? = null,
     @SerializedName("photos")
-    val photos: List<Photo>,
+    val photos: List<Photo>? = null,
     @SerializedName("type_of_body")
-    val typeOfBody: Int,
+    val typeOfBody: Int? = null,
     @SerializedName("type_of_transport")
-    val typeOfTransport: Int,
+    val typeOfTransport: Int? = null,
     @SerializedName("weight")
-    val weight: Int,
+    val weight: Int? = null,
     @SerializedName("year_of_issue")
-    val yearOfIssue: String
-)
+    val yearOfIssue: String? = null
+):Parcelable

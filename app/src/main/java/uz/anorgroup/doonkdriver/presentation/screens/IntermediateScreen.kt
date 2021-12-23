@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.request.car.CarSeet
 import uz.anorgroup.doonkdriver.databinding.ScreenIntermediateBinding
 
 @AndroidEntryPoint
