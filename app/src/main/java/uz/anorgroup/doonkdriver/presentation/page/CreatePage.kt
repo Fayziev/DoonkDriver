@@ -53,10 +53,10 @@ class CreatePage : Fragment(R.layout.screen_create_order) {
             dialog.setListener {
                 bind.whereCity.text = it.name
                 id1 = it.id.toString()
+                bundle.putString("id", id1)
                 position1 = it.id
                 dialog.dismiss()
             }
-            bundle.putString("id", id1)
             dialog.show(childFragmentManager, "CityDialog")
         }
 
@@ -78,10 +78,10 @@ class CreatePage : Fragment(R.layout.screen_create_order) {
                 bind.directionsCity.text = it.name
                 id2 = it.id.toString()
                 position2 = it.id
+                bundle.putString("id", id2)
                 dialog.dismiss()
 
             }
-            bundle.putString("id", id2)
             dialog.show(childFragmentManager, "CityDialog")
         }
         bind.directionsStreet.setOnClickListener {
