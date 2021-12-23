@@ -48,12 +48,12 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
         arguments?.getString("id")?.let {
             cityQuery = it
             viewModel.getStreets(cityQuery, querySt)
-            showToast(it)
         }
         adapter.setListener {
             listener?.invoke(it)
         }
         viewModel.successFlow.onEach {
+            showEmpty(it.data.size)
             adapter.submitList(it.data)
         }.launchIn(lifecycleScope)
 
@@ -99,4 +99,11 @@ class StreetsBottomDialog : BottomSheetDialogFragment() {
         listener = f
     }
 
+    private fun showEmpty(count: Int) {
+        if (count == 0) {
+            bind.animationView.visibility = View.VISIBLE
+        } else {
+            bind.animationView.visibility = View.GONE
+        }
+    }
 }
