@@ -13,6 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.responce.car.TransportData
 import uz.anorgroup.doonkdriver.databinding.BottomDialogTypeTransprortBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.TransportTypeAdapter
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.TypesTransportViewModel
@@ -24,7 +25,7 @@ import uz.anorgroup.doonkdriver.utils.showToast
 class TransportTypeBottomDialog : BottomSheetDialogFragment() {
     private val viewModel: TypesTransportViewModel by viewModels<TransporTypesViewModelImpl>()
     private val adapter = TransportTypeAdapter()
-    private var listener: ((String) -> Unit)? = null
+    private var listener: ((TransportData) -> Unit)? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme)
@@ -40,18 +41,17 @@ class TransportTypeBottomDialog : BottomSheetDialogFragment() {
         listView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.getTransportTypes()
         adapter.setListener {
-            listener?.invoke(it.name)
+            listener?.invoke(it)
         }
         viewModel.successFlow.onEach {
             adapter.submitList(it.data)
-            adapter.notifyDataSetChanged()
         }.launchIn(lifecycleScope)
         viewModel.errorFlow.onEach {
             showToast("Error")
         }.launchIn(lifecycleScope)
     }
 
-    fun setListener(f: (String) -> Unit) {
+    fun setListener(f: (TransportData) -> Unit) {
         listener = f
     }
 }

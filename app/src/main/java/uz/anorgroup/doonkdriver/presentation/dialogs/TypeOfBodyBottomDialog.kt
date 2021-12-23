@@ -13,6 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.responce.car.TypeBodyData
 import uz.anorgroup.doonkdriver.databinding.BottomDialogTypeLoadingBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.TypeOfBodyAdapter
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.BodyBtDialogViewModel
@@ -24,7 +25,7 @@ import uz.anorgroup.doonkdriver.utils.showToast
 class TypeOfBodyBottomDialog : BottomSheetDialogFragment() {
     private val viewModel: BodyBtDialogViewModel by viewModels<BodyBtDialogViewModelImpl>()
     private val adapter = TypeOfBodyAdapter()
-    private var listener: ((String) -> Unit)? = null
+    private var listener: ((TypeBodyData) -> Unit)? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme)
@@ -40,18 +41,17 @@ class TypeOfBodyBottomDialog : BottomSheetDialogFragment() {
         listView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.continueSignUpRequest()
         adapter.setListener {
-            listener?.invoke(it.name)
+            listener?.invoke(it)
         }
         viewModel.successFlow.onEach {
             adapter.submitList(it.data)
-            adapter.notifyDataSetChanged()
         }.launchIn(lifecycleScope)
         viewModel.errorFlow.onEach {
             showToast("Error")
         }.launchIn(lifecycleScope)
     }
 
-    fun setListener(f: (String) -> Unit) {
+    fun setListener(f: (TypeBodyData) -> Unit) {
         listener = f
     }
 

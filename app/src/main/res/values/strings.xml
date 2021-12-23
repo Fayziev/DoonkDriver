@@ -171,5 +171,10 @@
     <string name="gruzovik">Грузовик</string>
     <string name="license_plate">Госномер</string>
     <string name="type_auto">Тип автомобилья</string>
+    <string name="lifting_capacity">Грузоподъемность</string>
+    <string name="capacity">Обьем, м3</string>
+    <string name="length_car">Длина, м</string>
+    <string name="width">Ширина, м</string>
+    <string name="height_car">Высота, м3</string>
 
 </resources>

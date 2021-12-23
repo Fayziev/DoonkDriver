@@ -1,4 +1,4 @@
-package uz.gita.doonkdriver.utils;
+package uz.anorgroup.doonkdriver.utils;
 
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;

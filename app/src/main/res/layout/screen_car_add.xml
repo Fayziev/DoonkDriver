@@ -52,38 +52,29 @@
         app:layout_constraintRight_toRightOf="@id/car_circle"
         app:layout_constraintTop_toTopOf="@id/car_circle" />
 
-    <ImageView
+    <Button
         android:id="@+id/load_car_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
-        android:src="@drawable/ic_load_car_line"
+        android:background="@drawable/ic_load_car_line"
+        android:text="Загрузить фото"
+        android:textColor="#27AE61"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="@id/car_circle"
         app:layout_constraintLeft_toRightOf="@id/car_circle"
         app:layout_constraintTop_toTopOf="@id/car_circle" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/upload_foto"
-        android:textAllCaps="true"
-        android:textColor="#27AE61"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@id/load_car_line"
-        app:layout_constraintLeft_toLeftOf="@id/load_car_line"
-        app:layout_constraintRight_toRightOf="@id/load_car_line"
-        app:layout_constraintTop_toTopOf="@id/load_car_line" />
 
 
     <ImageView
         android:id="@+id/tip_transporta_line"
         android:layout_width="0dp"
-        android:background="?selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="56dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         android:src="@drawable/ic_tip_line"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -115,11 +106,11 @@
         android:id="@+id/tip_kuzova_line"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="12dp"
         android:background="?selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="12dp"
         android:src="@drawable/ic_tip_line"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -147,120 +138,78 @@
         app:layout_constraintRight_toRightOf="@id/tip_kuzova_line"
         app:layout_constraintTop_toTopOf="@id/tip_kuzova_line" />
 
-    <ImageView
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/god_vipuska"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="12dp"
-
-        android:background="?selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_tip_line"
+        android:background="@color/white"
+        android:hint="@string/year_of_issue"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_line" />
+        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_line">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:text="@string/year_of_issue"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/god_vipuska"
-        app:layout_constraintLeft_toLeftOf="@id/god_vipuska"
-        app:layout_constraintTop_toTopOf="@id/god_vipuska" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/year_of_issue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLength="4"
+            android:maxLines="1"
+            android:singleLine="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="17.5dp"
-        android:text="@string/select_text"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/god_vipuska"
-        app:layout_constraintRight_toRightOf="@id/god_vipuska"
-        app:layout_constraintTop_toTopOf="@id/god_vipuska" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/svet"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-
-        android:background="?selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
         android:layout_marginTop="12dp"
-        android:src="@drawable/ic_tip_line"
+        android:background="@color/white"
+        android:hint="@string/color"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/god_vipuska" />
+        app:layout_constraintTop_toBottomOf="@id/god_vipuska">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:text="@string/color"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/svet"
-        app:layout_constraintLeft_toLeftOf="@id/svet"
-        app:layout_constraintTop_toTopOf="@id/svet" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="@string/color_text"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/svet"
-        app:layout_constraintRight_toLeftOf="@id/circle_color"
-        app:layout_constraintTop_toTopOf="@id/svet" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circle_color"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginEnd="15dp"
-        android:padding="8dp"
-        android:src="@color/black"
-        app:layout_constraintBottom_toBottomOf="@id/svet"
-        app:layout_constraintRight_toRightOf="@id/svet"
-        app:layout_constraintTop_toTopOf="@id/svet" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/color"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-    <ImageView
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/gasnomer"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="12dp"
-        android:background="?selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_tip_line"
+        android:background="@color/white"
+        android:hint="@string/license_plate"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/svet" />
+        app:layout_constraintTop_toBottomOf="@id/svet">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/license_plate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:text="@string/license_plate"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/gasnomer"
-        app:layout_constraintLeft_toLeftOf="@id/gasnomer"
-        app:layout_constraintTop_toTopOf="@id/gasnomer" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
+        android:alpha=".6"
         android:text="@string/text_gasnomer_bottom"
         android:textSize="12sp"
-        android:layout_marginStart="16dp"
-        android:alpha=".6"
         app:layout_constraintLeft_toLeftOf="@id/gasnomer"
         app:layout_constraintTop_toBottomOf="@id/gasnomer" />
 
@@ -281,9 +230,9 @@
         android:layout_marginHorizontal="25dp"
         android:layout_marginBottom="21dp"
         android:src="@drawable/next_bg"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
         android:text="@string/save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/indicator" />
 
 

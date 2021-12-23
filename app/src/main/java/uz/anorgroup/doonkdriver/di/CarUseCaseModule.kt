@@ -27,6 +27,9 @@ interface CarUseCaseModule {
     fun getBrands(impl: BrandsTypeDialogUseCaseImpl): BrandsDialogUseCase
 
     @Binds
-    abstract fun getAllCars(impl:AllCarsUseCaseImpl):AllCarsUseCase
+    fun getAllCars(impl: AllCarsUseCaseImpl): AllCarsUseCase
+
+    @Binds
+    fun carCreate(impl: CarCreateUseCaseImpl): CarCreateUseCase
 
 }

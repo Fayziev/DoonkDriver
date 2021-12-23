@@ -53,27 +53,18 @@
         app:layout_constraintRight_toRightOf="@id/car_circle"
         app:layout_constraintTop_toTopOf="@id/car_circle" />
 
-    <ImageView
+    <Button
         android:id="@+id/load_car_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
-        android:src="@drawable/ic_load_car_line"
+        android:background="@drawable/ic_load_car_line"
+        android:text="Загрузить фото"
+        android:textColor="#27AE61"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="@id/car_circle"
         app:layout_constraintLeft_toRightOf="@id/car_circle"
         app:layout_constraintTop_toTopOf="@id/car_circle" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Загрузить фото"
-        android:textAllCaps="true"
-        android:textColor="#27AE61"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@id/load_car_line"
-        app:layout_constraintLeft_toLeftOf="@id/load_car_line"
-        app:layout_constraintRight_toRightOf="@id/load_car_line"
-        app:layout_constraintTop_toTopOf="@id/load_car_line" />
 
     <TextView
         android:id="@+id/tip_transport"
@@ -94,17 +85,17 @@
         android:src="@drawable/ic_tip_line"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tip_transport"/>
+        app:layout_constraintTop_toBottomOf="@id/tip_transport" />
 
     <TextView
         android:id="@+id/type_transport_text"
         android:layout_width="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/tip_transporta_line"
-        app:layout_constraintBottom_toBottomOf="@id/tip_transporta_line"
-        app:layout_constraintLeft_toLeftOf="@id/tip_transporta_line"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:hint="@string/gruzovik"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintBottom_toBottomOf="@id/tip_transporta_line"
+        app:layout_constraintLeft_toLeftOf="@id/tip_transporta_line"
+        app:layout_constraintTop_toTopOf="@id/tip_transporta_line" />
 
     <ImageView
         android:id="@+id/down_icon"
@@ -132,22 +123,22 @@
         android:id="@+id/tip_kuzova_line"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_tip_line"
         android:layout_marginHorizontal="25dp"
+        android:src="@drawable/ic_tip_line"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_text"/>
+        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_text" />
 
 
     <TextView
         android:id="@+id/type_kuzova_text"
         android:layout_width="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/tip_kuzova_line"
-        app:layout_constraintBottom_toBottomOf="@id/tip_kuzova_line"
-        app:layout_constraintLeft_toLeftOf="@id/tip_kuzova_line"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:hint="@string/select_type_loading"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintBottom_toBottomOf="@id/tip_kuzova_line"
+        app:layout_constraintLeft_toLeftOf="@id/tip_kuzova_line"
+        app:layout_constraintTop_toTopOf="@id/tip_kuzova_line" />
 
 
     <ImageView
@@ -165,17 +156,20 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="8dp"
         android:background="@color/white"
-        android:hint="Грузодьемность"
+        android:hint="@string/lifting_capacity"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/obyom_line"
         app:layout_constraintTop_toBottomOf="@id/tip_kuzova_line">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lifting_capacity"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:maxLength="6" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -186,17 +180,20 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="8dp"
         android:background="@color/white"
-        android:hint="Обьем, м3"
+        android:hint="@string/capacity"
         app:layout_constraintLeft_toRightOf="@id/gruzodemnost_line"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tip_kuzova_line">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/capacity"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:maxLength="6" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -208,14 +205,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:background="@color/white"
-        android:hint="Длина, м"
+        android:hint="@string/length_car"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/shrina_line"
         app:layout_constraintTop_toBottomOf="@id/vnutrinnie_text">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/length"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:maxLength="6" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -228,14 +228,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:background="@color/white"
-        android:hint="Шрина, м"
+        android:hint="@string/width"
         app:layout_constraintLeft_toRightOf="@id/dlina_line"
         app:layout_constraintRight_toLeftOf="@id/visota_line"
         app:layout_constraintTop_toBottomOf="@id/vnutrinnie_text">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/width"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:maxLength="6" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -248,14 +251,17 @@
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:background="@color/white"
-        android:hint="Высота, м3"
+        android:hint="@string/height_car"
         app:layout_constraintLeft_toRightOf="@id/shrina_line"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vnutrinnie_text">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/height"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:maxLength="6" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -283,23 +289,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <ImageView
+    <Button
         android:id="@+id/saveBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
         android:layout_marginBottom="21dp"
-        android:src="@drawable/ic_save_line"
+        android:background="@drawable/ic_save_line"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/indicator" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Сохранить"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/saveBtn"
-        app:layout_constraintLeft_toLeftOf="@id/saveBtn"
-        app:layout_constraintRight_toRightOf="@id/saveBtn"
-        app:layout_constraintTop_toTopOf="@id/saveBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

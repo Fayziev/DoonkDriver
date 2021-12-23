@@ -28,9 +28,9 @@ class ModelTypeAdapter : ListAdapter<ModelData, ModelTypeAdapter.HistoryVH>(MyDi
         private val bind by viewBinding(ItemTransportTypeBinding::bind)
 
         init {
-//            bind.item.setOnClickListener {
-//                getItem(absoluteAdapterPosition)?.let { it1 -> itemListener?.invoke(it1) }
-//            }
+            itemView.setOnClickListener {
+                getItem(absoluteAdapterPosition)?.let { it1 -> itemListener?.invoke(it1) }
+            }
         }
 
         fun load() {
@@ -45,4 +45,8 @@ class ModelTypeAdapter : ListAdapter<ModelData, ModelTypeAdapter.HistoryVH>(MyDi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryVH =
         HistoryVH(LayoutInflater.from(parent.context).inflate(R.layout.item_transport_type, parent, false))
+
+    fun setListener(f: (ModelData) -> Unit) {
+        itemListener = f
+    }
 }

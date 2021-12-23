@@ -13,6 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.responce.car.CarData
 import uz.anorgroup.doonkdriver.databinding.BottomDialogMarksBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.BrandsTypeAdapter
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.BrandTypeDialogViewModel
@@ -24,7 +25,7 @@ import uz.anorgroup.doonkdriver.utils.showToast
 class BrandsBottomDialog : BottomSheetDialogFragment() {
     private val viewModel: BrandTypeDialogViewModel by viewModels<BrandTypeDialogViewModelImpl>()
     private val adapter = BrandsTypeAdapter()
-    private var listener: ((String) -> Unit)? = null
+    private var listener: ((CarData) -> Unit)? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme)
@@ -40,18 +41,17 @@ class BrandsBottomDialog : BottomSheetDialogFragment() {
         listView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.continueSignUpRequest()
         adapter.setListener {
-            listener?.invoke(it.name)
+            listener?.invoke(it)
         }
         viewModel.successFlow.onEach {
             adapter.submitList(it.data)
-            adapter.notifyDataSetChanged()
         }.launchIn(lifecycleScope)
         viewModel.errorFlow.onEach {
             showToast("Error")
         }.launchIn(lifecycleScope)
     }
 
-    fun setListener(f: (String) -> Unit) {
+    fun setListener(f: (CarData) -> Unit) {
         listener = f
     }
 

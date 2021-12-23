@@ -2,6 +2,7 @@ package uz.anorgroup.doonkdriver.presentation.screens
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -13,9 +14,10 @@ import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.request.car.CarSeet
+import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenWhenBinding
 import uz.anorgroup.doonkdriver.utils.scope
+import uz.anorgroup.doonkdriver.utils.timber
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,16 +32,13 @@ class WhenScreen : Fragment(R.layout.screen_when) {
     private var minute = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-        super.onViewCreated(view, savedInstanceState)
-        val bundle = requireArguments()
-        val listLocation: ArrayList<CarSeet> = bundle.getParcelableArrayList("listLocation")!!
+
         calendarOpen.setOnClickListener {
             showCalendarPicker()
         }
         timeOpen.setOnClickListener {
             showTimePicker()
         }
-
         nextBt.setOnClickListener {
             if (timeDate.toString().isEmpty() && calendarDate.toString().isEmpty()) {
                 error1.visibility = View.VISIBLE
@@ -47,11 +46,7 @@ class WhenScreen : Fragment(R.layout.screen_when) {
             } else {
                 error1.visibility = View.GONE
                 error2.visibility = View.GONE
-                val bundle2 = Bundle()
-                bundle2.putParcelableArrayList("listLocation", listLocation)
-                bundle2.putString("calendarDate", calendarDate)
-                bundle2.putString("timeDate", timeDate)
-                findNavController().navigate(R.id.action_whenScreen_to_vehicleScreen, bundle2)
+                findNavController().navigate(R.id.action_whenScreen_to_vehicleScreen)
             }
         }
     }
