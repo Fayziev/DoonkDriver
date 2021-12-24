@@ -35,8 +35,9 @@
 
     <ImageView
         android:id="@+id/car_circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop"
         android:layout_marginStart="24dp"
         android:layout_marginTop="37dp"
         android:src="@drawable/ic_car_circle_icon"
@@ -44,6 +45,7 @@
         app:layout_constraintTop_toBottomOf="@id/actionBar" />
 
     <ImageView
+        android:id="@+id/car_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_car_icon"
@@ -155,6 +157,7 @@
             android:id="@+id/year_of_issue"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:inputType="number"
             android:maxLength="4"
             android:maxLines="1"
             android:singleLine="true" />
@@ -178,7 +181,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/color"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -198,7 +204,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/license_plate"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
 

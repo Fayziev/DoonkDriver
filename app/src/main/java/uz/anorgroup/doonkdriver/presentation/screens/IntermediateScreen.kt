@@ -41,7 +41,14 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
         }
 
         bind.nextBt.setOnClickListener {
-            findNavController().navigate(R.id.action_screenIntermediate_to_whenScreen)
+
+            bind.error1.visibility = View.GONE
+            val listLocation = ArrayList<CarSeet>()
+            data.carSeet?.let { it1 -> listLocation.addAll(it1) }
+            val creteRequest = CreateCarRequest(listLocation)
+            val bundle = Bundle()
+            bundle.putParcelable("data", creteRequest)
+            findNavController().navigate(R.id.truckAddScreen, bundle)
         }
         val bundle = Bundle()
         var id1 = "0"

@@ -47,6 +47,7 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
         when (resultCode) {
             Activity.RESULT_OK -> {
                 val fileUri = data?.data!!
+                bind.carIcon.visibility=View.GONE
                 bind.carCircle.setImageURI(fileUri)
                 file = File(getPath(requireContext(), fileUri))
                 val arrayString = file.toString().split('/')
