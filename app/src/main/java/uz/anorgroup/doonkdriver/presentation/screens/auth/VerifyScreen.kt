@@ -17,6 +17,7 @@ import uz.anorgroup.doonkdriver.data.request.auth.VerifyRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenVerifyBinding
 import uz.anorgroup.doonkdriver.presentation.viewmodel.auth.VerifyViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.auth.VerifyViewModelImpl
+import uz.anorgroup.doonkdriver.utils.hideKeyboard
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
 
@@ -31,7 +32,6 @@ class VerifyScreen : Fragment(R.layout.screen_verify) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         viewModel.successFlow.onEach {
             showToast("Success")
             findNavController().navigate(R.id.action_verifyScreen_to_mainScreen)
@@ -39,6 +39,7 @@ class VerifyScreen : Fragment(R.layout.screen_verify) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
+        view.hideKeyboard()
         loginBtn.isEnabled = false
         val bundle = requireArguments()
         val pos = bundle.getBoolean("pos")
