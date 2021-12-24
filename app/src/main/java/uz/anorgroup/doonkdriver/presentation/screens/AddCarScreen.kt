@@ -50,8 +50,8 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
                 bind.carCircle.setImageURI(fileUri)
                 file = File(getPath(requireContext(), fileUri))
                 val arrayString = file.toString().split('/')
-                photosList.add(Photo(file.toString()))
-                timber(arrayString[7])
+                photosList.add(Photo(arrayString[9]))
+                timber(arrayString[9])
             }
         }
     }
