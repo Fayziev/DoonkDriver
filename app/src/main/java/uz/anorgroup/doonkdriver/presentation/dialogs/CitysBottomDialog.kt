@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.collect
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.responce.location.DataCity
 import uz.anorgroup.doonkdriver.databinding.BottomCitysBinding
@@ -46,12 +45,18 @@ class CitysBottomDialog : BottomSheetDialogFragment() {
             listener?.invoke(it)
         }
 
-        viewModel.successFlow.onEach {
-            adapter.submitList(it.data)
-        }.launchIn(lifecycleScope)
-        viewModel.errorFlow.onEach {
-            showToast("Error")
-        }.launchIn(lifecycleScope)
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.successFlow.collect {
+                adapter.submitList(it.data)
+            }
+            viewModel.errorFlow.collect {
+                showToast("Error")
+            }
+            viewModel.progressFlow.collect {
+                if (it) progress.show()
+                else progress.hide()
+            }
+        }
     }
 
     fun setListener(f: (DataCity) -> Unit) {

@@ -3,50 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginScreen">
-
-    <fragment
-        android:id="@+id/loginScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.auth.LoginScreen"
-        android:label="LoginScreen"
-        tools:layout="@layout/screen_login">
-        <action
-            android:id="@+id/action_loginScreen_to_registerScreen"
-            app:destination="@id/registerScreen" />
-        <action
-            android:id="@+id/action_loginScreen_to_verifyScreen"
-            app:destination="@id/verifyScreen" />
-    </fragment>
-    <fragment
-        android:id="@+id/registerScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.auth.RegisterScreen"
-        android:label="RegisterScreen"
-        tools:layout="@layout/screen_register">
-        <action
-            android:id="@+id/action_registerScreen_to_verifyScreen"
-            app:destination="@id/verifyScreen" />
-        <argument
-            android:name="phone"
-            app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/verifyScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.auth.VerifyScreen"
-        android:label="VerifyScreen"
-        tools:layout="@layout/screen_verify">
-        <argument
-            android:name="name"
-            app:argType="string" />
-        <argument
-            android:name="surname"
-            app:argType="string" />
-        <argument
-            android:name="phone"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_verifyScreen_to_mainScreen"
-            app:destination="@id/mainScreen" />
-    </fragment>
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/mainScreen"
@@ -56,31 +13,17 @@
         <action
             android:id="@+id/action_mainScreen_to_screenIntermediate"
             app:destination="@id/screenIntermediate" />
-        <action
-            android:id="@+id/action_mainScreen_to_roadMapScreen"
-            app:destination="@id/roadMapScreen" />
     </fragment>
     <fragment
         android:id="@+id/screenIntermediate"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.IntermediateScreen"
         android:label="ScreenIntermediate"
-        tools:layout="@layout/screen_intermediate">
-        <action
-            android:id="@+id/action_screenIntermediate_to_whenScreen"
-            app:destination="@id/whenScreen" />
-    </fragment>
+        tools:layout="@layout/screen_intermediate"/>
     <fragment
         android:id="@+id/vehicleScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.VehicleScreen"
         android:label="VehicleScreen"
-        tools:layout="@layout/screen_vehicle_type">
-        <action
-            android:id="@+id/action_vehicleScreen_to_seatScreen"
-            app:destination="@id/seatScreen" />
-        <action
-            android:id="@+id/action_vehicleScreen_to_truckAddScreen"
-            app:destination="@id/truckAddScreen" />
-    </fragment>
+        tools:layout="@layout/screen_vehicle_type"/>
     <fragment
         android:id="@+id/tripDetalisScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.TripDetalisScreen"
@@ -88,7 +31,9 @@
         tools:layout="@layout/screen_trip_detalis">
         <action
             android:id="@+id/action_tripDetalisScreen_to_showTripScreen"
-            app:destination="@id/showTripScreen" />
+            app:destination="@id/showTripScreen"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/seatScreen"
@@ -119,7 +64,11 @@
         android:id="@+id/addCarScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.AddCarScreen"
         android:label="AddCarScreen"
-        tools:layout="@layout/screen_car_add" />
+        tools:layout="@layout/screen_car_add" >
+        <action
+            android:id="@+id/action_addCarScreen_to_vehicleScreen"
+            app:destination="@id/vehicleScreen" />
+    </fragment>
     <fragment
         android:id="@+id/tripInfoScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.TripInfoScreen"
@@ -138,13 +87,72 @@
         android:id="@+id/whenScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.WhenScreen"
         android:label="WhenScreen"
-        tools:layout="@layout/screen_when">
-        <action
-            android:id="@+id/action_whenScreen_to_vehicleScreen"
-            app:destination="@id/vehicleScreen" />
-    </fragment>
+        tools:layout="@layout/screen_when"/>
     <fragment
         android:id="@+id/roadMapScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.map.RoadMapScreen"
         android:label="RoadMapScreen" />
+    <navigation
+        android:id="@+id/navigation"
+        app:startDestination="@id/loginScreen">
+        <fragment
+            android:id="@+id/loginScreen"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.auth.LoginScreen"
+            android:label="LoginScreen"
+            tools:layout="@layout/screen_login">
+            <action
+                android:id="@+id/action_loginScreen_to_registerScreen"
+                app:destination="@id/registerScreen" />
+            <action
+                android:id="@+id/action_loginScreen_to_verifyScreen"
+                app:destination="@id/verifyScreen" />
+        </fragment>
+        <fragment
+            android:id="@+id/registerScreen"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.auth.RegisterScreen"
+            android:label="RegisterScreen"
+            tools:layout="@layout/screen_register">
+            <action
+                android:id="@+id/action_registerScreen_to_verifyScreen"
+                app:destination="@id/verifyScreen" />
+            <argument
+                android:name="phone"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/verifyScreen"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.auth.VerifyScreen"
+            android:label="VerifyScreen"
+            tools:layout="@layout/screen_verify">
+            <argument
+                android:name="name"
+                app:argType="string" />
+            <argument
+                android:name="surname"
+                app:argType="string" />
+            <argument
+                android:name="phone"
+                app:argType="string" />
+            <action
+                android:id="@+id/action_verifyScreen_to_mainScreen"
+                app:destination="@id/mainScreen"
+                app:popUpTo="@id/nav_graph"
+                app:popUpToInclusive="true" />
+        </fragment>
+    </navigation>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.auth.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_navigation"
+            app:destination="@id/navigation" />
+        <action
+            android:id="@+id/action_splashFragment_to_mainScreen"
+            app:destination="@id/mainScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/createOrderScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.CreateOrderScreen"
+        android:label="CreateOrderScreen" />
 </navigation>

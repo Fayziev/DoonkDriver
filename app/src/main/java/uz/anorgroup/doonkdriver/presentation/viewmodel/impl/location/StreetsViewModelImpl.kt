@@ -19,7 +19,6 @@ class StreetsViewModelImpl @Inject constructor(private val useCase: StreetssDial
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
     override val successFlow = eventValueFlow<SearchStreetsResponce>()
-    override val openVerifyFlow = eventValueFlow<Unit>()
 
     override fun getStreets(city: String, query: String) {
         if (!isConnected()) {
@@ -36,7 +35,6 @@ class StreetsViewModelImpl @Inject constructor(private val useCase: StreetssDial
             it.onSuccess { value ->
                 progressFlow.emit(false)
                 successFlow.emit(value)
-                openVerifyFlow.emit(Unit)
             }
             it.onFailure { throwable ->
                 progressFlow.emit(false)

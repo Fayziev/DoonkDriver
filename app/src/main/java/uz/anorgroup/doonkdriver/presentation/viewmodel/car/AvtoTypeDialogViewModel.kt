@@ -7,7 +7,6 @@ interface AvtoTypeDialogViewModel {
     val errorFlow: Flow<String>
     val progressFlow: Flow<Boolean>
     val successFlow: Flow<TypeAvtoResponce>
-    val openVerifyFlow: Flow<Unit>
 
     fun autoTypeRequest()
 

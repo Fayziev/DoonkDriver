@@ -7,7 +7,6 @@ interface StreetsViewModels {
     val errorFlow: Flow<String>
     val progressFlow: Flow<Boolean>
     val successFlow: Flow<SearchStreetsResponce>
-    val openVerifyFlow: Flow<Unit>
 
     fun getStreets(city: String, query: String)
 

@@ -7,7 +7,6 @@ interface ModelsDialogViewModel {
     val errorFlow: Flow<String>
     val progressFlow: Flow<Boolean>
     val successFlow: Flow<ModelResponce>
-    val openVerifyFlow: Flow<Unit>
 
     fun getModels()
 

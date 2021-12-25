@@ -39,7 +39,6 @@ class VerifyScreen : Fragment(R.layout.screen_verify) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
-        view.hideKeyboard()
         loginBtn.isEnabled = false
         val bundle = requireArguments()
         val pos = bundle.getBoolean("pos")
@@ -50,10 +49,12 @@ class VerifyScreen : Fragment(R.layout.screen_verify) {
             name = bundle.getString("name") as String
             surname = bundle.getString("surname") as String
         }
+
         smsVerifyCode.onChangeListener = SmsConfirmationView.OnChangeListener { code, isComplete ->
             loginBtn.isEnabled = isComplete
             if (isComplete) {
                 s = code
+                view.hideKeyboard()
             }
         }
         loginBtn.setOnClickListener {

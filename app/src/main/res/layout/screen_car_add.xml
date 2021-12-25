@@ -33,13 +33,13 @@
         app:layout_constraintRight_toRightOf="@id/actionBar"
         app:layout_constraintTop_toTopOf="@id/actionBar" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/car_circle"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:scaleType="centerCrop"
         android:layout_marginStart="24dp"
         android:layout_marginTop="37dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_car_circle_icon"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/actionBar" />
@@ -57,7 +57,7 @@
     <Button
         android:id="@+id/load_car_line"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_marginStart="17dp"
         android:background="@drawable/ic_load_car_line"
         android:text="Загрузить фото"
@@ -109,7 +109,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         android:background="?selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
@@ -140,40 +140,42 @@
         app:layout_constraintRight_toRightOf="@id/tip_kuzova_line"
         app:layout_constraintTop_toTopOf="@id/tip_kuzova_line" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <ImageView
         android:id="@+id/god_vipuska"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/white"
+        android:layout_marginTop="4dp"
+        android:clickable="true"
+        android:elevation="4dp"
+        android:focusable="true"
         android:hint="@string/year_of_issue"
+        android:src="@drawable/ic_tip_line"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_line">
+        app:layout_constraintTop_toBottomOf="@id/tip_kuzova_line" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/year_of_issue"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="number"
-            android:maxLength="4"
-            android:maxLines="1"
-            android:singleLine="true" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
+    <TextView
+        android:id="@+id/year_of_issue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="2dp"
+        android:elevation="4dp"
+        android:text="@string/year_of_issue"
+        app:layout_constraintBottom_toBottomOf="@id/god_vipuska"
+        app:layout_constraintLeft_toLeftOf="@id/god_vipuska"
+        app:layout_constraintTop_toTopOf="@id/god_vipuska" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/svet"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/white"
+        android:layout_marginTop="4dp"
         android:hint="@string/color"
+        android:src="@drawable/ic_tip_line"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/god_vipuska">
@@ -244,5 +246,17 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/indicator" />
 
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:elevation="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

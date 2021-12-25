@@ -174,4 +174,15 @@ dependencies {
      * ImagePickerView
      */
     implementation 'com.github.dhaval2404:imagepicker:2.1'
+
+    /**
+     * SpinKit
+     */
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    /**
+     * elasticviews
+     */
+    implementation "com.github.skydoves:elasticviews:2.1.0"
+
 }

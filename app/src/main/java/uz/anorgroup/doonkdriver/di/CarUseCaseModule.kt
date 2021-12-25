@@ -32,4 +32,7 @@ interface CarUseCaseModule {
     @Binds
     fun carCreate(impl: CarCreateUseCaseImpl): CarCreateUseCase
 
+    @Binds
+    fun uploadImage(impl:ImageUploadUseCaseImpl):ImageUploadUseCase
+
 }

@@ -20,5 +20,4 @@ class StartScreenViewModelImpl @Inject constructor(private val useCase: StartScr
         }
     }
 
-
 }

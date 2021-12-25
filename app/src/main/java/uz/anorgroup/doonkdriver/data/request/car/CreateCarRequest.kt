@@ -4,6 +4,7 @@ package uz.anorgroup.doonkdriver.data.request.car
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+import uz.anorgroup.doonkdriver.data.responce.car.Photo
 
 @Parcelize
 data class CreateCarRequest(

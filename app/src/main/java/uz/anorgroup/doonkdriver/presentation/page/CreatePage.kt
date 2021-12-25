@@ -20,7 +20,6 @@ class CreatePage : Fragment(R.layout.screen_create_order) {
     private val bind by viewBinding(ScreenCreateOrderBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-        super.onViewCreated(view, savedInstanceState)
 
         var qty1 = -1
         var position1 = -1
@@ -93,7 +92,6 @@ class CreatePage : Fragment(R.layout.screen_create_order) {
                 dialog.dismiss()
             }
             dialog.show(childFragmentManager, "StreetDialog")
-
         }
 
     }

@@ -7,7 +7,6 @@ interface BodyBtDialogViewModel {
     val errorFlow: Flow<String>
     val progressFlow: Flow<Boolean>
     val successFlow: Flow<TypeOfBodyResponce>
-    val openVerifyFlow: Flow<Unit>
 
     fun continueSignUpRequest()
 

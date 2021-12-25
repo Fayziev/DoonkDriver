@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.BottomDialogAutoTypeBinding
-import uz.anorgroup.doonkdriver.databinding.BottomDialogTypeLoadingBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.AvtoTypeAdapter
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.AvtoTypeDialogViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.AvtoTypeDialogViewModelImpl
@@ -45,10 +44,13 @@ class AutoTypeBottomDialog : BottomSheetDialogFragment() {
         }
         viewModel.successFlow.onEach {
             adapter.submitList(it.data)
-            adapter.notifyDataSetChanged()
         }.launchIn(lifecycleScope)
         viewModel.errorFlow.onEach {
             showToast("Error")
+        }.launchIn(lifecycleScope)
+        viewModel.progressFlow.onEach {
+            if (it) progress.show()
+            else progress.hide()
         }.launchIn(lifecycleScope)
     }
 

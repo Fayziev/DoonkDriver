@@ -69,5 +69,8 @@ class LoginScreen : Fragment(R.layout.screen_login) {
             if (it) progress.show()
             else progress.hide()
         }.launchIn(lifecycleScope)
+        viewModel.errorFlow.onEach {
+            showToast(it)
+        }.launchIn(lifecycleScope)
     }
 }

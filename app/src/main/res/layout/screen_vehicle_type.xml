@@ -66,12 +66,12 @@
         android:background="@drawable/add_car_bt_bg"
         android:text="@string/addCar"
         android:textAllCaps="false"
-        app:layout_constraintVertical_bias=".05"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/listView" />
+        app:layout_constraintTop_toBottomOf="@id/listView"
+        app:layout_constraintVertical_bias=".05" />
 
 
     <ImageView

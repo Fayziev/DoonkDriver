@@ -27,7 +27,6 @@ class AddCarBottomDialog : BottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.bottom_dialog_add_car, container, false)
 
-
     private val bind by viewBinding(BottomDialogAddCarBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,15 +42,4 @@ class AddCarBottomDialog : BottomSheetDialogFragment() {
         }
     }
 
-    fun setEasyCar(f: () -> Unit) {
-        easyCar = f
-    }
-
-    fun setNormalCar(f: () -> Unit) {
-        normalCar = f
-    }
-
-    fun setHardCar(f: () -> Unit) {
-        hardCar = f
-    }
 }

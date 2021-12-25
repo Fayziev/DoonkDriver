@@ -10,6 +10,8 @@ import uz.anorgroup.doonkdriver.data.pref.MyPref
 import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
 import uz.anorgroup.doonkdriver.data.responce.car.*
 import uz.anorgroup.doonkdriver.domain.repository.CarRepository
+import uz.anorgroup.doonkdriver.utils.toFormData
+import java.io.File
 import javax.inject.Inject
 
 class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val pref: MyPref) : CarRepository {
@@ -89,7 +91,7 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
 
-    override fun getAllCars(): Flow<Result<AllCarsResponse>> = flow{
+    override fun getAllCars(): Flow<Result<AllCarsResponse>> = flow {
         val responce = api.getCarsInfo()
         if (responce.isSuccessful) {
             emit(Result.success<AllCarsResponse>(responce.body()!!))
@@ -98,6 +100,19 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
         }
     }.catch {
         val errorMessage = Throwable("Sever bilan muammo bo'ldi")
+        emit(Result.failure(errorMessage))
+    }.flowOn(Dispatchers.IO)
+
+    override fun uploadImage(file: File): Flow<Result<ImageUploadResponse>> = flow {
+
+        val response = api.uploadImage(file.toFormData())
+        if (response.isSuccessful) {
+            emit(Result.success<ImageUploadResponse>(response.body()!!))
+        } else {
+            emit(Result.failure(Throwable(response.errorBody().toString())))
+        }
+    }.catch {
+        val errorMessage = Throwable("Server bilan muammo bo'ldi")
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
 

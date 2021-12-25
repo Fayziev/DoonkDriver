@@ -6,20 +6,21 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import uz.anorgroup.doonkdriver.data.responce.car.TypeAvtoResponce
-import uz.anorgroup.doonkdriver.domain.usecase.car.AvtoDialogUseCase
-import uz.anorgroup.doonkdriver.presentation.viewmodel.car.AvtoTypeDialogViewModel
+import uz.anorgroup.doonkdriver.data.responce.car.ImageUploadResponse
+import uz.anorgroup.doonkdriver.domain.usecase.car.ImageUploadUseCase
+import uz.anorgroup.doonkdriver.presentation.viewmodel.car.ImageUploadViewModel
 import uz.anorgroup.doonkdriver.utils.eventValueFlow
 import uz.anorgroup.doonkdriver.utils.isConnected
+import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
-class AvtoTypeDialogViewModelImpl @Inject constructor(private val useCase: AvtoDialogUseCase) : AvtoTypeDialogViewModel, ViewModel() {
+class ImageUploadViewModelImpl @Inject constructor(private val useCase: ImageUploadUseCase) : ViewModel(), ImageUploadViewModel {
+
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
-    override val successFlow = eventValueFlow<TypeAvtoResponce>()
-
-    override fun autoTypeRequest() {
+    override val successFlow = eventValueFlow<ImageUploadResponse>()
+    override fun imageUpload(file: File) {
         if (!isConnected()) {
             viewModelScope.launch {
                 errorFlow.emit("Internet bilan muammo bo'ldi")
@@ -29,7 +30,7 @@ class AvtoTypeDialogViewModelImpl @Inject constructor(private val useCase: AvtoD
         viewModelScope.launch {
             progressFlow.emit(true)
         }
-        useCase.getTransportType().onEach {
+        useCase.imageUpload(file).onEach {
             it.onSuccess { value ->
                 progressFlow.emit(false)
                 successFlow.emit(value)
@@ -39,5 +40,6 @@ class AvtoTypeDialogViewModelImpl @Inject constructor(private val useCase: AvtoD
                 errorFlow.emit(throwable.message.toString())
             }
         }.launchIn(viewModelScope)
+
     }
 }

@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias=".81" />
 
 
-    <ImageView
+    <com.skydoves.elasticviews.ElasticImageView
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -53,6 +53,8 @@
         android:layout_marginTop="46dp"
         android:clickable="true"
         android:focusable="true"
+        app:imageView_duration="200"
+        app:imageView_scale="0.8"
         android:src="@drawable/login_drawable"
         app:layout_constraintTop_toBottomOf="@id/smsVerifyCode" />
 

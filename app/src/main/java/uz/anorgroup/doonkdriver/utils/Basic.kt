@@ -46,6 +46,12 @@ fun View.hideKeyboard(): Boolean {
     return false
 }
 
+// file
+fun File.toFormData(partName: String = "file"): MultipartBody.Part {
+    val request = asRequestBody("multipart/form-data".toMediaTypeOrNull())
+    return MultipartBody.Part.createFormData(partName, name, request)
+}
+
 /*
 0-Register
 1-Enter

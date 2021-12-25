@@ -34,37 +34,37 @@
         app:layout_constraintRight_toRightOf="@id/actionBar"
         app:layout_constraintTop_toTopOf="@id/actionBar" />
 
-    <ImageView
-        android:id="@+id/car_circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="37dp"
-        android:src="@drawable/ic_car_circle_icon"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/actionBar" />
+<!--    <ImageView-->
+<!--        android:id="@+id/car_circle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="37dp"-->
+<!--        android:src="@drawable/ic_car_circle_icon"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/actionBar" />-->
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_car_icon"
-        app:layout_constraintBottom_toBottomOf="@id/car_circle"
-        app:layout_constraintLeft_toLeftOf="@id/car_circle"
-        app:layout_constraintRight_toRightOf="@id/car_circle"
-        app:layout_constraintTop_toTopOf="@id/car_circle" />
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_car_icon"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/car_circle"-->
+<!--        app:layout_constraintLeft_toLeftOf="@id/car_circle"-->
+<!--        app:layout_constraintRight_toRightOf="@id/car_circle"-->
+<!--        app:layout_constraintTop_toTopOf="@id/car_circle" />-->
 
-    <Button
-        android:id="@+id/load_car_line"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:background="@drawable/ic_load_car_line"
-        android:text="Загрузить фото"
-        android:textColor="#27AE61"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@id/car_circle"
-        app:layout_constraintLeft_toRightOf="@id/car_circle"
-        app:layout_constraintTop_toTopOf="@id/car_circle" />
+<!--    <Button-->
+<!--        android:id="@+id/load_car_line"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="17dp"-->
+<!--        android:background="@drawable/ic_load_car_line"-->
+<!--        android:text="Загрузить фото"-->
+<!--        android:textColor="#27AE61"-->
+<!--        android:textSize="11sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/car_circle"-->
+<!--        app:layout_constraintLeft_toRightOf="@id/car_circle"-->
+<!--        app:layout_constraintTop_toTopOf="@id/car_circle" />-->
 
     <TextView
         android:id="@+id/tip_transport"
@@ -75,7 +75,7 @@
         android:text="Тип транспорта"
         android:textSize="9sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/load_car_line" />
+        app:layout_constraintTop_toBottomOf="@id/actionBar" />
 
     <ImageView
         android:id="@+id/tip_transporta_line"

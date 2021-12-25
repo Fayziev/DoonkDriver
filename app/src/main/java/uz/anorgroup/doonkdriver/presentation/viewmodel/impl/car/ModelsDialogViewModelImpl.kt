@@ -19,7 +19,6 @@ class ModelsDialogViewModelImpl @Inject constructor(private val useCase: ModelsD
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
     override val successFlow = eventValueFlow<ModelResponce>()
-    override val openVerifyFlow = eventValueFlow<Unit>()
 
     override fun getModels() {
         if (!isConnected()) {
@@ -35,7 +34,6 @@ class ModelsDialogViewModelImpl @Inject constructor(private val useCase: ModelsD
             it.onSuccess { value ->
                 progressFlow.emit(false)
                 successFlow.emit(value)
-                openVerifyFlow.emit(Unit)
             }
             it.onFailure { throwable ->
                 progressFlow.emit(false)

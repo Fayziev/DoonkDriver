@@ -29,6 +29,7 @@ class ModelBottomDialog : BottomSheetDialogFragment() {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme)
     }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.bottom_dialog_model, container, false)
 
@@ -46,6 +47,10 @@ class ModelBottomDialog : BottomSheetDialogFragment() {
         }.launchIn(lifecycleScope)
         viewModel.errorFlow.onEach {
             showToast("Error")
+        }.launchIn(lifecycleScope)
+        viewModel.progressFlow.onEach {
+            if (it) progress.show()
+            else progress.hide()
         }.launchIn(lifecycleScope)
     }
 

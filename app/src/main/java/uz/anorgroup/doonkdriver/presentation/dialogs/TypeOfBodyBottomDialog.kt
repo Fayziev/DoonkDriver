@@ -49,6 +49,12 @@ class TypeOfBodyBottomDialog : BottomSheetDialogFragment() {
         viewModel.errorFlow.onEach {
             showToast("Error")
         }.launchIn(lifecycleScope)
+
+        viewModel.progressFlow.onEach {
+            if (it) progress.show()
+            else progress.hide()
+        }.launchIn(lifecycleScope)
+
     }
 
     fun setListener(f: (TypeBodyData) -> Unit) {

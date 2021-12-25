@@ -54,14 +54,18 @@ class AuthRepositoryImpl @Inject constructor(private val api: AuthApi, private v
     override fun getStartScreen(): Boolean = pref.startScreen
 
     override fun register(request: RegisterRequest): Flow<Result<RegisterResponse>> = flow {
-        val recponce = api.register(request)
-        if (recponce.isSuccessful) {
-            recponce.body()?.data?.let {
+        val response = api.register(request)
+        if (response.isSuccessful) {
+            response.body()?.data?.let {
                 pref.accessToken = it.token
+                pref.phoneNumber = request.phone
+                pref.startScreen = true
+                pref.name = request.first_name
+                pref.surname = request.last_name
             }
-            emit(Result.success<RegisterResponse>(recponce.body()!!))
+            emit(Result.success<RegisterResponse>(response.body()!!))
         } else {
-            emit(Result.failure(Throwable(recponce.errorBody().toString())))
+            emit(Result.failure(Throwable(response.errorBody().toString())))
         }
     }.catch {
         val errorMessage = Throwable("Sever bilan muammo bo'ldi")
@@ -75,6 +79,9 @@ class AuthRepositoryImpl @Inject constructor(private val api: AuthApi, private v
                 if (it != null) {
                     pref.accessToken = it.token
                     pref.startScreen = true
+                    pref.phoneNumber = it.phone
+                    pref.name = it.firstName
+                    pref.surname = it.lastName
                 }
             }
             emit(Result.success<VerifyResponce>(responce.body()!!))

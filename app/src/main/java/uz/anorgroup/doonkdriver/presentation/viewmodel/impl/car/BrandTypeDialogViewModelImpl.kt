@@ -19,7 +19,6 @@ class BrandTypeDialogViewModelImpl @Inject constructor(private val useCase: Bran
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
     override val successFlow = eventValueFlow<BrandsResponce>()
-    override val openVerifyFlow = eventValueFlow<Unit>()
 
     override fun continueSignUpRequest() {
         if (!isConnected()) {
@@ -35,7 +34,6 @@ class BrandTypeDialogViewModelImpl @Inject constructor(private val useCase: Bran
             it.onSuccess { value ->
                 progressFlow.emit(false)
                 successFlow.emit(value)
-                openVerifyFlow.emit(Unit)
             }
             it.onFailure { throwable ->
                 progressFlow.emit(false)

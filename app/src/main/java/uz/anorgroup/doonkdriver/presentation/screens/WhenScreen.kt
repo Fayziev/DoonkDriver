@@ -46,7 +46,7 @@ class WhenScreen : Fragment(R.layout.screen_when) {
             } else {
                 error1.visibility = View.GONE
                 error2.visibility = View.GONE
-                findNavController().navigate(R.id.action_whenScreen_to_vehicleScreen)
+//                findNavController().navigate(R.id.action_whenScreen_to_vehicleScreen)
             }
         }
     }

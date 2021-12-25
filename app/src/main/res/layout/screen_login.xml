@@ -51,28 +51,31 @@
         android:layout_height="0dp"
         android:layout_marginHorizontal="36dp"
         android:backgroundTint="@android:color/transparent"
+        android:gravity="center|left"
         android:inputType="phone"
         android:maxLength="17"
         android:maxLines="1"
-        android:textColor="#36A53F"
+        android:textColor="#27AE61"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/editBack"
         app:layout_constraintLeft_toLeftOf="@id/editBack"
         app:layout_constraintRight_toRightOf="@id/editBack"
         app:layout_constraintTop_toTopOf="@id/editBack"
         app:mask="+998 ## ###-##-##"
-        tools:ignore="MissingClass" />
+        tools:ignore="MissingClass,RtlHardcoded" />
 
-    <ImageView
+    <com.skydoves.elasticviews.ElasticView
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="6dp"
-        android:background="?android:selectableItemBackground"
+        android:layout_marginTop="46dp"
+        android:background="@drawable/login_drawable"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/login_drawable"
-        app:layout_constraintTop_toBottomOf="@id/editText" />
+        app:layout_constraintTop_toBottomOf="@id/editText"
+        app:view_duration="200"
+        app:view_scale="0.8" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,6 +84,7 @@
         android:focusable="false"
         android:text="@string/kirish"
         android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/loginBtn"
         app:layout_constraintLeft_toLeftOf="@id/loginBtn"
         app:layout_constraintRight_toRightOf="@id/loginBtn"

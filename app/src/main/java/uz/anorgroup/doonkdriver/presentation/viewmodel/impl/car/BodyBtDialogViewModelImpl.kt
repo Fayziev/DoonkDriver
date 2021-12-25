@@ -18,7 +18,6 @@ class BodyBtDialogViewModelImpl @Inject constructor(private val useCase: BodyDia
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
     override val successFlow = eventValueFlow<TypeOfBodyResponce>()
-    override val openVerifyFlow = eventValueFlow<Unit>()
 
     override fun continueSignUpRequest() {
         if (!isConnected()) {
@@ -34,7 +33,6 @@ class BodyBtDialogViewModelImpl @Inject constructor(private val useCase: BodyDia
             it.onSuccess { value ->
                 progressFlow.emit(false)
                 successFlow.emit(value)
-                openVerifyFlow.emit(Unit)
             }
             it.onFailure { throwable ->
                 progressFlow.emit(false)

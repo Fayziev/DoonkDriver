@@ -14,18 +14,23 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointBackward
+import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import okhttp3.ResponseBody
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
-import uz.anorgroup.doonkdriver.data.request.car.Photo
+import uz.anorgroup.doonkdriver.data.responce.car.Photo
 import uz.anorgroup.doonkdriver.databinding.ScreenCarAddBinding
 import uz.anorgroup.doonkdriver.presentation.dialogs.BrandsBottomDialog
 import uz.anorgroup.doonkdriver.presentation.dialogs.ModelBottomDialog
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.CarCreateViewModel
+import uz.anorgroup.doonkdriver.presentation.viewmodel.car.ImageUploadViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.CarCreateViewModelImpl
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.ImageUploadViewModelImpl
 import uz.anorgroup.doonkdriver.utils.FileUtils.getPath
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
@@ -34,6 +39,9 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.InputStream
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
 class AddCarScreen : Fragment(R.layout.screen_car_add) {
@@ -41,18 +49,29 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
     private var file: File? = null
     private var photosList = ArrayList<Photo>()
     private val viewModel: CarCreateViewModel by viewModels<CarCreateViewModelImpl>()
+    private var dateSelected = ""
+    private val viewModelImage: ImageUploadViewModel by viewModels<ImageUploadViewModelImpl>()
+    private val outputDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     private val startForProfileImageResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         val resultCode = result.resultCode
         val data = result.data
         when (resultCode) {
             Activity.RESULT_OK -> {
                 val fileUri = data?.data!!
-                bind.carIcon.visibility=View.GONE
+                bind.carIcon.visibility = View.GONE
                 bind.carCircle.setImageURI(fileUri)
                 file = File(getPath(requireContext(), fileUri))
-                val arrayString = file.toString().split('/')
-                photosList.add(Photo(file.toString()))
-                timber(arrayString[7])
+                viewModelImage.imageUpload(file!!)
+                viewModelImage.successFlow.onEach {
+                    photosList.add(it.data)
+                }.launchIn(lifecycleScope)
+                viewModelImage.errorFlow.onEach {
+                    showToast("Error")
+                }.launchIn(lifecycleScope)
+                viewModelImage.progressFlow.onEach {
+                    if (it) bind.progress.show()
+                    else bind.progress.hide()
+                }.launchIn(lifecycleScope)
             }
         }
     }
@@ -74,6 +93,9 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
                 }
         }
 
+        godVipuska.setOnClickListener {
+            showCalendarPicker()
+        }
         tipTransportaLine.setOnClickListener {
             val dialog = BrandsBottomDialog()
             dialog.setListener {
@@ -101,15 +123,19 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
                 val newData = CreateCarRequest(
                     data.carSeet, data.typeOfBody,
                     data.typeOfTransport, data.liftingCapacity, data.weight, brand, model,
-                    color.text.toString(), yearOfIssue.text.toString(), photosList
+                    color.text.toString(), "${dateSelected}T00:00:00Z", photosList
                 )
                 viewModel.carCreate(newData)
                 viewModel.successFlow.onEach {
                     showToast("Success")
-                    findNavController().navigate(R.id.tripDetalisScreen)
+                    findNavController().navigate(R.id.vehicleScreen)
                 }.launchIn(lifecycleScope)
                 viewModel.errorFlow.onEach {
                     showToast("Error")
+                }.launchIn(lifecycleScope)
+                viewModel.progressFlow.onEach {
+                    if (it) progress.show()
+                    else progress.hide()
                 }.launchIn(lifecycleScope)
             } else {
                 showToast("Fill in the blanks")
@@ -147,5 +173,23 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
         }
     }
 
+    private fun showCalendarPicker() {
+        val calendarConstraints = CalendarConstraints.Builder()
+            .setValidator(DateValidatorPointBackward.now())
+            .build()
+
+        val picker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Select Date ")
+            .setCalendarConstraints(calendarConstraints)
+            .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+            .build()
+        picker.addOnPositiveButtonClickListener { date ->
+            timber(date.toString())
+            outputDateFormat.format(date).also { dateSelected = it }
+            bind.yearOfIssue.setText(dateSelected)
+            timber(dateSelected)
+        }
+        picker.show(requireFragmentManager(), "Gita")
+    }
 }
 

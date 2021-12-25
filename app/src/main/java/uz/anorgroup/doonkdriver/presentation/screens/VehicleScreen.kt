@@ -29,7 +29,7 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
         super.onViewCreated(view, savedInstanceState)
 
         nextBt.setOnClickListener {
-            findNavController().navigate(R.id.action_vehicleScreen_to_seatScreen)
+            findNavController().navigate(R.id.seatScreen)
         }
 
         listView.adapter = adapter
@@ -37,7 +37,6 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
         viewModel.getAllCars()
         viewModel.successFlow.onEach {
             adapter.submitList(it.data)
-            adapter.notifyDataSetChanged()
         }.launchIn(lifecycleScope)
         viewModel.errorFlow.onEach {
             showToast("Error")
@@ -46,31 +45,12 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
         addCarBt.setOnClickListener {
             val dialog = AutoTypeBottomDialog()
             dialog.setListener {
-                findNavController().navigate(R.id.action_vehicleScreen_to_truckAddScreen)
+                findNavController().navigate(R.id.createOrderScreen)
                 dialog.dismiss()
             }
 
             dialog.show(childFragmentManager, "autoType")
         }
 
-//        addCarBt.setOnClickListener {
-//            val dialog = AddCardBottomDialog()
-//            dialog.show(childFragmentManager, "CardDialog")
-//
-//            dialog.setEasyCar {
-//                findNavController().navigate(R.id.action_vehicleScreen_to_truckAddScreen)
-//                dialog.dismiss()
-//            }
-//
-//            dialog.setNormalCar {
-//                findNavController().navigate(R.id.action_vehicleScreen_to_truckAddScreen)
-//                dialog.dismiss()
-//            }
-//
-//            dialog.setHardCar {
-//                findNavController().navigate(R.id.action_vehicleScreen_to_truckAddScreen)
-//                dialog.dismiss()
-//            }
-//        }
     }
 }

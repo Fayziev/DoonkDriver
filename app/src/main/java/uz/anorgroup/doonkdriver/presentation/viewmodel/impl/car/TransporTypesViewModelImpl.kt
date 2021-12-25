@@ -18,7 +18,6 @@ class TransporTypesViewModelImpl @Inject constructor(private val useCase: TypeTr
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
     override val successFlow = eventValueFlow<TypeTransportsResponce>()
-    override val openVerifyFlow = eventValueFlow<Unit>()
 
     override fun getTransportTypes() {
         if (!isConnected()) {
@@ -34,7 +33,6 @@ class TransporTypesViewModelImpl @Inject constructor(private val useCase: TypeTr
             it.onSuccess { value ->
                 progressFlow.emit(false)
                 successFlow.emit(value)
-                openVerifyFlow.emit(Unit)
             }
             it.onFailure { throwable ->
                 progressFlow.emit(false)

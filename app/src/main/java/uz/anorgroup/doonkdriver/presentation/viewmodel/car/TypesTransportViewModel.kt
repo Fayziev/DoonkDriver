@@ -7,7 +7,6 @@ interface TypesTransportViewModel {
     val errorFlow: Flow<String>
     val progressFlow: Flow<Boolean>
     val successFlow: Flow<TypeTransportsResponce>
-    val openVerifyFlow: Flow<Unit>
 
     fun getTransportTypes()
 
