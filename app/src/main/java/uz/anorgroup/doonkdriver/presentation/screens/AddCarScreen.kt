@@ -14,23 +14,18 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
-import com.google.android.material.datepicker.CalendarConstraints
-import com.google.android.material.datepicker.DateValidatorPointBackward
-import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import okhttp3.ResponseBody
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
-import uz.anorgroup.doonkdriver.data.responce.car.Photo
+import uz.anorgroup.doonkdriver.data.request.car.Photo
 import uz.anorgroup.doonkdriver.databinding.ScreenCarAddBinding
 import uz.anorgroup.doonkdriver.presentation.dialogs.BrandsBottomDialog
 import uz.anorgroup.doonkdriver.presentation.dialogs.ModelBottomDialog
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.CarCreateViewModel
-import uz.anorgroup.doonkdriver.presentation.viewmodel.car.ImageUploadViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.CarCreateViewModelImpl
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.ImageUploadViewModelImpl
 import uz.anorgroup.doonkdriver.utils.FileUtils.getPath
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
@@ -39,9 +34,6 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.InputStream
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
 class AddCarScreen : Fragment(R.layout.screen_car_add) {
