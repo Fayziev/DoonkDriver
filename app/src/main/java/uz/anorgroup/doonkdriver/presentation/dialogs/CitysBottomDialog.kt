@@ -1,9 +1,13 @@
 package uz.anorgroup.doonkdriver.presentation.dialogs
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,8 +28,9 @@ import uz.anorgroup.doonkdriver.utils.showToast
 class CitysBottomDialog : BottomSheetDialogFragment() {
     private val viewModel: CitysViewModels by viewModels<CitysViewModelImpl>()
     private var listener: ((DataCity) -> Unit)? = null
-    private val adapter = CitysAdapter()
-
+    private var querySt = ""
+    private val adapter = CitysAdapter(querySt)
+    private lateinit var hendler: Handler
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme)
@@ -57,10 +62,44 @@ class CitysBottomDialog : BottomSheetDialogFragment() {
                 else progress.hide()
             }
         }
+        hendler = Handler(Looper.getMainLooper())
+        bind.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onQueryTextSubmit(query: String?): Boolean {
+//                hendler.removeCallbacksAndMessages(null)
+//                query?.let {
+//                    querySt = it.trim()
+//                    adapter.query = querySt
+//                    viewModel.getCitys(querySt)
+//                    bind.searchView.setQuery(querySt, false)
+//                }
+                return true
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onQueryTextChange(newText: String?): Boolean {
+                hendler.removeCallbacksAndMessages(null)
+                hendler.postDelayed({
+                    newText?.let {
+                        querySt = it.trim()
+                        viewModel.getCitys(querySt)
+                        adapter.query = querySt
+                        bind.searchView.setQuery(querySt, false)
+                    }
+                }, 200)
+                return true
+            }
+        })
     }
+
 
     fun setListener(f: (DataCity) -> Unit) {
         listener = f
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        hendler.removeCallbacksAndMessages(null)
+    }
 }

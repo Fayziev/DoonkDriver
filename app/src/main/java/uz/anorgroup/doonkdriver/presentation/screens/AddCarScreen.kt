@@ -186,7 +186,7 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
         picker.addOnPositiveButtonClickListener { date ->
             timber(date.toString())
             outputDateFormat.format(date).also { dateSelected = it }
-            bind.yearOfIssue.setText(dateSelected)
+            bind.yearOfIssue.text = dateSelected
             timber(dateSelected)
         }
         picker.show(requireFragmentManager(), "Gita")

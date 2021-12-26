@@ -7,6 +7,7 @@ import uz.anorgroup.doonkdriver.BuildConfig
 
 @HiltAndroidApp
 class App : Application() {
+
     companion object {
         lateinit var instance: App
             private set
