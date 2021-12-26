@@ -92,7 +92,6 @@
         android:label="WhenScreen"
         tools:layout="@layout/screen_when"/>
     <fragment
-        tools:layout="@layout/screen_road_map"
         android:id="@+id/roadMapScreen"
         tools:layout="@layout/screen_road_map"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.map.RoadMapScreen"
