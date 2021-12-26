@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/mainScreen">
 
     <fragment
         android:id="@+id/mainScreen"
@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainScreen_to_screenIntermediate"
             app:destination="@id/screenIntermediate" />
+        <action
+            android:id="@+id/action_mainScreen_to_roadMapScreen"
+            app:destination="@id/roadMapScreen" />
     </fragment>
     <fragment
         android:id="@+id/screenIntermediate"
@@ -89,6 +92,7 @@
         android:label="WhenScreen"
         tools:layout="@layout/screen_when"/>
     <fragment
+        tools:layout="@layout/screen_road_map"
         android:id="@+id/roadMapScreen"
         tools:layout="@layout/screen_road_map"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.map.RoadMapScreen"
