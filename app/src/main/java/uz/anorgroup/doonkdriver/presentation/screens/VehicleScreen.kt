@@ -26,7 +26,6 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
     private val adapter = AllCarsAdapter()
     private val viewModel: AllCarsViewModel by viewModels<AllCarsViewModelImpl>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-        super.onViewCreated(view, savedInstanceState)
 
         nextBt.setOnClickListener {
             findNavController().navigate(R.id.seatScreen)
@@ -48,7 +47,6 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
                 findNavController().navigate(R.id.createOrderScreen)
                 dialog.dismiss()
             }
-
             dialog.show(childFragmentManager, "autoType")
         }
 

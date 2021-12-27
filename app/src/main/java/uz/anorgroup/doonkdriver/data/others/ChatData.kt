@@ -8,3 +8,4 @@ data class ChatData constructor(
     val senderPlace: String,
     val chatText: String
 )
+

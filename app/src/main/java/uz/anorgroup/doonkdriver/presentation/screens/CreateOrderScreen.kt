@@ -68,7 +68,6 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
             dialog.show(childFragmentManager, "StreetDialog")
         }
 
-
         bind.directionsCity.setOnClickListener {
             val dialog = CitysBottomDialog()
             dialog.setListener {

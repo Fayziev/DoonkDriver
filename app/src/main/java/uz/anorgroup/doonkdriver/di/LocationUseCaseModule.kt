@@ -18,6 +18,5 @@ abstract class LocationUseCaseModule {
 
     @Binds
     abstract fun getCitys(impl: CitysDialogUseCaseImpl): CitysDialogUseCase
-
-
+    
 }
