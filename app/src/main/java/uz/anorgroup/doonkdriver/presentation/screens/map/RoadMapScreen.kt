@@ -1,6 +1,7 @@
 package uz.anorgroup.doonkdriver.presentation.screens.map
 
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.core.app.ActivityCompat
@@ -14,9 +15,11 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.Polyline
+import com.google.android.gms.maps.model.PolylineOptions
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.ActivityMapsBinding
+
 
 @AndroidEntryPoint
 class RoadMapScreen : Fragment(R.layout.screen_road_map), OnMapReadyCallback {
@@ -24,6 +27,7 @@ class RoadMapScreen : Fragment(R.layout.screen_road_map), OnMapReadyCallback {
     private lateinit var map: GoogleMap
     private lateinit var binding: ActivityMapsBinding
     lateinit var polyline: Polyline
+    private val listPoints = ArrayList<LatLng>()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -79,6 +83,12 @@ class RoadMapScreen : Fragment(R.layout.screen_road_map), OnMapReadyCallback {
                 map.addMarker(MarkerOptions().position(destanation).title("Amir Temur"))
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(yourCoordinate, 15f))
 
+                val line = map.addPolyline(
+                    PolylineOptions()
+                        .add(LatLng(it.latitude, it.longitude), LatLng(41.26465, 69.21627))
+                        .width(5f)
+                        .color(Color.RED)
+                )
             }
 
         }
