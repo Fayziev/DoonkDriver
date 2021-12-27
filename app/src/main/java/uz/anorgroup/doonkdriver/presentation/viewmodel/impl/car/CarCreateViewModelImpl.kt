@@ -6,7 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
+import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
 import uz.anorgroup.doonkdriver.data.responce.car.CreateCarResponce
 import uz.anorgroup.doonkdriver.domain.usecase.car.CarCreateUseCase
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.CarCreateViewModel
@@ -20,9 +20,9 @@ class CarCreateViewModelImpl @Inject constructor(private val useCase: CarCreateU
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
     override val successFlow = eventValueFlow<CreateCarResponce>()
-    override val openVerifyFlow = eventValueFlow<Unit>()
+    override val openTruckFlow = eventValueFlow<Unit>()
 
-    override fun carCreate(request: CreateCarRequest) {
+    override fun carCreate(request: CreateCarRequest2) {
         if (!isConnected()) {
             viewModelScope.launch {
                 errorFlow.emit("Internet bilan muammo bo'ldi")
@@ -36,7 +36,7 @@ class CarCreateViewModelImpl @Inject constructor(private val useCase: CarCreateU
             it.onSuccess { value ->
                 progressFlow.emit(false)
                 successFlow.emit(value)
-                openVerifyFlow.emit(Unit)
+                openTruckFlow.emit(Unit)
             }
             it.onFailure { throwable ->
                 progressFlow.emit(false)

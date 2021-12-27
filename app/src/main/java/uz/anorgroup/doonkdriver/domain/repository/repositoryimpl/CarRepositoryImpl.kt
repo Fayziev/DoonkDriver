@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import uz.anorgroup.doonkdriver.data.api.CarApi
 import uz.anorgroup.doonkdriver.data.pref.MyPref
-import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
+import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
 import uz.anorgroup.doonkdriver.data.responce.car.*
 import uz.anorgroup.doonkdriver.domain.repository.CarRepository
 import uz.anorgroup.doonkdriver.utils.toFormData
@@ -17,7 +17,7 @@ import javax.inject.Inject
 class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val pref: MyPref) : CarRepository {
 
 
-    override fun carCreate(data: CreateCarRequest): Flow<Result<CreateCarResponce>> = flow {
+    override fun carCreate(data: CreateCarRequest2): Flow<Result<CreateCarResponce>> = flow {
         val responce = api.carCreate(data)
         if (responce.isSuccessful) {
             emit(Result.success<CreateCarResponce>(responce.body()!!))

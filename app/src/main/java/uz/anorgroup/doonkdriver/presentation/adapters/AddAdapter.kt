@@ -12,7 +12,8 @@ import uz.anorgroup.doonkdriver.data.others.LocationAddData
 import uz.anorgroup.doonkdriver.databinding.ItemAddLocationBinding
 
 class AddAdapter : ListAdapter<LocationAddData, AddAdapter.HistoryVH>(MyDifUtils) {
-    private var itemListener: ((LocationAddData) -> Unit)? = null
+    private var itemCityListener: ((Int) -> Unit)? = null
+    private var itemStreetListener: ((Int) -> Unit)? = null
 
     object MyDifUtils : DiffUtil.ItemCallback<LocationAddData>() {
         override fun areItemsTheSame(oldItem: LocationAddData, newItem: LocationAddData): Boolean {
@@ -28,19 +29,18 @@ class AddAdapter : ListAdapter<LocationAddData, AddAdapter.HistoryVH>(MyDifUtils
         private val bind by viewBinding(ItemAddLocationBinding::bind)
 
         init {
-            itemView.setOnClickListener {
-                getItem(absoluteAdapterPosition)?.let { it1 -> itemListener?.invoke(it1) }
+            bind.whereCity.setOnClickListener {
+                itemCityListener?.invoke(bindingAdapterPosition)
+            }
+            bind.whereStreet.setOnClickListener {
+                itemStreetListener?.invoke(bindingAdapterPosition)
             }
         }
 
         fun load() {
-
-//            if (getItem(absoluteAdapterPosition).city.isNotEmpty()
-//                && getItem(absoluteAdapterPosition).street.isNotEmpty()
-//            ) {
-//                bind.whereCity.text = getItem(absoluteAdapterPosition).city
-//                bind.whereStreet.text = getItem(absoluteAdapterPosition).street
-//            }
+            val item = getItem(bindingAdapterPosition)
+            bind.whereCity.text = if (item.city.isEmpty())bind.root.context.getString(R.string.city)  else item.city
+            bind.whereStreet.text = if (item.street.isEmpty())bind.root.context.getString(R.string.street) else item.street
         }
     }
 
@@ -51,7 +51,11 @@ class AddAdapter : ListAdapter<LocationAddData, AddAdapter.HistoryVH>(MyDifUtils
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryVH =
         HistoryVH(LayoutInflater.from(parent.context).inflate(R.layout.item_add_location, parent, false))
 
-    fun setListener(f: (LocationAddData) -> Unit) {
-        itemListener = f
+    fun setCityListener(f: (Int) -> Unit) {
+        itemCityListener = f
+    }
+
+    fun setStreetListener(f: (Int) -> Unit) {
+        itemStreetListener = f
     }
 }

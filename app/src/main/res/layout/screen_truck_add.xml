@@ -50,10 +50,10 @@
         android:id="@+id/tip_transporta_line"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:cursorVisible="false"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/ic_tip_line"
+        android:cursorVisible="false"
         android:hint="@string/gruzovik"
         android:paddingStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -168,10 +168,10 @@
     <EditText
         android:id="@+id/width"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_marginTop="8dp"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/back_edit_drw"
         android:hint="@string/width"
         android:inputType="number"
@@ -187,10 +187,10 @@
     <EditText
         android:id="@+id/height"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_marginTop="8dp"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="25dp"
         android:background="@drawable/back_edit_drw"
         android:hint="@string/height_car"
@@ -208,7 +208,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="18dp"
         android:text="@string/vnutrenni_text"
         android:textSize="9sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -236,5 +236,17 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/indicator" />
+
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Fill in the blanks"
+        android:visibility="invisible"
+        android:textColor="@color/red_500"
+        app:layout_constraintLeft_toLeftOf="@id/length"
+        app:layout_constraintTop_toBottomOf="@id/length" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
