@@ -52,6 +52,7 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
     private var dateSelected = ""
     private val viewModelImage: ImageUploadViewModel by viewModels<ImageUploadViewModelImpl>()
     private val outputDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+
     private val startForProfileImageResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         val resultCode = result.resultCode
         val data = result.data
