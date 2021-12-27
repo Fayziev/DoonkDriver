@@ -1,6 +1,7 @@
 package uz.anorgroup.doonkdriver.presentation.screens
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -8,7 +9,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.car.CarSeet
-import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
+import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
 import uz.anorgroup.doonkdriver.databinding.ScreenCreateOrderBinding
 import uz.anorgroup.doonkdriver.presentation.dialogs.CitysBottomDialog
 import uz.anorgroup.doonkdriver.presentation.dialogs.StreetsBottomDialog
@@ -19,8 +20,8 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
     private val bind by viewBinding(ScreenCreateOrderBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-//        val bundlePos = requireArguments()
-//        val pos = bundlePos.getBoolean("pos")
+        val bundleScreen = requireArguments()
+        val data = bundleScreen.getParcelable<Parcelable>("data") as CreateCarRequest2
         var qty1 = -1
         var position1 = -1
         var qty2 = -1
@@ -31,12 +32,23 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
             if (qty1 != -1 && position1 != -1 && qty2 != -1 && position2 != -1) {
                 listLocation.add(CarSeet(position1, qty1))
                 listLocation.add(CarSeet(position2, qty2))
-                val data = CreateCarRequest(listLocation)
+                val dataNew = CreateCarRequest2(
+                    data.brand,
+                    data.carModel,
+                    data.color,
+                    data.yearOfIssue,
+                    data.photos,
+                    data.typeOfBody,
+                    data.typeOfTransport,
+                    data.liftingCapacity,
+                    data.weight,
+                    listLocation
+                )
                 val bundle = Bundle()
-                bundle.putParcelable("data", data)
+                bundle.putParcelable("data", dataNew)
                 error1.visibility = View.GONE
                 error2.visibility = View.GONE
-                findNavController().navigate(R.id.screenIntermediate, bundle)
+                findNavController().navigate(R.id.action_createOrderScreen_to_screenIntermediate, bundle)
             } else {
                 error1.visibility = View.VISIBLE
                 error2.visibility = View.VISIBLE
@@ -77,7 +89,6 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
                 position2 = it.id
                 bundle.putString("id", id2)
                 dialog.dismiss()
-
             }
             dialog.show(childFragmentManager, "CityDialog")
         }

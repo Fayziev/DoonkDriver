@@ -3,11 +3,13 @@ package uz.anorgroup.doonkdriver.presentation.screens
 import android.app.Activity
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.View
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -22,7 +24,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import okhttp3.ResponseBody
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
+import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
 import uz.anorgroup.doonkdriver.data.responce.car.Photo
 import uz.anorgroup.doonkdriver.databinding.ScreenCarAddBinding
 import uz.anorgroup.doonkdriver.presentation.dialogs.BrandsBottomDialog
@@ -76,10 +78,18 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.openTruckFlow.onEach {
+            findNavController().navigate(R.id.action_addCarScreen_to_truckAddScreen)
+        }.launchIn(lifecycleScope)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-        val bundle = requireArguments()
-        val pos = bundle.getBoolean("pos")
-        val data = bundle.getParcelable<Parcelable>("data") as CreateCarRequest
+//        val bundle = requireArguments()
+//        val pos = bundle.getBoolean("pos")
+//        val data = bundle.getParcelable<Parcelable>("data") as CreateCarRequest
         var brand = -1
         var model = -1
 
@@ -122,28 +132,24 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
         }
 
         saveBtn.setOnClickListener {
-            if (brand != -1 && model != -1 && godVipuska.text!!.isNotEmpty()
-                && color.text!!.isNotEmpty() && licensePlate.text!!.isNotEmpty()
-            ) {
-                val newData = CreateCarRequest(
-                    data.carSeet, data.typeOfBody,
-                    data.typeOfTransport, data.liftingCapacity, data.weight, brand, model,
-                    color.text.toString(), "${dateSelected}T00:00:00Z", photosList
-                )
-                viewModel.carCreate(newData)
-                viewModel.successFlow.onEach {
-                    showToast("Success")
-                    findNavController().navigate(R.id.vehicleScreen)
-                }.launchIn(lifecycleScope)
-                viewModel.errorFlow.onEach {
-                    showToast("Error")
-                }.launchIn(lifecycleScope)
-                viewModel.progressFlow.onEach {
-                    if (it) progress.show()
-                    else progress.hide()
-                }.launchIn(lifecycleScope)
+            if (photosList.size == 0) {
+                if (brand != -1 && model != -1 && godVipuska.text!!.isNotEmpty()
+                    && color.text!!.isNotEmpty() && licensePlate.text!!.isNotEmpty()
+                ) {
+                    val newData = CreateCarRequest2(
+                        brand, model,
+                        color.text.toString(), "${dateSelected}T00:00:00Z", photosList
+                    )
+                    val bundle = Bundle()
+                    bundle.putParcelable("data", newData)
+                    findNavController().navigate(R.id.action_addCarScreen_to_truckAddScreen, bundle)
+                } else {
+                    errorText.text = "Fill in the blanks"
+                    errorText.setTextColor(ContextCompat.getColor(requireContext(), R.color.red_500))
+                }
             } else {
-                showToast("Fill in the blanks")
+                errorText.text = "You must set the image"
+                errorText.setTextColor(ContextCompat.getColor(requireContext(), R.color.red_500))
             }
         }
     }
