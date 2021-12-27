@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainScreen">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/mainScreen"
@@ -11,17 +11,24 @@
         android:label="MainScreen"
         tools:layout="@layout/screen_main">
         <action
-            android:id="@+id/action_mainScreen_to_screenIntermediate"
-            app:destination="@id/screenIntermediate" />
-        <action
             android:id="@+id/action_mainScreen_to_roadMapScreen"
             app:destination="@id/roadMapScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_addCarScreen"
+            app:destination="@id/addCarScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_createOrderScreen"
+            app:destination="@id/createOrderScreen" />
     </fragment>
     <fragment
         android:id="@+id/screenIntermediate"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.IntermediateScreen"
         android:label="ScreenIntermediate"
-        tools:layout="@layout/screen_intermediate"/>
+        tools:layout="@layout/screen_intermediate">
+        <action
+            android:id="@+id/action_screenIntermediate_to_whenScreen"
+            app:destination="@id/whenScreen" />
+    </fragment>
     <fragment
         android:id="@+id/vehicleScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.VehicleScreen"
@@ -60,8 +67,8 @@
         android:label="TruckAddScreen"
         tools:layout="@layout/screen_truck_add">
         <action
-            android:id="@+id/action_truckAddScreen_to_addCarScreen"
-            app:destination="@id/addCarScreen" />
+            android:id="@+id/action_truckAddScreen_to_createOrderScreen"
+            app:destination="@id/createOrderScreen" />
     </fragment>
     <fragment
         android:id="@+id/addCarScreen"
@@ -69,8 +76,8 @@
         android:label="AddCarScreen"
         tools:layout="@layout/screen_car_add" >
         <action
-            android:id="@+id/action_addCarScreen_to_vehicleScreen"
-            app:destination="@id/vehicleScreen" />
+            android:id="@+id/action_addCarScreen_to_truckAddScreen"
+            app:destination="@id/truckAddScreen" />
     </fragment>
     <fragment
         android:id="@+id/tripInfoScreen"
@@ -90,7 +97,11 @@
         android:id="@+id/whenScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.WhenScreen"
         android:label="WhenScreen"
-        tools:layout="@layout/screen_when"/>
+        tools:layout="@layout/screen_when">
+        <action
+            android:id="@+id/action_whenScreen_to_seatScreen"
+            app:destination="@id/seatScreen" />
+    </fragment>
     <fragment
         android:id="@+id/roadMapScreen"
         tools:layout="@layout/screen_road_map"
@@ -164,5 +175,14 @@
         android:id="@+id/createOrderScreen"
         tools:layout="@layout/screen_create_order"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.CreateOrderScreen"
-        android:label="CreateOrderScreen" />
+        android:label="CreateOrderScreen" >
+        <action
+            android:id="@+id/action_createOrderScreen_to_screenIntermediate"
+            app:destination="@id/screenIntermediate" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPage"
+        tools:layout="@layout/screen_vehicle"
+        android:name="uz.anorgroup.doonkdriver.presentation.page.CreatePage"
+        android:label="CreatePage" />
 </navigation>

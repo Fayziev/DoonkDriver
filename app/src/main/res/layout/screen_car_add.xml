@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F5F3">
@@ -14,9 +15,10 @@
 
     <ImageView
         android:id="@+id/backBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginStart="16dp"
+        android:padding="4dp"
         android:src="@drawable/ic_car_add_back"
         app:layout_constraintBottom_toBottomOf="@id/actionBar"
         app:layout_constraintLeft_toLeftOf="@id/actionBar"
@@ -68,30 +70,21 @@
         app:layout_constraintTop_toTopOf="@id/car_circle" />
 
 
-    <ImageView
+    <EditText
         android:id="@+id/tip_transporta_line"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="56dp"
-        android:background="?selectableItemBackground"
+        android:background="@drawable/ic_tip_line"
         android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_tip_line"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:hint="@string/marka"
+        android:paddingStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/load_car_line" />
-
-    <TextView
-        android:id="@+id/marka_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:text="@string/marka"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/tip_transporta_line"
-        app:layout_constraintLeft_toLeftOf="@id/tip_transporta_line"
-        app:layout_constraintTop_toTopOf="@id/tip_transporta_line" />
 
     <TextView
         android:id="@+id/text_marka"
@@ -104,30 +97,21 @@
         app:layout_constraintRight_toRightOf="@id/tip_transporta_line"
         app:layout_constraintTop_toTopOf="@id/tip_transporta_line" />
 
-    <ImageView
+    <EditText
         android:id="@+id/tip_kuzova_line"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="4dp"
-        android:background="?selectableItemBackground"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_tip_line"
         android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_tip_line"
+        android:focusable="false"
+        android:hint="@string/model"
+        android:paddingStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tip_transporta_line" />
 
-    <TextView
-        android:id="@+id/model_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:text="@string/model"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/tip_kuzova_line"
-        app:layout_constraintLeft_toLeftOf="@id/tip_kuzova_line"
-        app:layout_constraintTop_toTopOf="@id/tip_kuzova_line" />
 
     <TextView
         android:id="@+id/text_model"
@@ -140,89 +124,66 @@
         app:layout_constraintRight_toRightOf="@id/tip_kuzova_line"
         app:layout_constraintTop_toTopOf="@id/tip_kuzova_line" />
 
-    <ImageView
+    <EditText
         android:id="@+id/god_vipuska"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_tip_line"
         android:clickable="true"
         android:elevation="4dp"
         android:focusable="true"
         android:hint="@string/year_of_issue"
-        android:src="@drawable/ic_tip_line"
+        android:paddingStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tip_kuzova_line" />
 
-    <TextView
-        android:id="@+id/year_of_issue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="2dp"
-        android:elevation="4dp"
-        android:text="@string/year_of_issue"
-        app:layout_constraintBottom_toBottomOf="@id/god_vipuska"
-        app:layout_constraintLeft_toLeftOf="@id/god_vipuska"
-        app:layout_constraintTop_toTopOf="@id/god_vipuska" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/svet"
+    <EditText
+        android:id="@+id/color"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_tip_line"
         android:hint="@string/color"
-        android:background="@color/white"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:paddingStart="16dp"
+        android:singleLine="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/god_vipuska">
+        app:layout_constraintTop_toBottomOf="@id/god_vipuska" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/color"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:maxLength="20"
-            android:maxLines="1"
-            android:singleLine="true" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/gasnomer"
+    <EditText
+        android:id="@+id/license_plate"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/white"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_tip_line"
         android:hint="@string/license_plate"
+        android:paddingStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/svet">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/license_plate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:maxLength="20"
-            android:maxLines="1"
-            android:singleLine="true" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@id/color"
+        tools:ignore="RtlSymmetry" />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
         android:alpha=".6"
         android:text="@string/text_gasnomer_bottom"
         android:textSize="12sp"
-        app:layout_constraintLeft_toLeftOf="@id/gasnomer"
-        app:layout_constraintTop_toBottomOf="@id/gasnomer" />
+        app:layout_constraintLeft_toLeftOf="@id/license_plate"
+        app:layout_constraintTop_toBottomOf="@id/license_plate" />
 
     <ImageView
         android:id="@+id/indicator"
@@ -241,7 +202,7 @@
         android:layout_marginHorizontal="25dp"
         android:layout_marginBottom="21dp"
         android:src="@drawable/next_bg"
-        android:text="@string/dalee"
+        android:text="@string/save"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/indicator" />

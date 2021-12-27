@@ -41,7 +41,7 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
             showToast("Error")
         }.launchIn(lifecycleScope)
 
-        addCarBt.setOnClickListener {
+        nextBt.setOnClickListener {
             val dialog = AutoTypeBottomDialog()
             dialog.setListener {
                 findNavController().navigate(R.id.createOrderScreen)

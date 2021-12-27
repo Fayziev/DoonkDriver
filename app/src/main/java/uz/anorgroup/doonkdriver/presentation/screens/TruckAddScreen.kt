@@ -22,10 +22,14 @@ class TruckAddScreen : Fragment(R.layout.screen_truck_add) {
         val data = bundle.getParcelable<Parcelable>("data") as CreateCarRequest
         var body = -1
         var type = -1
+
+        backBtn.setOnClickListener {
+            findNavController().popBackStack()
+        }
         tipTransportaLine.setOnClickListener {
             val dialog = TypeOfBodyBottomDialog()
             dialog.setListener {
-                typeTransportText.text = it.name
+                tipTransportaLine.setText(it.name)
                 body = it.id
                 dialog.dismiss()
             }
@@ -35,7 +39,7 @@ class TruckAddScreen : Fragment(R.layout.screen_truck_add) {
         tipKuzovaLine.setOnClickListener {
             val dialog = TransportTypeBottomDialog()
             dialog.setListener {
-                typeKuzovaText.text = it.name
+                tipKuzovaLine.setText(it.name)
                 type = it.id
                 dialog.dismiss()
             }
@@ -52,7 +56,7 @@ class TruckAddScreen : Fragment(R.layout.screen_truck_add) {
                 )
                 val bundle2 = Bundle()
                 bundle2.putParcelable("data", newData)
-                findNavController().navigate(R.id.action_truckAddScreen_to_addCarScreen, bundle2)
+//                findNavController().navigate(R.id.action_truckAddScreen_to_addCarScreen, bundle2)
             }
         }
 

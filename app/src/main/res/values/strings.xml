@@ -177,5 +177,6 @@
     <string name="width">Ширина, м</string>
     <string name="height_car">Высота, м3</string>
     <string name="enter">Kirish</string>
+    <string name="add_another_car">Add another car</string>
 
 </resources>

@@ -8,7 +8,10 @@ interface AllCarsViewModel {
     val errorFlow: Flow<String>
     val progressFlow: Flow<Boolean>
     val successFlow: Flow<AllCarsResponse>
-    val openVerifyFlow: Flow<Unit>
+    val openAddCarFlow: Flow<Unit>
+    val openCreateOrderFlow:Flow<Unit>
 
     fun getAllCars()
+    fun openScreen()
+    fun openCreateOrder()
 }

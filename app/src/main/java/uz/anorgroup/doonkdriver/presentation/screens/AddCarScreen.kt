@@ -78,9 +78,14 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         val bundle = requireArguments()
+        val pos = bundle.getBoolean("pos")
         val data = bundle.getParcelable<Parcelable>("data") as CreateCarRequest
         var brand = -1
         var model = -1
+
+        backBtn.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         bind.loadCarLine.setOnClickListener {
             ImagePicker.with(requireActivity())
@@ -117,7 +122,7 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
         }
 
         saveBtn.setOnClickListener {
-            if (brand != -1 && model != -1 && yearOfIssue.text!!.isNotEmpty()
+            if (brand != -1 && model != -1 && godVipuska.text!!.isNotEmpty()
                 && color.text!!.isNotEmpty() && licensePlate.text!!.isNotEmpty()
             ) {
                 val newData = CreateCarRequest(
@@ -186,8 +191,7 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
         picker.addOnPositiveButtonClickListener { date ->
             timber(date.toString())
             outputDateFormat.format(date).also { dateSelected = it }
-            bind.yearOfIssue.text = dateSelected
-            timber(dateSelected)
+            bind.godVipuska.setText(dateSelected)
         }
         picker.show(requireFragmentManager(), "Gita")
     }

@@ -26,11 +26,27 @@ class CreatePage : Fragment(R.layout.screen_vehicle) {
     private val adapter = AllCarsAdapter()
     private val viewModel: AllCarsViewModel by viewModels<AllCarsViewModelImpl>()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewModel.openAddCarFlow.onEach {
+            findNavController().navigate(R.id.action_mainScreen_to_addCarScreen)
+        }.launchIn(lifecycleScope)
+        viewModel.openCreateOrderFlow.onEach {
+            findNavController().navigate(R.id.action_mainScreen_to_createOrderScreen)
+        }.launchIn(lifecycleScope)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
+        bind.addAnother.setOnClickListener {
+            viewModel.openScreen()
+        }
         nextBt.setOnClickListener {
             findNavController().navigate(R.id.createOrderScreen)
         }
-
+        bind.nextBt.setOnClickListener {
+            viewModel.openCreateOrder()
+        }
         listView.adapter = adapter
         listView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.getAllCars()
@@ -40,7 +56,6 @@ class CreatePage : Fragment(R.layout.screen_vehicle) {
         viewModel.errorFlow.onEach {
             showToast("Error")
         }.launchIn(lifecycleScope)
-
     }
 }
 

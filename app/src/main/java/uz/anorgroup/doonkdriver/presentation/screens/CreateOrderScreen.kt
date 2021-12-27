@@ -19,7 +19,8 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
     private val bind by viewBinding(ScreenCreateOrderBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-
+//        val bundlePos = requireArguments()
+//        val pos = bundlePos.getBoolean("pos")
         var qty1 = -1
         var position1 = -1
         var qty2 = -1
