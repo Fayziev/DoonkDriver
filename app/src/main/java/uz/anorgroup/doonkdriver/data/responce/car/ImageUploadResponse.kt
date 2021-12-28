@@ -20,4 +20,5 @@ data class Photo(
 
 	@SerializedName("path")
 	val path: String
+
 ):Parcelable

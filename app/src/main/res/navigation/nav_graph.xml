@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/addCarScreen">
 
     <fragment
         android:id="@+id/mainScreen"
@@ -78,6 +78,9 @@
         <action
             android:id="@+id/action_addCarScreen_to_truckAddScreen"
             app:destination="@id/truckAddScreen" />
+        <action
+            android:id="@+id/action_addCarScreen_to_screenImage"
+            app:destination="@id/screenImage" />
     </fragment>
     <fragment
         android:id="@+id/tripInfoScreen"
@@ -192,4 +195,9 @@
             android:id="@+id/action_createPage_to_createOrderScreen"
             app:destination="@id/createOrderScreen" />
     </fragment>
+        android:label="CreatePage" />
+    <fragment
+        android:id="@+id/screenImage"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.ImageScreen"
+        android:label="ScreenImage" />
 </navigation>
