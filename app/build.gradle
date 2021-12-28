@@ -186,4 +186,9 @@ dependencies {
      */
     implementation "com.github.skydoves:elasticviews:2.1.0"
 
+
+    /*
+     Dialogs
+    */
+    implementation 'com.google.android.material:material:1.4.0'
 }

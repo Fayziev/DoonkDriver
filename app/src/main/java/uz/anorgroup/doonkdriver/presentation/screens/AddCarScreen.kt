@@ -1,8 +1,12 @@
 package uz.anorgroup.doonkdriver.presentation.screens
 
 import android.app.Activity
+import android.app.Dialog
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -14,6 +18,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.material.datepicker.CalendarConstraints
@@ -27,6 +33,7 @@ import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
 import uz.anorgroup.doonkdriver.data.responce.car.Photo
 import uz.anorgroup.doonkdriver.databinding.ScreenCarAddBinding
+import uz.anorgroup.doonkdriver.presentation.adapters.ImageAdapter
 import uz.anorgroup.doonkdriver.presentation.dialogs.BrandsBottomDialog
 import uz.anorgroup.doonkdriver.presentation.dialogs.ModelBottomDialog
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.CarCreateViewModel
@@ -50,8 +57,10 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
     private val bind by viewBinding(ScreenCarAddBinding::bind)
     private var file: File? = null
     private var photosList = ArrayList<Photo>()
+    private var imageUriList = ArrayList<Uri>()
     private val viewModel: CarCreateViewModel by viewModels<CarCreateViewModelImpl>()
     private var dateSelected = ""
+    private val adapterPhoto = ImageAdapter()
     private val viewModelImage: ImageUploadViewModel by viewModels<ImageUploadViewModelImpl>()
     private val outputDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
@@ -63,6 +72,7 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
                 val fileUri = data?.data!!
                 bind.carIcon.visibility = View.GONE
                 bind.carCircle.setImageURI(fileUri)
+                imageUriList.add(fileUri)
                 file = File(getPath(requireContext(), fileUri))
                 viewModelImage.imageUpload(file!!)
                 viewModelImage.successFlow.onEach {
@@ -153,6 +163,20 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
                 errorText.setTextColor(ContextCompat.getColor(requireContext(), R.color.red_500))
             }
         }
+        bind.carCircle.setOnClickListener {
+//            val bundle = Bundle()
+//            bundle.putSerializable("array", transfarmator(imageUriList))
+//            findNavController().navigate(R.id.action_addCarScreen_to_screenImage, bundle)
+            showDialogImages()
+        }
+    }
+
+    private fun transfarmator(list: ArrayList<Uri>): String {
+        val str = StringBuilder()
+        for (i in 0 until list.size) {
+            str.append(list[i]).append("###")
+        }
+        return str.toString()
     }
 
     private fun downloadImage(body: ResponseBody): Boolean {
@@ -201,6 +225,19 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
             bind.godVipuska.setText(dateSelected)
         }
         picker.show(requireFragmentManager(), "Gita")
+    }
+
+
+    private fun showDialogImages() {
+        val dialog = Dialog(requireActivity())
+        dialog.setContentView(R.layout.dialog_show_images)
+        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val close = dialog.findViewById<RecyclerView>(R.id.listView)
+        close.adapter = adapterPhoto
+        close.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        adapterPhoto.submitList(imageUriList)
+        dialog.show()
+
     }
 }
 
