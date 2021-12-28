@@ -179,10 +179,17 @@
         <action
             android:id="@+id/action_createOrderScreen_to_screenIntermediate"
             app:destination="@id/screenIntermediate" />
+        <argument
+            android:name="position"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/createPage"
         tools:layout="@layout/screen_vehicle"
         android:name="uz.anorgroup.doonkdriver.presentation.page.CreatePage"
-        android:label="CreatePage" />
+        android:label="CreatePage" >
+        <action
+            android:id="@+id/action_createPage_to_createOrderScreen"
+            app:destination="@id/createOrderScreen" />
+    </fragment>
 </navigation>

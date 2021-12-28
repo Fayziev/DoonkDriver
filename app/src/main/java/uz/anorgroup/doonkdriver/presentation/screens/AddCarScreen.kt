@@ -61,12 +61,13 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
             Activity.RESULT_OK -> {
                 val fileUri = data?.data!!
                 bind.carIcon.visibility = View.GONE
-                bind.carCircle.setImageURI(fileUri)
                 file = File(getPath(requireContext(), fileUri))
                 viewModelImage.imageUpload(file!!)
+                viewModelImage.setPhoto(fileUri)
                 viewModelImage.successFlow.onEach {
                     photosList.add(it.data)
                 }.launchIn(lifecycleScope)
+
                 viewModelImage.errorFlow.onEach {
                     showToast("Error")
                 }.launchIn(lifecycleScope)
@@ -87,12 +88,15 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-//        val bundle = requireArguments()
-//        val pos = bundle.getBoolean("pos")
-//        val data = bundle.getParcelable<Parcelable>("data") as CreateCarRequest
         var brand = -1
         var model = -1
 
+        viewModelImage.setPhotoFlow.onEach {
+            if (it.toString().isNotEmpty()) {
+                bind.carCircle.setImageURI(it)
+                bind.carIcon.visibility = View.GONE
+            }
+        }.launchIn(lifecycleScope)
         backBtn.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -114,17 +118,23 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
         tipTransportaLine.setOnClickListener {
             val dialog = BrandsBottomDialog()
             dialog.setListener {
-                textMarka.text = it.name
+                viewModel.setBrand(it.name)
                 brand = it.id
                 dialog.dismiss()
             }
             dialog.show(childFragmentManager, "brands")
         }
 
+        viewModel.setBrandFlow.onEach {
+            if (it.isNotEmpty()) textMarka.text = it
+        }.launchIn(lifecycleScope)
+        viewModel.setModelFlow.onEach {
+            if (it.isNotEmpty()) textModel.text = it
+        }.launchIn(lifecycleScope)
         tipKuzovaLine.setOnClickListener {
             val dialog = ModelBottomDialog()
             dialog.setListener {
-                textModel.text = it.name
+                viewModel.setModel(it.name)
                 model = it.id
                 dialog.dismiss()
             }
@@ -132,8 +142,10 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
         }
 
         saveBtn.setOnClickListener {
-            if (photosList.size == 0) {
-                if (brand != -1 && model != -1 && godVipuska.text!!.isNotEmpty()
+            if (photosList.size >= 1) {
+                if (textMarka.text != requireContext().getString(R.string.select_text)
+                    && textModel.text != requireContext().getString(R.string.select_text)
+                    && godVipuska.text!!.isNotEmpty()
                     && color.text!!.isNotEmpty() && licensePlate.text!!.isNotEmpty()
                 ) {
                     val newData = CreateCarRequest2(
@@ -152,6 +164,9 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
                 errorText.setTextColor(ContextCompat.getColor(requireContext(), R.color.red_500))
             }
         }
+        viewModel.setYearOfIssueFlow.onEach {
+            if (it.isNotEmpty()) bind.godVipuska.setText(it)
+        }.launchIn(lifecycleScope)
     }
 
     private fun downloadImage(body: ResponseBody): Boolean {
@@ -197,7 +212,7 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
         picker.addOnPositiveButtonClickListener { date ->
             timber(date.toString())
             outputDateFormat.format(date).also { dateSelected = it }
-            bind.godVipuska.setText(dateSelected)
+            viewModel.setYearOfIssue(dateSelected)
         }
         picker.show(requireFragmentManager(), "Gita")
     }

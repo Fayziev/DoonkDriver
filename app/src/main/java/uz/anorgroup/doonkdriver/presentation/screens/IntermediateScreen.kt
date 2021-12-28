@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.others.LocationAddData
+import uz.anorgroup.doonkdriver.data.others.MyStatic
 import uz.anorgroup.doonkdriver.data.request.car.CarSeet
 import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
 import uz.anorgroup.doonkdriver.databinding.ScreenIntermediateBinding
@@ -29,7 +30,9 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
     private val bind by viewBinding(ScreenIntermediateBinding::bind)
     private val adapter = AddAdapter()
     private val viewModel: CarCreateViewModel by viewModels<CarCreateViewModelImpl>()
-
+    private lateinit var bundle2: Bundle
+    private lateinit var data: CreateCarRequest2
+    private lateinit var listLocation:ArrayList<CarSeet>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -39,8 +42,12 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-        val bundle2 = requireArguments()
-        val data: CreateCarRequest2 = bundle2.getParcelable("data")!!
+        if (MyStatic.position) {
+            bundle2 = requireArguments()
+            data = bundle2.getParcelable("data")!!
+            listLocation = ArrayList<CarSeet>()
+            data.carSeet?.let { listLocation.addAll(it) }
+        }
         listView.adapter = adapter
         listView.layoutManager = LinearLayoutManager(requireContext())
         backBtn.setOnClickListener {
@@ -51,8 +58,6 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
         var id = "0"
         var qty = -1
         var position = -1
-        val listLocation = ArrayList<CarSeet>()
-        data.carSeet?.let { listLocation.addAll(it) }
         var bool = true
 
         adapter.setCityListener { pos ->
@@ -91,9 +96,38 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
             }
         }
         nextBt.setOnClickListener {
-            if (!bool) {
-                if (position != -1 && qty != -1) {
-                    listLocation.add(CarSeet(position, qty))
+            if (MyStatic.position) {
+
+                if (!bool) {
+                    if (position != -1 && qty != -1) {
+                        listLocation.add(CarSeet(position, qty))
+                        val dataNew =
+                            CreateCarRequest2(
+                                data.brand,
+                                data.carModel,
+                                data.color,
+                                data.yearOfIssue,
+                                data.photos,
+                                data.typeOfBody,
+                                data.typeOfTransport,
+                                data.liftingCapacity,
+                                data.weight,
+                                listLocation
+                            )
+                        viewModel.openScreen()
+                        viewModel.carCreate(dataNew)
+                        viewModel.progressFlow.onEach {
+                            if (it) progress.show()
+                            else progress.hide()
+                        }.launchIn(lifecycleScope)
+                        viewModel.successFlow.onEach {
+                            showToast("Success")
+                        }.launchIn(lifecycleScope)
+                        viewModel.errorFlow.onEach {
+                            showToast("Error")
+                        }.launchIn(lifecycleScope)
+                    }
+                } else {
                     val dataNew =
                         CreateCarRequest2(
                             data.brand,
@@ -105,9 +139,10 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
                             data.typeOfTransport,
                             data.liftingCapacity,
                             data.weight,
-                            listLocation
+                            data.carSeet
                         )
                     viewModel.carCreate(dataNew)
+                    viewModel.openScreen()
                     viewModel.progressFlow.onEach {
                         if (it) progress.show()
                         else progress.hide()
@@ -119,31 +154,8 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
                         showToast("Error")
                     }.launchIn(lifecycleScope)
                 }
-            } else {
-                val dataNew =
-                    CreateCarRequest2(
-                        data.brand,
-                        data.carModel,
-                        data.color,
-                        data.yearOfIssue,
-                        data.photos,
-                        data.typeOfBody,
-                        data.typeOfTransport,
-                        data.liftingCapacity,
-                        data.weight,
-                        data.carSeet
-                    )
-                viewModel.carCreate(dataNew)
-                viewModel.progressFlow.onEach {
-                    if (it) progress.show()
-                    else progress.hide()
-                }.launchIn(lifecycleScope)
-                viewModel.successFlow.onEach {
-                    showToast("Success")
-                }.launchIn(lifecycleScope)
-                viewModel.errorFlow.onEach {
-                    showToast("Error")
-                }.launchIn(lifecycleScope)
+            }else{
+                viewModel.openScreen()
             }
         }
     }

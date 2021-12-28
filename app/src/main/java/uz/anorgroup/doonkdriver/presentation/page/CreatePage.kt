@@ -12,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.others.MyStatic
 import uz.anorgroup.doonkdriver.databinding.ScreenVehicleBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.AllCarsAdapter
 import uz.anorgroup.doonkdriver.presentation.viewmodel.AllCarsViewModel
@@ -33,6 +34,7 @@ class CreatePage : Fragment(R.layout.screen_vehicle) {
             findNavController().navigate(R.id.action_mainScreen_to_addCarScreen)
         }.launchIn(lifecycleScope)
         viewModel.openCreateOrderFlow.onEach {
+            MyStatic.position=false
             findNavController().navigate(R.id.action_mainScreen_to_createOrderScreen)
         }.launchIn(lifecycleScope)
     }

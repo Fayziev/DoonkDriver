@@ -1,8 +1,10 @@
 package uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car
 
+import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -20,6 +22,15 @@ class ImageUploadViewModelImpl @Inject constructor(private val useCase: ImageUpl
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
     override val successFlow = eventValueFlow<ImageUploadResponse>()
+    override val setPhotoFlow = eventValueFlow<Uri>()
+
+
+    override fun setPhoto(photo: Uri) {
+        viewModelScope.launch {
+            setPhotoFlow.emit(photo)
+        }
+    }
+
     override fun imageUpload(file: File) {
         if (!isConnected()) {
             viewModelScope.launch {

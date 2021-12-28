@@ -55,6 +55,8 @@
         android:background="@drawable/ic_tip_line"
         android:cursorVisible="false"
         android:hint="@string/gruzovik"
+        android:focusable="false"
+        android:clickable="true"
         android:paddingStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

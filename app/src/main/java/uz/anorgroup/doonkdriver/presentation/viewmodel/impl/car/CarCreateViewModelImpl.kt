@@ -15,12 +15,50 @@ import uz.anorgroup.doonkdriver.utils.isConnected
 import javax.inject.Inject
 
 @HiltViewModel
-class CarCreateViewModelImpl @Inject constructor(private val useCase: CarCreateUseCase) : ViewModel(), CarCreateViewModel {
+class CarCreateViewModelImpl @Inject constructor(
+    private val useCase: CarCreateUseCase
+) : ViewModel(), CarCreateViewModel {
 
+
+    override val setYearOfIssueFlow = eventValueFlow<String>()
+    override val setColorFlow = eventValueFlow<String>()
+    override val setNumberFlow = eventValueFlow<String>()
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
     override val successFlow = eventValueFlow<CreateCarResponce>()
     override val openTruckFlow = eventValueFlow<Unit>()
+    override val setBrandFlow = eventValueFlow<String>()
+    override val setModelFlow = eventValueFlow<String>()
+    override fun setBrand(brand: String) {
+        viewModelScope.launch {
+            setBrandFlow.emit(brand)
+        }
+    }
+
+    override fun setColor(color: String) {
+        viewModelScope.launch {
+            setColorFlow.emit(color)
+        }
+    }
+
+    override fun setYearOfIssue(yearOfIssue: String) {
+        viewModelScope.launch {
+            setYearOfIssueFlow.emit(yearOfIssue)
+        }
+    }
+
+    override fun setNumber(number: String) {
+        viewModelScope.launch {
+            setNumberFlow.emit(number)
+        }
+    }
+
+
+    override fun setModel(model: String) {
+        viewModelScope.launch {
+            setModelFlow.emit(model)
+        }
+    }
 
     override fun carCreate(request: CreateCarRequest2) {
         if (!isConnected()) {
@@ -36,12 +74,17 @@ class CarCreateViewModelImpl @Inject constructor(private val useCase: CarCreateU
             it.onSuccess { value ->
                 progressFlow.emit(false)
                 successFlow.emit(value)
-                openTruckFlow.emit(Unit)
             }
             it.onFailure { throwable ->
                 progressFlow.emit(false)
                 errorFlow.emit(throwable.message.toString())
             }
         }.launchIn(viewModelScope)
+    }
+
+    override fun openScreen() {
+        viewModelScope.launch {
+            openTruckFlow.emit(Unit)
+        }
     }
 }
