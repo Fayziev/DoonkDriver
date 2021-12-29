@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.flowOn
 import uz.anorgroup.doonkdriver.data.api.CarApi
 import uz.anorgroup.doonkdriver.data.pref.MyPref
 import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
+import uz.anorgroup.doonkdriver.data.request.car.OrderCreateRequest
 import uz.anorgroup.doonkdriver.data.responce.car.*
 import uz.anorgroup.doonkdriver.domain.repository.CarRepository
 import uz.anorgroup.doonkdriver.utils.toFormData
@@ -112,6 +113,19 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
             emit(Result.failure(Throwable(response.errorBody().toString())))
         }
     }.catch {
+        val errorMessage = Throwable("Server bilan muammo bo'ldi")
+        emit(Result.failure(errorMessage))
+    }.flowOn(Dispatchers.IO)
+
+    override fun orderCreate(request: OrderCreateRequest): Flow<Result<OrderCreateResponse>> = flow{
+        val response = api.orderCreate(request)
+        if (response.isSuccessful) {
+            emit(Result.success<OrderCreateResponse>(response.body()!!))
+        } else {
+            emit(Result.failure(Throwable(response.errorBody().toString())))
+        }
+    }
+        .catch {
         val errorMessage = Throwable("Server bilan muammo bo'ldi")
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)

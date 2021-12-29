@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.others.MyStatic
 import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
 import uz.anorgroup.doonkdriver.databinding.ScreenTruckAddBinding
 import uz.anorgroup.doonkdriver.presentation.dialogs.TransportTypeBottomDialog
@@ -64,7 +63,6 @@ class TruckAddScreen : Fragment(R.layout.screen_truck_add) {
                 )
                 val bundle2 = Bundle()
                 bundle2.putParcelable("data", newData)
-                MyStatic.position=true
                 viewModel.openScreen()
                 viewModel.openScreenFlow.observe(this@TruckAddScreen, {
                     findNavController().navigate(R.id.action_truckAddScreen_to_createOrderScreen, bundle2)

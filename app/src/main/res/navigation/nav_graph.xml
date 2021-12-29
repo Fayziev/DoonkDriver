@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/addCarScreen">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/mainScreen"
@@ -17,8 +17,8 @@
             android:id="@+id/action_mainScreen_to_addCarScreen"
             app:destination="@id/addCarScreen" />
         <action
-            android:id="@+id/action_mainScreen_to_createOrderScreen"
-            app:destination="@id/createOrderScreen" />
+            android:id="@+id/action_mainScreen_to_createOrderScreen2"
+            app:destination="@id/createOrderScreen2" />
     </fragment>
     <fragment
         android:id="@+id/screenIntermediate"
@@ -190,14 +190,19 @@
         android:id="@+id/createPage"
         tools:layout="@layout/screen_vehicle"
         android:name="uz.anorgroup.doonkdriver.presentation.page.CreatePage"
-        android:label="CreatePage" >
-        <action
-            android:id="@+id/action_createPage_to_createOrderScreen"
-            app:destination="@id/createOrderScreen" />
-    </fragment>
         android:label="CreatePage" />
     <fragment
         android:id="@+id/screenImage"
+        tools:layout="@layout/screen_image"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.ImageScreen"
         android:label="ScreenImage" />
+    <fragment
+        android:id="@+id/createOrderScreen2"
+        tools:layout="@layout/screen_create_order"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.CreateOrderScreen2"
+        android:label="CreateOrderScreen2" >
+        <action
+            android:id="@+id/action_createOrderScreen2_to_screenIntermediate"
+            app:destination="@id/screenIntermediate" />
+    </fragment>
 </navigation>

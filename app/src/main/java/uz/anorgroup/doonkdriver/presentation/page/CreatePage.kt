@@ -24,7 +24,7 @@ import uz.anorgroup.doonkdriver.utils.showToast
 @AndroidEntryPoint
 class CreatePage : Fragment(R.layout.screen_vehicle) {
     private val bind by viewBinding(ScreenVehicleBinding::bind)
-    private val adapter = AllCarsAdapter()
+    private val adapter = AllCarsAdapter(0){}
     private val viewModel: AllCarsViewModel by viewModels<AllCarsViewModelImpl>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +34,7 @@ class CreatePage : Fragment(R.layout.screen_vehicle) {
             findNavController().navigate(R.id.action_mainScreen_to_addCarScreen)
         }.launchIn(lifecycleScope)
         viewModel.openCreateOrderFlow.onEach {
-            MyStatic.position=false
-            findNavController().navigate(R.id.action_mainScreen_to_createOrderScreen)
+            findNavController().navigate(R.id.action_mainScreen_to_createOrderScreen2)
         }.launchIn(lifecycleScope)
     }
 

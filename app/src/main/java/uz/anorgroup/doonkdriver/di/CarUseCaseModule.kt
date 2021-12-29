@@ -35,4 +35,7 @@ interface CarUseCaseModule {
     @Binds
     fun uploadImage(impl:ImageUploadUseCaseImpl):ImageUploadUseCase
 
+    @Binds
+    fun orderCreate(impl:OrderCreateUseCaseImpl):OrderCreateUseCase
+
 }
