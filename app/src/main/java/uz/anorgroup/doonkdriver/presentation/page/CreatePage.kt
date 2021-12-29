@@ -24,7 +24,7 @@ import uz.anorgroup.doonkdriver.utils.showToast
 @AndroidEntryPoint
 class CreatePage : Fragment(R.layout.screen_vehicle) {
     private val bind by viewBinding(ScreenVehicleBinding::bind)
-    private val adapter = AllCarsAdapter()
+    private val adapter = AllCarsAdapter(-1)
     private val viewModel: AllCarsViewModel by viewModels<AllCarsViewModelImpl>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,9 +34,10 @@ class CreatePage : Fragment(R.layout.screen_vehicle) {
             findNavController().navigate(R.id.action_mainScreen_to_addCarScreen)
         }.launchIn(lifecycleScope)
         viewModel.openCreateOrderFlow.onEach {
-            MyStatic.position=false
+            MyStatic.position = false
             findNavController().navigate(R.id.action_mainScreen_to_createOrderScreen)
         }.launchIn(lifecycleScope)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
@@ -58,6 +59,10 @@ class CreatePage : Fragment(R.layout.screen_vehicle) {
         viewModel.errorFlow.onEach {
             showToast("Error")
         }.launchIn(lifecycleScope)
+        adapter.setListener {
+            MyStatic.count=it
+            adapter.notifyDataSetChanged()
+        }
     }
 }
 

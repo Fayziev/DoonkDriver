@@ -1,5 +1,6 @@
 package uz.anorgroup.doonkdriver.presentation.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +9,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.others.MyStatic
 import uz.anorgroup.doonkdriver.data.responce.car.DataItem
 import uz.anorgroup.doonkdriver.databinding.ItemCarBinding
 
-class AllCarsAdapter : ListAdapter<DataItem, AllCarsAdapter.HistoryVH>(MyDifUtils) {
-    private var itemListener: ((DataItem) -> Unit)? = null
+class AllCarsAdapter constructor(private val pos: Int) : ListAdapter<DataItem, AllCarsAdapter.HistoryVH>(MyDifUtils) {
+    private var itemListener: ((Int) -> Unit)? = null
 
     object MyDifUtils : DiffUtil.ItemCallback<DataItem>() {
         override fun areItemsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
@@ -28,12 +30,18 @@ class AllCarsAdapter : ListAdapter<DataItem, AllCarsAdapter.HistoryVH>(MyDifUtil
         private val bind by viewBinding(ItemCarBinding::bind)
 
         init {
-            itemView.setOnClickListener {
-                getItem(absoluteAdapterPosition)?.let { it1 -> itemListener?.invoke(it1) }
+            bind.item.setOnClickListener {
+                itemListener?.invoke(absoluteAdapterPosition)
             }
         }
 
-        fun load() {
+        @SuppressLint("ResourceType")
+        fun load(controller: Boolean) {
+            if (controller) {
+                bind.bgItem.setBackgroundResource(R.drawable.back_edit_drw)
+            } else {
+                bind.bgItem.setBackgroundResource(R.drawable.profile_page_atr_bg)
+            }
             val value = getItem(absoluteAdapterPosition) as DataItem
             bind.textMarka.text = value.brand
             bind.textModel.text = value.model
@@ -41,13 +49,17 @@ class AllCarsAdapter : ListAdapter<DataItem, AllCarsAdapter.HistoryVH>(MyDifUtil
     }
 
     override fun onBindViewHolder(holder: HistoryVH, position: Int) {
-        holder.load()
+        if (position == MyStatic.count) {
+            holder.load(true)
+        } else {
+            holder.load(false)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryVH =
         HistoryVH(LayoutInflater.from(parent.context).inflate(R.layout.item_car, parent, false))
 
-    fun setListener(f: (DataItem) -> Unit) {
+    fun setListener(f: (Int) -> Unit) {
         itemListener = f
     }
 }

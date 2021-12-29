@@ -253,7 +253,7 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
         close.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         adapterPhoto.submitList(imageUriList)
         dialog.show()
-
     }
+
 }
 

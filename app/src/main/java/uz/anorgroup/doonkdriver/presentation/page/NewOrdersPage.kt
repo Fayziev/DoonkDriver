@@ -8,10 +8,10 @@ import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.PageNewOrdersBinding
 import uz.anorgroup.doonkdriver.utils.scope
 
-class NewOrdersPage:Fragment(R.layout.page_new_orders) {
+class NewOrdersPage : Fragment(R.layout.page_new_orders) {
     private val binding by viewBinding(PageNewOrdersBinding::bind)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) =binding.scope{
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
 
     }
 }
