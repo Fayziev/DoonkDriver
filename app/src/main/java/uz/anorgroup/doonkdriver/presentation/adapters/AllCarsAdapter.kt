@@ -1,5 +1,6 @@
 package uz.anorgroup.doonkdriver.presentation.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,7 @@ import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.responce.car.DataItem
 import uz.anorgroup.doonkdriver.databinding.ItemCarBinding
 
-class AllCarsAdapter : ListAdapter<DataItem, AllCarsAdapter.HistoryVH>(MyDifUtils) {
+class AllCarsAdapter(var itemPosition: Int,var listener:(model:DataItem)->Unit) : ListAdapter<DataItem, AllCarsAdapter.HistoryVH>(MyDifUtils) {
     private var itemListener: ((DataItem) -> Unit)? = null
 
     object MyDifUtils : DiffUtil.ItemCallback<DataItem>() {
@@ -24,30 +25,43 @@ class AllCarsAdapter : ListAdapter<DataItem, AllCarsAdapter.HistoryVH>(MyDifUtil
         }
     }
 
-    inner class HistoryVH(view: View) : RecyclerView.ViewHolder(view) {
-        private val bind by viewBinding(ItemCarBinding::bind)
+    inner class HistoryVH(var binding: ItemCarBinding) : RecyclerView.ViewHolder(binding.root) {
+//        private val bind by viewBinding(ItemCarBinding::bind)
 
-        init {
-            itemView.setOnClickListener {
-                getItem(absoluteAdapterPosition)?.let { it1 -> itemListener?.invoke(it1) }
-            }
-        }
+//        init {
+//            itemView.setOnClickListener {
+//                bind.root.setOnClickListener {
+//                    itemPosition=adapterPosition
+//                }
+//            }
+//        }
 
-        fun load() {
+        fun load(position: Int)= with(binding) {
+binding.root.setOnClickListener {
+    Log.d("BBB", "load:Bosildi ")
+    itemPosition=adapterPosition
+    listener(getItem(position))
+}
+
             val value = getItem(absoluteAdapterPosition) as DataItem
-            bind.textMarka.text = value.brand
-            bind.textModel.text = value.model
+            textMarka.text = value.brand
+            textModel.text = value.model
         }
     }
 
     override fun onBindViewHolder(holder: HistoryVH, position: Int) {
-        holder.load()
+        holder.load(position)
+        if (position == itemPosition) {
+            holder.binding.background.setBackgroundResource(R.drawable.profile_page_line_bg)
+        } else {
+            holder.binding.background.setBackgroundResource(R.drawable.profile_page_atr_bg)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryVH =
-        HistoryVH(LayoutInflater.from(parent.context).inflate(R.layout.item_car, parent, false))
+        HistoryVH(ItemCarBinding.inflate(LayoutInflater.from(parent.context),parent,false))
 
-    fun setListener(f: (DataItem) -> Unit) {
-        itemListener = f
-    }
+//    fun setListener(f: (DataItem) -> Unit) {
+//        itemListener = f
+//    }
 }
