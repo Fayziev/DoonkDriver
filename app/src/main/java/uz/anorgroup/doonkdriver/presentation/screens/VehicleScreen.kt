@@ -12,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.others.MyStatic
 import uz.anorgroup.doonkdriver.databinding.ScreenVehicleTypeBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.AllCarsAdapter
 import uz.anorgroup.doonkdriver.presentation.dialogs.AutoTypeBottomDialog
@@ -23,7 +24,7 @@ import uz.anorgroup.doonkdriver.utils.showToast
 @AndroidEntryPoint
 class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
     private val bind by viewBinding(ScreenVehicleTypeBinding::bind)
-    private val adapter = AllCarsAdapter(0){}
+    private val adapter = AllCarsAdapter(MyStatic.count)
     private val viewModel: AllCarsViewModel by viewModels<AllCarsViewModelImpl>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
 
@@ -49,6 +50,9 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
             }
             dialog.show(childFragmentManager, "autoType")
         }
-
+        adapter.setListener {
+            MyStatic.count == it
+            adapter.notifyDataSetChanged()
+        }
     }
 }

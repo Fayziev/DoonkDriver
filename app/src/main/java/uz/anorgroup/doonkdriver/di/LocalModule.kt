@@ -15,4 +15,5 @@ class LocalModule {
 
     @[Provides Singleton]
     fun getSharedPreferences(@ApplicationContext context: Context): MyPref = MyPref(context)
+
 }

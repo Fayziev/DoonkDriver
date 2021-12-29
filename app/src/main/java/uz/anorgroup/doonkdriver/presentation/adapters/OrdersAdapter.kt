@@ -1,4 +1,4 @@
-//package uz.anorgroup.doonkdriver.presenter.adapters
+//package uz.anorgroup.doonkdriver.presentation.adapters
 //
 //import android.view.LayoutInflater
 //import android.view.View
@@ -7,10 +7,9 @@
 //import androidx.recyclerview.widget.ListAdapter
 //import androidx.recyclerview.widget.RecyclerView
 //import by.kirich1409.viewbindingdelegate.viewBinding
-//import uz.anorgroup.doonkanorgroup.R
-//import uz.anorgroup.doonkanorgroup.data.OrdersInfo
-//import uz.anorgroup.doonkanorgroup.databinding.SearchPageItemBinding
+//import uz.anorgroup.doonkdriver.R
 //import uz.anorgroup.doonkdriver.data.others.OrdersInfo
+//import uz.anorgroup.doonkdriver.databinding.ItemOrderBinding
 //
 //class OrdersAdapter : ListAdapter<OrdersInfo, OrdersAdapter.HistoryVH>(MyDifUtils) {
 //    private var itemListener: ((OrdersInfo) -> Unit)? = null
@@ -26,7 +25,7 @@
 //    }
 //
 //    inner class HistoryVH(view: View) : RecyclerView.ViewHolder(view) {
-//        private val bind by viewBinding(SearchPageItemBinding::bind)
+//        private val bind by viewBinding(ItemOrderBinding::bind)
 //
 //        init {
 //            bind.item.setOnClickListener {
@@ -37,12 +36,13 @@
 //        fun load() {
 //            val value = getItem(absoluteAdapterPosition)
 //            value?.let {
-//                bind.company.text = it.companyName
-//                bind.timeOut.text = it.timeOut
-//                bind.timeCome.text = it.timeCome
-//                bind.timeTrip.text = it.timeTrip
-//                bind.description.text = it.desciption
-//                bind.costText.text = it.cost
+//                bind.
+////                    .text = it.companyName
+////                bind.timeOut.text = it.timeOut
+////                bind.timeCome.text = it.timeCome
+////                bind.timeTrip.text = it.timeTrip
+////                bind.description.text = it.desciption
+////                bind.costText.text = it.cost
 //            }
 //        }
 //    }
@@ -52,5 +52,5 @@
 //    }
 //
 //    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryVH =
-//        HistoryVH(LayoutInflater.from(parent.context).inflate(R.layout.search_page_item, parent, false))
+//        HistoryVH(LayoutInflater.from(parent.context).inflate(R.layout.item_order, parent, false))
 //}
