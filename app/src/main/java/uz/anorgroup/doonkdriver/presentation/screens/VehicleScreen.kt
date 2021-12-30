@@ -24,7 +24,7 @@ import uz.anorgroup.doonkdriver.utils.showToast
 @AndroidEntryPoint
 class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
     private val bind by viewBinding(ScreenVehicleTypeBinding::bind)
-    private val adapter = AllCarsAdapter(MyStatic.count)
+    private val adapter = AllCarsAdapter()
     private val viewModel: AllCarsViewModel by viewModels<AllCarsViewModelImpl>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
 

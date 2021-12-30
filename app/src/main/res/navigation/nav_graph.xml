@@ -15,96 +15,20 @@
             app:destination="@id/roadMapScreen" />
         <action
             android:id="@+id/action_mainScreen_to_addCarScreen"
-            app:destination="@id/addCarScreen" />
+            app:destination="@id/car_add_nester" />
         <action
             android:id="@+id/action_mainScreen_to_createOrderScreen2"
-            app:destination="@id/createOrderScreen2" />
-    </fragment>
-    <fragment
-        android:id="@+id/screenIntermediate"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.IntermediateScreen"
-        android:label="ScreenIntermediate"
-        tools:layout="@layout/screen_intermediate">
+            app:destination="@id/orderCreateNested" />
         <action
-            android:id="@+id/action_screenIntermediate_to_whenScreen"
-            app:destination="@id/whenScreen" />
-    </fragment>
-    <fragment
-        android:id="@+id/vehicleScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.VehicleScreen"
-        android:label="VehicleScreen"
-        tools:layout="@layout/screen_vehicle_type"/>
-    <fragment
-        android:id="@+id/tripDetalisScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.TripDetalisScreen"
-        android:label="TripDetalisScreen"
-        tools:layout="@layout/screen_trip_detalis">
-        <action
-            android:id="@+id/action_tripDetalisScreen_to_showTripScreen"
-            app:destination="@id/showTripScreen"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true" />
-    </fragment>
-    <fragment
-        android:id="@+id/seatScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.SeatScreen"
-        android:label="SeatScreen"
-        tools:layout="@layout/screen_seat">
-        <action
-            android:id="@+id/action_seatScreen_to_tripInfoScreen"
-            app:destination="@id/tripInfoScreen" />
+            android:id="@+id/action_mainScreen_to_orderCreateNested"
+            app:destination="@id/orderCreateNested" />
     </fragment>
 
-    <fragment
-        android:id="@+id/showTripScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.ShowTripScreen"
-        android:label="ShowTripScreen"
-        tools:layout="@layout/screen_show_trip" />
-
-    <fragment
-        android:id="@+id/truckAddScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.TruckAddScreen"
-        android:label="TruckAddScreen"
-        tools:layout="@layout/screen_truck_add">
-        <action
-            android:id="@+id/action_truckAddScreen_to_createOrderScreen"
-            app:destination="@id/createOrderScreen" />
-    </fragment>
-    <fragment
-        android:id="@+id/addCarScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.AddCarScreen"
-        android:label="AddCarScreen"
-        tools:layout="@layout/screen_car_add" >
-        <action
-            android:id="@+id/action_addCarScreen_to_truckAddScreen"
-            app:destination="@id/truckAddScreen" />
-        <action
-            android:id="@+id/action_addCarScreen_to_screenImage"
-            app:destination="@id/screenImage" />
-    </fragment>
-    <fragment
-        android:id="@+id/tripInfoScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.TripInfoScreen"
-        android:label="TripInfoScreen"
-        tools:layout="@layout/screen_trip_info">
-        <action
-            android:id="@+id/action_tripInfoScreen_to_tripDetalisScreen"
-            app:destination="@id/tripDetalisScreen" />
-    </fragment>
     <fragment
         android:id="@+id/internetConnectionScreen"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.InternetConnectionScreen"
         android:label="InternetConnectionScreen"
         tools:layout="@layout/screen_internet_connection" />
-    <fragment
-        android:id="@+id/whenScreen"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.WhenScreen"
-        android:label="WhenScreen"
-        tools:layout="@layout/screen_when">
-        <action
-            android:id="@+id/action_whenScreen_to_seatScreen"
-            app:destination="@id/seatScreen" />
-    </fragment>
     <fragment
         android:id="@+id/roadMapScreen"
         tools:layout="@layout/screen_road_map"
@@ -174,35 +98,112 @@
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
     </fragment>
-    <fragment
-        android:id="@+id/createOrderScreen"
-        tools:layout="@layout/screen_create_order"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.CreateOrderScreen"
-        android:label="CreateOrderScreen" >
-        <action
-            android:id="@+id/action_createOrderScreen_to_screenIntermediate"
-            app:destination="@id/screenIntermediate" />
-        <argument
-            android:name="position"
-            app:argType="boolean" />
-    </fragment>
-    <fragment
-        android:id="@+id/createPage"
-        tools:layout="@layout/screen_vehicle"
-        android:name="uz.anorgroup.doonkdriver.presentation.page.CreatePage"
-        android:label="CreatePage" />
-    <fragment
-        android:id="@+id/screenImage"
-        tools:layout="@layout/screen_image"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.ImageScreen"
-        android:label="ScreenImage" />
-    <fragment
-        android:id="@+id/createOrderScreen2"
-        tools:layout="@layout/screen_create_order"
-        android:name="uz.anorgroup.doonkdriver.presentation.screens.CreateOrderScreen2"
-        android:label="CreateOrderScreen2" >
-        <action
-            android:id="@+id/action_createOrderScreen2_to_screenIntermediate"
-            app:destination="@id/screenIntermediate" />
-    </fragment>
+    <navigation android:id="@+id/car_add_nester"
+        app:startDestination="@id/addCarScreen">
+        <fragment
+            android:id="@+id/screenImage"
+                android:name="uz.anorgroup.doonkdriver.presentation.screens.ImageScreen"/>
+        <fragment
+            android:id="@+id/screenIntermediate"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.IntermediateScreen"
+            android:label="ScreenIntermediate"
+            tools:layout="@layout/screen_intermediate" />
+        <fragment
+            android:id="@+id/createOrderScreen"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.CreateOrderScreen"
+            android:label="CreateOrderScreen"
+            tools:layout="@layout/screen_create_order">
+            <action
+                android:id="@+id/action_createOrderScreen_to_screenIntermediate"
+                app:destination="@id/screenIntermediate" />
+            <argument
+                android:name="position"
+                app:argType="boolean" />
+        </fragment>
+        <fragment
+            android:id="@+id/addCarScreen"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.AddCarScreen"
+            android:label="AddCarScreen"
+            tools:layout="@layout/screen_car_add">
+            <action
+                android:id="@+id/action_addCarScreen_to_truckAddScreen"
+                app:destination="@id/truckAddScreen" />
+            <action
+                android:id="@+id/action_addCarScreen_to_screenImage"
+                app:destination="@id/screenImage" />
+        </fragment>
+        <fragment
+            android:id="@+id/truckAddScreen"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.TruckAddScreen"
+            android:label="TruckAddScreen"
+            tools:layout="@layout/screen_truck_add">
+            <action
+                android:id="@+id/action_truckAddScreen_to_createOrderScreen"
+                app:destination="@id/createOrderScreen" />
+        </fragment>
+    </navigation>
+    <navigation android:id="@+id/orderCreateNested"
+        app:startDestination="@id/createOrderScreen2">
+        <fragment
+            android:id="@+id/seatScreen"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.SeatScreen"
+            android:label="SeatScreen"
+            tools:layout="@layout/screen_seat">
+            <action
+                android:id="@+id/action_seatScreen_to_tripInfoScreen"
+                app:destination="@id/tripInfoScreen" />
+        </fragment>
+        <fragment
+            android:id="@+id/createOrderScreen2"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.CreateOrderScreen2"
+            android:label="CreateOrderScreen2"
+            tools:layout="@layout/screen_create_order">
+            <action
+                android:id="@+id/action_createOrderScreen2_to_intermediateScreen2"
+                app:destination="@id/intermediateScreen2" />
+        </fragment>
+        <fragment
+            android:id="@+id/whenScreen"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.WhenScreen"
+            android:label="WhenScreen"
+            tools:layout="@layout/screen_when">
+            <action
+                android:id="@+id/action_whenScreen_to_seatScreen"
+                app:destination="@id/seatScreen" />
+        </fragment>
+        <fragment
+            android:id="@+id/intermediateScreen2"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.IntermediateScreen2"
+            android:label="IntermediateScreen2"
+            tools:layout="@layout/screen_intermediate">
+            <action
+                android:id="@+id/action_intermediateScreen2_to_whenScreen"
+                app:destination="@id/whenScreen" />
+        </fragment>
+        <fragment
+            android:id="@+id/tripInfoScreen"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.TripInfoScreen"
+            android:label="TripInfoScreen"
+            tools:layout="@layout/screen_trip_info">
+            <action
+                android:id="@+id/action_tripInfoScreen_to_tripDetalisScreen"
+                app:destination="@id/tripDetalisScreen" />
+        </fragment>
+        <fragment
+            android:id="@+id/showTripScreen"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.ShowTripScreen"
+            android:label="ShowTripScreen"
+            tools:layout="@layout/screen_show_trip" />
+        <fragment
+            android:id="@+id/tripDetalisScreen"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.TripDetalisScreen"
+            android:label="TripDetalisScreen"
+            tools:layout="@layout/screen_trip_detalis">
+            <action
+                android:id="@+id/action_tripDetalisScreen_to_showTripScreen"
+                app:destination="@id/showTripScreen"
+                app:popUpTo="@id/nav_graph"
+                app:popUpToInclusive="true" />
+        </fragment>
+    </navigation>
 </navigation>

@@ -205,6 +205,31 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:elevation="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="12dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_car_add_back"
+            app:layout_constraintBottom_toBottomOf="@id/toolbarTipInfo"
+            app:layout_constraintLeft_toLeftOf="@id/toolbarTipInfo"
+            app:layout_constraintTop_toTopOf="@id/toolbarTipInfo" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

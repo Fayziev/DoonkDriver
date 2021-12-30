@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.others.MyStatic
+import uz.anorgroup.doonkdriver.data.request.car.OrderCreateRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenVehicleBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.AllCarsAdapter
 import uz.anorgroup.doonkdriver.presentation.viewmodel.AllCarsViewModel
@@ -24,7 +25,7 @@ import uz.anorgroup.doonkdriver.utils.showToast
 @AndroidEntryPoint
 class CreatePage : Fragment(R.layout.screen_vehicle) {
     private val bind by viewBinding(ScreenVehicleBinding::bind)
-    private val adapter = AllCarsAdapter(-1)
+    private val adapter = AllCarsAdapter()
     private val viewModel: AllCarsViewModel by viewModels<AllCarsViewModelImpl>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,20 +35,21 @@ class CreatePage : Fragment(R.layout.screen_vehicle) {
             findNavController().navigate(R.id.action_mainScreen_to_addCarScreen)
         }.launchIn(lifecycleScope)
         viewModel.openCreateOrderFlow.onEach {
-            MyStatic.position = false
-            findNavController().navigate(R.id.action_mainScreen_to_createOrderScreen)
+            val bundle = Bundle()
+            bundle.putParcelable("data2", OrderCreateRequest(MyStatic.count))
+            findNavController().navigate(R.id.action_mainScreen_to_createOrderScreen2, bundle)
         }.launchIn(lifecycleScope)
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-        bind.addAnother.setOnClickListener {
+        addAnother.setOnClickListener {
             viewModel.openScreen()
         }
         nextBt.setOnClickListener {
             findNavController().navigate(R.id.createOrderScreen)
         }
-        bind.nextBt.setOnClickListener {
+        nextBt.setOnClickListener {
             viewModel.openCreateOrder()
         }
         listView.adapter = adapter
@@ -60,7 +62,7 @@ class CreatePage : Fragment(R.layout.screen_vehicle) {
             showToast("Error")
         }.launchIn(lifecycleScope)
         adapter.setListener {
-            MyStatic.count=it
+            MyStatic.count = it
             adapter.notifyDataSetChanged()
         }
     }

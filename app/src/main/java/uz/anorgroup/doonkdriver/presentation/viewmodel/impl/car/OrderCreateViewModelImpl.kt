@@ -18,6 +18,13 @@ import javax.inject.Inject
 class OrderCreateViewModelImpl @Inject constructor(
     private val useCase: OrderCreateUseCase
 ) : ViewModel(), OrderCreateViewModel {
+    override val openScreenFlow = eventValueFlow<Unit>()
+
+    override fun openScreen() {
+        viewModelScope.launch {
+            openScreenFlow.emit(Unit)
+        }
+    }
 
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()

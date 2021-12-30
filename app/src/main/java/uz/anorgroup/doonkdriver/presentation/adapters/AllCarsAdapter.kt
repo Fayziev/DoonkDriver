@@ -12,7 +12,7 @@ import uz.anorgroup.doonkdriver.data.others.MyStatic
 import uz.anorgroup.doonkdriver.data.responce.car.DataItem
 import uz.anorgroup.doonkdriver.databinding.ItemCarBinding
 
-class AllCarsAdapter constructor(private val pos: Int) : ListAdapter<DataItem, AllCarsAdapter.HistoryVH>(MyDifUtils) {
+class AllCarsAdapter : ListAdapter<DataItem, AllCarsAdapter.HistoryVH>(MyDifUtils) {
     private var itemListener: ((Int) -> Unit)? = null
 
     object MyDifUtils : DiffUtil.ItemCallback<DataItem>() {
@@ -34,10 +34,9 @@ class AllCarsAdapter constructor(private val pos: Int) : ListAdapter<DataItem, A
             }
         }
 
-        @SuppressLint("ResourceType")
         fun load(controller: Boolean) {
             if (controller) {
-                bind.bgItem.setBackgroundResource(R.drawable.back_edit_drw)
+                bind.bgItem.setBackgroundResource(R.drawable.back_edit_drw2)
             } else {
                 bind.bgItem.setBackgroundResource(R.drawable.profile_page_atr_bg)
             }

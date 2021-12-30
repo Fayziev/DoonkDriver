@@ -9,7 +9,9 @@ interface OrderCreateViewModel {
     val errorFlow: Flow<String>
     val progressFlow: Flow<Boolean>
     val successFlow: Flow<OrderCreateResponse>
+    val openScreenFlow:Flow<Unit>
 
+    fun openScreen()
     fun orderCreate(request: OrderCreateRequest)
 
 }

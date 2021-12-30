@@ -124,8 +124,7 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
         } else {
             emit(Result.failure(Throwable(response.errorBody().toString())))
         }
-    }
-        .catch {
+    }.catch {
         val errorMessage = Throwable("Server bilan muammo bo'ldi")
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)

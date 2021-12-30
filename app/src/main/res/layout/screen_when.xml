@@ -97,6 +97,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/date_time"
+        android:padding="4dp"
         android:textColor="@color/profilePageTextColor"
         app:layout_constraintBottom_toBottomOf="@id/calendar"
         app:layout_constraintLeft_toRightOf="@id/calendar"
@@ -139,11 +140,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="25dp"
+        android:padding="4dp"
+        android:layout_marginTop="4dp"
         android:hint="@string/time_text"
         android:textColor="@color/profilePageTextColor"
         app:layout_constraintLeft_toRightOf="@id/calendar"
-        app:layout_constraintTop_toBottomOf="@id/whereTimeOut" />
+        app:layout_constraintTop_toBottomOf="@id/line" />
 
 
     <ImageView

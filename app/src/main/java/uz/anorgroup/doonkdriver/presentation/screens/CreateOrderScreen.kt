@@ -13,8 +13,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.others.MyStatic.POSITION1
-import uz.anorgroup.doonkdriver.data.others.MyStatic.QTY1
 import uz.anorgroup.doonkdriver.data.request.car.CarSeet
 import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
 import uz.anorgroup.doonkdriver.databinding.ScreenCreateOrderBinding
@@ -38,6 +36,10 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
         data = bundleScreen.getParcelable<Parcelable>("data") as CreateCarRequest2
         showToast(data.carSeet?.size.toString())
         val listLocation = ArrayList<CarSeet>()
+        var position1 = -1
+        var qty1 = -1
+        var position2 = -1
+        var qty2 = -1
 
         nextBt.setOnClickListener {
             if (whereCity.text.isNotEmpty()
@@ -45,8 +47,8 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
                 && directionsCity.text.isNotEmpty()
                 && directionsStreet.text.isNotEmpty()
             ) {
-                listLocation.add(CarSeet(POSITION1, QTY1))
-                listLocation.add(CarSeet(POSITION1, QTY1))
+                listLocation.add(CarSeet(position1, qty1))
+                listLocation.add(CarSeet(position2, qty2))
                 val dataNew = CreateCarRequest2(
                     data.brand,
                     data.carModel,
@@ -82,7 +84,7 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
                 viewModel.whereCity(it.name)
                 id1 = it.id.toString()
                 bundle.putString("id", id1)
-                POSITION1 = it.id
+                position1 = it.id
                 dialog.dismiss()
             }
             dialog.show(childFragmentManager, "CityDialog")
@@ -95,6 +97,7 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
             val dialog = StreetsBottomDialog()
             dialog.arguments = bundle
             dialog.setListener {
+                qty1 = it.id
                 viewModel.whereStreet(it.name)
                 dialog.dismiss()
             }
@@ -109,6 +112,7 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
             val dialog = CitysBottomDialog()
             dialog.setListener {
                 viewModel.directionCity(it.name)
+                position2 = it.id
                 id2 = it.id.toString()
                 bundle.putString("id", id2)
                 dialog.dismiss()
@@ -123,6 +127,7 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
             val dialog = StreetsBottomDialog()
             dialog.arguments = bundle
             dialog.setListener {
+                qty2 = it.id
                 viewModel.directionStreet(it.name)
                 dialog.dismiss()
             }
