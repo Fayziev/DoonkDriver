@@ -35,6 +35,7 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
         bundleScreen = requireArguments()
         data = bundleScreen.getParcelable<Parcelable>("data") as CreateCarRequest2
         showToast(data.carSeet?.size.toString())
+
         val listLocation = ArrayList<CarSeet>()
         var position1 = -1
         var qty1 = -1

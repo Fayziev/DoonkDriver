@@ -33,7 +33,7 @@ class IntermediateScreen2 : Fragment(R.layout.screen_intermediate) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         val bundle2 = requireArguments()
         val data = bundle2.getParcelable<Parcelable>("data2") as OrderCreateRequest
-        listLocation = ArrayList<AddressItem>()
+        listLocation = ArrayList()
         data.address?.let { listLocation.addAll(it) }
         listView.adapter = adapter
         listView.layoutManager = LinearLayoutManager(requireContext())
@@ -86,11 +86,10 @@ class IntermediateScreen2 : Fragment(R.layout.screen_intermediate) {
             if (!bool) {
                 if (position != -1 && qty != -1) {
                     listLocation.add(AddressItem(position, qty))
-                    val dataNew =
-                        OrderCreateRequest(
-                            data.car,
-                            listLocation
-                        )
+                    val dataNew = OrderCreateRequest(
+                        data.car,
+                        listLocation
+                    )
                     val bundleNew = Bundle()
                     bundleNew.putParcelable("data2", dataNew)
                     viewModel.openScreen()

@@ -55,6 +55,7 @@ class CreatePage : Fragment(R.layout.screen_vehicle) {
         listView.adapter = adapter
         listView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.getAllCars()
+
         viewModel.successFlow.onEach {
             adapter.submitList(it.data)
         }.launchIn(lifecycleScope)

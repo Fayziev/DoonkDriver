@@ -25,6 +25,7 @@ import uz.anorgroup.doonkdriver.utils.showToast
 class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
     private val bind by viewBinding(ScreenTripInfoBinding::bind)
     private val viewModel: OrderCreateViewModel by viewModels<OrderCreateViewModelImpl>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.openScreenFlow.onEach {
@@ -82,6 +83,7 @@ class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
             yesSmoke.setTextColor(ContextCompat.getColor(requireContext(), R.color.black_transparent))
             MyStatic.can_smoke = false
         }
+
         yesTrailer.setOnClickListener {
             yesTrailer.setBackgroundResource(R.drawable.little_circle_bt_bg)
             yesTrailer.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
@@ -96,6 +98,7 @@ class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
             yesTrailer.setTextColor(ContextCompat.getColor(requireContext(), R.color.black_transparent))
             MyStatic.trailer = false
         }
+
         bind.nextBt.setOnClickListener {
             viewModel.orderCreate(
                 OrderCreateRequest(
@@ -109,17 +112,21 @@ class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
                     MyStatic.can_smoke
                 )
             )
-            viewModel.errorFlow.onEach {
-                showToast("Error:$it")
-            }.launchIn(lifecycleScope)
-            viewModel.progressFlow.onEach {
-                if (it) progress.show()
-                else progress.hide()
-            }.launchIn(lifecycleScope)
-            viewModel.successFlow.onEach {
-                showToast("Success")
-                viewModel.openScreen()
-            }.launchIn(lifecycleScope)
         }
+
+        viewModel.errorFlow.onEach {
+            showToast("Error:$it")
+        }.launchIn(lifecycleScope)
+
+        viewModel.progressFlow.onEach {
+            if (it) progress.show()
+            else progress.hide()
+        }.launchIn(lifecycleScope)
+
+        viewModel.successFlow.onEach {
+            showToast("Success")
+            viewModel.openScreen()
+        }.launchIn(lifecycleScope)
+
     }
 }

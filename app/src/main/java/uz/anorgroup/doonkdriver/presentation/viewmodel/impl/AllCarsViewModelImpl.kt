@@ -17,9 +17,9 @@ import javax.inject.Inject
 @HiltViewModel
 class AllCarsViewModelImpl @Inject constructor(private val useCase: AllCarsUseCase) : AllCarsViewModel, ViewModel() {
 
+    override val successFlow = eventValueFlow<AllCarsResponse>()
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
-    override val successFlow = eventValueFlow<AllCarsResponse>()
     override val openAddCarFlow = eventValueFlow<Unit>()
     override val openCreateOrderFlow = eventFlow()
 
