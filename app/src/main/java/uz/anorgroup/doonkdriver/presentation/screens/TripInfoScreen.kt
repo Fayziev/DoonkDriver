@@ -109,17 +109,18 @@ class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
                     MyStatic.can_smoke
                 )
             )
-            viewModel.errorFlow.onEach {
-                showToast("Error:$it")
-            }.launchIn(lifecycleScope)
-            viewModel.progressFlow.onEach {
-                if (it) progress.show()
-                else progress.hide()
-            }.launchIn(lifecycleScope)
-            viewModel.successFlow.onEach {
-                showToast("Success")
-                viewModel.openScreen()
-            }.launchIn(lifecycleScope)
         }
+
+        viewModel.errorFlow.onEach {
+            showToast("Error:$it")
+        }.launchIn(lifecycleScope)
+        viewModel.progressFlow.onEach {
+            if (it) progress.show()
+            else progress.hide()
+        }.launchIn(lifecycleScope)
+        viewModel.successFlow.onEach {
+            showToast("Success")
+            viewModel.openScreen()
+        }.launchIn(lifecycleScope)
     }
 }

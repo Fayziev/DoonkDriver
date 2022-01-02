@@ -4,60 +4,60 @@ import com.google.gson.annotations.SerializedName
 
 data class OrderCreateResponse(
 
-	@field:SerializedName("code")
+	@SerializedName("code")
 	val code: Int? = null,
 
-	@field:SerializedName("data")
+	@SerializedName("data")
 	val data: Data? = null,
 
-	@field:SerializedName("message")
+	@SerializedName("message")
 	val message: String? = null
 )
 
-data class AddressItem(
+data class ItemAddress(
 
-	@field:SerializedName("city")
+	@SerializedName("city")
 	val city: Int? = null,
 
-	@field:SerializedName("street")
+	@SerializedName("street")
 	val street: Int? = null
 )
 
 data class Data(
 
-	@field:SerializedName("trailer")
+	@SerializedName("trailer")
 	val trailer: Boolean? = null,
 
-	@field:SerializedName("address")
-	val address: List<AddressItem?>? = null,
+	@SerializedName("address")
+	val address: List<ItemAddress>? = null,
 
-	@field:SerializedName("updated_at")
+	@SerializedName("updated_at")
 	val updatedAt: String? = null,
 
-	@field:SerializedName("car")
+	@SerializedName("car")
 	val car: Int? = null,
 
-	@field:SerializedName("luggage")
+	@SerializedName("luggage")
 	val luggage: Boolean? = null,
 
-	@field:SerializedName("count_of_client")
+	@SerializedName("count_of_client")
 	val countOfClient: Int? = null,
 
-	@field:SerializedName("created_at")
+	@SerializedName("created_at")
 	val createdAt: String? = null,
 
-	@field:SerializedName("animal")
+	@SerializedName("animal")
 	val animal: Boolean? = null,
 
-	@field:SerializedName("can_smoke")
+	@SerializedName("can_smoke")
 	val canSmoke: Boolean? = null,
 
-	@field:SerializedName("id")
+	@SerializedName("id")
 	val id: Int? = null,
 
-	@field:SerializedName("date_of_departure")
+	@SerializedName("date_of_departure")
 	val dateOfDeparture: String? = null,
 
-	@field:SerializedName("deleted_at")
+	@SerializedName("deleted_at")
 	val deletedAt: Any? = null
 )
