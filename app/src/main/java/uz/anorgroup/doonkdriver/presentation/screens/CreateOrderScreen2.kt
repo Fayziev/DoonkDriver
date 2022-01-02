@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.car.AddressItem
-import uz.anorgroup.doonkdriver.data.request.car.CarSeet
 import uz.anorgroup.doonkdriver.data.request.car.OrderCreateRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenCreateOrderBinding
 import uz.anorgroup.doonkdriver.presentation.dialogs.CitysBottomDialog
@@ -22,6 +21,7 @@ import uz.anorgroup.doonkdriver.presentation.dialogs.StreetsBottomDialog
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.CreateOrderViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.CreateOrderViewModelImpl
 import uz.anorgroup.doonkdriver.utils.scope
+import uz.anorgroup.doonkdriver.utils.showToast
 
 @AndroidEntryPoint
 class CreateOrderScreen2 : Fragment(R.layout.screen_create_order) {
@@ -30,14 +30,15 @@ class CreateOrderScreen2 : Fragment(R.layout.screen_create_order) {
 
     @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-        val bundle2=requireArguments()
-        val data=bundle2.getParcelable<Parcelable>("data2") as OrderCreateRequest
+        val bundle2 = requireArguments()
+        val data = bundle2.getParcelable<Parcelable>("data2") as OrderCreateRequest
         val listLocation = ArrayList<AddressItem>()
         var position1 = -1
         var qty1 = -1
         var position2 = -1
         var qty2 = -1
 
+        showToast(data.toString())
         nextBt.setOnClickListener {
             if (whereCity.text.isNotEmpty()
                 && whereStreet.text.isNotEmpty()
@@ -49,11 +50,11 @@ class CreateOrderScreen2 : Fragment(R.layout.screen_create_order) {
 
                 error1.visibility = View.GONE
                 error2.visibility = View.GONE
-                viewModel.openScreen()
                 val bundle = Bundle()
-                bundle.putParcelable("data2",OrderCreateRequest(data.car,listLocation))
+                bundle.putParcelable("data2", OrderCreateRequest(data.car, listLocation))
+                viewModel.openScreen()
                 viewModel.openScreenLiveData.observe(this@CreateOrderScreen2, {
-                    findNavController().navigate(R.id.action_createOrderScreen2_to_intermediateScreen2,bundle)
+                    findNavController().navigate(R.id.action_createOrderScreen2_to_intermediateScreen2, bundle)
                 })
             } else {
                 error1.visibility = View.VISIBLE

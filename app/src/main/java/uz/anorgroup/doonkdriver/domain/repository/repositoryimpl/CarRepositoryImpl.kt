@@ -120,10 +120,17 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
 
     override fun orderCreate(request: OrderCreateRequest): Flow<Result<OrderCreateResponse>> = flow {
         val list = ArrayList<AddressItem>()
-        list.add(uz.anorgroup.doonkdriver.data.request.car.AddressItem(1, 1))
-        val response = api.orderCreate(OrderCreateRequest(1, list, "1995-11-11T14:58:29.134673671+05:00", 2, true, true, true, true))
+        list.add(AddressItem(0, 1))
+        list.add(AddressItem(1, 1))
+        val response = api.orderCreate(
+            OrderCreateRequest(
+                request.car, list, "1995-11-11T14:58:29.134673671+05:00",
+                2, true, true, true, true
+            )
+        )
+
         if (response.isSuccessful) {
-            emit(Result.success<OrderCreateResponse>(response.body()!!))
+            emit(Result.success(response.body()!!))
         } else {
             emit(Result.failure(Throwable(response.errorBody().toString())))
         }

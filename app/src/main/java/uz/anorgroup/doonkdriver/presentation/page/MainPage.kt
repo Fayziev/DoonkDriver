@@ -29,7 +29,7 @@ class MainPage : Fragment(R.layout.page_main) {
         }.attach()
 
         roadMap.setOnClickListener {
-//            findNavController().navigate(R.id.action_mainScreen_to_roadMapScreen)
+            findNavController().navigate(R.id.action_mainScreen_to_roadMapScreen)
         }
 
     }

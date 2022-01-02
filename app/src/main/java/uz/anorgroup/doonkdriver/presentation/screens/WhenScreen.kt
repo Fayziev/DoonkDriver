@@ -46,7 +46,7 @@ class WhenScreen : Fragment(R.layout.screen_when) {
                 error1.visibility = View.GONE
                 error2.visibility = View.GONE
                 val bundleNew = Bundle()
-                bundleNew.putParcelable("data2", OrderCreateRequest(data.car,data.address, "${date}T${timeDate}:29.134673671+05:00"))
+                bundleNew.putParcelable("data2", OrderCreateRequest(data.car, data.address, "${date}T${timeDate}:29.134673671+05:00"))
                 findNavController().navigate(R.id.action_whenScreen_to_seatScreen, bundleNew)
             } else {
                 error1.visibility = View.VISIBLE
@@ -61,7 +61,7 @@ class WhenScreen : Fragment(R.layout.screen_when) {
             .build()
 
         val picker = MaterialDatePicker.Builder.datePicker()
-            .setTitleText("Select Date ")
+            .setTitleText("Select Date")
             .setCalendarConstraints(calendarConstraints)
             .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
             .build()
@@ -70,7 +70,7 @@ class WhenScreen : Fragment(R.layout.screen_when) {
             outputDateFormat2.format(datePicker).also { date = it }
             bind.whereTimeOut.text = dateSelected
         }
-        picker.show(requireFragmentManager(), "Gita")
+        picker.show(childFragmentManager, "Gita")
     }
 
     @SuppressLint("SetTextI18n")
@@ -93,10 +93,7 @@ class WhenScreen : Fragment(R.layout.screen_when) {
 
         picker.addOnPositiveButtonClickListener {
             timeDate =
-                String.format("%02d", picker.hour) + ":" + String.format(
-                    "%02d",
-                    picker.minute
-                )
+                String.format("%02d", picker.hour) + ":" + String.format("%02d", picker.minute)
             hour = picker.hour
             minute = picker.minute
             bind.whenTimeCome.text = timeDate

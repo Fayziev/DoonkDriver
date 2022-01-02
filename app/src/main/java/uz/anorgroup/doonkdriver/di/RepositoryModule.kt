@@ -7,9 +7,11 @@ import dagger.hilt.components.SingletonComponent
 import uz.anorgroup.doonkdriver.domain.repository.AuthRepository
 import uz.anorgroup.doonkdriver.domain.repository.CarRepository
 import uz.anorgroup.doonkdriver.domain.repository.LocationRepository
+import uz.anorgroup.doonkdriver.domain.repository.MapRepository
 import uz.anorgroup.doonkdriver.domain.repository.repositoryimpl.AuthRepositoryImpl
 import uz.anorgroup.doonkdriver.domain.repository.repositoryimpl.CarRepositoryImpl
 import uz.anorgroup.doonkdriver.domain.repository.repositoryimpl.LocationRepositoryImpl
+import uz.anorgroup.doonkdriver.domain.repository.repositoryimpl.MapRepositoryImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -23,5 +25,8 @@ interface RepositoryModule {
 
     @Binds
     fun getLocationRepository(impl: LocationRepositoryImpl): LocationRepository
+
+    @Binds
+    fun getMaoRepository(impl: MapRepositoryImpl): MapRepository
 
 }

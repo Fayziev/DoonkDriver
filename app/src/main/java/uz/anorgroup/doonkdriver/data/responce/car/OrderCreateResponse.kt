@@ -1,6 +1,7 @@
 package uz.anorgroup.doonkdriver.data.responce.car
 
 import com.google.gson.annotations.SerializedName
+import uz.anorgroup.doonkdriver.data.request.car.AddressItem
 
 data class OrderCreateResponse(
 
