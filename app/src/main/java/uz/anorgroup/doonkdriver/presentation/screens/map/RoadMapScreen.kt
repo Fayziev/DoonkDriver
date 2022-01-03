@@ -102,12 +102,6 @@ class RoadMapScreen : Fragment(R.layout.screen_road_map), OnMapReadyCallback {
             map.addMarker(MarkerOptions().position(destanation).title("Amir Temur"))
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(destanation, 15f))
 
-//                val line = map.addPolyline(
-//                    PolylineOptions()
-//                        .add(LatLng(it.latitude, it.longitude), LatLng(41.26465, 69.21627))
-//                        .width(5f)
-//                        .color(Color.RED)
-//                )
         }
 
     }
