@@ -19,7 +19,7 @@ class CarCreateViewModelImpl @Inject constructor(
     private val useCase: CarCreateUseCase
 ) : ViewModel(), CarCreateViewModel {
 
-
+    override val deleteItemFlow = eventValueFlow<Int>()
     override val setYearOfIssueFlow = eventValueFlow<String>()
     override val setColorFlow = eventValueFlow<String>()
     override val setNumberFlow = eventValueFlow<String>()
@@ -32,6 +32,12 @@ class CarCreateViewModelImpl @Inject constructor(
     override fun setBrand(brand: String) {
         viewModelScope.launch {
             setBrandFlow.emit(brand)
+        }
+    }
+
+    override fun deleteItem(pos: Int) {
+        viewModelScope.launch {
+            deleteItemFlow.emit(pos)
         }
     }
 

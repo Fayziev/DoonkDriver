@@ -14,6 +14,7 @@ import uz.anorgroup.doonkdriver.databinding.ItemAddLocationBinding
 class AddAdapter : ListAdapter<LocationAddData, AddAdapter.HistoryVH>(MyDifUtils) {
     private var itemCityListener: ((Int) -> Unit)? = null
     private var itemStreetListener: ((Int) -> Unit)? = null
+    private var itemDeleteListener: ((Int) -> Unit)? = null
 
     object MyDifUtils : DiffUtil.ItemCallback<LocationAddData>() {
         override fun areItemsTheSame(oldItem: LocationAddData, newItem: LocationAddData): Boolean {
@@ -35,12 +36,15 @@ class AddAdapter : ListAdapter<LocationAddData, AddAdapter.HistoryVH>(MyDifUtils
             bind.whereStreet.setOnClickListener {
                 itemStreetListener?.invoke(bindingAdapterPosition)
             }
+            bind.delete.setOnClickListener {
+                itemDeleteListener?.invoke(bindingAdapterPosition)
+            }
         }
 
         fun load() {
             val item = getItem(bindingAdapterPosition)
-            bind.whereCity.text = if (item.city.isEmpty())bind.root.context.getString(R.string.city)  else item.city
-            bind.whereStreet.text = if (item.street.isEmpty())bind.root.context.getString(R.string.street) else item.street
+            bind.whereCity.text = if (item.city.isEmpty()) bind.root.context.getString(R.string.city) else item.city
+            bind.whereStreet.text = if (item.street.isEmpty()) bind.root.context.getString(R.string.street) else item.street
         }
     }
 
@@ -57,5 +61,8 @@ class AddAdapter : ListAdapter<LocationAddData, AddAdapter.HistoryVH>(MyDifUtils
 
     fun setStreetListener(f: (Int) -> Unit) {
         itemStreetListener = f
+    }
+    fun setDeleteListener(f: (Int) -> Unit) {
+        itemDeleteListener = f
     }
 }
