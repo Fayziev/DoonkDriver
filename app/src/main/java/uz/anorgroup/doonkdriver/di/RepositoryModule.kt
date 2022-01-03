@@ -27,6 +27,6 @@ interface RepositoryModule {
     fun getLocationRepository(impl: LocationRepositoryImpl): LocationRepository
 
     @Binds
-    fun getMaoRepository(impl: MapRepositoryImpl): MapRepository
+    fun getMapRepository(impl: MapRepositoryImpl): MapRepository
 
 }

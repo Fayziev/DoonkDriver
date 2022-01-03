@@ -188,6 +188,9 @@
             <action
                 android:id="@+id/action_tripInfoScreen_to_tripDetalisScreen"
                 app:destination="@id/tripDetalisScreen" />
+            <action
+                android:id="@+id/action_tripInfoScreen_to_expScreen2"
+                app:destination="@id/expScreen2" />
         </fragment>
         <fragment
             android:id="@+id/showTripScreen"
@@ -205,5 +208,9 @@
                 app:popUpTo="@id/nav_graph"
                 app:popUpToInclusive="true" />
         </fragment>
+        <fragment
+            android:id="@+id/expScreen2"
+            android:name="uz.anorgroup.doonkdriver.presentation.screens.map.ExpScreen"
+            android:label="ExpScreen" />
     </navigation>
 </navigation>

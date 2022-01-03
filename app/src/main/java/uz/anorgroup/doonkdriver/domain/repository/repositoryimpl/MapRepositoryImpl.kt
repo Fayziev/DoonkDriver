@@ -12,7 +12,7 @@ import javax.inject.Inject
 class MapRepositoryImpl @Inject constructor(private val api: MapApi) : MapRepository {
 
     override fun getDirection(origin: String, destination: String, key: String): Flow<Result<MapResponse>> = flow {
-        val response = api.getDirection(origin, destination, key)
+        val response = api.getDirection(origin = origin, destination = destination, key = key)
         if (response.isSuccessful) {
             emit(Result.success<MapResponse>(response.body()!!))
         } else {
