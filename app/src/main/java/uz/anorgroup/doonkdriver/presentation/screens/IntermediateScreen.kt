@@ -82,6 +82,11 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
             }
             dialog.show(childFragmentManager, "StreetDialog")
         }
+        adapter.setDeleteListener {
+            val mutableList = adapter.currentList.toMutableList()
+            mutableList.removeAt(it)
+            adapter.submitList(mutableList)
+        }
 
         addCarBt.setOnClickListener {
             val mutableList = adapter.currentList.toMutableList()

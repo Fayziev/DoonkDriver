@@ -5,60 +5,60 @@ import uz.anorgroup.doonkdriver.data.request.car.AddressItem
 
 data class OrderCreateResponse(
 
-	@field:SerializedName("code")
-	val code: Int,
+	@SerializedName("code")
+	val code: Int? = null,
 
-	@field:SerializedName("data")
-	val data: Data,
+	@SerializedName("data")
+	val data: Data? = null,
 
-	@field:SerializedName("message")
-	val message: String
+	@SerializedName("message")
+	val message: String? = null
 )
 
-//data class AddressItem(
-//
-//	@field:SerializedName("city")
-//	val city: Int,
-//
-//	@field:SerializedName("street")
-//	val street: Int
-//)
+data class ItemAddress(
+
+	@SerializedName("city")
+	val city: Int? = null,
+
+	@SerializedName("street")
+	val street: Int? = null
+)
 
 data class Data(
 
-	@field:SerializedName("trailer")
-	val trailer: Boolean,
+	@SerializedName("trailer")
+	val trailer: Boolean? = null,
 
-	@field:SerializedName("address")
-	val address: List<AddressItem?>,
+	@SerializedName("address")
+	val address: List<ItemAddress>? = null,
 
-	@field:SerializedName("updated_at")
-	val updatedAt: String,
+	@SerializedName("updated_at")
+	val updatedAt: String? = null,
 
-	@field:SerializedName("car")
-	val car: Int,
+	@SerializedName("car")
+	val car: Int? = null,
 
-	@field:SerializedName("luggage")
-	val luggage: Boolean,
+	@SerializedName("luggage")
+	val luggage: Boolean? = null,
 
-	@field:SerializedName("count_of_client")
-	val countOfClient: Int,
+	@SerializedName("count_of_client")
+	val countOfClient: Int? = null,
 
-	@field:SerializedName("created_at")
-	val createdAt: String,
+	@SerializedName("created_at")
+	val createdAt: String? = null,
 
-	@field:SerializedName("animal")
-	val animal: Boolean,
+	@SerializedName("animal")
+	val animal: Boolean? = null,
 
-	@field:SerializedName("can_smoke")
-	val canSmoke: Boolean,
+	@SerializedName("can_smoke")
+	val canSmoke: Boolean? = null,
 
-	@field:SerializedName("id")
-	val id: Int,
+	@SerializedName("id")
+	val id: Int? = null,
 
-	@field:SerializedName("date_of_departure")
-	val dateOfDeparture: String,
+	@SerializedName("date_of_departure")
+	val dateOfDeparture: String? = null,
 
-	@field:SerializedName("deleted_at")
-	val deletedAt: Any
+	@SerializedName("deleted_at")
+	val deletedAt: Any? = null
 )

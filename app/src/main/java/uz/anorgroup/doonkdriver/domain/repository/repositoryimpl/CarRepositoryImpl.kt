@@ -106,6 +106,7 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
     }.flowOn(Dispatchers.IO)
 
     override fun uploadImage(file: File): Flow<Result<ImageUploadResponse>> = flow {
+
         val response = api.uploadImage(file.toFormData())
         if (response.isSuccessful) {
             emit(Result.success<ImageUploadResponse>(response.body()!!))
@@ -137,7 +138,6 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
         val errorMessage = Throwable("Server bilan muammo bo'ldi")
         emit(Result.failure(errorMessage))
     }.flowOn(Dispatchers.IO)
-
 
 }
 

@@ -3,7 +3,6 @@ package uz.anorgroup.doonkdriver.presentation.viewmodel.car
 import kotlinx.coroutines.flow.Flow
 import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
 import uz.anorgroup.doonkdriver.data.responce.car.CreateCarResponce
-import java.io.File
 
 interface CarCreateViewModel {
 
@@ -16,7 +15,9 @@ interface CarCreateViewModel {
     val setYearOfIssueFlow: Flow<String>
     val setColorFlow: Flow<String>
     val setNumberFlow: Flow<String>
+    val deleteItemFlow: Flow<Int>
 
+    fun deleteItem(pos: Int)
     fun setColor(color: String)
     fun setYearOfIssue(yearOfIssue: String)
     fun setNumber(number: String)
