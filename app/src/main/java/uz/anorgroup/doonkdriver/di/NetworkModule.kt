@@ -10,7 +10,9 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import uz.anorgroup.doonkdriver.BuildConfig.BASE_URL
+import uz.anorgroup.doonkdriver.BuildConfig.MAP_BASE_URL
 import uz.anorgroup.doonkdriver.data.pref.MyPref
+import uz.anorgroup.doonkdriver.domain.repository.repositoryimpl.MapRepositoryImpl
 import uz.anorgroup.doonkdriver.utils.addHeaderInterceptor
 import uz.anorgroup.doonkdriver.utils.addLoggingInterceptor
 import java.util.concurrent.TimeUnit
@@ -37,4 +39,14 @@ class NetworkModule {
             .writeTimeout(60, TimeUnit.SECONDS)
             .addInterceptor(addHeaderInterceptor(pref))
             .build()
+
+
+//    @[Provides Singleton]
+//    fun getRetrofitMap(client: OkHttpClient): Retrofit =
+//        Retrofit.Builder()
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .client(client)
+//            .baseUrl(MAP_BASE_URL)
+//            .build()
+
 }

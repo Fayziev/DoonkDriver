@@ -101,7 +101,6 @@ class RoadMapScreen : Fragment(R.layout.screen_road_map), OnMapReadyCallback {
             map.addMarker(MarkerOptions().position(yourCoordinate).title("You"))
             map.addMarker(MarkerOptions().position(destanation).title("Amir Temur"))
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(destanation, 15f))
-
         }
 
     }
