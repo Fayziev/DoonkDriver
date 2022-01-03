@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/car_add_nester">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/mainScreen"
@@ -99,7 +99,7 @@
             app:popUpToInclusive="true" />
     </fragment>
     <navigation android:id="@+id/car_add_nester"
-        app:startDestination="@id/screenIntermediate">
+        app:startDestination="@id/addCarScreen">
         <fragment
             android:id="@+id/screenImage"
                 android:name="uz.anorgroup.doonkdriver.presentation.screens.ImageScreen"/>

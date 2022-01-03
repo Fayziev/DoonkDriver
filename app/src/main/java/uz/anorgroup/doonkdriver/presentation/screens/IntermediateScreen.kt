@@ -36,7 +36,7 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
         super.onCreate(savedInstanceState)
 
         viewModel.openTruckFlow.onEach {
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.mainScreen)
         }.launchIn(lifecycleScope)
     }
 

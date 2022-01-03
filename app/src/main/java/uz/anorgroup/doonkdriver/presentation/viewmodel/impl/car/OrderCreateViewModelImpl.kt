@@ -6,8 +6,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import uz.anorgroup.doonkdriver.data.request.car.OrderCreateRequest
-import uz.anorgroup.doonkdriver.data.responce.car.OrderCreateResponse
+import uz.anorgroup.doonkdriver.data.request.car.CreateOrderRequest
+import uz.anorgroup.doonkdriver.data.responce.car.CreateOrderResponse
 import uz.anorgroup.doonkdriver.domain.usecase.car.OrderCreateUseCase
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.OrderCreateViewModel
 import uz.anorgroup.doonkdriver.utils.eventValueFlow
@@ -28,9 +28,9 @@ class OrderCreateViewModelImpl @Inject constructor(
 
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
-    override val successFlow = eventValueFlow<OrderCreateResponse>()
+    override val successFlow = eventValueFlow<CreateOrderResponse>()
 
-    override fun orderCreate(request: OrderCreateRequest) {
+    override fun orderCreate(request: CreateOrderRequest) {
         if (!isConnected()) {
             viewModelScope.launch {
                 errorFlow.emit("Internet bilan muammo bo'ldi")

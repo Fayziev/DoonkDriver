@@ -12,8 +12,8 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.others.LocationAddData
-import uz.anorgroup.doonkdriver.data.request.car.AddressItem
-import uz.anorgroup.doonkdriver.data.request.car.OrderCreateRequest
+import uz.anorgroup.doonkdriver.data.request.car.Addres
+import uz.anorgroup.doonkdriver.data.request.car.CreateOrderRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenIntermediateBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.AddAdapter
 import uz.anorgroup.doonkdriver.presentation.dialogs.CitysBottomDialog
@@ -27,14 +27,14 @@ class IntermediateScreen2 : Fragment(R.layout.screen_intermediate) {
     private val bind by viewBinding(ScreenIntermediateBinding::bind)
     private val adapter = AddAdapter()
     private val viewModel: CreateOrderViewModel by viewModels<CreateOrderViewModelImpl>()
-    private lateinit var listLocation: ArrayList<AddressItem>
+    private lateinit var listLocation: ArrayList<Addres>
 
     @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         val bundle2 = requireArguments()
-        val data = bundle2.getParcelable<Parcelable>("data2") as OrderCreateRequest
+        val data = bundle2.getParcelable<Parcelable>("data2") as CreateOrderRequest
         listLocation = ArrayList()
-        data.address?.let { listLocation.addAll(it) }
+        data.address.let { it?.let { it1 -> listLocation.addAll(it1) } }
         listView.adapter = adapter
         listView.layoutManager = LinearLayoutManager(requireContext())
         backBtn.setOnClickListener {
@@ -90,8 +90,8 @@ class IntermediateScreen2 : Fragment(R.layout.screen_intermediate) {
         nextBt.setOnClickListener {
             if (!bool) {
                 if (position != -1 && qty != -1) {
-                    listLocation.add(AddressItem(position, qty))
-                    val dataNew = OrderCreateRequest(
+                    listLocation.add(Addres(position, qty))
+                    val dataNew = CreateOrderRequest(
                         data.car,
                         listLocation
                     )
@@ -104,7 +104,7 @@ class IntermediateScreen2 : Fragment(R.layout.screen_intermediate) {
                 }
             } else {
                 val dataNew =
-                    OrderCreateRequest(
+                    CreateOrderRequest(
                         data.car,
                         data.address
                     )

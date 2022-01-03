@@ -13,8 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.request.car.AddressItem
-import uz.anorgroup.doonkdriver.data.request.car.OrderCreateRequest
+import uz.anorgroup.doonkdriver.data.request.car.Addres
+import uz.anorgroup.doonkdriver.data.request.car.CreateOrderRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenCreateOrderBinding
 import uz.anorgroup.doonkdriver.presentation.dialogs.CitysBottomDialog
 import uz.anorgroup.doonkdriver.presentation.dialogs.StreetsBottomDialog
@@ -31,8 +31,8 @@ class CreateOrderScreen2 : Fragment(R.layout.screen_create_order) {
     @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         val bundle2 = requireArguments()
-        val data = bundle2.getParcelable<Parcelable>("data2") as OrderCreateRequest
-        val listLocation = ArrayList<AddressItem>()
+        val data = bundle2.getParcelable<Parcelable>("data2") as CreateOrderRequest
+        val listLocation = ArrayList<Addres>()
         var position1 = -1
         var qty1 = -1
         var position2 = -1
@@ -45,13 +45,13 @@ class CreateOrderScreen2 : Fragment(R.layout.screen_create_order) {
                 && directionsCity.text.isNotEmpty()
                 && directionsStreet.text.isNotEmpty()
             ) {
-                listLocation.add(AddressItem(position1, qty1))
-                listLocation.add(AddressItem(position2, qty2))
+                listLocation.add(Addres(position1, qty1))
+                listLocation.add(Addres(position2, qty2))
 
                 error1.visibility = View.GONE
                 error2.visibility = View.GONE
                 val bundle = Bundle()
-                bundle.putParcelable("data2", OrderCreateRequest(data.car, listLocation))
+                bundle.putParcelable("data2", CreateOrderRequest(data.car, listLocation))
                 viewModel.openScreen()
                 viewModel.openScreenLiveData.observe(this@CreateOrderScreen2, {
                     findNavController().navigate(R.id.action_createOrderScreen2_to_intermediateScreen2, bundle)

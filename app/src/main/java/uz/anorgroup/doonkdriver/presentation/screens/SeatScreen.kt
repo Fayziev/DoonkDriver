@@ -11,7 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.others.MyStatic
-import uz.anorgroup.doonkdriver.data.request.car.OrderCreateRequest
+import uz.anorgroup.doonkdriver.data.request.car.CreateOrderRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenSeatBinding
 import uz.anorgroup.doonkdriver.utils.scope
 
@@ -22,7 +22,7 @@ class SeatScreen : Fragment(R.layout.screen_seat) {
     @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         val bundle = requireArguments()
-        val data = bundle.getParcelable<Parcelable>("data2") as OrderCreateRequest
+        val data = bundle.getParcelable<Parcelable>("data2") as CreateOrderRequest
         yes.setOnClickListener {
             yes.setBackgroundResource(R.drawable.little_circle_bt_bg)
             yes.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
@@ -93,8 +93,8 @@ class SeatScreen : Fragment(R.layout.screen_seat) {
 
         nextBt.setOnClickListener {
             val bundleNew = Bundle()
-            bundleNew.putParcelable("data2", OrderCreateRequest(data.car,data.address, data.dateOfDeparture, MyStatic.client_count))
-            findNavController().navigate(R.id.action_seatScreen_to_tripInfoScreen,bundleNew)
+            bundleNew.putParcelable("data2", CreateOrderRequest(data.car, data.address, data.date_of_departure, MyStatic.client_count))
+            findNavController().navigate(R.id.action_seatScreen_to_tripInfoScreen, bundleNew)
         }
     }
 

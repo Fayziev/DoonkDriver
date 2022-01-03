@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.others.MyStatic
-import uz.anorgroup.doonkdriver.data.request.car.OrderCreateRequest
+import uz.anorgroup.doonkdriver.data.request.car.CreateOrderRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenTripInfoBinding
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.OrderCreateViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.OrderCreateViewModelImpl
@@ -34,7 +34,7 @@ class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         val bundle = requireArguments()
-        val data = bundle.getParcelable<Parcelable>("data2") as OrderCreateRequest
+        val data = bundle.getParcelable<Parcelable>("data2") as CreateOrderRequest
 
         backBtn.setOnClickListener {
             findNavController().popBackStack()
@@ -98,11 +98,11 @@ class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
         }
         bind.nextBt.setOnClickListener {
             viewModel.orderCreate(
-                OrderCreateRequest(
+                CreateOrderRequest(
                     data.car,
                     data.address,
-                    data.dateOfDeparture,
-                    data.countOfClient,
+                    data.date_of_departure,
+                    data.count_of_client,
                     MyStatic.trailer,
                     MyStatic.luggage,
                     MyStatic.animal,

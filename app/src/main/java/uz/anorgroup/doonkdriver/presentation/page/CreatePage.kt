@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.others.MyStatic
-import uz.anorgroup.doonkdriver.data.request.car.OrderCreateRequest
+import uz.anorgroup.doonkdriver.data.request.car.CreateOrderRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenVehicleBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.AllCarsAdapter
 import uz.anorgroup.doonkdriver.presentation.viewmodel.AllCarsViewModel
@@ -36,7 +36,7 @@ class CreatePage : Fragment(R.layout.screen_vehicle) {
         }.launchIn(lifecycleScope)
         viewModel.openCreateOrderFlow.onEach {
             val bundle = Bundle()
-            bundle.putParcelable("data2", OrderCreateRequest(MyStatic.count))
+            bundle.putParcelable("data2", CreateOrderRequest(MyStatic.count))
             findNavController().navigate(R.id.action_mainScreen_to_createOrderScreen2, bundle)
         }.launchIn(lifecycleScope)
 
