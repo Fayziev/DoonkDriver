@@ -19,6 +19,7 @@ android {
         versionCode 1
         versionName "1.0"
         buildConfigField('String', 'BASE_URL', '"http://89.223.71.112:9498/"')
+        buildConfigField('String', 'MAP_BASE_URL', '"https://maps.googleapis.com/maps/api/directions/"')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
