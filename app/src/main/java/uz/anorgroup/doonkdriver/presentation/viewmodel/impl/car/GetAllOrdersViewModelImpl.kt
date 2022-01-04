@@ -1,9 +1,9 @@
 package uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -18,7 +18,17 @@ import javax.inject.Inject
 class GetAllOrdersViewModelImpl @Inject constructor(
     private val useCase: GetAllOrdersUseCase
 ) : ViewModel(), GetAllOrdersViewModel {
+    override val openScreenFlow = MutableLiveData<Unit>()
 
+    override fun openScreen() {
+        openScreenFlow.value = Unit
+    }
+
+    override fun openScreenPass() {
+        openScreenPassFlow.value = Unit
+    }
+
+    override val openScreenPassFlow = MutableLiveData<Unit>()
     override val errorFlow = eventValueFlow<String>()
     override val progressFlow = eventValueFlow<Boolean>()
     override val successFlow = eventValueFlow<String>()

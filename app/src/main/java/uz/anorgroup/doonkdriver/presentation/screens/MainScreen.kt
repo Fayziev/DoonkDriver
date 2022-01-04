@@ -3,19 +3,34 @@ package uz.anorgroup.doonkdriver.presentation.screens
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.databinding.ScreenMainBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.MainPageAdapter
+import uz.anorgroup.doonkdriver.presentation.page.MainPage
 import uz.anorgroup.doonkdriver.utils.scope
+import uz.anorgroup.doonkdriver.utils.showToast
 
 @AndroidEntryPoint
 class MainScreen : Fragment(R.layout.screen_main) {
     private val bind by viewBinding(ScreenMainBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-        super.onViewCreated(view, savedInstanceState)
+        val mainPage = MainPage()
+        mainPage.setParcelListener { parcel ->
+            val bundle = Bundle()
+            showToast("saas")
+            bundle.putSerializable("parcel", parcel)
+            findNavController().navigate(R.id.action_mainScreen_to_parcelInfoScreen, bundle)
+        }
+        mainPage.setPassengerListener { passenger ->
+            val bundle = Bundle()
+            bundle.putSerializable("passenger", passenger)
+            showToast("saas")
+            findNavController().navigate(R.id.action_mainScreen_to_passengerScreenInfo2, bundle)
+        }
         val adapter = MainPageAdapter(childFragmentManager, lifecycle)
         pager.adapter = adapter
 

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="161dp"
+    android:layout_margin="4dp"
+    android:background="@drawable/drawable_back">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:text="#30584969"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:text="#30584969"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/circle"
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_circle"
+        app:layout_constraintLeft_toLeftOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <ImageView
+        android:id="@+id/line"
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:src="@drawable/circle_line"
+        app:layout_constraintLeft_toLeftOf="@id/circle"
+        app:layout_constraintTop_toBottomOf="@id/circle" />
+
+    <ImageView
+        android:id="@+id/circle2"
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:src="@drawable/ic_circle"
+        app:layout_constraintLeft_toLeftOf="@id/line"
+        app:layout_constraintTop_toBottomOf="@id/line" />
+
+    <TextView
+        android:id="@+id/location1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Котельники метро"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@id/circle"
+        app:layout_constraintLeft_toRightOf="@id/circle"
+        app:layout_constraintTop_toTopOf="@id/circle" />
+
+    <TextView
+        android:id="@+id/location2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Санкт - Петербург"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@id/circle2"
+        app:layout_constraintLeft_toRightOf="@id/circle2"
+        app:layout_constraintTop_toTopOf="@id/circle2" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Type:"
+        android:textColor="#27AE61"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/weight"
+        app:layout_constraintLeft_toLeftOf="@id/circle"
+        app:layout_constraintTop_toBottomOf="@id/location2"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Weight:"
+        android:textColor="#27AE61"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/size"
+        app:layout_constraintLeft_toLeftOf="@id/circle"
+        app:layout_constraintTop_toBottomOf="@id/type" />
+
+    <TextView
+        android:id="@+id/size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Size:"
+        android:textColor="#27AE61"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/circle"
+        app:layout_constraintTop_toBottomOf="@id/weight" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/acceptBtn"
+        android:layout_width="161dp"
+        android:layout_height="37dp"
+        android:background="@drawable/oreder_trip_bg"
+        android:text="Accept"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_clock"
+        android:layout_marginBottom="8dp"
+        android:text="16:30-17:30"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:drawablePadding="4dp"
+        app:layout_constraintBottom_toTopOf="@id/acceptBtn"
+        app:layout_constraintLeft_toLeftOf="@id/acceptBtn"
+        app:layout_constraintRight_toRightOf="@id/acceptBtn" />
+
+    <TextView
+        android:id="@+id/sizeText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:gravity="right"
+        android:maxLines="1"
+        android:text="340cm X 165cm X 140cm"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/size"
+        app:layout_constraintLeft_toRightOf="@id/size"
+        app:layout_constraintRight_toLeftOf="@id/acceptBtn"
+        app:layout_constraintTop_toTopOf="@id/size" />
+
+    <TextView
+        android:id="@+id/weightText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:ellipsize="end"
+        android:gravity="right"
+        android:maxLines="1"
+        android:text="14kg"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/weight"
+        app:layout_constraintLeft_toRightOf="@id/weight"
+        app:layout_constraintRight_toLeftOf="@id/acceptBtn"
+        app:layout_constraintTop_toTopOf="@id/weight" />
+
+    <TextView
+        android:id="@+id/typeText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:ellipsize="end"
+        android:gravity="right"
+        android:maxLines="1"
+        android:text="Package"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/type"
+        app:layout_constraintLeft_toRightOf="@id/type"
+        app:layout_constraintRight_toLeftOf="@id/acceptBtn"
+        app:layout_constraintTop_toTopOf="@id/type" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

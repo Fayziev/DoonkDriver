@@ -1,5 +1,7 @@
 package uz.anorgroup.doonkdriver.data.responce.car
 
+import java.io.Serializable
+
 data class Passanger(
     val address: Any,
     val animal: Boolean,
@@ -11,4 +13,4 @@ data class Passanger(
     val luggage: Boolean,
     val status: Int,
     val trailer: Boolean
-)
+):Serializable

@@ -1,7 +1,6 @@
 package uz.anorgroup.doonkdriver.presentation.screens
 
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -119,20 +118,23 @@ class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
         viewModel.errorFlow.onEach {
             showToast("Error:$it")
             viewModel.openExp()
-            viewModel.openExpLiveData.observe(viewLifecycleOwner,{
-                val bundleNew=Bundle()
-                val dataNew=  CreateOrderRequest(
-                    data.car,
-                    data.address,
-                    data.date_of_departure,
-                    data.count_of_client,
-                    MyStatic.trailer,
-                    MyStatic.luggage,
-                    MyStatic.animal,
-                    MyStatic.can_smoke
+            viewModel.openExpLiveData.observe(viewLifecycleOwner, {
+                val bundleNew = Bundle()
+                val dataNew = CreateOrderRequest(
+                    Parcel(),
+                    Passanger(
+                        data.passanger.car,
+                        data.passanger.address,
+                        data.passanger.date_of_departure,
+                        data.passanger.count_of_client,
+                        MyStatic.trailer,
+                        MyStatic.luggage,
+                        MyStatic.animal,
+                        MyStatic.can_smoke
+                    )
                 )
-                bundleNew.putParcelable("value",dataNew)
-                findNavController().navigate(R.id.action_tripInfoScreen_to_expScreen2,bundleNew)
+                bundleNew.putParcelable("value", dataNew)
+                findNavController().navigate(R.id.action_tripInfoScreen_to_expScreen2, bundleNew)
             })
         }.launchIn(lifecycleScope)
         viewModel.progressFlow.onEach {

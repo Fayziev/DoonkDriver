@@ -28,6 +28,12 @@
         <action
             android:id="@+id/action_mainScreen_to_passengerScreen2"
             app:destination="@id/passengerScreen2" />
+        <action
+            android:id="@+id/action_mainScreen_to_parcelInfoScreen"
+            app:destination="@id/parcelInfoScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_passengerScreenInfo2"
+            app:destination="@id/passengerScreenInfo" />
     </fragment>
 
     <fragment
@@ -244,4 +250,12 @@
             android:id="@+id/action_passengerScreen2_to_orderCreateNested"
             app:destination="@id/orderCreateNested" />
     </fragment>
+    <fragment
+        android:id="@+id/parcelInfoScreen"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.ParcelInfoScreen"
+        android:label="ParcelInfoScreen" />
+    <fragment
+        android:id="@+id/passengerScreenInfo"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.PassengerScreenInfo"
+        android:label="PassengerScreenInfo" />
 </navigation>

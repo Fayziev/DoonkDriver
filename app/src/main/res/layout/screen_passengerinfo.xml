@@ -21,8 +21,8 @@
             android:id="@+id/backBtn"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:padding="4dp"
             android:layout_margin="15dp"
+            android:padding="4dp"
             android:src="@drawable/ic_car_add_back"
             app:layout_constraintBottom_toBottomOf="@id/toolbar"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -33,7 +33,7 @@
             android:id="@+id/code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="#30584969"
+            android:text="Passenger Information"
             android:textColor="@color/realWhite"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@id/toolbar"
@@ -86,20 +86,14 @@
 
 
         <ImageView
-            android:id="@+id/bottomBg"
-            android:layout_width="match_parent"
-            android:layout_height="34dp"
-            android:background="@drawable/drawable_back"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
-
-        <ImageView
             android:id="@+id/addressBg"
             android:layout_width="match_parent"
             android:layout_height="214dp"
+            android:layout_marginHorizontal="4dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/drawable_back"
             app:layout_constraintTop_toBottomOf="@id/nameBg" />
+
 
         <TextView
             android:id="@+id/addressText"
@@ -191,201 +185,189 @@
 
 
         <ImageView
+            android:id="@+id/clientBg"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/drawable_back"
+            app:layout_constraintBottom_toTopOf="@id/parcelDetalisBg"
+            app:layout_constraintTop_toBottomOf="@id/addressBg" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_marginHorizontal="4dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintTop_toBottomOf="@id/countText" />
+
+        <TextView
+            android:id="@+id/clientInfoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="CLIENT INFORMATION"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/clientBg"
+            app:layout_constraintLeft_toLeftOf="@id/clientBg"
+            app:layout_constraintTop_toTopOf="@id/clientBg"
+            app:layout_constraintVertical_bias=".15" />
+
+        <TextView
+            android:id="@+id/countText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Count"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="@id/clientInfoText"
+            app:layout_constraintTop_toBottomOf="@id/clientInfoText" />
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="3"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="@id/animal"
+            app:layout_constraintRight_toRightOf="@id/animal"
+            app:layout_constraintTop_toBottomOf="@id/clientInfoText" />
+
+        <ImageView
             android:id="@+id/parcelDetalisBg"
             android:layout_width="match_parent"
             android:layout_height="185dp"
+            android:layout_marginHorizontal="4dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/drawable_back"
-            app:layout_constraintTop_toBottomOf="@id/addressBg" />
+            app:layout_constraintTop_toBottomOf="@id/clientBg" />
 
         <TextView
             android:id="@+id/parcelDetalis"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="15dp"
-            android:text="PARCEL DETAILS"
+            android:text="PASSENGER DETAILS"
             android:textColor="#4A4A4A"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="@id/parcelDetalisBg" />
 
         <TextView
-            android:id="@+id/typeText"
+            android:id="@+id/animalText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/type"
+            android:text="Animal"
             android:textColor="@color/realBlack"
             app:layout_constraintLeft_toLeftOf="@id/parcelDetalis"
             app:layout_constraintTop_toBottomOf="@id/parcelDetalis" />
 
         <TextView
-            android:id="@+id/type"
+            android:id="@+id/animal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Package"
+            android:layout_marginEnd="16dp"
+            android:text="Yes"
             android:textColor="@color/realBlack"
-            app:layout_constraintBottom_toBottomOf="@id/typeText"
-            app:layout_constraintLeft_toRightOf="@id/typeText"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/typeText" />
+            app:layout_constraintBottom_toBottomOf="@id/animalText"
+            app:layout_constraintRight_toRightOf="@id/parcelDetalisBg"
+            app:layout_constraintTop_toTopOf="@id/animalText" />
 
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.3px"
+            android:layout_marginHorizontal="4dp"
             android:background="@color/view_profile_bg"
-            app:layout_constraintTop_toBottomOf="@id/type" />
+            app:layout_constraintTop_toBottomOf="@id/animal" />
 
 
         <TextView
-            android:id="@+id/weightText"
+            android:id="@+id/luggageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/weight"
+            android:text="Luggage"
             android:textColor="@color/realBlack"
             app:layout_constraintLeft_toLeftOf="@id/parcelDetalis"
-            app:layout_constraintTop_toBottomOf="@id/typeText" />
+            app:layout_constraintTop_toBottomOf="@id/animalText" />
 
         <TextView
-            android:id="@+id/weight"
+            android:id="@+id/luggage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="14 Kg"
+            android:text="Yes"
             android:textColor="@color/realBlack"
-            app:layout_constraintBottom_toBottomOf="@id/weightText"
-            app:layout_constraintLeft_toLeftOf="@id/type"
-            app:layout_constraintTop_toTopOf="@id/weightText" />
+            app:layout_constraintBottom_toBottomOf="@id/luggageText"
+            app:layout_constraintLeft_toLeftOf="@id/animal"
+            app:layout_constraintTop_toTopOf="@id/luggageText" />
 
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.3px"
+            android:layout_marginHorizontal="4dp"
             android:background="@color/view_profile_bg"
-            app:layout_constraintTop_toBottomOf="@id/weight" />
+            app:layout_constraintTop_toBottomOf="@id/luggage" />
 
         <TextView
-            android:id="@+id/sizeText"
+            android:id="@+id/canSmokeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/size"
+            android:text="Can Smoke"
             android:textColor="@color/realBlack"
             app:layout_constraintLeft_toLeftOf="@id/parcelDetalis"
-            app:layout_constraintTop_toBottomOf="@id/weightText" />
+            app:layout_constraintTop_toBottomOf="@id/luggageText" />
 
         <TextView
-            android:id="@+id/size"
+            android:id="@+id/canSmoke"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="340cm X 165cm X 140cm"
+            android:text="No"
             android:textColor="@color/realBlack"
-            app:layout_constraintBottom_toBottomOf="@id/sizeText"
-            app:layout_constraintLeft_toLeftOf="@id/type"
-            app:layout_constraintTop_toTopOf="@id/sizeText" />
+            app:layout_constraintBottom_toBottomOf="@id/canSmokeText"
+            app:layout_constraintLeft_toLeftOf="@id/animal"
+            app:layout_constraintTop_toTopOf="@id/canSmokeText" />
 
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.3px"
+            android:layout_marginHorizontal="4dp"
             android:background="@color/view_profile_bg"
-            app:layout_constraintTop_toBottomOf="@id/size" />
+            app:layout_constraintTop_toBottomOf="@id/canSmoke" />
 
 
         <TextView
-            android:id="@+id/valueText"
+            android:id="@+id/trailerText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/value"
+            android:text="Trailer"
             android:textColor="@color/realBlack"
             app:layout_constraintLeft_toLeftOf="@id/parcelDetalis"
-            app:layout_constraintTop_toBottomOf="@id/sizeText" />
+            app:layout_constraintTop_toBottomOf="@id/canSmokeText" />
 
         <TextView
-            android:id="@+id/value"
+            android:id="@+id/trailer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="14.000.000 sum"
+            android:text="Yes"
             android:textColor="@color/realBlack"
-            app:layout_constraintBottom_toBottomOf="@id/valueText"
-            app:layout_constraintLeft_toLeftOf="@id/type"
-            app:layout_constraintTop_toTopOf="@id/valueText" />
+            app:layout_constraintBottom_toBottomOf="@id/trailerText"
+            app:layout_constraintLeft_toLeftOf="@id/animal"
+            app:layout_constraintTop_toTopOf="@id/trailerText" />
 
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.3px"
+            android:layout_marginHorizontal="4dp"
             android:background="@color/view_profile_bg"
-            app:layout_constraintTop_toBottomOf="@id/value" />
+            app:layout_constraintTop_toBottomOf="@id/trailer" />
 
-
-        <ImageView
-            android:id="@+id/commentsBg"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@drawable/edit_drawable"
-            app:layout_constraintTop_toBottomOf="@id/parcelDetalisBg" />
-
-        <TextView
-            android:id="@+id/commentText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8sp"
-            android:text="COMMENT"
-            android:textColor="#4A4A4A"
-            app:layout_constraintLeft_toLeftOf="@id/commentsBg"
-            app:layout_constraintTop_toTopOf="@id/commentsBg" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="5dp"
-            android:layout_marginRight="8sp"
-            android:text="In order to have a complete sentence, the sentence must have a minimum of three word types: a subject, a verb, and an object. In most cases, the subject is a noun or a pronoun. For example."
-            android:textColor="@color/realBlack"
-            app:layout_constraintBottom_toBottomOf="@id/commentsBg"
-            app:layout_constraintLeft_toLeftOf="@id/commentText"
-            app:layout_constraintRight_toRightOf="@id/commentsBg"
-            app:layout_constraintTop_toBottomOf="@id/commentText" />
-
-
-        <ImageView
-            android:id="@+id/signatureBg"
-            android:layout_width="match_parent"
-            android:layout_height="193dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/edit_drawable"
-            app:layout_constraintTop_toBottomOf="@id/commentsBg" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:text="@string/signature"
-            android:textColor="#4A4A4A"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@id/signatureBg" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/signatureBg"
-            app:layout_constraintLeft_toLeftOf="@id/signatureBg"
-            android:src="@drawable/handcheck"
-            app:layout_constraintRight_toRightOf="@id/signatureBg"
-            app:layout_constraintTop_toTopOf="@id/signatureBg" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:text="@string/sender"
-            android:textColor="@color/realBlack"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/signatureBg"
-            app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
