@@ -49,59 +49,59 @@ class RoadMapScreen : Fragment(R.layout.screen_road_map), OnMapReadyCallback {
         map = googleMap
         setUpMap()
         map.uiSettings.isZoomControlsEnabled = true
-        map.setOnMapLongClickListener {
-            if (listPoints.size == 2) {
-                listPoints.clear()
-                map.clear()
-            }
-            listPoints.add(it)
-            val markerOptions = MarkerOptions()
-            markerOptions.position(it)
-            if (listPoints.size == 1) {
-                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-            } else {
-                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
-            }
-            map.addMarker(markerOptions)
-            if (listPoints.size == 2) {
-                viewmodel.getMap("41.334505,69.274003", "41.279401,69.217261", "AIzaSyBZiaoR6LhBci4bSDYJynj54hVLYZgm6pA")
-            }
-        }
+//        map.setOnMapLongClickListener {
+//            if (listPoints.size == 2) {
+//                listPoints.clear()
+//                map.clear()
+//            }
+//            listPoints.add(it)
+//            val markerOptions = MarkerOptions()
+//            markerOptions.position(it)
+//            if (listPoints.size == 1) {
+//                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+//            } else {
+//                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+//            }
+//            map.addMarker(markerOptions)
+//            if (listPoints.size == 2) {
+                viewmodel.getMap("41.334505,69.274003", "41.0,69.0", "AIzaSyBZiaoR6LhBci4bSDYJynj54hVLYZgm6pA")
+//            }
+//        }
         viewmodel.successFlow.onEach { latLangs ->
             val polylineOptions = PolylineOptions()
             polylineOptions.addAll(latLangs)
-            polylineOptions.width(15f)
-            polylineOptions.color(Color.BLUE)
+            polylineOptions.width(6f)
+            polylineOptions.color(Color.RED)
             polylineOptions.geodesic(true)
             map.addPolyline(polylineOptions)
         }.launchIn(lifecycleScope)
     }
 
     private fun setUpMap() {
-        val granted = PackageManager.PERMISSION_GRANTED
-        val task = fusedLocationProviderClient.lastLocation
-        if (ActivityCompat.checkSelfPermission(
-                requireContext(),
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-            ) != granted &&
-            ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != granted
-        ) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION),
-                0
-            )
-            map.isMyLocationEnabled = true
-            return
-        }
+//        val granted = PackageManager.PERMISSION_GRANTED
+//        val task = fusedLocationProviderClient.lastLocation
+//        if (ActivityCompat.checkSelfPermission(
+//                requireContext(),
+//                android.Manifest.permission.ACCESS_FINE_LOCATION
+//            ) != granted &&
+//            ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != granted
+//        ) {
+//            ActivityCompat.requestPermissions(
+//                requireActivity(),
+//                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION),
+//                0
+//            )
+//            map.isMyLocationEnabled = true
+//            return
+//        }
 
-        task.addOnSuccessListener {
-            val yourCoordinate = LatLng(it.latitude, it.longitude)
+//        task.addOnSuccessListener {
+//            val yourCoordinate = LatLng(it.latitude, it.longitude)
             val destanation = LatLng(41.26465, 69.21627)
-            map.addMarker(MarkerOptions().position(yourCoordinate).title("You"))
+//            map.addMarker(MarkerOptions().position(yourCoordinate).title("You"))
             map.addMarker(MarkerOptions().position(destanation).title("Amir Temur"))
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(destanation, 15f))
-        }
+//        }
 
     }
 }

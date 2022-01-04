@@ -18,19 +18,6 @@ class MainScreen : Fragment(R.layout.screen_main) {
     private val bind by viewBinding(ScreenMainBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-        val mainPage = MainPage()
-        mainPage.setParcelListener { parcel ->
-            val bundle = Bundle()
-            showToast("saas")
-            bundle.putSerializable("parcel", parcel)
-            findNavController().navigate(R.id.action_mainScreen_to_parcelInfoScreen, bundle)
-        }
-        mainPage.setPassengerListener { passenger ->
-            val bundle = Bundle()
-            bundle.putSerializable("passenger", passenger)
-            showToast("saas")
-            findNavController().navigate(R.id.action_mainScreen_to_passengerScreenInfo2, bundle)
-        }
         val adapter = MainPageAdapter(childFragmentManager, lifecycle)
         pager.adapter = adapter
 
