@@ -36,7 +36,7 @@ class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         val bundle = requireArguments()
-        val data = bundle.getParcelable<Parcelable>("data2") as CreateOrderRequest
+        val data = bundle.getParcelable<CreateOrderRequest>("data2") as CreateOrderRequest
 
         backBtn.setOnClickListener {
             findNavController().popBackStack()
@@ -118,6 +118,22 @@ class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
 
         viewModel.errorFlow.onEach {
             showToast("Error:$it")
+            viewModel.openExp()
+            viewModel.openExpLiveData.observe(viewLifecycleOwner,{
+                val bundleNew=Bundle()
+                val dataNew=  CreateOrderRequest(
+                    data.car,
+                    data.address,
+                    data.date_of_departure,
+                    data.count_of_client,
+                    MyStatic.trailer,
+                    MyStatic.luggage,
+                    MyStatic.animal,
+                    MyStatic.can_smoke
+                )
+                bundleNew.putParcelable("value",dataNew)
+                findNavController().navigate(R.id.action_tripInfoScreen_to_expScreen2,bundleNew)
+            })
         }.launchIn(lifecycleScope)
         viewModel.progressFlow.onEach {
             if (it) progress.show()

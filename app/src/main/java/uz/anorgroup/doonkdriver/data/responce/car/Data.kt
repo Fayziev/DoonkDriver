@@ -1,16 +1,16 @@
 package uz.anorgroup.doonkdriver.data.responce.car
 
 data class Data(
+    val id: Int,
+    val created_at: String,
+    val updated_at: String,
+    val deleted_at: Any,
+    val car: Int,
     val address: List<Addres>,
+    val date_of_departure: String,
+    val count_of_client: Int,
+    val luggage: Boolean,
     val animal: Boolean,
     val can_smoke: Boolean,
-    val car: Int,
-    val count_of_client: Int,
-    val created_at: String,
-    val date_of_departure: String,
-    val deleted_at: Any,
-    val id: Int,
-    val luggage: Boolean,
-    val trailer: Boolean,
-    val updated_at: String
+    val trailer: Boolean
 )

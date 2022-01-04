@@ -1,5 +1,6 @@
 package uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,8 +17,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OrderCreateViewModelImpl @Inject constructor(
-    private val useCase: OrderCreateUseCase
+    private val useCase: OrderCreateUseCase,
 ) : ViewModel(), OrderCreateViewModel {
+    override val openExpLiveData = MutableLiveData<Unit>()
     override val openScreenFlow = eventValueFlow<Unit>()
 
     override fun openScreen() {
@@ -50,5 +52,9 @@ class OrderCreateViewModelImpl @Inject constructor(
                 errorFlow.emit(throwable.message.toString())
             }
         }.launchIn(viewModelScope)
+    }
+
+    override fun openExp() {
+        openExpLiveData.value=Unit
     }
 }
