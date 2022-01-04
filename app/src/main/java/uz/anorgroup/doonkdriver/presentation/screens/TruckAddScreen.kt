@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
+import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenTruckAddBinding
 import uz.anorgroup.doonkdriver.presentation.dialogs.TransportTypeBottomDialog
 import uz.anorgroup.doonkdriver.presentation.dialogs.TypeOfBodyBottomDialog
@@ -26,7 +26,7 @@ class TruckAddScreen : Fragment(R.layout.screen_truck_add) {
     @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         val bundle = requireArguments()
-        val data = bundle.getParcelable<Parcelable>("data") as CreateCarRequest2
+        val data = bundle.getParcelable<Parcelable>("data") as CreateCarRequest
         var body = -1
         var type = -1
 
@@ -57,7 +57,7 @@ class TruckAddScreen : Fragment(R.layout.screen_truck_add) {
                 && liftingCapacity.text!!.isNotEmpty() && capacity.text!!.isNotEmpty()
                 && length.text!!.isNotEmpty() && width.text!!.isNotEmpty() && height.text!!.isNotEmpty()
             ) {
-                val newData = CreateCarRequest2(
+                val newData = CreateCarRequest(
                     data.brand, data.carModel, data.color, data.yearOfIssue, data.photos, body, type,
                     liftingCapacity.text.toString().toInt(), capacity.text.toString().toInt()
                 )

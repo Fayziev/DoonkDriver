@@ -15,6 +15,8 @@ import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.car.CreateOrderRequest
+import uz.anorgroup.doonkdriver.data.request.car.Parcel
+import uz.anorgroup.doonkdriver.data.request.car.Passanger
 import uz.anorgroup.doonkdriver.databinding.ScreenWhenBinding
 import uz.anorgroup.doonkdriver.utils.scope
 import java.text.SimpleDateFormat
@@ -46,7 +48,10 @@ class WhenScreen : Fragment(R.layout.screen_when) {
                 error1.visibility = View.GONE
                 error2.visibility = View.GONE
                 val bundleNew = Bundle()
-                bundleNew.putParcelable("data2", CreateOrderRequest(data.car, data.address, "${date}T${timeDate}:29+05:00"))
+                bundleNew.putParcelable(
+                    "data2",
+                    CreateOrderRequest(Parcel(), Passanger(data.passanger.car, data.passanger.address, "${date}T${timeDate}:29+05:00"))
+                )
                 findNavController().navigate(R.id.action_whenScreen_to_seatScreen, bundleNew)
             } else {
                 error1.visibility = View.VISIBLE

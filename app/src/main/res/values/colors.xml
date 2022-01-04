@@ -18,4 +18,6 @@
     <color name="gray_text">#474747</color>
     <color name="gray_color">#DCDCDC</color>
     <color name="black_transparent">#80000000</color>
+    <color name="default_bacckground">#F5F4EF</color>
+
 </resources>

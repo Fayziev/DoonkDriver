@@ -30,7 +30,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import okhttp3.ResponseBody
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
+import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
 import uz.anorgroup.doonkdriver.data.responce.car.Photo
 import uz.anorgroup.doonkdriver.databinding.ScreenCarAddBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.ImageAdapter
@@ -160,7 +160,7 @@ class AddCarScreen : Fragment(R.layout.screen_car_add) {
                     && godVipuska.text!!.isNotEmpty()
                     && color.text!!.isNotEmpty() && licensePlate.text!!.isNotEmpty()
                 ) {
-                    val newData = CreateCarRequest2(
+                    val newData = CreateCarRequest(
                         brand, model,
                         color.text.toString(), "${dateSelected}T00:00:00Z", photosList
                     )

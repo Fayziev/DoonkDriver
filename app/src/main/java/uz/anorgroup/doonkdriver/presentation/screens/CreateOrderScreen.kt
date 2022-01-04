@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.car.CarSeet
-import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
+import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenCreateOrderBinding
 import uz.anorgroup.doonkdriver.presentation.dialogs.CitysBottomDialog
 import uz.anorgroup.doonkdriver.presentation.dialogs.StreetsBottomDialog
@@ -28,12 +28,12 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
     private val bind by viewBinding(ScreenCreateOrderBinding::bind)
     private val viewModel: CreateOrderViewModel by viewModels<CreateOrderViewModelImpl>()
     private lateinit var bundleScreen: Bundle
-    private lateinit var data: CreateCarRequest2
+    private lateinit var data: CreateCarRequest
 
     @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         bundleScreen = requireArguments()
-        data = bundleScreen.getParcelable<Parcelable>("data") as CreateCarRequest2
+        data = bundleScreen.getParcelable<Parcelable>("data") as CreateCarRequest
         showToast(data.carSeet?.size.toString())
 
         val listLocation = ArrayList<CarSeet>()
@@ -50,7 +50,7 @@ class CreateOrderScreen : Fragment(R.layout.screen_create_order) {
             ) {
                 listLocation.add(CarSeet(position1, qty1))
                 listLocation.add(CarSeet(position2, qty2))
-                val dataNew = CreateCarRequest2(
+                val dataNew = CreateCarRequest(
                     data.brand,
                     data.carModel,
                     data.color,

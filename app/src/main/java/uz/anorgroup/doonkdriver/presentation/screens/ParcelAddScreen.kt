@@ -1,8 +1,6 @@
 package uz.anorgroup.doonkdriver.presentation.screens
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,57 +11,53 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
-import uz.anorgroup.doonkdriver.data.request.car.*
-import uz.anorgroup.doonkdriver.databinding.ScreenCreateOrderBinding
+import uz.anorgroup.doonkdriver.data.request.car.AddresX
+import uz.anorgroup.doonkdriver.data.request.car.CreateOrderRequest
+import uz.anorgroup.doonkdriver.data.request.car.Parcel
+import uz.anorgroup.doonkdriver.data.request.car.Passanger
+import uz.anorgroup.doonkdriver.databinding.ScreenNewOrderBinding
 import uz.anorgroup.doonkdriver.presentation.dialogs.CitysBottomDialog
 import uz.anorgroup.doonkdriver.presentation.dialogs.StreetsBottomDialog
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.CreateOrderViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.CreateOrderViewModelImpl
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
-
 @AndroidEntryPoint
-class CreateOrderScreen2 : Fragment(R.layout.screen_create_order) {
-    private val bind by viewBinding(ScreenCreateOrderBinding::bind)
+class ParcelAddScreen : Fragment(R.layout.screen_new_order) {
+    private val binding by viewBinding(ScreenNewOrderBinding::bind)
     private val viewModel: CreateOrderViewModel by viewModels<CreateOrderViewModelImpl>()
 
-    @SuppressLint("FragmentLiveDataObserve")
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
-        val bundle2 = requireArguments()
-        val data = bundle2.getParcelable<Parcelable>("data2") as CreateOrderRequest
-        val listLocation = ArrayList<AddresXX>()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
+        val listLocation = ArrayList<AddresX>()
         var position1 = -1
         var qty1 = -1
         var position2 = -1
         var qty2 = -1
 
         nextBt.setOnClickListener {
-            if (whereCity.text.isNotEmpty()
-                && whereStreet.text.isNotEmpty()
-                && directionsCity.text.isNotEmpty()
-                && directionsStreet.text.isNotEmpty()
+            if (regionEditText.text!!.isNotEmpty()
+                && senderInfo.text!!.isNotEmpty()
+                && senderPhone.text!!.isNotEmpty()
+                && cityEditText.text!!.isNotEmpty()
+                && recipientInfo.text!!.isNotEmpty()
+                && recipientPhone.text!!.isNotEmpty()
+                && recipientRegionEdit.text!!.isNotEmpty()
+                && recipientCityEdit.text!!.isNotEmpty()
             ) {
-                listLocation.add(AddresXX(position1, qty1))
-                listLocation.add(AddresXX(position2, qty2))
-
-                error1.visibility = View.GONE
-                error2.visibility = View.GONE
+                listLocation.add(AddresX(position1, qty1))
+                listLocation.add(AddresX(position2, qty2))
                 val bundle = Bundle()
-                bundle.putParcelable("data2", CreateOrderRequest(Parcel(), Passanger(data.passanger.car, listLocation)))
-                viewModel.openScreen()
-                viewModel.openScreenLiveData.observe(this@CreateOrderScreen2, {
-                    findNavController().navigate(R.id.action_createOrderScreen2_to_intermediateScreen2, bundle)
-                })
+                bundle.putParcelable("parcel", CreateOrderRequest(Parcel(listLocation), Passanger()))
+                findNavController().navigate(R.id.action_parcelAddScreen_to_parcelSeatScreen, bundle)
             } else {
-                error1.visibility = View.VISIBLE
-                error2.visibility = View.VISIBLE
+                showToast("Fill in the blanks")
             }
         }
 
         val bundle = Bundle()
         var id1 = "0"
         var id2 = "0"
-        whereCity.setOnClickListener {
+        regionEditText.setOnClickListener {
             val dialog = CitysBottomDialog()
             dialog.setListener {
                 viewModel.whereCity(it.name)
@@ -75,25 +69,26 @@ class CreateOrderScreen2 : Fragment(R.layout.screen_create_order) {
             dialog.show(childFragmentManager, "CityDialog")
         }
         viewModel.whereCityFlow.onEach {
-            if (it.isNotEmpty()) whereCity.text = it
+            if (it.isNotEmpty()) regionEditText.setText(it)
         }.launchIn(lifecycleScope)
 
-        whereStreet.setOnClickListener {
+        cityEditText.setOnClickListener {
             val dialog = StreetsBottomDialog()
             dialog.arguments = bundle
             dialog.setListener {
-                qty1 = it.id
                 viewModel.whereStreet(it.name)
+                qty1 = it.id
                 dialog.dismiss()
             }
             dialog.show(childFragmentManager, "StreetDialog")
         }
+
         viewModel.whereStreetFlow.onEach {
-            if (it.isNotEmpty()) whereStreet.text = it
+            if (it.isNotEmpty()) cityEditText.setText(it)
         }.launchIn(lifecycleScope)
 
 
-        directionsCity.setOnClickListener {
+        recipientRegionEdit.setOnClickListener {
             val dialog = CitysBottomDialog()
             dialog.setListener {
                 viewModel.directionCity(it.name)
@@ -104,22 +99,25 @@ class CreateOrderScreen2 : Fragment(R.layout.screen_create_order) {
             }
             dialog.show(childFragmentManager, "CityDialog")
         }
+
         viewModel.directionCityFlow.onEach {
-            if (it.isNotEmpty()) directionsCity.text = it
+            if (it.isNotEmpty()) recipientRegionEdit.setText(it)
         }.launchIn(lifecycleScope)
 
-        directionsStreet.setOnClickListener {
+
+        recipientCityEdit.setOnClickListener {
             val dialog = StreetsBottomDialog()
             dialog.arguments = bundle
             dialog.setListener {
-                qty2 = it.id
                 viewModel.directionStreet(it.name)
+                qty2 = it.id
                 dialog.dismiss()
             }
             dialog.show(childFragmentManager, "StreetDialog")
         }
+
         viewModel.directionStreetFlow.onEach {
-            if (it.isNotEmpty()) directionsStreet.text = it
+            if (it.isNotEmpty()) recipientCityEdit.setText(it)
         }.launchIn(lifecycleScope)
 
         backBtn.setOnClickListener {

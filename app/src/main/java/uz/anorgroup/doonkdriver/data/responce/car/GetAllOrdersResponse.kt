@@ -1,7 +1,7 @@
 package uz.anorgroup.doonkdriver.data.responce.car
 
-data class CreateOrderResponse(
+data class GetAllOrdersResponse(
     val code: Int,
-    val `data`: String,
+    val `data`: DataX,
     val message: String
 )

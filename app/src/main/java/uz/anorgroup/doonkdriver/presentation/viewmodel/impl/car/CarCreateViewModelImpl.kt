@@ -6,7 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
+import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
 import uz.anorgroup.doonkdriver.data.responce.car.CreateCarResponce
 import uz.anorgroup.doonkdriver.domain.usecase.car.CarCreateUseCase
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.CarCreateViewModel
@@ -66,7 +66,7 @@ class CarCreateViewModelImpl @Inject constructor(
         }
     }
 
-    override fun carCreate(request: CreateCarRequest2) {
+    override fun carCreate(request: CreateCarRequest) {
         if (!isConnected()) {
             viewModelScope.launch {
                 errorFlow.emit("Internet bilan muammo bo'ldi")

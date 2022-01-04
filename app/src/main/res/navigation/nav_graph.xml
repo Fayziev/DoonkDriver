@@ -22,6 +22,12 @@
         <action
             android:id="@+id/action_mainScreen_to_orderCreateNested"
             app:destination="@id/orderCreateNested" />
+        <action
+            android:id="@+id/action_mainScreen_to_parcelAddScreen"
+            app:destination="@id/parcelAddScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_passengerScreen2"
+            app:destination="@id/passengerScreen2" />
     </fragment>
 
     <fragment
@@ -206,4 +212,29 @@
                 app:popUpToInclusive="true" />
         </fragment>
     </navigation>
+    <fragment
+        android:id="@+id/parcelAddScreen"
+        tools:layout="@layout/screen_new_order"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.ParcelAddScreen"
+        android:label="ParcelAddScreen" >
+        <action
+            android:id="@+id/action_parcelAddScreen_to_parcelSeatScreen"
+            app:destination="@id/parcelSeatScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/parcelSeatScreen"
+        tools:layout="@layout/screen_about_reference"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.ParcelSeatScreen"
+        android:label="ParcelSeatScreen" />
+    <fragment
+        android:id="@+id/passengerScreen2"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.PassengerScreen"
+        android:label="PassengerScreen" >
+        <action
+            android:id="@+id/action_passengerScreen2_to_car_add_nester"
+            app:destination="@id/car_add_nester" />
+        <action
+            android:id="@+id/action_passengerScreen2_to_orderCreateNested"
+            app:destination="@id/orderCreateNested" />
+    </fragment>
 </navigation>

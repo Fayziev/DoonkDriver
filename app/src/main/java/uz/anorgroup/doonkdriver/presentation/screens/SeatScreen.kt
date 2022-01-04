@@ -12,6 +12,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.others.MyStatic
 import uz.anorgroup.doonkdriver.data.request.car.CreateOrderRequest
+import uz.anorgroup.doonkdriver.data.request.car.Parcel
+import uz.anorgroup.doonkdriver.data.request.car.Passanger
 import uz.anorgroup.doonkdriver.databinding.ScreenSeatBinding
 import uz.anorgroup.doonkdriver.utils.scope
 
@@ -93,7 +95,13 @@ class SeatScreen : Fragment(R.layout.screen_seat) {
 
         nextBt.setOnClickListener {
             val bundleNew = Bundle()
-            bundleNew.putParcelable("data2", CreateOrderRequest(data.car, data.address, data.date_of_departure, MyStatic.client_count))
+            bundleNew.putParcelable(
+                "data2",
+                CreateOrderRequest(
+                    Parcel(),
+                    Passanger(data.passanger.car, data.passanger.address, data.passanger.date_of_departure, MyStatic.client_count)
+                )
+            )
             findNavController().navigate(R.id.action_seatScreen_to_tripInfoScreen, bundleNew)
         }
     }

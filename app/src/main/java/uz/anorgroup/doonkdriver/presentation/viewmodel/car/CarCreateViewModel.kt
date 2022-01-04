@@ -1,7 +1,7 @@
 package uz.anorgroup.doonkdriver.presentation.viewmodel.car
 
 import kotlinx.coroutines.flow.Flow
-import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
+import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
 import uz.anorgroup.doonkdriver.data.responce.car.CreateCarResponce
 
 interface CarCreateViewModel {
@@ -23,6 +23,6 @@ interface CarCreateViewModel {
     fun setNumber(number: String)
     fun setBrand(brand: String)
     fun setModel(model: String)
-    fun carCreate(request: CreateCarRequest2)
+    fun carCreate(request: CreateCarRequest)
     fun openScreen()
 }

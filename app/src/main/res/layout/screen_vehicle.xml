@@ -25,6 +25,17 @@
         app:layout_constraintTop_toTopOf="@id/toolbarCar" />
 
 
+    <ImageView
+        android:id="@+id/backBtn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_car_add_back"
+        app:layout_constraintBottom_toBottomOf="@id/toolbarCar"
+        app:layout_constraintLeft_toLeftOf="@id/toolbarCar"
+        app:layout_constraintTop_toTopOf="@id/toolbarCar" />
+
     <TextView
         android:id="@+id/yourCar"
         android:layout_width="wrap_content"

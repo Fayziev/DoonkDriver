@@ -33,9 +33,12 @@ interface CarUseCaseModule {
     fun carCreate(impl: CarCreateUseCaseImpl): CarCreateUseCase
 
     @Binds
-    fun uploadImage(impl:ImageUploadUseCaseImpl):ImageUploadUseCase
+    fun uploadImage(impl: ImageUploadUseCaseImpl): ImageUploadUseCase
 
     @Binds
-    fun orderCreate(impl:OrderCreateUseCaseImpl):OrderCreateUseCase
+    fun orderCreate(impl: OrderCreateUseCaseImpl): OrderCreateUseCase
+
+    @Binds
+    fun getAllOrders(impl: GetAllOrderUseCaseImpl): GetAllOrdersUseCase
 
 }

@@ -15,6 +15,8 @@ import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.others.MyStatic
 import uz.anorgroup.doonkdriver.data.request.car.CreateOrderRequest
+import uz.anorgroup.doonkdriver.data.request.car.Parcel
+import uz.anorgroup.doonkdriver.data.request.car.Passanger
 import uz.anorgroup.doonkdriver.databinding.ScreenTripInfoBinding
 import uz.anorgroup.doonkdriver.presentation.viewmodel.car.OrderCreateViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.OrderCreateViewModelImpl
@@ -99,14 +101,17 @@ class TripInfoScreen : Fragment(R.layout.screen_trip_info) {
         bind.nextBt.setOnClickListener {
             viewModel.orderCreate(
                 CreateOrderRequest(
-                    data.car,
-                    data.address,
-                    data.date_of_departure,
-                    data.count_of_client,
-                    MyStatic.trailer,
-                    MyStatic.luggage,
-                    MyStatic.animal,
-                    MyStatic.can_smoke
+                    Parcel(),
+                    Passanger(
+                        data.passanger.car,
+                        data.passanger.address,
+                        data.passanger.date_of_departure,
+                        data.passanger.count_of_client,
+                        MyStatic.trailer,
+                        MyStatic.luggage,
+                        MyStatic.animal,
+                        MyStatic.can_smoke
+                    )
                 )
             )
         }

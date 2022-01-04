@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.onEach
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.others.LocationAddData
 import uz.anorgroup.doonkdriver.data.request.car.CarSeet
-import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest2
+import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenIntermediateBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.AddAdapter
 import uz.anorgroup.doonkdriver.presentation.dialogs.CitysBottomDialog
@@ -30,7 +30,7 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
     private val adapter = AddAdapter()
     private val viewModel: CarCreateViewModel by viewModels<CarCreateViewModelImpl>()
     private lateinit var bundle2: Bundle
-    private lateinit var data: CreateCarRequest2
+    private lateinit var data: CreateCarRequest
     private lateinit var listLocation: ArrayList<CarSeet>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,7 +102,7 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
                 if (position != -1 && qty != -1) {
                     listLocation.add(CarSeet(position, qty))
                     val dataNew =
-                        CreateCarRequest2(
+                        CreateCarRequest(
                             data.brand,
                             data.carModel,
                             data.color,
@@ -129,7 +129,7 @@ class IntermediateScreen : Fragment(R.layout.screen_intermediate) {
                 }
             } else {
                 val dataNew =
-                    CreateCarRequest2(
+                    CreateCarRequest(
                         data.brand,
                         data.carModel,
                         data.color,

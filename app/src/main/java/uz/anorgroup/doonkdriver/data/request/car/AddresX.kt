@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class CreateOrderRequest(
-    val parcel: Parcel,
-    val passanger: Passanger
+data class AddresX(
+    val city: Int,
+    val street: Int
 ):Parcelable

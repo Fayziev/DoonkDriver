@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_bacckground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/default_bacckground">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:background="@color/nextBt"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:src="@drawable/ic_car_add_back"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+
+        <TextView
+            android:id="@+id/code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#30584969"
+            android:textColor="@color/realWhite"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+
+        <ImageView
+            android:id="@+id/nameBg"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/drawable_back"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:text="MURODJON TURSUNOV"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/nameBg"
+            app:layout_constraintLeft_toLeftOf="@id/nameBg"
+            app:layout_constraintRight_toLeftOf="@id/clientInformation"
+            app:layout_constraintTop_toTopOf="@id/nameBg" />
+
+
+        <TextView
+            android:id="@+id/clientInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:text="Client information"
+            android:textColor="#2C2E81"
+            app:layout_constraintBottom_toBottomOf="@id/nameBg"
+            app:layout_constraintRight_toRightOf="@id/nameBg"
+            app:layout_constraintTop_toTopOf="@id/nameBg" />
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/drawable_back"
+            app:layout_constraintTop_toBottomOf="@id/nameBg" />
+
+
+        <ImageView
+            android:id="@+id/bottomBg"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:background="@drawable/drawable_back"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/addressBg"
+            android:layout_width="match_parent"
+            android:layout_height="214dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/drawable_back"
+            app:layout_constraintTop_toBottomOf="@id/nameBg" />
+
+        <TextView
+            android:id="@+id/addressText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15sp"
+            android:text="@string/address"
+            android:textColor="@color/realBlack"
+            app:layout_constraintLeft_toLeftOf="@id/addressBg"
+            app:layout_constraintTop_toTopOf="@id/addressBg" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15sp"
+            android:text="@string/navigateMap"
+            android:textColor="@color/realBlack"
+            app:layout_constraintRight_toRightOf="@id/addressBg"
+            app:layout_constraintTop_toTopOf="@id/addressBg" />
+
+        <ImageView
+            android:id="@+id/firstCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:src="@drawable/ic_circle"
+            app:layout_constraintLeft_toLeftOf="@id/addressText"
+            app:layout_constraintTop_toBottomOf="@id/addressText" />
+
+        <TextView
+            android:id="@+id/nameAndPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8sp"
+            android:text="Муроджон +998994364615"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/firstCircle"
+            app:layout_constraintLeft_toRightOf="@id/firstCircle"
+            app:layout_constraintTop_toTopOf="@id/firstCircle" />
+
+        <TextView
+            android:id="@+id/nameApSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8sp"
+            android:text="Курашбой +998994364615"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/secondCircle"
+            app:layout_constraintLeft_toRightOf="@id/secondCircle"
+            app:layout_constraintTop_toTopOf="@id/secondCircle" />
+
+
+        <TextView
+            android:id="@+id/desciptionFirstCircle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8sp"
+            android:layout_marginRight="25dp"
+            android:text="Ташкент Международный автовокзал,
+улица Бунедкор, дом 7, строение 1"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toRightOf="@id/firstCircle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/firstCircle" />
+
+
+        <TextView
+            android:id="@+id/desciptionSecondCircle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8sp"
+            android:layout_marginRight="25dp"
+            android:text="Ташкент Международный автовокзал,
+улица Бунедкор, дом 7, строение 1"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toRightOf="@id/firstCircle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/secondCircle" />
+
+        <ImageView
+            android:id="@+id/secondCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:src="@drawable/ic_circle"
+            app:layout_constraintLeft_toLeftOf="@id/addressText"
+            app:layout_constraintTop_toBottomOf="@id/desciptionFirstCircle" />
+
+
+        <ImageView
+            android:id="@+id/parcelDetalisBg"
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/drawable_back"
+            app:layout_constraintTop_toBottomOf="@id/addressBg" />
+
+        <TextView
+            android:id="@+id/parcelDetalis"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:text="PARCEL DETAILS"
+            android:textColor="#4A4A4A"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/parcelDetalisBg" />
+
+        <TextView
+            android:id="@+id/typeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/type"
+            android:textColor="@color/realBlack"
+            app:layout_constraintLeft_toLeftOf="@id/parcelDetalis"
+            app:layout_constraintTop_toBottomOf="@id/parcelDetalis" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Package"
+            android:textColor="@color/realBlack"
+            app:layout_constraintBottom_toBottomOf="@id/typeText"
+            app:layout_constraintLeft_toRightOf="@id/typeText"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/typeText" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintTop_toBottomOf="@id/type" />
+
+
+        <TextView
+            android:id="@+id/weightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/weight"
+            android:textColor="@color/realBlack"
+            app:layout_constraintLeft_toLeftOf="@id/parcelDetalis"
+            app:layout_constraintTop_toBottomOf="@id/typeText" />
+
+        <TextView
+            android:id="@+id/weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14 Kg"
+            android:textColor="@color/realBlack"
+            app:layout_constraintBottom_toBottomOf="@id/weightText"
+            app:layout_constraintLeft_toLeftOf="@id/type"
+            app:layout_constraintTop_toTopOf="@id/weightText" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintTop_toBottomOf="@id/weight" />
+
+        <TextView
+            android:id="@+id/sizeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/size"
+            android:textColor="@color/realBlack"
+            app:layout_constraintLeft_toLeftOf="@id/parcelDetalis"
+            app:layout_constraintTop_toBottomOf="@id/weightText" />
+
+        <TextView
+            android:id="@+id/size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="340cm X 165cm X 140cm"
+            android:textColor="@color/realBlack"
+            app:layout_constraintBottom_toBottomOf="@id/sizeText"
+            app:layout_constraintLeft_toLeftOf="@id/type"
+            app:layout_constraintTop_toTopOf="@id/sizeText" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintTop_toBottomOf="@id/size" />
+
+
+        <TextView
+            android:id="@+id/valueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/value"
+            android:textColor="@color/realBlack"
+            app:layout_constraintLeft_toLeftOf="@id/parcelDetalis"
+            app:layout_constraintTop_toBottomOf="@id/sizeText" />
+
+        <TextView
+            android:id="@+id/value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14.000.000 sum"
+            android:textColor="@color/realBlack"
+            app:layout_constraintBottom_toBottomOf="@id/valueText"
+            app:layout_constraintLeft_toLeftOf="@id/type"
+            app:layout_constraintTop_toTopOf="@id/valueText" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintTop_toBottomOf="@id/value" />
+
+
+        <ImageView
+            android:id="@+id/commentsBg"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/edit_drawable"
+            app:layout_constraintTop_toBottomOf="@id/parcelDetalisBg" />
+
+        <TextView
+            android:id="@+id/commentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:text="COMMENT"
+            android:textColor="#4A4A4A"
+            app:layout_constraintLeft_toLeftOf="@id/commentsBg"
+            app:layout_constraintTop_toTopOf="@id/commentsBg" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_marginRight="8sp"
+            android:text="In order to have a complete sentence, the sentence must have a minimum of three word types: a subject, a verb, and an object. In most cases, the subject is a noun or a pronoun. For example."
+            android:textColor="@color/realBlack"
+            app:layout_constraintBottom_toBottomOf="@id/commentsBg"
+            app:layout_constraintLeft_toLeftOf="@id/commentText"
+            app:layout_constraintRight_toRightOf="@id/commentsBg"
+            app:layout_constraintTop_toBottomOf="@id/commentText" />
+
+
+        <ImageView
+            android:id="@+id/signatureBg"
+            android:layout_width="match_parent"
+            android:layout_height="193dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_drawable"
+            app:layout_constraintTop_toBottomOf="@id/commentsBg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/signature"
+            android:textColor="#4A4A4A"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/signatureBg" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/signatureBg"
+            app:layout_constraintLeft_toLeftOf="@id/signatureBg"
+            android:src="@drawable/handcheck"
+            app:layout_constraintRight_toRightOf="@id/signatureBg"
+            app:layout_constraintTop_toTopOf="@id/signatureBg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/sender"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/signatureBg"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

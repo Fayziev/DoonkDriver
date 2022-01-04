@@ -178,5 +178,15 @@
     <string name="height_car">Высота, м3</string>
     <string name="enter">Kirish</string>
     <string name="add_another_car">Add another car</string>
+    <string name="region_sender">Область</string>
+    <string name="city_sender">Город</string>
+    <string name="navigateMap">Navigate on map</string>
+    <string name="address">ADDRESS</string>
+    <string name="type">Type:</string>
+    <string name="weight">Weight:</string>
+    <string name="size">Size:</string>
+    <string name="value">Value:</string>
+    <string name="signature">SIGNATURE</string>
+
 
 </resources>
