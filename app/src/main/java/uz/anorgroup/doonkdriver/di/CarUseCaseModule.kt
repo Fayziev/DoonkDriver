@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.anorgroup.doonkdriver.domain.usecase.car.*
+import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.ProfileUseCaseImpl
 import uz.anorgroup.doonkdriver.domain.usecase.usecaseimpl.car.*
 
 @Module
@@ -40,5 +41,8 @@ interface CarUseCaseModule {
 
     @Binds
     fun getAllOrders(impl: GetAllOrderUseCaseImpl): GetAllOrdersUseCase
+
+    @Binds
+    fun getProfile(impl: ProfileUseCaseImpl): ProfileUseCase
 
 }

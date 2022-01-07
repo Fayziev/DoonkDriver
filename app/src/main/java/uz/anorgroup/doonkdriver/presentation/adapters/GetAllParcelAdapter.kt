@@ -19,7 +19,7 @@ class GetAllParcelAdapter(private val parcel: List<Parcel>) :
 
         init {
             itemView.setOnClickListener {
-                listener?.invoke(parcel[absoluteAdapterPosition])
+                listener?.invoke(parcel[bindingAdapterPosition])
             }
         }
 

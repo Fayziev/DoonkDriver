@@ -1,13 +1,10 @@
 package uz.anorgroup.doonkdriver.domain.repository.repositoryimpl
 
-import android.util.Log
-import android.widget.Toast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import uz.anorgroup.doonkdriver.app.App
 import uz.anorgroup.doonkdriver.data.api.CarApi
 import uz.anorgroup.doonkdriver.data.pref.MyPref
 import uz.anorgroup.doonkdriver.data.request.car.CreateCarRequest
@@ -110,6 +107,7 @@ class CarRepositoryImpl @Inject constructor(private val api: CarApi, private val
     override fun uploadImage(file: File): Flow<Result<ImageUploadResponse>> = flow {
         val response = api.uploadImage(file.toFormData())
         if (response.isSuccessful) {
+            pref.image = response.body()?.data!!.path
             emit(Result.success<ImageUploadResponse>(response.body()!!))
         } else {
             emit(Result.failure(Throwable(response.errorBody().toString())))

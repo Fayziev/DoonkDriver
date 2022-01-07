@@ -2,6 +2,7 @@ package uz.anorgroup.doonkdriver.presentation.screens.auth
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -13,11 +14,11 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import ru.ldralighieri.corbind.widget.textChanges
-import uz.anorgroup.doonkdriver.presentation.viewmodel.auth.LoginViewModel
-import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.auth.LoginViewModelImpl
 import uz.anorgroup.doonkdriver.R
 import uz.anorgroup.doonkdriver.data.request.auth.LoginRequest
 import uz.anorgroup.doonkdriver.databinding.ScreenLoginBinding
+import uz.anorgroup.doonkdriver.presentation.viewmodel.auth.LoginViewModel
+import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.auth.LoginViewModelImpl
 import uz.anorgroup.doonkdriver.utils.hideKeyboard
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
@@ -45,6 +46,17 @@ class LoginScreen : Fragment(R.layout.screen_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
 
+        requireActivity().onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+
+                if (isEnabled) {
+                    isEnabled = false
+                    requireActivity().onBackPressed()
+                    requireActivity().finish()
+                }
+            }
+
+        })
         editText.hideKeyboard()
         combine(
             editText.textChanges().map {
@@ -54,7 +66,7 @@ class LoginScreen : Fragment(R.layout.screen_login) {
             transform = { phone -> phone }
         ).onEach {
             loginBtn.isEnabled = it[0]
-            if(it[0]) editText.hideKeyboard()
+            if (it[0]) editText.hideKeyboard()
         }.launchIn(lifecycleScope)
 
         loginBtn.setOnClickListener {

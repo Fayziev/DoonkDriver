@@ -23,6 +23,7 @@ import uz.anorgroup.doonkdriver.presentation.viewmodel.car.GetAllOrdersViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.car.GetAllOrdersViewModelImpl
 import uz.anorgroup.doonkdriver.utils.scope
 import uz.anorgroup.doonkdriver.utils.showToast
+import uz.anorgroup.doonkdriver.utils.timber
 
 @AndroidEntryPoint
 class NewOrdersPage : Fragment(R.layout.page_new_orders) {
@@ -32,16 +33,17 @@ class NewOrdersPage : Fragment(R.layout.page_new_orders) {
     private val adapterPassenger = GetAllPassengerAdapter(listPassenger)
     private val adapterParcel = GetAllParcelAdapter(listParcel)
     private val viewModel: GetAllOrdersViewModel by viewModels<GetAllOrdersViewModelImpl>()
-    private var parcelListener: ((Parcel) -> Unit)? = null
-    private var passengerListener: ((Passanger) -> Unit)? = null
 
     @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
 
-        val concatAdapter = ConcatAdapter(adapterPassenger, adapterParcel)
+        viewModel.getAllOrders()
+
+        val concatAdapter = ConcatAdapter()
+        concatAdapter.addAdapter(adapterPassenger)
+        concatAdapter.addAdapter(adapterParcel)
         listView.adapter = concatAdapter
         listView.layoutManager = LinearLayoutManager(requireContext())
-        viewModel.getAllOrders()
         viewModel.errorFlow.onEach {
             showToast(it)
         }.launchIn(lifecycleScope)
@@ -55,6 +57,7 @@ class NewOrdersPage : Fragment(R.layout.page_new_orders) {
             bundle.putSerializable("parcel", parcel)
             findNavController().navigate(R.id.action_mainScreen_to_parcelInfoScreen, bundle)
         }
+
         adapterPassenger.setListener { passenger ->
             val bundle = Bundle()
             bundle.putSerializable("passenger", passenger)
@@ -64,7 +67,6 @@ class NewOrdersPage : Fragment(R.layout.page_new_orders) {
         viewModel.getAllOrdersFlow.onEach {
             val parcelList = it.parcel
             val passengerList = it.passanger
-
             listParcel.clear()
             listPassenger.clear()
             for (i in parcelList.indices) {
@@ -79,14 +81,8 @@ class NewOrdersPage : Fragment(R.layout.page_new_orders) {
             }
             adapterPassenger.notifyDataSetChanged()
             adapterParcel.notifyDataSetChanged()
+
         }.launchIn(lifecycleScope)
     }
 
-    fun setParcelListener(f: (Parcel) -> Unit) {
-        parcelListener = f
-    }
-
-    fun setPassengerListener(f: (Passanger) -> Unit) {
-        passengerListener = f
-    }
 }

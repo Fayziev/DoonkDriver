@@ -35,4 +35,10 @@ class MyPref @Inject constructor(private val context: Context) {
             pref.edit().putBoolean("startScreen", value).apply()
         }
         get() = pref.getBoolean("startScreen", false)
+    var image: String
+        set(value) {
+            pref.edit().putString("image", value).apply()
+        }
+        get() = pref.getString("image", "")!!
+
 }

@@ -164,6 +164,62 @@
             app:layout_constraintTop_toBottomOf="@id/notification" />
 
         <TextView
+            android:id="@+id/carInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:text="Добавить машину"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bg1" />
+
+        <ImageView
+            android:id="@+id/bg2"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="15dp"
+            android:src="@drawable/profile_page_atr_bg"
+            android:layout_marginTop="25dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carInfo"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/carsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="left"
+            android:padding="11dp"
+            android:text="Автомобиль"
+            android:textColor="@color/realBlack"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bg2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_marginHorizontal="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/carsBtn"
+            app:layout_constraintLeft_toLeftOf="@id/carsBtn"
+            app:layout_constraintTop_toBottomOf="@id/carsBtn" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3px"
+            android:layout_margin="50dp"
+            android:background="@color/view_profile_bg"
+            app:layout_constraintBottom_toBottomOf="@id/ownDate"
+            app:layout_constraintLeft_toLeftOf="@id/ownDate"
+            app:layout_constraintTop_toBottomOf="@id/ownDate" />
+
+
+        <TextView
             android:id="@+id/additionally"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -172,7 +228,8 @@
             android:textColor="@color/realBlack"
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bg1" />
+            app:layout_constraintTop_toBottomOf="@id/bg2" />
+
 
         <ImageView
             android:id="@+id/additionally_bg"

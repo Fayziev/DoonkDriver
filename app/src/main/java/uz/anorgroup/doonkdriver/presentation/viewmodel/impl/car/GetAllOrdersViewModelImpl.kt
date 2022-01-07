@@ -19,6 +19,15 @@ class GetAllOrdersViewModelImpl @Inject constructor(
     private val useCase: GetAllOrdersUseCase
 ) : ViewModel(), GetAllOrdersViewModel {
     override val openScreenFlow = MutableLiveData<Unit>()
+    override val logoutLiveData = MutableLiveData<Unit>()
+    override val openScreenPassFlow = MutableLiveData<Unit>()
+    override val errorFlow = eventValueFlow<String>()
+    override val progressFlow = eventValueFlow<Boolean>()
+    override val successFlow = eventValueFlow<String>()
+    override val getAllOrdersFlow = eventValueFlow<DataX>()
+    override fun logout() {
+        logoutLiveData.value = Unit
+    }
 
     override fun openScreen() {
         openScreenFlow.value = Unit
@@ -27,12 +36,6 @@ class GetAllOrdersViewModelImpl @Inject constructor(
     override fun openScreenPass() {
         openScreenPassFlow.value = Unit
     }
-
-    override val openScreenPassFlow = MutableLiveData<Unit>()
-    override val errorFlow = eventValueFlow<String>()
-    override val progressFlow = eventValueFlow<Boolean>()
-    override val successFlow = eventValueFlow<String>()
-    override val getAllOrdersFlow = eventValueFlow<DataX>()
     override fun getAllOrders() {
         if (!isConnected()) {
             viewModelScope.launch {

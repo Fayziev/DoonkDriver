@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_mainScreen_to_passengerScreenInfo2"
             app:destination="@id/passengerScreenInfo" />
+        <action
+            android:id="@+id/action_mainScreen_to_vehicleScreen"
+            app:destination="@id/vehicleScreen" />
     </fragment>
 
     <fragment
@@ -258,4 +261,13 @@
         android:id="@+id/passengerScreenInfo"
         android:name="uz.anorgroup.doonkdriver.presentation.screens.PassengerScreenInfo"
         android:label="PassengerScreenInfo" />
+    <fragment
+        android:id="@+id/vehicleScreen"
+        tools:layout="@layout/screen_vehicle_type"
+        android:name="uz.anorgroup.doonkdriver.presentation.screens.VehicleScreen"
+        android:label="VehicleScreen" >
+        <action
+            android:id="@+id/action_vehicleScreen_to_car_add_nester"
+            app:destination="@id/car_add_nester" />
+    </fragment>
 </navigation>

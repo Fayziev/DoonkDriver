@@ -18,22 +18,14 @@ import uz.anorgroup.doonkdriver.utils.scope
 @AndroidEntryPoint
 class CreatePage : Fragment(R.layout.page_create_passanger) {
     private val binding by viewBinding(PageCreatePassangerBinding::bind)
-    private val viewModel: CreatePageViewModel by viewModels<CreatePageViewModelImpl>()
 
-    @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
 
         passanger.setOnClickListener {
-            viewModel.openPassanger()
-            viewModel.openPassangerLiveData.observe(this@CreatePage, {
-                findNavController().navigate(R.id.action_mainScreen_to_passengerScreen2)
-            })
+            findNavController().navigate(R.id.action_mainScreen_to_passengerScreen2)
         }
         parsel.setOnClickListener {
-            viewModel.openParcel()
-            viewModel.openParcelLiveData.observe(this@CreatePage, {
-                findNavController().navigate(R.id.action_mainScreen_to_parcelAddScreen)
-            })
+            findNavController().navigate(R.id.action_mainScreen_to_parcelAddScreen)
         }
     }
 }

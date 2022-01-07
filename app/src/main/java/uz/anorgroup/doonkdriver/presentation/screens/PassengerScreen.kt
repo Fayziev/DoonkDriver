@@ -18,6 +18,7 @@ import uz.anorgroup.doonkdriver.data.request.car.Parcel
 import uz.anorgroup.doonkdriver.data.request.car.Passanger
 import uz.anorgroup.doonkdriver.databinding.ScreenVehicleBinding
 import uz.anorgroup.doonkdriver.presentation.adapters.AllCarsAdapter
+import uz.anorgroup.doonkdriver.presentation.dialogs.AutoTypeBottomDialog
 import uz.anorgroup.doonkdriver.presentation.viewmodel.AllCarsViewModel
 import uz.anorgroup.doonkdriver.presentation.viewmodel.impl.AllCarsViewModelImpl
 import uz.anorgroup.doonkdriver.utils.scope
@@ -49,6 +50,13 @@ class PassengerScreen : Fragment(R.layout.screen_vehicle) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
         addAnother.setOnClickListener {
+
+            val dialog = AutoTypeBottomDialog()
+            dialog.setListener {
+                findNavController().navigate(R.id.action_vehicleScreen_to_car_add_nester)
+                dialog.dismiss()
+            }
+            dialog.show(childFragmentManager, "autoType")
             viewModel.openScreen()
         }
         nextBt.setOnClickListener {
@@ -70,6 +78,9 @@ class PassengerScreen : Fragment(R.layout.screen_vehicle) {
         adapter.setListener {
             MyStatic.count = it
             adapter.notifyDataSetChanged()
+        }
+        backBtn.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 }

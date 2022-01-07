@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.anorgroup.doonkdriver.R
+import uz.anorgroup.doonkdriver.data.responce.car.Parcel
 import uz.anorgroup.doonkdriver.data.responce.car.Passanger
 import uz.anorgroup.doonkdriver.databinding.ItemOrderBinding
 
@@ -46,10 +47,12 @@ class GetAllPassengerAdapter(private val passenger: List<Passanger>) :
         }
     }
 
+
     override fun onBindViewHolder(holder: HistoryVH, position: Int) = holder.load()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryVH =
         HistoryVH(LayoutInflater.from(parent.context).inflate(R.layout.item_order, parent, false))
+
 
     override fun getItemCount(): Int = passenger.size
     fun setListener(f: (Passanger) -> Unit) {

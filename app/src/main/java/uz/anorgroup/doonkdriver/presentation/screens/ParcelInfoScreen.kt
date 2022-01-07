@@ -14,6 +14,7 @@ import uz.anorgroup.doonkdriver.utils.scope
 @AndroidEntryPoint
 class ParcelInfoScreen : Fragment(R.layout.screen_signature) {
     private val binding by viewBinding(ScreenSignatureBinding::bind)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.scope {
         val bundle = requireArguments()
         val data = bundle.getSerializable("parcel") as Parcel

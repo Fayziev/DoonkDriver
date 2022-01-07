@@ -13,7 +13,9 @@ interface GetAllOrdersViewModel {
     val getAllOrdersFlow:Flow<DataX>
     val openScreenFlow:LiveData<Unit>
     val openScreenPassFlow:LiveData<Unit>
+    val logoutLiveData:LiveData<Unit>
 
+    fun logout()
     fun openScreen()
     fun openScreenPass()
     fun getAllOrders()

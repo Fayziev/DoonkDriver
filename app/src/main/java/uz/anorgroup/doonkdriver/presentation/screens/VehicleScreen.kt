@@ -29,7 +29,7 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = bind.scope {
 
         nextBt.setOnClickListener {
-            findNavController().navigate(R.id.seatScreen)
+            findNavController().navigate(R.id.action_vehicleScreen_to_car_add_nester)
         }
 
         listView.adapter = adapter
@@ -45,7 +45,7 @@ class VehicleScreen : Fragment(R.layout.screen_vehicle_type) {
         nextBt.setOnClickListener {
             val dialog = AutoTypeBottomDialog()
             dialog.setListener {
-                findNavController().navigate(R.id.createOrderScreen)
+                findNavController().navigate(R.id.action_vehicleScreen_to_car_add_nester)
                 dialog.dismiss()
             }
             dialog.show(childFragmentManager, "autoType")
